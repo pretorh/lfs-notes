@@ -23,3 +23,9 @@ cp -rv dest/include/* /tools/include
 # rm -rf linux-4.4.2/arch/arm64/boot/dts/include
 
 glibc-2.23.tar.xz
+
+# SANITY CHECK 1
+echo 'int main(){}' > dummy.c
+$LFS_TGT-gcc dummy.c
+(readelf -l a.out | grep 'Requesting program interpreter: /tools/lib.*/ld-linux-x86.*.so.2' && echo "SUCCESS") || (echo "ERROR!" && exit 1)
+rm -v dummy.c a.out
