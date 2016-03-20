@@ -1,0 +1,4 @@
+mkdir -v $LFS/sources
+chmod -v a+wt $LFS/sources
+# get the wget-list from (http://www.linuxfromscratch.org/lfs/downloads/XXXXXX/wget-list)
+wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
