@@ -29,3 +29,18 @@ echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 (readelf -l a.out | grep 'Requesting program interpreter: /tools/lib.*/ld-linux-x86.*.so.2' && echo "SUCCESS") || (echo "ERROR!" && exit 1)
 rm -v dummy.c a.out
+
+# PASS 2
+
+libstdc++-5.3.0
+file: gcc-5.3.0.tar.bz2
+
+binutils-2.26
+
+gcc-5.3.0.tar.bz2
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
+<script: gcc-toolchain>
+<again: mpfr, mpv, gmp>
+...
+ln -sv gcc /tools/bin/cc
