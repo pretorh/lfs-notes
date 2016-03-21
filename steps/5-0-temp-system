@@ -115,13 +115,3 @@ tar-1.28.tar.xz
 texinfo-6.1.tar.xz
 util-linux-2.27.1.tar.xz
 xz-5.2.2.tar.xz
-
-# exit (run as root)
-
-# tools cleanup, backup
-export LFS=/mnt/lfs
-strip --strip-debug /tools/lib/* 2>&1 | grep -v "File format not recognized" | grep -v "is not an ordinary file"
-/usr/bin/strip --strip-unneeded /tools/{,s}bin/* 2>&1 | grep -v "File format not recognized" | grep -v "is not an ordinary file"
-rm -rf /tools/{,share}/{info,man,doc}
-chown -R root:root $LFS/tools
-tar cvPJf $LFS/toolchain-`date --iso-8601`.tar.xz $LFS/tools
