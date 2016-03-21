@@ -1,10 +1,11 @@
 # to use qemu:
+# set MEMORY to the GB amount of ram for the vm
 # set LIVE_ISO to a live cd (ex arch linux)
 # set DRIVE1/DRIVE2 to drive images
 # redirecting port 22 on the vm to 2222 on the host
 
 qemu-system-x86_64 \
-    -m 9G -enable-kvm -redir tcp:2222::22 \
+    -m MEMORYG -enable-kvm -redir tcp:2222::22 \
     -boot order=d \
     -cdrom LIVE_ISO \
     -drive file=DRIVE1,format=raw \
@@ -14,6 +15,9 @@ qemu-system-x86_64 \
 # start ssh on the vm (ex on arch: "systemctl start sshd")
 # since the host's port 2222 is mapped to vms 22 (ssh) we can ssh to localhost on port 2222
 ssh root@localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+
+# can also login as lfs user:
+ssh lfs@localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 
 # to copy sources over ssh (rsync)
 # replace SOURCES with the location of local source files

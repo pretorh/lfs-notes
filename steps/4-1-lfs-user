@@ -1,6 +1,4 @@
-# setup tools
-mkdir -v $LFS/tools
-ln -sv $LFS/tools /
+export LFS=/mnt/lfs
 
 # add lfs user
 groupadd lfs
@@ -34,4 +32,4 @@ chown -vR lfs $LFS/sources
 
 # allow ssh from same users as current user
 mkdir -vp /home/lfs/.ssh
-cp ~/.ssh/authorized_keys /home/lfs/.ssh/
+cp -v ~/.ssh/authorized_keys /home/lfs/.ssh/
