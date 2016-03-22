@@ -6,3 +6,6 @@ linux api headers (in linux-4.4.2.tar.xz)
 man-pages
 glibc
 see 6-2a-glibc for more details and post install config
+
+# ADJUSTING TOOLCHAIN
+see 6-2b-toolchain
