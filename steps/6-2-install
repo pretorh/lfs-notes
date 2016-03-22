@@ -1,0 +1,8 @@
+cd /sources
+
+# PACKAGES 1
+
+linux api headers (in linux-4.4.2.tar.xz)
+man-pages
+glibc
+see 6-2a-glibc for more details and post install config

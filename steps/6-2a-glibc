@@ -1,0 +1,47 @@
+# the TESTS ARE CRUCIAL, but some will fail
+known to fail with latest binutils (FAILed previously, but on a later lfs in XPASSed):
+    elf/tst-protected1a
+    elf/tst-protected1b
+will always fail:
+    posix/tst-getaddrinfo4
+    posix/tst-getaddrinfo5
+
+# NSSWITCH.CONF
+cat > /etc/nsswitch.conf << "EOF"
+# Begin /etc/nsswitch.conf
+passwd: files
+group: files
+shadow: files
+hosts: files dns myhostname
+networks: files
+protocols: files
+services: files
+ethers: files
+rpc: files
+# End /etc/nsswitch.conf
+EOF
+
+# INSTALL TIMEZONE
+mkdir tz && cd tz
+tar xf ../tzdata2016a.tar.gz
+<see tz-install.sh script>
+cd ..
+rm -rf tz
+
+# SETUP TIMEZONE
+SELECTED_TZ=`tzselect`
+# run above first, then:
+echo "selected $SELECTED_TZ"
+ln -sfv /usr/share/zoneinfo/$SELECTED_TZ /etc/localtime
+unset SELECTED_TZ
+
+
+# LD
+
+cat > /etc/ld.so.conf << "EOF"
+/usr/local/lib
+/opt/lib
+include /etc/ld.so.conf.d/*.conf
+EOF
+
+mkdir -pv $FAKEROOT/etc/ld.so.conf.d
