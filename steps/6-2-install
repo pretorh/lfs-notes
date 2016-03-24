@@ -23,3 +23,8 @@ gmp
 mpfr
     all tests must pass
 mpc
+
+# GLIBC
+
+takes realy long
+see 6-2c-gcc for notes
