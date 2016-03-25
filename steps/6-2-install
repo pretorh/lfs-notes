@@ -74,3 +74,8 @@ gdbm-1.11
 gperf-3.0.4
 expat-2.1.0
 inetutils-1.9.4
+
+# PERL
+
+echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
+perl-5.22.1
