@@ -38,3 +38,7 @@ attr-2.4.47
 acl-2.2.52
 libcap-2.25
 sed-4.2.2
+
+# SHADOW
+shadow-4.2.1
+    see 6-2d-shadow
