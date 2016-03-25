@@ -42,3 +42,14 @@ sed-4.2.2
 # SHADOW
 shadow-4.2.1
     see 6-2d-shadow
+
+# PACKAGES 4
+
+psmisc-22.21
+iana-etc-2.30
+m4-1.4.17
+    The test-update-copyright.sh failure can safely be ignored
+bison-3.0.4
+flex-2.6.0
+grep-2.23
+readline-6.3
