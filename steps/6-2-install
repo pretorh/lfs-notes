@@ -79,3 +79,13 @@ inetutils-1.9.4
 
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 perl-5.22.1
+
+# PACKAGES 6
+
+XML-Parser-2.44
+intltool-0.51.0
+autoconf-2.69
+    "two tests fail due to changes in libtool-2.4.3 and later"
+automake-1.15
+xz-5.2.2
+kmod-22
