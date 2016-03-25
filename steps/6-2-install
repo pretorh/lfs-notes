@@ -53,3 +53,9 @@ bison-3.0.4
 flex-2.6.0
 grep-2.23
 readline-6.3
+
+# BASH
+
+bash-4.3.30
+# start new bash
+exec /bin/bash --login +h
