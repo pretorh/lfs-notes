@@ -54,7 +54,7 @@ grub-install /dev/sda
 
 # had issue with the above, see https://wiki.archlinux.org/index.php/GRUB#Install_to_partition_or_partitionless_disk
 # chattr -i /boot/grub/i386-pc/core.img
-# grub-install --target=i386-pc --debug --force /dev/sda1
+# grub-install --target=i386-pc --debug --force /dev/sda
 # chattr +i /boot/grub/i386-pc/core.img
 
 # setup grub.conf. the kernel files are relative to the partition used, so remove /boot
