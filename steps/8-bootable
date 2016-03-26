@@ -46,3 +46,24 @@ cat > /etc/modprobe.d/usb.conf << "EOF"
 install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
 install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 EOF
+
+# GRUB
+
+# assuming sda is the drive with / or /boot
+grub-install /dev/sda
+
+# had issue with the above, see https://wiki.archlinux.org/index.php/GRUB#Install_to_partition_or_partitionless_disk
+# chattr -i /boot/grub/i386-pc/core.img
+# grub-install --target=i386-pc --debug --force /dev/sda1
+# chattr +i /boot/grub/i386-pc/core.img
+
+# setup grub.conf. the kernel files are relative to the partition used, so remove /boot
+cat > /boot/grub/grub.cfg << "EOF"
+set default=0
+set timeout=5
+insmod ext2
+set root=(hd0,1)
+menuentry "GNU/Linux, Linux 4.4.2-lfs-20160304-systemd" {
+        linux   /vmlinuz-4.4.2-lfs-20160304-systemd root=/dev/sda2 ro
+}
+EOF
