@@ -1,0 +1,48 @@
+# FSTAB
+
+# get the current devices mounted, and save to fstab
+
+cat > /etc/fstab << "EOF"
+# file system   mount-point type    options             dump  fsck order
+/dev/<xxx>      /           <fff>   defaults            1     1
+/dev/<yyy>      swap        swap    pri=1               0     0
+EOF
+
+# LINUX
+
+tar xf linux-4.4.2.tar.*
+cd linux-4.4.2
+
+make mrproper
+
+# create a default config
+make defconfig
+
+# start config. replace en_US.UTF-8 with the host's $LANG
+make LANG=en_US LC_ALL= menuconfig
+# change the settings as set out in the note on page 252
+
+# build
+time make -j5
+make modules_install
+
+# install boot:
+cp -v arch/x86/boot/bzImage /boot/vmlinuz-4.4.2-lfs-20160304-systemd
+cp -v System.map /boot/System.map-4.4.2
+cp -v .config /boot/config-4.4.2
+
+# docs
+install -d /usr/share/doc/linux-4.4.2
+cp -r Documentation/* /usr/share/doc/linux-4.4.2
+
+# no need to remove the sources, but must then chown them
+cd ../
+chown -R 0:0 linux-4.4.2
+
+# module load order
+
+install -v -m755 -d /etc/modprobe.d
+cat > /etc/modprobe.d/usb.conf << "EOF"
+install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
+install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
+EOF
