@@ -1,5 +1,2 @@
-export LFS=/mnt/lfs
-
-# setup tools
 mkdir -v $LFS/tools
 ln -sv $LFS/tools /

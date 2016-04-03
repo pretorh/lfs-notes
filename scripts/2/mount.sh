@@ -3,7 +3,3 @@ mkdir -p /mnt/lfs
 mount /dev/sda2 /mnt/lfs
 mkdir -p /mnt/lfs/boot
 mount /dev/sda1 /mnt/lfs/boot
-
-# may need to cleanup the root drive
-rm -rf /mnt/lfs/tools
-rm -rf /mnt/lfs/boot/*

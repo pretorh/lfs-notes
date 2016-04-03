@@ -1,6 +1,3 @@
-export LFS=/mnt/lfs
-
-# add lfs user
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 
