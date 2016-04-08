@@ -1,14 +1,9 @@
 # run as root/normal user
 export LFS=/mnt/lfs
 
-# cleanup
-strip --strip-debug /tools/lib/* 2>&1 | grep -v "File format not recognized" | grep -v "is not an ordinary file"
-/usr/bin/strip --strip-unneeded /tools/{,s}bin/* 2>&1 | grep -v "File format not recognized" | grep -v "is not an ordinary file"
-rm -rf /tools/{,share}/{info,man,doc}
+see finalize/cleanup.sh
 
 # change ownership
 chown -R root:root $LFS/tools
 
-# backup
-mkdir $LFS/toolchains
-tar cvPJf $LFS/toolchains/`date --iso-8601`.tar.xz $LFS/tools
+see finalize/backup.sh
