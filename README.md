@@ -1,7 +1,7 @@
 # Linux from Scratch Notes
 Notes taken while building Linux from scratch
 
-This project consists of notes taken and scripts created while working through the Linux from Scratch's document.
+This project consists of notes taken and scripts created while working through the Linux from Scratch's document. [(stable version)](http://www.linuxfromscratch.org/lfs/downloads/stable/).
 
 To be used as a quick reference only, work though the book
 
