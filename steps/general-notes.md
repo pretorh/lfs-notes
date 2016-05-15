@@ -3,19 +3,24 @@
 ## Qemu
 
 to use qemu:
-- replace `MEMORY` with the GB amount of ram for the vm
-- replace `LIVE_ISO` with the path to an iso for a live cd (ex Arch Linux)
-- replace `DRIVE1/DRIVE2`... with the path to drive images
+- set `MEMORY` with the GB amount of ram for the vm
+- set `LIVE_ISO` with the path to an iso for a live cd (ex Arch Linux)
+- set `DRIVE1/DRIVE2`... with the path to drive images
 
 This will redirect port 22 on the vm to 2222 on the host:
 
 ```shell
+export MEMORY=4G
+export LIVE_ISO=arch.iso
+export DRIVE1=disk1
+export DRIVE2=disk2
 qemu-system-x86_64 \
-    -m MEMORYG -enable-kvm -redir tcp:2222::22 \
+    -m $MEMORY -enable-kvm -redir tcp:2222::22 \
     -boot order=d \
-    -cdrom LIVE_ISO \
-    -drive file=DRIVE1,format=raw \
-    -drive file=DRIVE2,format=raw
+    -cdrom $LIVE_ISO \
+    -drive file=$DRIVE1,format=raw \
+    -drive file=$DRIVE2,format=raw
+
 ```
 
 ## SSH
