@@ -93,19 +93,22 @@ see `5/gettext/configure-build-install.sh`
 
 ## More
 
-make-4.1.tar.bz2
-./configure --prefix=/tools --without-guile
-
-patch-2.7.5.tar.xz
-perl-5.22.1.tar.bz2
-sh Configure -des -Dprefix=/tools -Dlibs=-lm
-...
-cp -v perl cpan/podlators/pod2man /tools/bin
-mkdir -pv /tools/lib/perl5/5.22.1
-cp -Rv lib/* /tools/lib/perl5/5.22.1
-
-sed-4.2.2.tar.bz2
-tar-1.28.tar.xz
-texinfo-6.1.tar.xz
-util-linux-2.27.1.tar.xz
-xz-5.2.2.tar.xz
+- make
+- patch
+    - easy
+- perl
+    - custom configure
+        - `sh Configure -des -Dprefix=/tools -Dlibs=-lm`
+    - only some files need to be installed
+        - `cp -v perl cpan/podlators/pod2man /tools/bin`
+        - `mkdir -pv /tools/lib/perl5/5.22.1`
+        - `cp -Rv lib/* /tools/lib/perl5/5.22.1`
+- sed
+    - easy
+- tar
+    - easy
+- texinfo
+    - easy
+- util-linux
+- xz
+    - easy
