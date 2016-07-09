@@ -1,9 +1,0 @@
-# run as root/normal user
-export LFS=/mnt/lfs
-
-see finalize/cleanup.sh
-
-# change ownership
-chown -R root:root $LFS/tools
-
-see finalize/backup.sh
