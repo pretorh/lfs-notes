@@ -66,7 +66,7 @@ see script: `5/sanity-checks/2.sh`
 
 ## The Easy Stuff
 
-All of these are just need to have the `prefix` set in configuration:
+All of these just need to have the `prefix` set in configuration:
 
 ```
 ./configure --prefix=/tools
