@@ -4,6 +4,8 @@ You should login as `lfs`
 
 ## Part 1
 
+if building on x64: (this was part of bin utils)
+
 ```
 mkdir -pv /tools/lib
 ln -sv lib /tools/lib64
