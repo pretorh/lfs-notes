@@ -130,3 +130,22 @@ Some tests may fail. Compare the results with:
 - acl
 - libcap
 - sed
+
+### Shadow
+
+Enable using:
+
+    pwconv
+    grpconv
+
+start groups at 100:
+
+    sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/\1=100/'
+
+disable mail spool:
+
+    sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'
+
+set the password for root:
+
+    passwd root
