@@ -1,3 +1,6 @@
+mkdir tz && cd tz
+tar xf ../tzdata2016a.tar.gz
+
 ZONEINFO=/usr/share/zoneinfo
 
 mkdir -pv $ZONEINFO/{posix,right}
@@ -13,3 +16,6 @@ cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
 # "We use New York because POSIX requires the daylight savings time rules to be in accordance with US rule"
 zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO
+
+cd ..
+rm -rf tz
