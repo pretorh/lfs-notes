@@ -1,27 +1,3 @@
-# TEST USING
-
-make -k check
-../contrib/test_summary
-maybe pipe test summary through
-../contrib/test_summary | grep -A7 Summ
-or just with failed tests:
-../contrib/test_summary | grep FAIL
-
-"Results can be compared with those located at
-http://www.linuxfromscratch.org/lfs/build-logs/systemd/
-and
-http://gcc.gnu.org/ml/gcc-testresults
-...
-Unless the test results are vastly different from those at the above URL, it is safe to continue"
-
-# SOME ADDITIONAL INSTALL/LINKS:
-
-ln -sv ../usr/bin/cpp /lib
-ln -sv gcc /usr/bin/cc
-install -v -dm755 /usr/lib/bfd-plugins
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/5.3.0/liblto_plugin.so /usr/lib/bfd-plugins/
-
-
 # SANITY CHECK 4 (very similar to 3, expected output differs)
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
@@ -51,7 +27,6 @@ grep -B4 '^ /usr/include' dummy.log
 #   SEARCH_DIR("/usr/lib");
 grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
 
-
 # correct libc
 (grep "/lib.*/libc.so.6 " dummy.log | grep "attempt to open /lib.*/libc.so.6 succeeded" && echo "SUCCESS") || echo "ERROR!"
 
@@ -60,7 +35,3 @@ grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
 
 # cleanup
 rm -v dummy.c a.out dummy.log
-
-# MOVE MISPLACED FILE
-mkdir -pv /usr/share/gdb/auto-load/usr/lib
-mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib

@@ -97,3 +97,26 @@ see `scripts/6/toolchain.sh`
 - mpfr
     - The tests are critical. All tests must pass
 - mpc
+
+### GCC
+
+Takes *realy* long
+
+#### Tests
+The tests are critical. To run the tests and check the results:
+
+    make -k check
+    ../contrib/test_summary | grep -A7 Summ
+    ../contrib/test_summary | grep FAIL
+
+Some tests may fail. Compare the results with:
+
+- http://www.linuxfromscratch.org/lfs/build-logs/systemd/
+- http://gcc.gnu.org/ml/gcc-testresults
+
+#### Install and sanity checks
+
+- install using the normal `make install`
+- see `scripts/6/gcc/symlinks.sh`
+- see `scripts/6/gcc/sanity-check-4.sh`
+- see `scripts/6/gcc/fix.sh`
