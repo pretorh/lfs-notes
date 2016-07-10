@@ -1,22 +1,4 @@
-# PACKAGES 5
-
-bc-1.06.95
-libtool-2.4.6
-    "Five tests are known to fail in the LFS build envronment due to a circular dependency"
-    123: compiling softlinked libltdl                    FAILED (standalone.at:35)
-    124: compiling copied libltdl                        FAILED (standalone.at:50)
-    125: installable libltdl                             FAILED (standalone.at:67)
-    126: linking libltdl without autotools               FAILED (standalone.at:85)
-    130: linking libltdl without autotools               FAILED (subproject.at:115)
-gdbm-1.11
-gperf-3.0.4
-expat-2.1.0
-inetutils-1.9.4
-
-# PERL
-
-echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
-perl-5.22.1
+gperf
 
 # PACKAGES 6
 

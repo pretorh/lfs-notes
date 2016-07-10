@@ -168,3 +168,21 @@ set the password for root:
 To start new bash:
 
     exec /bin/bash --login +h
+
+### Part 5
+
+- bc
+- libtool
+    - Five tests are known to fail
+        - 123: compiling softlinked libltdl                    FAILED (standalone.at:35)
+        - 124: compiling copied libltdl                        FAILED (standalone.at:50)
+        - 125: installable libltdl                             FAILED (standalone.at:67)
+        - 126: linking libltdl without autotools               FAILED (standalone.at:85)
+        - 130: linking libltdl without autotools               FAILED (subproject.at:115)
+- gdbm
+- expat
+- inetutils
+
+### Perl
+
+Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
