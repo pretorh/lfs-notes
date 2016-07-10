@@ -120,3 +120,13 @@ Some tests may fail. Compare the results with:
 - see `scripts/6/gcc/symlinks.sh`
 - see `scripts/6/gcc/sanity-check-4.sh`
 - see `scripts/6/gcc/fix.sh`
+
+### Part 3
+
+- bzip2
+- pkg-config
+- ncurses
+- attr
+- acl
+- libcap
+- sed
