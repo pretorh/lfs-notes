@@ -1,17 +1,3 @@
-# PACKAGES 2
-
-zlib
-file
-# verify PTYs are working
-expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"
-binutils
-    The test 'Link with zlib-gabi compressed debug output' is known to fail
-gmp
-    all 190 tests must pass
-mpfr
-    all tests must pass
-mpc
-
 # GLIBC
 
 takes realy long
