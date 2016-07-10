@@ -79,3 +79,7 @@ And then:
     EOF
 
     mkdir -pv /etc/ld.so.conf.d
+
+### Adjusting the Toolchain
+
+see `scripts/6/toolchain.sh`
