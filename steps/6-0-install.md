@@ -149,3 +149,16 @@ disable mail spool:
 set the password for root:
 
     passwd root
+
+### Part 4
+
+- psmisc
+- procps-ng
+- e2fsprogs
+- iana-etc
+- m4
+    - The `test-update-copyright.sh` failure can safely be ignored
+- bison
+- flex
+- grep
+- readline
