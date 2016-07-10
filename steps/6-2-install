@@ -1,9 +1,3 @@
-# BASH
-
-bash-4.3.30
-# start new bash
-exec /bin/bash --login +h
-
 # PACKAGES 5
 
 bc-1.06.95

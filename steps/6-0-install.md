@@ -162,3 +162,9 @@ set the password for root:
 - flex
 - grep
 - readline
+
+### Bash
+
+To start new bash:
+
+    exec /bin/bash --login +h
