@@ -206,3 +206,18 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
     - cat gnulib-tests/test-suite.log | grep FAIL
 - gawk
 - findutils
+
+### Gettext
+
+`cat gettext-tools/tests/test-suite.log | grep FAIL`
+
+- had these failing:
+    - xgettext-c-19
+    - xgettext-glade-2
+    - xgettext-java-2
+    - xgettext-python-1
+    - xgettext-python-3
+    - xgettext-stringtable-1
+    - xgettext-tcl-4
+    - xgettext-javascript-4
+    - xgettext-vala-1

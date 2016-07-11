@@ -5,19 +5,6 @@ gperf
 
 # GETTEXT, SYSTEMD
 
-gettext-0.19.7
-    Nine tests fail due to missing dependencies
-    cat gettext-tools/tests/test-suite.log  | grep FAIL
-    had these failing:
-        xgettext-c-19
-        xgettext-glade-2
-        xgettext-java-2
-        xgettext-python-1
-        xgettext-python-3
-        xgettext-stringtable-1
-        xgettext-tcl-4
-        xgettext-javascript-4
-        xgettext-vala-1
 systemd-229
     some tests will fail (depends on kernel config)
     cat ./test-suite.log | grep FAIL
