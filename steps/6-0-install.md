@@ -186,3 +186,23 @@ To start new bash:
 ### Perl
 
 Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
+
+### Part 6
+
+- XML-Parser
+- autoconf
+    - the tests takes very long compared to the build
+    - "two tests fail due to changes in libtool-2.4.3 and later"
+        - `501: Libtool`
+        - `503: autoscan`
+- automake
+    - the tests takes very long compared to the build
+    - run tests with -j4 option to speed it up (even on single core systems)
+- coreutils
+    - `stty-pairs` test is known to fail
+    - `cat gnulib-tests/test-suite.log | grep FAIL`
+- diffutils
+    - `test-update-copyright.sh` failure can be safely ignored
+    - cat gnulib-tests/test-suite.log | grep FAIL
+- gawk
+- findutils
