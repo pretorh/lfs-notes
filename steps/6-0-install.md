@@ -232,3 +232,27 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
     - xgettext-tcl-4
     - xgettext-javascript-4
     - xgettext-vala-1
+
+### Part 7
+
+- intltool
+- gperf
+    - known to fail if running simultaneous(run with `-j1`)
+- groff
+    - failed when building with --jobs 4, but passed with --jobs 1
+    - no tests
+- xz
+- grub
+    - no tests
+    - actual boot setup covered after packages installed
+- less
+    - no tests
+- gzip
+- iproute2
+    - no tests in `chroot`
+- kbd
+- kmod
+    - no tests in `chroot`
+- libpipeline
+- make
+- patch
