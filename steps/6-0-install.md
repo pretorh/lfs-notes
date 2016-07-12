@@ -4,6 +4,17 @@
 
 See `prepare.sh` and `chroot-setup.sh`
 
+### Re-entering chroot
+
+If you exit chroot, you will need to re-enter it before continuing
+
+- mount the drive
+- export the `LFS` env var (`export LFS=/mnt/lfs`)
+- ensure the tools directory exists (`scripts/4/setup-tools.sh`)
+- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh`)
+- run bash after it is installed (`exec /bin/bash --login +h`)
+- continue where you left
+
 ## Packages
 
 Build and install from the `sources` directory
