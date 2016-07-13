@@ -269,3 +269,7 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
     - the test tests/ts/ipcs/limit fails on recent kernels, can be ignored
 - man-db
 - vim
+
+## Cleanup
+
+Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
