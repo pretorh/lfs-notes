@@ -12,10 +12,4 @@ systemd-229
 
 # PACKAGES 7
 
-- tar
 - dbus
-- util-linux
-    - the test tests/ts/ipcs/limit fails on recent kernels, can be ignored
-- man-db
-- texinfo
-- vim
