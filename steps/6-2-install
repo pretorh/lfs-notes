@@ -12,8 +12,6 @@ systemd-229
 
 # PACKAGES 7
 
-- sysklogd
-- sysvinit
 - tar
 - dbus
 - util-linux

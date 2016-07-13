@@ -256,3 +256,9 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 - libpipeline
 - make
 - patch
+- sysklogd
+    - no configure (just a patch)
+    - no tests
+- sysvinit
+    - no configure (just a patch)
+    - no tests
