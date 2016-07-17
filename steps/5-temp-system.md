@@ -33,7 +33,6 @@ see `scripts/5/sanity-checks/1.sh`
 - libstdc++
 - Bin Utils (pass 2)
     - "re-adjusting"
-
 - GCC (pass 2)
     - scripts:
         - `5/gcc/patch-limits.sh`
@@ -111,3 +110,19 @@ see `scripts/5/gettext/configure-build-install.sh`
 - util-linux
 - xz
     - easy
+
+# Finalizing the temp system
+
+run as root user
+
+`export LFS=/mnt/lfs`
+
+## Cleanup the toolchain
+
+Stip debug symbols, remove documentation and chage ownership.
+
+see `scripts/5/finalize/cleanup.sh`
+
+## Backup the toolchain
+
+see `scripts/5/finalize/backup.sh`
