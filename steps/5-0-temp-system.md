@@ -26,7 +26,7 @@ ln -sv lib /tools/lib64
 
 ## Sanity Check 1
 
-see script: `5/sanity-checks/1.sh`
+see `scripts/5/sanity-checks/1.sh`
 
 ## Part 2
 
@@ -43,7 +43,7 @@ see script: `5/sanity-checks/1.sh`
 
 ## Sanity Check 2
 
-see script: `5/sanity-checks/2.sh`
+see `scripts/5/sanity-checks/2.sh`
 
 ## Part 3
 
@@ -82,7 +82,7 @@ make install
 
 Only need to install some files, so need to `make -C` into dirs and finally copy the files out.
 
-see `5/gettext/configure-build-install.sh`
+see `scripts/5/gettext/configure-build-install.sh`
 
 ## The Easy Stuff - Part 2
 

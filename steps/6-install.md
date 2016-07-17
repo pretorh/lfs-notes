@@ -2,7 +2,7 @@
 
 ## Chroot
 
-See `prepare.sh` and `chroot-setup.sh`
+See `scripts/6/setup/prepare.sh` and `scripts/6/setup/chroot-setup.sh`
 
 ### Re-entering chroot
 
