@@ -31,7 +31,7 @@ Extract and build as normal
 
 #### Tests are critical
 
-`make check`
+`make check` (this took about 3 times longer than `make --jobs 4`)
 
 but some will fail:
 
@@ -107,6 +107,7 @@ see `scripts/6/toolchain.sh`
     - The tests are critical. All 190 must pass
 - mpfr
     - The tests are critical. All tests must pass
+        - `tget_set_d64` was skipped
 - mpc
 
 ### GCC
@@ -116,7 +117,7 @@ Takes *realy* long
 #### Tests
 The tests are critical. To run the tests and check the results:
 
-    make -k check
+    make -k check --jobs 4
     ../contrib/test_summary | grep -A7 Summ
     ../contrib/test_summary | grep FAIL
 
