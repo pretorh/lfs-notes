@@ -114,6 +114,11 @@ see `scripts/6/toolchain.sh`
 
 Takes *realy* long
 
+on a single core qemu vm:
+
+- Build: about 3 times as long as `glibc`'s build time
+- Tests: about 6 times longer than the build
+
 #### Tests
 The tests are critical. To run the tests and check the results:
 
