@@ -130,6 +130,7 @@ Some tests may fail. Compare the results with:
 
 - http://www.linuxfromscratch.org/lfs/build-logs/systemd/
 - http://gcc.gnu.org/ml/gcc-testresults
+- my list of failed tests: `steps/6-more.md`
 
 #### Install and sanity checks
 
