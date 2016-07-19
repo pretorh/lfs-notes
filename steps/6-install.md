@@ -136,8 +136,9 @@ Some tests may fail. Compare the results with:
 
 - install using the normal `make install`
 - see `scripts/6/gcc/symlinks.sh`
-- see `scripts/6/gcc/sanity-check-4.sh`
 - see `scripts/6/gcc/fix.sh`
+
+run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
 ### Part 3
 
