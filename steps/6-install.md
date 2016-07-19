@@ -8,7 +8,7 @@ See `scripts/6/setup/prepare.sh` and `scripts/6/setup/chroot-setup.sh`
 
 If you exit chroot, you will need to re-enter it before continuing
 
-- mount the drive
+- mount the drive (`scripts/2/mount.sh`)
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - ensure the tools directory exists (`scripts/4/setup-tools.sh`)
 - setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh`)
