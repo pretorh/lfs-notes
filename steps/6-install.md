@@ -203,6 +203,8 @@ To start new bash:
         - 126: linking libltdl without autotools               FAILED (standalone.at:85)
         - 130: linking libltdl without autotools               FAILED (subproject.at:115)
 - gdbm
+- gperf
+    - known to fail if running simultaneous(run with `-j1`)
 - expat
 - inetutils
 
@@ -248,8 +250,6 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 ### Part 7
 
 - intltool
-- gperf
-    - known to fail if running simultaneous(run with `-j1`)
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
