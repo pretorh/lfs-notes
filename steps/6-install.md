@@ -212,6 +212,11 @@ To start new bash:
 
 Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 
+Tests:
+    - about 1/3 of `GCC` build time
+    - Run tests with `make -k --jobs 4`
+    - All tests passed
+
 ### Part 6
 
 - XML-Parser
