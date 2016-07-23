@@ -289,6 +289,8 @@ Run the tests after installing
 - libpipeline
 - make
 - patch
+- dbus
+    - no tests in lfs
 - sysklogd
     - no configure (just a patch)
     - no tests
