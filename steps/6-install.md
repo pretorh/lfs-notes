@@ -291,6 +291,9 @@ Run the tests after installing
 - patch
 - dbus
     - no tests in lfs
+- util-linux
+    - the test `tests/ts/ipcs/limit` fails on recent kernels, can be ignored
+- man-db
 - sysklogd
     - no configure (just a patch)
     - no tests
@@ -300,9 +303,6 @@ Run the tests after installing
 - tar
 - texinfo
 - eudev
-- util-linux
-    - the test tests/ts/ipcs/limit fails on recent kernels, can be ignored
-- man-db
 - vim
 
 ## Cleanup
