@@ -266,6 +266,8 @@ Run the tests after installing
 ### Part 7
 
 - procps-ng
+- e2fsprogs
+    - one of the tests require 256mb memory (enable swap if needed)
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
@@ -301,7 +303,6 @@ Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
 
 ### No longer in a part
 
-- e2fsprogs
 - coreutils
     - `stty-pairs` test is known to fail
     - `cat gnulib-tests/test-suite.log | grep FAIL`
