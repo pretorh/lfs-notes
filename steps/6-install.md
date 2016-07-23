@@ -229,6 +229,9 @@ Tests:
 - automake
     - the tests takes very long compared to the build (2x the time to build `GCC`)
     - run tests with -j4 option to speed it up (even on single core systems)
+- xz
+- kmod
+    - no tests in `chroot`
 - coreutils
     - `stty-pairs` test is known to fail
     - `cat gnulib-tests/test-suite.log | grep FAIL`
@@ -258,7 +261,6 @@ Tests:
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
-- xz
 - grub
     - no tests
     - actual boot setup covered after packages installed
@@ -268,8 +270,6 @@ Tests:
 - iproute2
     - no tests in `chroot`
 - kbd
-- kmod
-    - no tests in `chroot`
 - libpipeline
 - make
 - patch
