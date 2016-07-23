@@ -227,7 +227,7 @@ Tests:
         - `501: Libtool`
         - `503: autoscan`
 - automake
-    - the tests takes very long compared to the build
+    - the tests takes very long compared to the build (2x the time to build `GCC`)
     - run tests with -j4 option to speed it up (even on single core systems)
 - coreutils
     - `stty-pairs` test is known to fail
