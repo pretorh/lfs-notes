@@ -220,6 +220,7 @@ Tests:
 ### Part 6
 
 - XML-Parser
+- intltool
 - autoconf
     - the tests takes very long compared to the build
     - "two tests fail due to changes in libtool-2.4.3 and later"
@@ -254,7 +255,6 @@ Tests:
 
 ### Part 7
 
-- intltool
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
