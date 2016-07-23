@@ -29,6 +29,8 @@ Configure using the menu (replace `en_US.UTF-8` with the host's `$LANG`): `make 
 
 ## build
 
+Time: about half the time to build `GCC`
+
 ```
 time make -j5
 time make modules_install
