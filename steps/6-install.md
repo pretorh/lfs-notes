@@ -232,14 +232,6 @@ Tests:
 - xz
 - kmod
     - no tests in `chroot`
-- coreutils
-    - `stty-pairs` test is known to fail
-    - `cat gnulib-tests/test-suite.log | grep FAIL`
-- diffutils
-    - `test-update-copyright.sh` failure can be safely ignored
-    - cat gnulib-tests/test-suite.log | grep FAIL
-- gawk
-- findutils
 
 ### Gettext
 
@@ -295,3 +287,11 @@ Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
 
 - procps-ng
 - e2fsprogs
+- coreutils
+    - `stty-pairs` test is known to fail
+    - `cat gnulib-tests/test-suite.log | grep FAIL`
+- diffutils
+    - `test-update-copyright.sh` failure can be safely ignored
+    - cat gnulib-tests/test-suite.log | grep FAIL
+- gawk
+- findutils
