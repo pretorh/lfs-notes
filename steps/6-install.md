@@ -194,7 +194,9 @@ To start new bash:
         - to get the count `cat bc-test-log | grep "Total failures: [^0]"`
         - to get the details: `cat bc-test-log | grep -e "index\|val1\|val2"`
 - libtool
-    - Five tests are known to fail
+    - The tests take some time (1/4 of `GCC` build time)
+        - Especially the `Libtool stress test` section
+    - Five tests are known to fail (64 failed, 59 expected)
         - 123: compiling softlinked libltdl                    FAILED (standalone.at:35)
         - 124: compiling copied libltdl                        FAILED (standalone.at:50)
         - 125: installable libltdl                             FAILED (standalone.at:67)
