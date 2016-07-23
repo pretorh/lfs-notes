@@ -235,9 +235,9 @@ Tests:
 
 ### Gettext
 
-`cat gettext-tools/tests/test-suite.log | grep FAIL`
+`cat gettext-tools/tests/test-suite.log | grep "^FAIL:"`
 
-- had these failing:
+- 9 tests will fail:
     - xgettext-c-19
     - xgettext-glade-2
     - xgettext-java-2
