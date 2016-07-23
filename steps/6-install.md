@@ -248,6 +248,21 @@ Tests:
     - xgettext-javascript-4
     - xgettext-vala-1
 
+### Systemd
+
+Build: half the `GCC` build time
+
+Run the tests after installing
+
+`cat ./test-suite.log | grep "^FAIL:"`
+
+5 tests failed:
+    - test-path-util
+    - test-calendarspec
+    - test-copy
+    - test-dnssec
+    - test/udev-test.pl
+
 ### Part 7
 
 - groff
