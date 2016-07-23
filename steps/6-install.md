@@ -190,6 +190,9 @@ To start new bash:
 ### Part 5
 
 - bc
+    - 10 tests fail due to round of errors
+        - to get the count `cat bc-test-log | grep "Total failures: [^0]"`
+        - to get the details: `cat bc-test-log | grep -e "index\|val1\|val2"`
 - libtool
     - Five tests are known to fail
         - 123: compiling softlinked libltdl                    FAILED (standalone.at:35)
