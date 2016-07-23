@@ -272,6 +272,8 @@ Run the tests after installing
 - diffutils
     - `cat gnulib-tests/test-suite.log | grep "^FAIL:"`
         - `test-update-copyright.sh` failure can be safely ignored
+- gawk
+- findutils
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
@@ -304,8 +306,3 @@ Run the tests after installing
 ## Cleanup
 
 Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
-
-### No longer in a part
-
-- gawk
-- findutils
