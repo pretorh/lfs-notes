@@ -222,8 +222,8 @@ Tests:
 - XML-Parser
 - intltool
 - autoconf
-    - the tests takes very long compared to the build
-    - "two tests fail due to changes in libtool-2.4.3 and later"
+    - the tests takes very long compared to the build (about as long as `perl`s tests)
+    - "two tests fail due to changes in libtool-2.4.3 and later" (6 failed, 4 exptected)
         - `501: Libtool`
         - `503: autoscan`
 - automake
