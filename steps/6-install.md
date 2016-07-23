@@ -294,15 +294,8 @@ Run the tests after installing
 - util-linux
     - the test `tests/ts/ipcs/limit` fails on recent kernels, can be ignored
 - man-db
-- sysklogd
-    - no configure (just a patch)
-    - no tests
-- sysvinit
-    - no configure (just a patch)
-    - no tests
 - tar
 - texinfo
-- eudev
 - vim
 
 ## Cleanup
