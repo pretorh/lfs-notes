@@ -172,8 +172,6 @@ set the password for root:
 ### Part 4
 
 - psmisc
-- procps-ng
-- e2fsprogs
 - iana-etc
 - m4
     - The `test-update-copyright.sh` failure can safely be ignored
@@ -281,3 +279,8 @@ Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 ## Cleanup
 
 Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
+
+### No longer in a part
+
+- procps-ng
+- e2fsprogs
