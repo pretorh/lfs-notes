@@ -265,6 +265,7 @@ Run the tests after installing
 
 ### Part 7
 
+- procps-ng
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
@@ -300,7 +301,6 @@ Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
 
 ### No longer in a part
 
-- procps-ng
 - e2fsprogs
 - coreutils
     - `stty-pairs` test is known to fail
