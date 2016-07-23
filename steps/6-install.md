@@ -13,6 +13,7 @@ If you exit chroot, you will need to re-enter it before continuing
 - ensure the tools directory exists (`scripts/4/setup-tools.sh`)
 - setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh`)
 - run bash after it is installed (`exec /bin/bash --login +h`)
+- change to sources directory (`cd /sources`)
 - continue where you left
 
 ## Packages
