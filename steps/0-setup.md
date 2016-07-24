@@ -23,7 +23,7 @@
 - texinfo
 - xz
 
-For installing on Arch, see `0/pacman.sh`
+For installing on Arch, see `scripts/0/pacman.sh`
 
 Note: Building gcc 5 using gcc 6 failed (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=69959) so on Arch, had to manually force `gcc5` and `gcc5-libs`
 
@@ -32,28 +32,28 @@ Note: Building gcc 5 using gcc 6 failed (https://gcc.gnu.org/bugzilla/show_bug.c
 
 # 2. Partition and Mount
 
-see `2/mount.sh`  
+see `scripts/2/mount.sh`
 Note: this script assumes 2 partitions are used: `sda1` for `/boot` and `sda2` for `/`
 
-May need to cleanup the root drive: see `2/cleanup.sh`
+May need to cleanup the root drive: see `scripts/2/cleanup.sh`
 
 # 3. Sources
 
 See general notes to copy sources over ssh.
 
 ## Setup the sources directory
-See `3/setup-sources.sh`
+See `scripts/3/setup-sources.sh`
 
 ## Download the sources
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 There were some files not in the wget-list, so will need to download them separately.  
-See `3/download-sources.sh`  
+See `scripts/3/download-sources.sh`
 If running this script from within the new lfs system, change into the sources directory first (`cd $LFS/sources`)
 
 # 4. Tools
 
 ## Setup the tools directory
-See `4/setup-tools.sh`
+See `scripts/4/setup-tools.sh`
 
 ## Create the lfs user
-See `4/create-lfs-user.sh`
+See `scripts/4/create-lfs-user.sh`
