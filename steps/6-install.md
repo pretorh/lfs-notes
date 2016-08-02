@@ -70,7 +70,7 @@ Install glibc (`make install`)
 
 ##### timezone
 
-Install timezone data (see `scripts/6/glibc/tz-install.sh`) and configure it:
+Install timezone data (see `scripts/6/glibc/tz-install.sh`) and configure it
 
 Run:
 
@@ -213,9 +213,9 @@ To start new bash:
 Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 
 Tests:
-    - about 1/3 of `GCC` build time
-    - Run tests with `make -k --jobs 4`
-    - All tests passed
+- about 1/3 of `GCC` build time
+- Run tests with `make -k --jobs 4`
+- All tests passed
 
 ### Part 6
 
@@ -257,11 +257,11 @@ Run the tests after installing
 `cat ./test-suite.log | grep "^FAIL:"`
 
 5 tests failed:
-    - test-path-util
-    - test-calendarspec
-    - test-copy
-    - test-dnssec
-    - test/udev-test.pl
+- test-path-util
+- test-calendarspec
+- test-copy
+- test-dnssec
+- test/udev-test.pl
 
 ### Part 7
 
