@@ -49,7 +49,7 @@ Install glibc (`make install`)
 - setup nscd config runtime directory (see `scripts/6/glibc/nscd.sh`)
 - setup locales (see `scripts/6/glibc/locale.sh`)
 
-#### Congiure glibc
+#### Configure glibc
 
 ##### nsswitch.conf
 
