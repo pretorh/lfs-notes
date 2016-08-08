@@ -83,8 +83,8 @@ nogroup:x:99:
 users:x:999:
 EOF
 
-# username and groupname resolution will now work
-exec /tools/bin/bash --login +h
+echo "username and groupname resolution will now work"
+echo "exec /tools/bin/bash --login +h"
 
 # create log files
 touch /var/log/{btmp,lastlog,wtmp}
