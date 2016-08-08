@@ -4,6 +4,7 @@
 # SANITY CHECK 3
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
+test -f a.out || echo "ERROR! cc did not generate a.out"
 (readelf -l a.out | grep 'Requesting program interpreter: /lib.*/ld-linux-x86.*.so.2' && echo "SUCCESS") || echo "ERROR!"
 
 # correct start files: should have 3 lines
