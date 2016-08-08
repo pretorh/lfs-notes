@@ -2,7 +2,11 @@
 
 ## Chroot
 
-See `scripts/6/setup/prepare.sh` and `scripts/6/setup/chroot-setup.sh`
+See:
+
+- setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
+- enter chroot: `scripts/6/setup/enter-chroot.sh`
+- setup the chroot environment: `scripts/6/setup/chroot-setup.sh`
 
 ### Re-entering chroot
 
@@ -11,7 +15,7 @@ If you exit chroot, you will need to re-enter it before continuing
 - mount the drive (`scripts/2/mount.sh`)
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - ensure the tools directory exists (`scripts/4/setup-tools.sh`)
-- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh`)
+- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh` and `scripts/6/setup/enter-chroot.sh`)
 - run bash after it is installed (`exec /bin/bash --login +h`)
 - change to sources directory (`cd /sources`)
 - continue where you left
