@@ -100,7 +100,9 @@ And then:
 
 ### Adjusting the Toolchain
 
-see `scripts/6/toolchain.sh`
+Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
+
+Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
 ### Part 2
 
