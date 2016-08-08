@@ -1,5 +1,7 @@
 # Installing the system
 
+Remember to have `LFS` set: `export LFS=/mnt/lfs`
+
 ## Chroot
 
 See:
