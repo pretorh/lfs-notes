@@ -9,7 +9,9 @@ PRETTY_NAME="Linux From Scratch 20160304-systemd"
 EOF
 ```
 
-`echo 20160304-systemd > /etc/lfs-release`
+```
+echo 20160304-systemd > /etc/lfs-release
+```
 
 ```
 cat > /etc/lsb-release << "EOF"
