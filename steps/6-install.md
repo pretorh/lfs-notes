@@ -308,4 +308,9 @@ Run the tests after installing
 
 ## Cleanup
 
-Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
+- Re-enter chroot
+    - `logout`
+    - re-enter (see `scripts/6/setup/enter-chroot.sh`)
+- Strip debug components. see `scripts/6/cleanup/strip.sh`
+- Remove temp files (`rm -rf /tmp/*`)
+- Remove static libs that were required in tests. see `scripts/6/cleanup/remove-static-libs.sh`
