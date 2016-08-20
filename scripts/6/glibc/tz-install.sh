@@ -1,7 +1,7 @@
 mkdir tz && cd tz
 tar xf ../tzdata2016a.tar.gz
 
-ZONEINFO=/usr/share/zoneinfo
+ZONEINFO=$DESTDIR/usr/share/zoneinfo
 
 mkdir -pv $ZONEINFO/{posix,right}
 
