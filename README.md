@@ -14,7 +14,7 @@ To be used as a quick reference only, work though the book
   - code taken from the the document and (sometimes) edited/combined
 
 ### Versions
-Some of the notes come from the 20160102 systemd version, but they were rechecked/recreated while working through the 20160304 version. (last rechecked 2016-07-23)
+Some of the notes come from the 20160102 systemd version, but they were rechecked/recreated while working through the [20160304 version](http://www.linuxfromscratch.org/lfs/downloads/7.9-systemd/LFS-BOOK-7.9-systemd.pdf). (last rechecked 2016-07-23)
 
 ### References
 - http://www.linuxfromscratch.org/
