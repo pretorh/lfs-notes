@@ -1,8 +1,15 @@
 # Installing the system
 
+Remember to have `LFS` set: `export LFS=/mnt/lfs`
+
 ## Chroot
 
-See `scripts/6/setup/prepare.sh` and `scripts/6/setup/chroot-setup.sh`
+See:
+
+- setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
+- enter chroot: `scripts/6/setup/enter-chroot.sh`
+- setup the filesystem: `scripts/6/setup/filesystem.sh`
+- setup the chroot environment: `scripts/6/setup/chroot-setup.sh`
 
 ### Re-entering chroot
 
@@ -11,7 +18,7 @@ If you exit chroot, you will need to re-enter it before continuing
 - mount the drive (`scripts/2/mount.sh`)
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - ensure the tools directory exists (`scripts/4/setup-tools.sh`)
-- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh`)
+- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh` and `scripts/6/setup/enter-chroot.sh`)
 - run bash after it is installed (`exec /bin/bash --login +h`)
 - change to sources directory (`cd /sources`)
 - continue where you left
@@ -49,7 +56,7 @@ Install glibc (`make install`)
 - setup nscd config runtime directory (see `scripts/6/glibc/nscd.sh`)
 - setup locales (see `scripts/6/glibc/locale.sh`)
 
-#### Congiure glibc
+#### Configure glibc
 
 ##### nsswitch.conf
 
@@ -70,7 +77,7 @@ Install glibc (`make install`)
 
 ##### timezone
 
-Install timezone data (see `scripts/6/glibc/tz-install.sh`) and configure it:
+Install timezone data (see `scripts/6/glibc/tz-install.sh`) and configure it
 
 Run:
 
@@ -94,7 +101,9 @@ And then:
 
 ### Adjusting the Toolchain
 
-see `scripts/6/toolchain.sh`
+Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
+
+Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
 ### Part 2
 
@@ -213,9 +222,9 @@ To start new bash:
 Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 
 Tests:
-    - about 1/3 of `GCC` build time
-    - Run tests with `make -k --jobs 4`
-    - All tests passed
+- about 1/3 of `GCC` build time
+- Run tests with `make -k --jobs 4`
+- All tests passed
 
 ### Part 6
 
@@ -257,11 +266,11 @@ Run the tests after installing
 `cat ./test-suite.log | grep "^FAIL:"`
 
 5 tests failed:
-    - test-path-util
-    - test-calendarspec
-    - test-copy
-    - test-dnssec
-    - test/udev-test.pl
+- test-path-util
+- test-calendarspec
+- test-copy
+- test-dnssec
+- test/udev-test.pl
 
 ### Part 7
 
@@ -300,4 +309,9 @@ Run the tests after installing
 
 ## Cleanup
 
-Stip debug comments and remove temp files: see `scripts/6/cleanup/strip.sh`
+- Re-enter chroot
+    - `logout`
+    - re-enter (see `scripts/6/setup/enter-chroot.sh`)
+- Strip debug components. see `scripts/6/cleanup/strip.sh`
+- Remove temp files (`rm -rf /tmp/*`)
+- Remove static libs that were required in tests. see `scripts/6/cleanup/remove-static-libs.sh`

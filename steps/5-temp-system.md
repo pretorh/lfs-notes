@@ -1,5 +1,13 @@
 # Building the temporary system
 
+## Restoring from toolchain backup
+
+If you already built the toolchain and made a backup, you can restore it:
+
+`tar xPvf FILE.tar.xz`
+
+## General
+
 You should login as `lfs`
 
 if building on x64: (this was part of bin utils)

@@ -11,6 +11,7 @@
 
 ## DHCP
 
+    mkdir -pv /etc/systemd/network/
     cat > /etc/systemd/network/10-eth0-dhcp.network << "EOF"
     [Match]
     Name=eth0
@@ -20,7 +21,7 @@
 
 ## Hostname
 
-echo "my lfs-system" > /etc/hostname
+    echo "my lfs-system" > /etc/hostname
 
 ## Hosts
 
@@ -35,7 +36,7 @@ Check if hardware clock is set to localtime or utc:
 
     hwclock  --localtime --show
 
-If set to utc, rmeove the adjust file:
+If set to utc, remove the adjust file:
 
     rm -fv /etc/adjtime
 
@@ -44,6 +45,8 @@ If set to utc, rmeove the adjust file:
 List available locales:
 
     locale -a
+
+(replace `en_GB.utf8` and `en_GB.UTF-8` based on the output)
 
 Get the canonical name for the locale
 
