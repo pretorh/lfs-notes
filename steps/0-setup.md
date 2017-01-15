@@ -1,6 +1,6 @@
 # 0. Intro
 
-## install required packages
+## install required packages on the host
 
 - bash
 - binutils
