@@ -24,6 +24,7 @@ EOF
 cat /home/lfs/.bashrc
 chown -v lfs:lfs /home/lfs/.bashrc
 
+# change ownership of lfs sources, tools
 chown -vR lfs $LFS/tools
 chown -vR lfs $LFS/sources
 
