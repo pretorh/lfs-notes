@@ -5,11 +5,11 @@ cat > /home/lfs/.bash_profile << "EOF"
 exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF
 
-cat > /home/lfs/.bashrc << "EOF"
+cat > /home/lfs/.bashrc << EOF
 set +h
 umask 022
+LFS=$LFS
 EOF
-echo "LFS=`echo $LFS`" >> /home/lfs/.bashrc
 cat >> /home/lfs/.bashrc << "EOF"
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
@@ -19,8 +19,9 @@ export LFS LC_ALL LFS_TGT PATH
 cd $LFS/sources
 echo "lfs is set to $LFS"
 echo "path contains $PATH"
-echo "starting lfs specific directory (`pwd`)"
+echo "starting in lfs specific directory (`pwd`)"
 EOF
+
 cat /home/lfs/.bashrc
 chown -v lfs:lfs /home/lfs/.bashrc
 
