@@ -22,8 +22,9 @@ echo "path contains $PATH"
 echo "starting in lfs specific directory (`pwd`)"
 EOF
 
+chown -v lfs:lfs /home/lfs/.bash_profile /home/lfs/.bashrc
+cat /home/lfs/.bash_profile
 cat /home/lfs/.bashrc
-chown -v lfs:lfs /home/lfs/.bashrc
 
 # change ownership of lfs sources, tools
 chown -vR lfs $LFS/tools
