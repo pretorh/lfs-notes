@@ -57,3 +57,10 @@ See `scripts/4/setup-tools.sh`
 
 ## Create the lfs user
 See `scripts/4/create-lfs-user.sh`
+
+## ssh as lfs or switch:
+
+```
+passwd lfs
+su - lfs
+```
