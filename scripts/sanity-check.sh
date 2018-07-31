@@ -1,6 +1,9 @@
 set -e
 
 echo "using $SANITY_CC command to compile dummy.c"
+echo "$SANITY_CC = $(which $SANITY_CC)"
+[ -L $(which $SANITY_CC) ] && echo "links to $(readlink $(which $SANITY_CC))"
+echo ""
 
 echo 'int main(){}' > dummy.c
 $SANITY_CC dummy.c
