@@ -65,8 +65,11 @@ see `scripts/5/sanity-checks/2.sh`
 - m4
 - ncurses
     - patch the config file to find gawk
-- check
 - bash
+- bison
+	- tests are mentioned, but they run a lot longer than the build
+	    - some also fail: 430, 431, 432
+- check
 - bzip2
     - no config needed
 - coreutils
