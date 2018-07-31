@@ -69,7 +69,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 - bison
 	- tests are mentioned, but they run a lot longer than the build
 	    - some also fail: 430, 431, 432
-- check
 - bzip2
     - no config needed
 - coreutils
