@@ -34,7 +34,7 @@ ln -sv lib /tools/lib64
 
 ## Sanity Check 1
 
-see `scripts/5/sanity-checks/1.sh`
+see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-check.sh`
 
 ## Part 2
 
@@ -50,7 +50,7 @@ see `scripts/5/sanity-checks/1.sh`
 
 ## Sanity Check 2
 
-see `scripts/5/sanity-checks/2.sh`
+see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 
 ## Part 3
 
