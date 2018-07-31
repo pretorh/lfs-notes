@@ -62,9 +62,10 @@ see `scripts/5/sanity-checks/2.sh`
 - expect
     - patch the config file
 - DejaGNU
-- check
+- m4
 - ncurses
-    - patch the config file
+    - patch the config file to find gawk
+- check
 - bash
 - bzip2
     - no config needed
@@ -95,7 +96,6 @@ see `scripts/5/gettext/configure-build-install.sh`
 
 - grep
 - gzip
-- m4
 
 ## More
 
