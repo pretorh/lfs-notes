@@ -56,12 +56,21 @@ rm -fv /usr/include/limits.h
 
 but some will fail:
 
-- known to fail with latest binutils (FAILed previously, but on a later lfs in XPASSed):
-    - elf/tst-protected1a
-    - elf/tst-protected1b
-- will always fail:
-    - posix/tst-getaddrinfo4
-    - posix/tst-getaddrinfo5
+"You may see some test failures.", the doc only lists some of the most common issues
+
+- known to fail:
+	- `misc/tst-ttyname`
+- also failed:
+	- `misc/tst-preadvwritev2`
+	- `misc/tst-preadvwritev64v2`
+
+some that might fail, but passed:
+- will fail on some:
+    - `posix/tst-getaddrinfo4`
+    - `posix/tst-getaddrinfo5`
+- FAILed previously, but on a later lfs in XPASSed)
+    - `elf/tst-protected1a`
+    - `elf/tst-protected1b`
 
 #### Install glibc
 Install glibc (`make install`)
