@@ -102,6 +102,7 @@ see `scripts/5/gettext/configure-build-install.sh`
 ## More
 
 - make
+	- fix issue from `glibc-2.27`
 - patch
     - easy
 - perl
