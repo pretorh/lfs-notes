@@ -9,6 +9,7 @@ See:
 - setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
 - enter chroot: `scripts/6/setup/enter-chroot.sh`
 - setup the filesystem: `scripts/6/setup/filesystem.sh`
+	- note that the leading `/` is not added to paths (to easier create a package), so need to run from `/`
 - setup the chroot environment: `scripts/6/setup/chroot-setup.sh`
 
 ### Re-entering chroot
