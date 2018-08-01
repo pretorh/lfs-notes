@@ -81,11 +81,11 @@ nogroup:x:99:
 users:x:999:
 EOF
 
-echo "username and groupname resolution will now work"
-echo "exec /tools/bin/bash --login +h"
-
 # create log files
-touch /var/log/{btmp,lastlog,wtmp}
+touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
+
+echo "username and groupname resolution will now work"
+echo "exec /tools/bin/bash --login +h"
