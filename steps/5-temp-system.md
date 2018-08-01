@@ -125,13 +125,13 @@ see `scripts/5/gettext/configure-build-install.sh`
 
 # Finalizing the temp system
 
-run as root user
+run as root user (at least for the change command, but also for all following that)
 
 `export LFS=/mnt/lfs`
 
 ## Cleanup the toolchain
 
-Stip debug symbols, remove documentation and chage ownership.
+Strip debug symbols, remove documentation and chage ownership.
 
 see `scripts/5/finalize/cleanup.sh`
 
