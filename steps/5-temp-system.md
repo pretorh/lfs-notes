@@ -118,6 +118,7 @@ see `scripts/5/gettext/configure-build-install.sh`
     - easy
 - texinfo
     - easy
+    - there is an error in configure, but it can be ignored
 - util-linux
 - xz
     - easy
