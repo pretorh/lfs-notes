@@ -36,7 +36,19 @@ Build and install from the `sources` directory
 - man-pages
 
 ### Glibc
-Extract and build as normal
+
+patch for file system standards: `patch -Np1 -i ../glibc-2.27-fhs-1.patch`
+
+Configs:
+```
+ln -sfv /tools/lib/gcc /usr/lib
+
+GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.0/include
+ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64
+ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
+
+rm -fv /usr/include/limits.h
+```
 
 #### Tests are critical
 
