@@ -2,11 +2,29 @@
 
 # FILES AND SYMLINKS
 
-ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
-ln -sv /tools/bin/perl /usr/bin
+ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
+ln -sv /tools/bin/{env,install,perl} /usr/bin
 ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
+ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib
+
+for lib in blkid lzma mount uuid
+do
+	ln -sv /tools/lib/lib$lib.so* /usr/lib
+done
+
+ln -svf /tools/include/blkid 	/usr/include
+ln -svf /tools/include/libmount /usr/include
+ln -svf /tools/include/uuid		/usr/include
+
+install -vdm755 /usr/lib/pkgconfig
+
+for pc in blkid mount uuid
+do
+	echo "${pc}"
+    sed 's@tools@usr@g' /tools/lib/pkgconfig/${pc}.pc \
+        > /usr/lib/pkgconfig/${pc}.pc
+done
+
 ln -sv bash /bin/sh
 
 ln -sv /proc/self/mounts /etc/mtab
