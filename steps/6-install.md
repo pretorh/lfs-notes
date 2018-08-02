@@ -134,6 +134,7 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 - readline
 - m4
 - bc
+    - patch, see: `scripts/6/2/bc-patch.sh`
     - 10 tests fail due to round of errors
         - to get the count `cat bc-test-log | grep "Total failures: [^0]"`
         - to get the details: `cat bc-test-log | grep -e "index\|val1\|val2"`
