@@ -140,7 +140,6 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
-        - The test `Link with zlib-gabi compressed debug output` is known to fail
 - gmp
     - The tests are critical. All 190 must pass
 - mpfr
