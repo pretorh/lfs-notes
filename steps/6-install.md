@@ -187,8 +187,7 @@ Some tests may fail. Compare the results with:
 #### Install and sanity checks
 
 - install using the normal `make install`
-- see `scripts/6/gcc/symlinks.sh`
-- see `scripts/6/gcc/fix.sh`
+- see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
 
 run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
