@@ -140,11 +140,15 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
+
+### Part 2.1
+
+these final few have similar configure, build and install commands
+
 - gmp
     - The tests are critical. All 190 must pass
 - mpfr
     - The tests are critical. All tests must pass
-        - `tget_set_d64` was skipped
 - mpc
 
 ### GCC
