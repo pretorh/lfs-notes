@@ -182,7 +182,7 @@ Some tests may fail. Compare the results with:
 - http://www.linuxfromscratch.org/lfs/build-logs/systemd/
 - http://gcc.gnu.org/ml/gcc-testresults
 - my list of failed tests: `steps/6-more.md`
-- also, "six tests in the libstdc++ test suite are known to fail"
+- also, "six tests in the libstdc++ test suite are known to fail" (only these failed in `7.3.0`)
 
 #### Install and sanity checks
 

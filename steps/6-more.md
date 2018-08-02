@@ -2,6 +2,19 @@
 
 `../contrib/test_summary | grep FAIL | sort`
 
+## `7.3.0`
+
+```
+FAIL: experimental/filesystem/iterators/directory_iterator.cc execution test
+FAIL: experimental/filesystem/iterators/recursive_directory_iterator.cc execution test
+FAIL: experimental/filesystem/operations/exists.cc execution test
+FAIL: experimental/filesystem/operations/is_empty.cc execution test
+FAIL: experimental/filesystem/operations/remove.cc execution test
+FAIL: experimental/filesystem/operations/temp_directory_path.cc execution test
+```
+
+## `5.3.0`
+
 ```
 FAIL: c-c++-common/cilk-plus/CK/spawning_arg.c  -O1  execution test
 FAIL: c-c++-common/cilk-plus/CK/spawning_arg.c  -O1 execution test
