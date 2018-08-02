@@ -160,8 +160,18 @@ on a single core qemu vm:
 - Build: about 3 times as long as `glibc`'s build time
 - Tests: about 6 times longer than the build
 
+#### Configure
+
+Fix for 64 bit lib: `sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64`
+
+remove previous symlink: `rm -fv /usr/lib/gcc`
+
 #### Tests
-The tests are critical. To run the tests and check the results:
+The tests are critical.
+
+Increase stack size before running tests: `ulimit -s 32768`
+
+To run the tests and check the results:
 
     make -k check --jobs 4
     ../contrib/test_summary | grep -A7 Summ
@@ -172,6 +182,7 @@ Some tests may fail. Compare the results with:
 - http://www.linuxfromscratch.org/lfs/build-logs/systemd/
 - http://gcc.gnu.org/ml/gcc-testresults
 - my list of failed tests: `steps/6-more.md`
+- also, "six tests in the libstdc++ test suite are known to fail"
 
 #### Install and sanity checks
 
