@@ -131,6 +131,7 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
 - zlib
 - file
+- readline
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
@@ -210,7 +211,6 @@ set the password for root:
 - bison
 - flex
 - grep
-- readline
 
 ### Bash
 
