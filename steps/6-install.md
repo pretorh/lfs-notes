@@ -188,6 +188,12 @@ Some tests may fail. Compare the results with:
 
 - install using the normal `make install`
 - see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
+- this overwrites symlinks originally created when entering chroot (`chroot-setup`):
+    - `/usr/lib/libstdc++.a`
+    - `/usr/lib/libstdc++.so`
+    - `/usr/lib/libstdc++.so.6`
+    - `/usr/lib/libgcc_s.so`
+    - `/usr/lib/libgcc_s.so.1`
 
 run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
