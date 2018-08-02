@@ -136,8 +136,7 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 - bc
     - patch, see: `scripts/6/2/bc-patch.sh`
     - 10 tests fail due to round of errors
-        - to get the count `cat bc-test-log | grep "Total failures: [^0]"`
-        - to get the details: `cat bc-test-log | grep -e "index\|val1\|val2"`
+        - with index of: `97`, `8651`, `.80`, `4.47`, `2.19`, `4.31`, `2.36`, `2.04`, `.65`, `1.07`
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
