@@ -211,6 +211,8 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - tests must be run with `-j1`, all 29 passed
     - see `scripts/6/3/attr-post.sh`
 - acl
+    - see `scripts/6/3/acl-patch.sh`
+    - tests require coreutils, so cannot be run now (maybe run later with `make -j1 tests`)
 - libcap
 - sed
 
