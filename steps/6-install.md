@@ -200,9 +200,16 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 ### Part 3
 
 - bzip2
+    - see `scripts/6/3/bzip2-patch.sh` and `scripts/6/3/bzip2-install.sh`
 - pkg-config
+    - all 30 tests passed
 - ncurses
+    - see `scripts/6/3/ncurses-post.sh`
+    - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
 - attr
+    - see `scripts/6/3/attr-patch.sh`
+    - tests must be run with `-j1`, all 29 passed
+    - see `scripts/6/3/attr-post.sh`
 - acl
 - libcap
 - sed

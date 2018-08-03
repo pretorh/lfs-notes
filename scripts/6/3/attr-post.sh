@@ -1,2 +1,2 @@
-mv -v /usr/lib/libattr.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
+mv -v $DESTDIR/usr/lib/libattr.so.* $DESTDIR/lib
+ln -sfv ../../lib/$(readlink $DESTDIR/usr/lib/libattr.so) $DESTDIR/usr/lib/libattr.so
