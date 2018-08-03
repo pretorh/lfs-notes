@@ -246,16 +246,26 @@ set the password for root: `passwd root`
 ### Part 4
 
 - psmisc
+    - no tests
 - iana-etc
+    - no tests
 - bison
+    - tests depend on flex, so cannot be run now
 - flex
+    - fix issue introduces in glibc: `sed -i "/math.h/a #include <malloc.h>" src/flexdef.h`
+    - all 114 tests passed
 - grep
+    - tests: 134 pass, 7 skpped (of 141 total)
 
 ### Bash
 
-To start new bash:
+Tests need to be run as user `nobody`, see `scripts/6/4/bash-test.sh`
 
-    exec /bin/bash --login +h
+Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary), but had a few errors/warnings output
+
+Installing replaces the existing `/bin/bash` symlink
+
+After installing, start a new bash: `exec /bin/bash --login +h`
 
 ### Part 5
 
