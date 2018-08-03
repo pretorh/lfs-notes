@@ -312,18 +312,36 @@ Tests:
 ### Part 6
 
 - XML-Parser
+    - tests: all 141 passed
 - intltool
+    - see `scripts/6/6intltool-patch.sh`
+    - 1 test that passes
 - autoconf
     - the tests takes very long compared to the build (about as long as `perl`s tests)
+    - run tests with `make check TESTSUITEFLAGS=-j4`
     - "two tests fail due to changes in libtool-2.4.3 and later" (6 failed, 4 exptected)
         - `501: Libtool`
         - `503: autoscan`
 - automake
     - the tests takes very long compared to the build (2x the time to build `GCC`)
     - run tests with -j4 option to speed it up (even on single core systems)
+    - see `scripts/6/6/automake-test.sh`
+    - 2 tests are known to fail in LFS: `check12.sh`, `check12-w.sh`
+        - had 5 failures:
+            - t/check12
+            - t/dejagnu3
+            - t/dejagnu4
+            - t/dejagnu5
+            - t/check12-w
 - xz
+    - all tests 9 passed
+    - install with `make install` and then
+        - move a file: `mv -v $DESTDIR/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $DESTDIR/bin`
+        - move and recreate shared object `scripts/6/mv-shared.sh /usr/lib/liblzma.so`
+    - this overwrites a symlink: `/usr/lib/liblzma.so`
 - kmod
     - no tests in `chroot`
+    - see `scripts/6/6/kmod-post.sh`
 
 ### Gettext
 

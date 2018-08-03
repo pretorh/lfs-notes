@@ -1,4 +1,4 @@
 for target in depmod insmod lsmod modinfo modprobe rmmod; do
-  ln -sv ../bin/kmod /sbin/$target
+  ln -sfv ../bin/kmod $DESTDIR/sbin/$target
 done
-ln -sv kmod /bin/lsmod
+ln -sfv kmod $DESTDIR/bin/lsmod
