@@ -273,16 +273,20 @@ After installing, start a new bash: `exec /bin/bash --login +h`
     - The tests take some time (1/4 of `GCC` build time)
         - Especially the `Libtool stress test` section
     - Five tests are known to fail (64 failed, 59 expected)
-        - 123: compiling softlinked libltdl                    FAILED (standalone.at:35)
-        - 124: compiling copied libltdl                        FAILED (standalone.at:50)
-        - 125: installable libltdl                             FAILED (standalone.at:67)
-        - 126: linking libltdl without autotools               FAILED (standalone.at:85)
-        - 130: linking libltdl without autotools               FAILED (subproject.at:115)
+        - 123: compiling softlinked libltdl
+        - 124: compiling copied libltdl
+        - 125: installable libltdl
+        - 126: linking libltdl without autotools
+        - 130: linking libltdl without autotools
 - gdbm
+    - tests: "All 25 tests were successful."
 - gperf
     - known to fail if running simultaneous(run with `-j1`)
 - expat
+    - fix tests before configuring: `sed -i 's|usr/bin/env |bin/|' run.sh.in`
+    - tests: all 2 passed
 - inetutils
+    - tests: `libls.sh` fails, the other 9 tests pass
 
 ### Perl
 
