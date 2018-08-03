@@ -222,22 +222,26 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
 ### Shadow
 
+#### build:
+
+see `scripts/6/3/shadow-patch.sh`
+
+There are no tests
+
+#### configuring
+
 Enable using:
 
-    pwconv
-    grpconv
+```
+pwconv
+grpconv
+```
 
-start groups at 100:
+optionally start groups at 100: `sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/\1=100/'`
 
-    sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/\1=100/'
+optinally disable mail spool: `sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'`
 
-disable mail spool:
-
-    sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'
-
-set the password for root:
-
-    passwd root
+set the password for root: `passwd root`
 
 ### Part 4
 
