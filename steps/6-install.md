@@ -215,7 +215,10 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - tests require coreutils, so cannot be run now (maybe run later with `make -j1 tests`)
     - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libacl.so`
 - libcap
+    - no tests
+    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libcap.so`
 - sed
+    - tests: 118 passed, 12 skipped (of 130)
 
 ### Shadow
 
