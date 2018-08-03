@@ -213,6 +213,7 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 - acl
     - see `scripts/6/3/acl-patch.sh`
     - tests require coreutils, so cannot be run now (maybe run later with `make -j1 tests`)
+    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libacl.so`
 - libcap
 - sed
 
