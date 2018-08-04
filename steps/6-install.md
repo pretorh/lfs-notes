@@ -370,18 +370,13 @@ Tests:
 
 ### Systemd
 
+patch: `scripts/6/6/systemd-patch.sh`
+
 Build: half the `GCC` build time
 
-Run the tests after installing
+post setup: `scripts/6/6/systemd-post.sh`
 
-`cat ./test-suite.log | grep "^FAIL:"`
-
-5 tests failed:
-- test-path-util
-- test-calendarspec
-- test-copy
-- test-dnssec
-- test/udev-test.pl
+after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setup`
 
 ### Part 7
 
