@@ -408,11 +408,19 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
         - `/bin/pwd`
         - `/bin/ln`
         - `/bin/rm`
+- check
+    - tests take relatively long
+    - all 9 tests passed
 - diffutils
-    - `cat gnulib-tests/test-suite.log | grep "^FAIL:"`
-        - `test-update-copyright.sh` failure can be safely ignored
+    - tests ok (157 pass, 13 skip of 170 total)
 - gawk
+    - patch: `sed -i 's/extras//' Makefile.in`
+    - optionally install docs, see `scripts/6/7/gawk-install-docs.sh`
+    - all tests passed
 - findutils
+    - suppress test: `sed -i 's/test-lock..EXEEXT.//' tests/Makefile.in`
+    - some tests failed (phtread issue?)
+    - install: see `scripts/6/7/findutils-post.sh`
 - groff
     - failed when building with --jobs 4, but passed with --jobs 1
     - no tests
