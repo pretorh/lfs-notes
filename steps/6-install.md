@@ -342,21 +342,9 @@ Tests:
 - kmod
     - no tests in `chroot`
     - see `scripts/6/6/kmod-post.sh`
-
-### Gettext
-
-`cat gettext-tools/tests/test-suite.log | grep "^FAIL:"`
-
-- 9 tests will fail:
-    - xgettext-c-19
-    - xgettext-glade-2
-    - xgettext-java-2
-    - xgettext-python-1
-    - xgettext-python-3
-    - xgettext-stringtable-1
-    - xgettext-tcl-4
-    - xgettext-javascript-4
-    - xgettext-vala-1
+- Gettext
+    - Configure: `sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in && sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in`
+    - tests: no issues (393 passed, 19 skipped)
 
 ### Systemd
 
