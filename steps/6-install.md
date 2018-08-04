@@ -345,6 +345,28 @@ Tests:
 - Gettext
     - Configure: `sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in && sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in`
     - tests: no issues (393 passed, 19 skipped)
+- libelf
+    - in archive: `elfutils-0.170`
+    - one test failed: `run-strip-nothing.sh`
+    - install only libelf:
+        - `make DESTDIR=$DESTDIR -C libelf install`
+        - `install -vm644 config/libelf.pc $DESTDIR/usr/lib/pkgconfig`
+- libffi
+    - fix makefiles for include file destinations
+    - some tests failed (pthread issue again?)
+- openssl
+    - configure script is named `config`
+    - tests: `40-test_rehash.t` failed (expected in chroot)
+- python
+    - archive name start with capital
+    - no tests here
+- ninja
+    - see note on optional patch (to decrease/set parallel process count)
+    - configured and build with python3 scripts
+    - tests passed (18/18 and 235/235)
+- meson
+    - configure and build with python3 scripts
+    - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
 
 ### Systemd
 
