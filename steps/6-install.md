@@ -381,9 +381,33 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
 ### Part 7
 
 - procps-ng
+    - see `scripts/6/7/procps-ng-test.sh`
+    - tests failed with `make check`, but passed with `make check -k`
+    - move shared lib: `mv-shared.sh /usr/lib/libprocps.so`
 - e2fsprogs
+    - see `scripts/6/7/e2fsprogs-test.sh`
     - one of the tests require 256mb memory (enable swap if needed)
+    - see `scripts/6/7/e2fsprogs-post.sh`
+    -tests: "342 tests succeeded, 0 tests failed"
 - coreutils
+    - patch for character boundary
+    - suppress test: `sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk`
+    - see `scripts/6/7/coreutils-test.sh`
+    - tests:
+        - 1st: 31 total (18 passed, 13 skip)
+        - 2nd: `test-getlogin` is known to fail
+            - but it passed, only `tests/misc/tty.sh` failed
+    - more files, see `scripts/6/7/coreutils-post.sh`
+    - the install overwrite files that symlink to `/tools` files:
+        - `/usr/bin/install`
+        - `/usr/bin/env`
+        - `/bin/cat`
+        - `/bin/stty`
+        - `/bin/dd`
+        - `/bin/echo`
+        - `/bin/pwd`
+        - `/bin/ln`
+        - `/bin/rm`
 - diffutils
     - `cat gnulib-tests/test-suite.log | grep "^FAIL:"`
         - `test-update-copyright.sh` failure can be safely ignored
