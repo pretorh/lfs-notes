@@ -1,14 +1,12 @@
 # fstab
 
-## get the current devices mounted, and save to fstab
+## should try to use uuid's of devices
 
-```
-cat > /etc/fstab << "EOF"
-# file system   mount-point type    options             dump  fsck order
-/dev/sda2       /           ext4    defaults            1     1
-/dev/sda1       /boot       ext4    defaults            1     1
-EOF
-```
+get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep $LFS`
+
+## create fstab:
+
+see `scripts/8/fstab.sh`
 
 # Linux
 
