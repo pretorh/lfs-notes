@@ -421,8 +421,11 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
     - suppress test: `sed -i 's/test-lock..EXEEXT.//' tests/Makefile.in`
     - some tests failed (phtread issue?)
     - install: see `scripts/6/7/findutils-post.sh`
+
+### part 8
+
 - groff
-    - failed when building with --jobs 4, but passed with --jobs 1
+    - must be built with `-j1`
     - no tests
 - grub
     - no tests
@@ -430,12 +433,23 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
 - less
     - no tests
 - gzip
+    - all tests passed (though 2 might fail: `help-version`, `zmore`)
+    - move file after install: `mv -v $DESTDIR/usr/bin/gzip $DESTDIR/bin`
 - iproute2
+    - see `scripts/6/8/iproute2-patch.sh`
     - no tests in `chroot`
 - kbd
+    - patch, see `scripts/6/8/kbd-patch.sh`
+    - all tests passed
+    - optionally install docs
 - libpipeline
+    - tests: add 7 passed
 - make
+    - patch: `sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c`
+    - test with `make PERL5LIB=$PWD/tests/ check --jobs 4`
+    - all tests passed
 - patch
+    - tests passed
 - dbus
     - no tests in lfs
 - util-linux
