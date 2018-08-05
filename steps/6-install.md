@@ -450,14 +450,35 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
     - all tests passed
 - patch
     - tests passed
+
+### part 9
+
 - dbus
     - no tests in lfs
+    - move a shared lib: `mv-shared.sh /usr/lib/libdbus-1.so`
+    - post unpackage: see `scripts/6/9/dbus-post.sh`
+    - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
 - util-linux
-    - the test `tests/ts/ipcs/limit` fails on recent kernels, can be ignored
+    - setup:
+        - add to filesystem (move into filesystem.sh?): `mkdir -pv /var/lib/hwclock`
+        - remove previous symlinks: `rm -vf /usr/include/{blkid,libmount,uuid}`
+    - the tests may be harmful when run as root user
+    - some failed to install, due to existing files (more of blkid,libmount,uuid, but libs and pc)
 - man-db
+    - all tests pass
+    - no need to change man-db.conf anymore, file is already correct
 - tar
+    - tests: one test is known to fail, `92. link mismatch`
 - texinfo
+    - all tests passed
 - vim
+    - archive file (vim-8.0...tar.bz2) and dir (`vim80`) mismatch
+        - same with vim 7.4 (`vim74`) version
+    - patch default vimrc, ignore failing tests, see: `scripts/6/9/vim-patch.sh`
+    - tests
+        - redirect test output to file, see `scripts/6/9/vim-test.sh`
+        - failed to load  libtcl (`ln -sv /tools/lib/libtcl8.6.so /usr/lib/libtcl8.6.so`)
+    - post install (pre pack): see `scripts/6/9/vim-test.sh`
 
 ## Cleanup
 
