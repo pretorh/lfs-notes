@@ -6,15 +6,17 @@ get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep 
 
 ## create fstab:
 
-see `scripts/8/fstab.sh`
+see `scripts/8/fstab.sh`, and redirect to `/etc/fstab`
 
 # Linux
 
 ## setup
 
+make sure you are in the sources dir (`cd /sources`)
+
 ```
 tar xf linux-*tar.*
-cd linux-*
+cd linux-*/
 
 make mrproper
 ```
@@ -23,7 +25,11 @@ make mrproper
 
 Create a default config: `make defconfig`
 
-Configure using the menu (replace `en_US.UTF-8` with the host's `$LANG`): `make LANG=en_US LC_ALL= menuconfig`
+Configure using the menu `make menuconfig`
+
+see the note about required options!
+
+(partial check: `scripts/8/check-kernel-config`)
 
 ## build
 
@@ -34,36 +40,15 @@ time make -j5
 time make modules_install
 ```
 
-## install boot
+## install
 
-```
-export LINUX_VERSION=4.4.2
-cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-$LINUX_VERSION-lfs-20160304-systemd
-cp -v System.map /boot/System.map-$LINUX_VERSION
-cp -v .config /boot/config-$LINUX_VERSION
-```
-
-## docs
-
-```
-install -d /usr/share/doc/linux-$LINUX_VERSION
-cp -r Documentation/* /usr/share/doc/linux-$LINUX_VERSION
-unset LINUX_VERSION
-```
+see `scripts/8/install-linux.sh`
 
 ## No need to remove the sources
 
 But need to chown: `chown -R 0:0 .`
 
 ## module load order
-
-```
-install -v -m755 -d /etc/modprobe.d
-cat > /etc/modprobe.d/usb.conf << "EOF"
-install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
-install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
-EOF
-```
 
 # GRUB
 
