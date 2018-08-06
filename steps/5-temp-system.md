@@ -16,13 +16,32 @@ mkdir -pv /tools/lib
 ln -sv lib /tools/lib64
 ```
 
+## Timings
+
+Remeber to time the first installed package, since all the others are relative to it.
+Check the `user`+`sys` output (as this would give an indication of how long serial-only builds could take)
+Tracking the first GCC build (the 2nd package) is also useful, as it is about 10 times longer than the 1st (which makes
+it one of the longest building packages)
+The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
+
+Added my timings, when used with `time make --jobs 4` for build and `time make check --jobs 4` (or `test`) for
+tests (should `TESTSUITEFLAGS` be used here?).
+Times are also relative to the initial bin utils build
+
+The configure time is not tracked, but is usually quite small (though a few seem to take almost longer on configre than
+build)
+
+Small times are not shown (should be ones smaller than 1 SMB)
+
 ## Part 1
 
 - Bin Utils
+    - remember to time
 - GCC
     - scripts:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
         - `5/gcc/toolchain.sh`
+    - time: 9x to 10x
 - Linux API Headers
     - non default steps:
         - `make mrproper`
@@ -31,6 +50,7 @@ ln -sv lib /tools/lib64
     - had some issues previously during automation, and had to remove this before removing the extracted files
         - `rm -rf linux-4.4.2/arch/arm64/boot/dts/include`
 - GLibc
+    - time: 5x
 
 ## Sanity Check 1
 
@@ -47,6 +67,7 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-che
         - `5/gcc/toolchain.sh`
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
     - `ln -sv gcc /tools/bin/cc`
+    - time: 12x
 
 ## Sanity Check 2
 

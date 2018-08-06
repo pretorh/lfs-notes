@@ -33,7 +33,7 @@ see the note about required options!
 
 ## build
 
-Time: about half the time to build `GCC`
+Time: 10x
 
 ```
 time make -j5

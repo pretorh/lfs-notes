@@ -37,6 +37,8 @@ Build and install from the `sources` directory
 
 ### Glibc
 
+Time: 12x build, 65x test (tests are not as parallel)
+
 patch for file system standards: `patch -Np1 -i ../glibc-2.27-fhs-1.patch`
 
 Configs:
@@ -52,7 +54,7 @@ rm -fv /usr/include/limits.h
 
 #### Tests are critical
 
-`make check` (this took about 3 times longer than `make --jobs 4`)
+`make check`
 
 but some will fail:
 
@@ -140,6 +142,7 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
+    - time: 3x build, 2x to 3x for tests (not as parallel)
 
 ### Part 2.1
 
@@ -159,6 +162,8 @@ on a single core qemu vm:
 
 - Build: about 3 times as long as `glibc`'s build time
 - Tests: about 6 times longer than the build
+
+Times: 10x build, 110x for tests
 
 #### Configure
 
@@ -255,7 +260,7 @@ set the password for root: `passwd root`
     - fix issue introduces in glibc: `sed -i "/math.h/a #include <malloc.h>" src/flexdef.h`
     - all 114 tests passed
 - grep
-    - tests: 134 pass, 7 skpped (of 141 total)
+    - tests: 134 pass, 7 skipped (of 141 total)
 
 ### Bash
 
@@ -270,7 +275,7 @@ After installing, start a new bash: `exec /bin/bash --login +h`
 ### Part 5
 
 - libtool
-    - The tests take some time (1/4 of `GCC` build time)
+    - time: the build is fast, but the tests take some time (2x to 3x)
         - Especially the `Libtool stress test` section
     - Five tests are known to fail (64 failed, 59 expected)
         - 123: compiling softlinked libltdl
@@ -290,12 +295,13 @@ After installing, start a new bash: `exec /bin/bash --login +h`
 
 ### Perl
 
+Time: 1x build, 15x test
+
 Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
 
 see: `scripts/6/5/perl-config.sh` and `scripts/6/5/perl-post.sh`
 
 Tests:
-- about 1/3 of `GCC` build time
 - Run tests with `make -k --jobs 4`
 - "some tests related to zlib will fail". had 9 failing tests:
     - ../cpan/Compress-Raw-Zlib/t/01version.t
@@ -317,13 +323,15 @@ Tests:
     - see `scripts/6/6intltool-patch.sh`
     - 1 test that passes
 - autoconf
-    - the tests takes very long compared to the build (about as long as `perl`s tests)
+    - the tests takes very long compared to the build
+        - about as long as `perl`s tests - though this was on single core
+        - time: 3x
     - run tests with `make check TESTSUITEFLAGS=-j4`
     - "two tests fail due to changes in libtool-2.4.3 and later" (6 failed, 4 exptected)
         - `501: Libtool`
         - `503: autoscan`
 - automake
-    - the tests takes very long compared to the build (2x the time to build `GCC`)
+    - the tests takes very long compared to the build (21x times)
     - run tests with -j4 option to speed it up (even on single core systems)
     - see `scripts/6/6/automake-test.sh`
     - 2 tests are known to fail in LFS: `check12.sh`, `check12-w.sh`
@@ -372,8 +380,6 @@ Tests:
 
 patch: `scripts/6/6/systemd-patch.sh`
 
-Build: half the `GCC` build time
-
 post setup: `scripts/6/6/systemd-post.sh`
 
 after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setup`
@@ -388,7 +394,9 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
     - see `scripts/6/7/e2fsprogs-test.sh`
     - one of the tests require 256mb memory (enable swap if needed)
     - see `scripts/6/7/e2fsprogs-post.sh`
-    -tests: "342 tests succeeded, 0 tests failed"
+    - tests: "342 tests succeeded, 0 tests failed"
+    - build issue: this failed, because `/tools`'s gcc lib was 0 bytes. removed it for the main one to be used
+    - time: 8x for tests
 - coreutils
     - patch for character boundary
     - suppress test: `sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk`
@@ -409,7 +417,7 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
         - `/bin/ln`
         - `/bin/rm`
 - check
-    - tests take relatively long
+    - tests take relatively long (TODO: calc relative times)
     - all 9 tests passed
 - diffutils
     - tests ok (157 pass, 13 skip of 170 total)
@@ -471,6 +479,7 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
     - tests: one test is known to fail, `92. link mismatch`
 - texinfo
     - all tests passed
+    - time: 5x
 - vim
     - archive file (vim-8.0...tar.bz2) and dir (`vim80`) mismatch
         - same with vim 7.4 (`vim74`) version
