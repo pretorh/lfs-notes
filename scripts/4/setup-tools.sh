@@ -1,2 +1,2 @@
 mkdir -v $LFS/tools
-ln -sv $LFS/tools /
+ln -sfv $LFS/tools /

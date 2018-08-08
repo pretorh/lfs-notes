@@ -1,24 +1,40 @@
-sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
-patch -Np1 -i ../systemd-229-compat-1.patch
+SYSTEMD_VERSION=237
 
-# disable 2 tests that always fail
-sed -e 's@test/udev-test.pl @@'  \
-    -e 's@test-copy$(EXEEXT) @@' \
-    -i Makefile.in
+# missing xsltproc, so add symlink
+ln -sfv /tools/bin/true /usr/bin/xsltproc
 
-# rebuild autotool
-autoreconf -fi
+# setup man pages
+tar -xf ../systemd-man-pages-$SYSTEMD_VERSION.tar.xz
 
-cat > config.cache << "EOF"
-KILL=/bin/kill
-MOUNT_PATH=/bin/mount
-UMOUNT_PATH=/bin/umount
-HAVE_BLKID=1
-BLKID_LIBS="-lblkid"
-BLKID_CFLAGS="-I/tools/include/blkid"
-HAVE_LIBMOUNT=1
-MOUNT_LIBS="-lmount"
-MOUNT_CFLAGS="-I/tools/include/libmount"
-cc_cv_CFLAGS__flto=no
-XSLTPROC="/usr/bin/xsltproc"
-EOF
+# remove tests that fail in chroot
+sed '178,222d' -i src/resolve/meson.build
+
+# remove unneeded group
+sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+
+# configure
+mkdir -p build
+cd build
+
+LANG=en_US.UTF-8
+meson --prefix=/usr                 \
+      --sysconfdir=/etc             \
+      --localstatedir=/var          \
+      -Dblkid=true                  \
+      -Dbuildtype=release           \
+      -Ddefault-dnssec=no           \
+      -Dfirstboot=false             \
+      -Dinstall-tests=false         \
+      -Dkill-path=/bin/kill         \
+      -Dkmod-path=/bin/kmod         \
+      -Dldconfig=false              \
+      -Dmount-path=/bin/mount       \
+      -Drootprefix=                 \
+      -Drootlibdir=/lib             \
+      -Dsplit-usr=true              \
+      -Dsulogin-path=/sbin/sulogin  \
+      -Dsysusers=false              \
+      -Dumount-path=/bin/umount     \
+      -Db_lto=false
+
+unset SYSTEMD_VERSION

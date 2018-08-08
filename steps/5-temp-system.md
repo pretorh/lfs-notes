@@ -16,13 +16,32 @@ mkdir -pv /tools/lib
 ln -sv lib /tools/lib64
 ```
 
+## Timings
+
+Remeber to time the first installed package, since all the others are relative to it.
+Check the `user`+`sys` output (as this would give an indication of how long serial-only builds could take)
+Tracking the first GCC build (the 2nd package) is also useful, as it is about 10 times longer than the 1st (which makes
+it one of the longest building packages)
+The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
+
+Added my timings, when used with `time make --jobs 4` for build and `time make check --jobs 4` (or `test`) for
+tests (should `TESTSUITEFLAGS` be used here?).
+Times are also relative to the initial bin utils build
+
+The configure time is not tracked, but is usually quite small (though a few seem to take almost longer on configre than
+build)
+
+Small times are not shown (should be ones smaller than 1 SMB)
+
 ## Part 1
 
 - Bin Utils
+    - remember to time
 - GCC
     - scripts:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
         - `5/gcc/toolchain.sh`
+    - time: 9x to 10x
 - Linux API Headers
     - non default steps:
         - `make mrproper`
@@ -31,10 +50,11 @@ ln -sv lib /tools/lib64
     - had some issues previously during automation, and had to remove this before removing the extracted files
         - `rm -rf linux-4.4.2/arch/arm64/boot/dts/include`
 - GLibc
+    - time: 5x
 
 ## Sanity Check 1
 
-see `scripts/5/sanity-checks/1.sh`
+see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-check.sh`
 
 ## Part 2
 
@@ -47,10 +67,11 @@ see `scripts/5/sanity-checks/1.sh`
         - `5/gcc/toolchain.sh`
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
     - `ln -sv gcc /tools/bin/cc`
+    - time: 12x
 
 ## Sanity Check 2
 
-see `scripts/5/sanity-checks/2.sh`
+see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 
 ## Part 3
 
@@ -62,10 +83,13 @@ see `scripts/5/sanity-checks/2.sh`
 - expect
     - patch the config file
 - DejaGNU
-- check
+- m4
 - ncurses
-    - patch the config file
+    - patch the config file to find gawk
 - bash
+- bison
+	- tests are mentioned, but they run a lot longer than the build
+	    - some also fail: 430, 431, 432
 - bzip2
     - no config needed
 - coreutils
@@ -95,11 +119,11 @@ see `scripts/5/gettext/configure-build-install.sh`
 
 - grep
 - gzip
-- m4
 
 ## More
 
 - make
+	- fix issue from `glibc-2.27`
 - patch
     - easy
 - perl
@@ -115,19 +139,20 @@ see `scripts/5/gettext/configure-build-install.sh`
     - easy
 - texinfo
     - easy
+    - there is an error in configure, but it can be ignored
 - util-linux
 - xz
     - easy
 
 # Finalizing the temp system
 
-run as root user
+run as root user (at least for the change command, but also for all following that)
 
 `export LFS=/mnt/lfs`
 
 ## Cleanup the toolchain
 
-Stip debug symbols, remove documentation and chage ownership.
+Strip debug symbols, remove documentation and chage ownership.
 
 see `scripts/5/finalize/cleanup.sh`
 

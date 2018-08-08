@@ -25,8 +25,6 @@
 
 For installing on Arch, see `scripts/0/pacman.sh`
 
-Note: Building gcc 5 using gcc 6 failed (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=69959) so on Arch, had to manually force `gcc5` and `gcc5-libs`
-
 ## set the LFS variable
 `export LFS=/mnt/lfs`
 
@@ -57,3 +55,10 @@ See `scripts/4/setup-tools.sh`
 
 ## Create the lfs user
 See `scripts/4/create-lfs-user.sh`
+
+## ssh as lfs or switch:
+
+```
+passwd lfs
+su - lfs
+```

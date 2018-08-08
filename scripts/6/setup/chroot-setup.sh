@@ -2,11 +2,29 @@
 
 # FILES AND SYMLINKS
 
-ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
-ln -sv /tools/bin/perl /usr/bin
+ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
+ln -sv /tools/bin/{env,install,perl} /usr/bin
 ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
+ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib
+
+for lib in blkid lzma mount uuid
+do
+	ln -sv /tools/lib/lib$lib.so* /usr/lib
+done
+
+ln -svf /tools/include/blkid 	/usr/include
+ln -svf /tools/include/libmount /usr/include
+ln -svf /tools/include/uuid		/usr/include
+
+install -vdm755 /usr/lib/pkgconfig
+
+for pc in blkid mount uuid
+do
+	echo "${pc}"
+    sed 's@tools@usr@g' /tools/lib/pkgconfig/${pc}.pc \
+        > /usr/lib/pkgconfig/${pc}.pc
+done
+
 ln -sv bash /bin/sh
 
 ln -sv /proc/self/mounts /etc/mtab
@@ -24,6 +42,7 @@ systemd-journal-upload:x:75:75:systemd Journal Upload:/:/bin/false
 systemd-network:x:76:76:systemd Network Management:/:/bin/false
 systemd-resolve:x:77:77:systemd Resolver:/:/bin/false
 systemd-timesync:x:78:78:systemd Time Synchronization:/:/bin/false
+systemd-coredump:x:79:79:systemd Core Dumper:/:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
 EOF
 
@@ -49,6 +68,7 @@ messagebus:x:18:
 systemd-journal:x:23:
 input:x:24:
 mail:x:34:
+kvm:x:61:
 systemd-bus-proxy:x:72:
 systemd-journal-gateway:x:73:
 systemd-journal-remote:x:74:
@@ -56,15 +76,16 @@ systemd-journal-upload:x:75:
 systemd-network:x:76:
 systemd-resolve:x:77:
 systemd-timesync:x:78:
+systemd-coredump:x:79:
 nogroup:x:99:
 users:x:999:
 EOF
 
-echo "username and groupname resolution will now work"
-echo "exec /tools/bin/bash --login +h"
-
 # create log files
-touch /var/log/{btmp,lastlog,wtmp}
+touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
+
+echo "username and groupname resolution will now work"
+echo "exec /tools/bin/bash --login +h"

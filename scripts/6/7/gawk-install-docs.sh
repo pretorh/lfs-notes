@@ -1,2 +1,4 @@
-mkdir -v /usr/share/doc/gawk-4.1.3
-cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.1.3
+GAWK_VERSION=4.2.0
+mkdir -v $DESTDIR/usr/share/doc/gawk-$GAWK_VERSION
+cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} $DESTDIR/usr/share/doc/gawk-$GAWK_VERSION
+unset GAWK_VERSION

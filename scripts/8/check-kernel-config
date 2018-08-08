@@ -1,0 +1,16 @@
+# todo: try setting with:
+# sed -i 's|.*CONFIG_EFI_STUB.*|CONFIG_EFI_STUB=y|' .config
+# but need to make sure only the specific config is matched (not a substring)
+
+# all these must be yes
+cat .config | grep -wE "CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS"
+cat .config | grep -wE "CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR"
+
+# for uefi, this must be set
+cat .config | grep -wE "CONFIG_EFI_STUB"
+
+# frame pointer must be set, orc not set
+cat .config | grep -E "CONFIG_UNWINDER_"
+
+# these must be off
+cat .config | grep -wE "CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER_FALLBACK"

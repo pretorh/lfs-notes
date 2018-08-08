@@ -1,5 +1,4 @@
-for file in \
- $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+for file in gcc/config/{linux,i386/linux{,64}}.h
 do
   cp -uv $file{,.orig}
   sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
@@ -11,3 +10,6 @@ do
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
   touch $file.orig
 done
+
+sed -e '/m64=/s/lib64/lib/' \
+    -i.orig gcc/config/i386/t-linux64
