@@ -60,3 +60,12 @@ then create the group: `groupadd --gid 1000 username`
 and the user: `useradd --uid 1000 --gid 1000 --no-create-home username`
 
 (replacing `username`, and both `1000` values as needed)
+
+## build and packaging
+
+todo: publish a few helpers that:
+
+- sets up a fakeroot
+- add file system dirs
+- package files installed with `DESTDIR`
+- apply a package, checking that files dont already exist
