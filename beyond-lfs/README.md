@@ -23,7 +23,6 @@ So the wishlist packages (not really in a specific order):
 - git
 - tmux
 - zsh
-- curl
 - firefox
 - X, xfce
 - mplayer
@@ -42,6 +41,7 @@ So the wishlist packages (not really in a specific order):
 - keepassx2
 - visual studio code
 - dropbox
+- nghttp2
 
 ## Configurations
 
