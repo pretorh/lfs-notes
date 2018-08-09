@@ -42,3 +42,21 @@ So the wishlist packages (not really in a specific order):
 - keepassx2
 - visual studio code
 - dropbox
+
+## Configurations
+
+### shared home partition
+
+mount another system's `/home` partition
+
+### users
+
+create a new user, making sure the user's uid and gid are the same as current home partition:
+
+get the user id and group id from `stat /home/username`
+
+then create the group: `groupadd --gid 1000 username`
+
+and the user: `useradd --uid 1000 --gid 1000 --no-create-home username`
+
+(replacing `username`, and both `1000` values as needed)
