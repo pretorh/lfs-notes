@@ -1,6 +1,8 @@
+set -e
+
 echo "enter ll (language 2 letter)"
 read locale_ll
-echo "enter CC (couttry 2 letter)"
+echo "enter CC (coutry 2 letter)"
 read locale_cc
 
 locale_llcc=$(locale -a | grep -i $locale_ll | grep -i $locale_cc | sort | head -n 1)
@@ -20,9 +22,8 @@ LC_ALL=$locale_final locale int_curr_symbol
 LC_ALL=$locale_final locale int_prefix
 
 echo "setting"
-echo "$locale_final" > /etc/locale.conf
+echo "LANG=$locale_final" > /etc/locale.conf
 cat /etc/locale.conf
-
 
 unset locale_ll
 unset locale_cc
