@@ -18,6 +18,7 @@ build order and dependencies:
 - `libxfce4util`
     - `glib2`
 - `xfconf`
+    - `dbus-glib`
 - `libxfce4ui`
 - `garcon`
 - `exo`
