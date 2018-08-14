@@ -21,8 +21,6 @@ For that, the top level things needed:
 So the wishlist packages (not really in a specific order):
 
 - git
-- tmux
-- zsh
 - firefox
 - X, xfce
 - mplayer
