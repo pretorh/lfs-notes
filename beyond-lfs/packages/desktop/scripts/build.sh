@@ -5,6 +5,10 @@ set -e
 GROUP=${1?'need group name'}
 NAME=${2?'need package name and version'}
 ROOT=https://www.x.org/archive/individual
+export GROUP NAME
+
+echo "running external: $PREPARE_COMMAND"
+$PREPARE_COMMAND
 
 echo "building $GROUP/$NAME.tar.bz2"
 curl -LO -C - $ROOT/$GROUP/$NAME.tar.bz2
@@ -25,3 +29,6 @@ make install DESTDIR=$DESTDIR
 cd ..
 rm -rf $NAME
 echo "$NAME build ok"
+
+echo "running external: $INSTALL_COMMAND"
+$INSTALL_COMMAND
