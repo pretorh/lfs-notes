@@ -110,3 +110,41 @@ normal build, test and install commands. had 1 test that passed
 ### post install
 
 `sudo /sbin/ldconfig --verbose`
+
+
+## xorg libraries
+
+group: `lib`
+
+names and build order:
+
+- `xtrans-1.3.5`
+- `libX11-1.6.5`
+    - tests
+- `libXext-1.3.3`
+- `libFS-1.0.7`
+- `libICE-1.0.9`
+    - `./configure $XORG_CONFIG ICE_LIBS=-lpthread`
+- `libSM-1.2.2`
+- `libXScrnSaver-1.2.2`
+- `libXt-1.1.5`
+    - `./configure $XORG_CONFIG --with-appdefaultdir=/etc/X11/app-defaults`
+    - tests
+- `libXmu-1.1.2`
+- `libXpm-3.5.12`
+- `libXaw-1.0.13`
+- `libXfixes-5.0.3`
+- `libXcomposite-0.4.4`
+- `libXrender-0.9.10`
+- `libXcursor-1.1.15`
+- `libXdamage-1.1.4`
+- `libfontenc-1.1.3`
+
+to run tests and check results:
+
+```
+make check 2>&1 | tee make_check.log
+grep -A9 summary make_check.log
+```
+
+after each, as root: `/sbin/ldconfig`
