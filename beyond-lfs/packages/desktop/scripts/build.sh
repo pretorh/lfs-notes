@@ -18,11 +18,18 @@ rm -rf $NAME
 tar xf $NAME.tar.bz2
 cd $NAME
 
-echo "configuring using $XORG_CONFIG"
-./configure $XORG_CONFIG
+echo "configuring using $XORG_CONFIG $XORG_CONFIG_MORE"
+[ ! -z "$XORG_CONFIG_MORE" ] && read
+./configure $XORG_CONFIG $XORG_CONFIG_MORE
 make --jobs=4
 echo "build ok!"
 echo ""
+
+make check --jobs=4 2>&1 | tee make_check.log
+if [ ! -z "$TESTS" ] ; then
+  grep -A9 summary make_check.log
+  read
+fi
 
 make install DESTDIR=$DESTDIR
 
