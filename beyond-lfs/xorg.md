@@ -69,3 +69,44 @@ names:
 
 - `libXau-1.0.8` (authorization protocol)
 - `libXdmcp-1.1.2` (display manager control protocol)
+
+## xcb-proto and libxcb
+
+download packages from: `https://xcb.freedesktop.org/dist/` and patches from `http://www.linuxfromscratch.org/patches/blfs/8.2/`
+
+this assumes only python3 is installed
+
+### xcb-proto
+
+patch and configure:
+```
+patch -Np1 -i ../xcb-proto-1.12-schema-1.patch
+patch -Np1 -i ../xcb-proto-1.12-python3-1.patch
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+```
+
+expanded `$XORG_CONFIG` variable in configure (had prefix include the other options)
+
+no build commands ("Nothing to be done for 'all'") and no test commands (`python2` and `libxml` required) (though both commands still pass)
+
+### libxcb
+
+patch and configure:
+
+```
+patch -Np1 -i ../libxcb-1.12-python3-1.patch
+sed -i "s/pthread-stubs//" configure
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --disable-static     \
+            --enable-xinput   \
+            --without-doxygen \
+            --docdir='${datadir}'/doc/libxcb-1.12
+```
+
+normal build, test and install commands. had 1 test that passed
+
+### post install
+
+`sudo /sbin/ldconfig --verbose`
