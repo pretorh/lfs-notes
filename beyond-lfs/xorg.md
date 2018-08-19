@@ -60,3 +60,12 @@ names and build order:
 - `xproto-7.0.31`
 
 no build commands ("make: Nothing to be done for 'all'") and no tests
+
+## libXau and libXdmcp
+
+group: `lib`
+
+names:
+
+- `libXau-1.0.8` (authorization protocol)
+- `libXdmcp-1.1.2` (display manager control protocol)
