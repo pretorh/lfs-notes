@@ -139,6 +139,25 @@ names and build order:
 - `libXcursor-1.1.15`
 - `libXdamage-1.1.4`
 - `libfontenc-1.1.3`
+- `libXfont2-2.0.3`
+    - dependencies: `freetype` and `fontconfig`
+    - `./configure $XORG_CONFIG --disable-devel-docs`
+- `libXft-2.3.2`
+- `libXi-1.7.9`
+- `libXinerama-1.1.3`
+- `libXrandr-1.5.1`
+- `libXres-1.2.0`
+- `libXtst-1.2.3`
+- `libXv-1.0.11`
+- `libXvMC-1.0.10`
+- `libXxf86dga-1.1.4`
+- `libXxf86vm-1.1.4`
+- `libdmx-1.1.3`
+- `libpciaccess-0.14`
+- `libxkbfile-1.0.9`
+- `libxshmfence-1.2`
+    - `./configure $XORG_CONFIG CFLAGS="$CFLAGS -D_GNU_SOURCE"`
+    - tests
 
 to run tests and check results:
 
