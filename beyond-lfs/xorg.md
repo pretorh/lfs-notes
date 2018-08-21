@@ -167,3 +167,26 @@ grep -A9 summary make_check.log
 ```
 
 after each, as root: `/sbin/ldconfig`
+
+## xcb-utils
+
+download packages from: `https://xcb.freedesktop.org/dist/`
+
+considered merging with `xcb-proto` and `libxcb` (these seem to only depend on `libxcb`) but their versions are all related
+
+see build script: `packages/desktop/scripts/xcb-util-build.sh`
+
+names and order:
+
+- `xcb-util-0.4.0`
+- `xcb-util-image-0.4.0`
+    - test: `LD_LIBRARY_PATH=$XORG_PREFIX/lib make check`
+    - one test, passed
+- `xcb-util-keysyms-0.4.0`
+- `xcb-util-renderutil-0.3.9`
+- `xcb-util-wm-0.4.1`
+- `xcb-util-cursor-0.1.3`
+
+all can be configured with `./configure $XORG_CONFIG`
+
+tests can be run on all, but only `xcb-util-image` has tests
