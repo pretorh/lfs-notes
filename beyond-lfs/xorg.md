@@ -190,3 +190,7 @@ names and order:
 all can be configured with `./configure $XORG_CONFIG`
 
 tests can be run on all, but only `xcb-util-image` has tests
+
+## mesa
+
+see external mesa doc
