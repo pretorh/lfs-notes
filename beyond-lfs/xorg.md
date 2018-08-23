@@ -194,3 +194,59 @@ tests can be run on all, but only `xcb-util-image` has tests
 ## mesa
 
 see external mesa doc
+
+## xbitmaps
+
+group: `data`
+
+names: `xbitmaps-1.1.1`
+
+## xorg applications
+
+group: `app`
+
+names and build order:
+
+- `iceauth-1.0.7`
+- `luit-1.1.1`
+    - patch with: `sed -i -e "/D_XOPEN/s/5/6/" configure`
+- `mkfontdir-1.0.7`
+- `mkfontscale-1.1.2`
+- `sessreg-1.1.1`
+- `setxkbmap-1.3.1`
+- `smproxy-1.0.6`
+- `x11perf-1.6.0`
+- `xauth-1.0.10`
+- `xbacklight-1.2.1`
+- `xcmsdb-1.0.5`
+
+todo:
+
+- `xcursorgen-1.0.6`
+    - dependencies: libpng >= 1.2.0
+- `xdpyinfo-1.3.2`
+- `xdriinfo-1.0.5`
+- `xev-1.2.2`
+- `xgamma-1.0.6`
+- `xhost-1.0.7`
+- `xinput-1.6.2`
+- `xkbcomp-1.4.0`
+- `xkbevd-1.1.4`
+- `xkbutils-1.0.4`
+- `xkill-1.0.4`
+- `xlsatoms-1.1.2`
+- `xlsclients-1.1.3`
+- `xmessage-1.0.4`
+- `xmodmap-1.0.9`
+- `xpr-1.0.4`
+- `xprop-1.2.2`
+- `xrandr-1.5.0`
+    - post install: `rm -v /usr/bin/xkeystone`
+- `xrdb-1.1.0`
+- `xrefresh-1.0.5`
+- `xset-1.2.3`
+- `xsetroot-1.1.1`
+- `xvinfo-1.1.3`
+- `xwd-1.0.6`
+- `xwininfo-1.1.3`
+- `xwud-1.0.4`
