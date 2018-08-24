@@ -219,13 +219,14 @@ names and build order:
 - `xauth-1.0.10`
 - `xbacklight-1.2.1`
 - `xcmsdb-1.0.5`
-
-todo:
-
 - `xcursorgen-1.0.6`
     - dependencies: libpng >= 1.2.0
 - `xdpyinfo-1.3.2`
+
+todo:
+
 - `xdriinfo-1.0.5`
+    - dependencies: mesa
 - `xev-1.2.2`
 - `xgamma-1.0.6`
 - `xhost-1.0.7`
