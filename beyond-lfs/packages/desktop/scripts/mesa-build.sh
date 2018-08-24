@@ -18,4 +18,4 @@ GALLIUM_DRIVERS=${1?'need gallium drivers to install'}
 
 time make --jobs=4
 
-time make check --jobs=4
+time make check --jobs=4 -k
