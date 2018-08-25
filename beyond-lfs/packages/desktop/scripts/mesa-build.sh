@@ -4,9 +4,7 @@ set -e
 # see http://www.mesa3d.org/systems.html
 GALLIUM_DRIVERS=${1?'need gallium drivers to install'}
 
-# ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
-
-./configure CFLAGS='-O2' CXXFLAGS='-O2' \
+./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
             --prefix=/usr                      \
             --sysconfdir=/etc                  \
             --enable-texture-float             \
@@ -16,6 +14,4 @@ GALLIUM_DRIVERS=${1?'need gallium drivers to install'}
             --with-platforms="drm,x11,wayland" \
             --with-gallium-drivers=$GALLIUM_DRIVERS
 
-time make --jobs=4
-
-time make check --jobs=4 -k
+time make --jobs=8
