@@ -248,3 +248,43 @@ names and build order:
 - `xwd-1.0.6`
 - `xwininfo-1.1.3`
 - `xwud-1.0.4`
+
+## xcursor-themes
+
+group: `data`
+
+names and build order:
+
+- xcursor-themes-1.0.4
+
+## xorg fonts
+
+group: `font`
+
+names and build order:
+
+- `font-util-1.3.1`
+- `encodings-1.0.4`
+- `font-alias-1.0.3`
+- `font-adobe-utopia-type1-1.0.4`
+- `font-bh-ttf-1.0.3`
+- `font-bh-type1-1.0.3`
+- `font-ibm-type1-1.0.3`
+- `font-misc-ethiopic-1.0.3`
+- `font-xfree86-type1-1.0.4`
+
+recreate `fonts.scale` and `fonts.dir` files after unpacking:
+
+```
+mkfontscale /usr/share/fonts/X11/{Type1,TTF,OTF}/
+mkfontdir /usr/share/fonts/X11/{Type1,TTF,OTF}/
+fc-cache -s --verbose
+```
+
+setup symlinks to `X11-*`:
+
+```
+install -v -d -m755 $DESTDIR/usr/share/fonts/X11/{OTF,TTF}
+ln -svfn $DESTDIR/usr/share/fonts/X11/OTF $DESTDIR/usr/share/fonts/X11-OTF
+ln -svfn $DESTDIR/usr/share/fonts/X11/TTF $DESTDIR/usr/share/fonts/X11-TTF
+```
