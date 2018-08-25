@@ -222,9 +222,6 @@ names and build order:
 - `xcursorgen-1.0.6`
     - dependencies: libpng >= 1.2.0
 - `xdpyinfo-1.3.2`
-
-todo:
-
 - `xdriinfo-1.0.5`
     - dependencies: mesa
 - `xev-1.2.2`
@@ -242,7 +239,7 @@ todo:
 - `xpr-1.0.4`
 - `xprop-1.2.2`
 - `xrandr-1.5.0`
-    - post install: `rm -v /usr/bin/xkeystone`
+    - pre package: `rm -v $DESTDIR/usr/bin/xkeystone` ("undocumented script which is reported to be broken")
 - `xrdb-1.1.0`
 - `xrefresh-1.0.5`
 - `xset-1.2.3`
