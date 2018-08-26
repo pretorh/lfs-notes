@@ -322,3 +322,7 @@ tests passed (without running `ldconfig`): 11 passed + 1 skipped; 1/1 passed; 11
 make install DESTDIR=$DESTDIR
 mkdir -pv $DESTDIR/etc/X11/xorg.conf.d
 ```
+
+## packages for testing
+
+see external file: `xorg-test-setup.md`
