@@ -312,7 +312,9 @@ build `xorg-server-1.19.6` with additional configs:
 
 ### tests
 
-" To test the results, issue: make check. You will need to run ldconfig as the root user first or some tests may fail. "
+"You will need to run ldconfig as the root user first or some tests may fail."
+
+tests passed (without running `ldconfig`): 11 passed + 1 skipped; 1/1 passed; 11/11 passed
 
 ### install
 
