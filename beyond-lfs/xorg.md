@@ -299,7 +299,10 @@ build: `xkeyboard-config-2.23.1` with additional config `--with-xkb-rules-symlin
 
 group: `xserver`
 
-dependencies: `pixman-1 >= 0.27.2`
+dependencies:
+
+- `pixman-1 >= 0.27.2`
+- `epoxy`
 
 build `xorg-server-1.19.6` with additional configs:
 
