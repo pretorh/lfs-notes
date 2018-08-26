@@ -323,6 +323,74 @@ make install DESTDIR=$DESTDIR
 mkdir -pv $DESTDIR/etc/X11/xorg.conf.d
 ```
 
+## drivers
+
+### dependencies
+
+#### mtdev
+
+version: `1.1.5`
+
+download mask: `https://bitmath.org/code/mtdev/mtdev-<VERSION>.tar.gz`
+
+configure options: `prefix`, `disable-static`
+
+normal build and install, no tests (though `make check` passes)
+
+#### libevdev
+
+version: `1.5.9`
+
+download mask: `https://www.freedesktop.org/software/libevdev/libevdev-<VERSION>.tar.xz`
+
+need kernel options:
+
+```
+Device Drivers  --->
+  Input device support --->
+    <*> Generic input layer (needed for...) [CONFIG_INPUT]
+    <*>   Event interface                   [CONFIG_INPUT_EVDEV]
+    [*]   Miscellaneous devices  --->       [CONFIG_INPUT_MISC]
+      <*>    User level driver support      [CONFIG_INPUT_UINPUT]
+```
+
+normal xorg configure, build and install commands
+
+`make check` has 2 tests, but both skipped
+
+#### libinput
+
+version: `1.11.3`
+
+download mask: `https://www.freedesktop.org/software/libinput/libinput-<VERSION>.tar.xz`
+
+configure and build: see `libinput-build.sh`
+
+install with `ninja install`
+
+### `xf86-video-nouveau-1.0.15`
+
+group: `driver`
+
+need kernel options:
+
+```
+Device Drivers  --->
+  Graphics support --->
+   <*> Direct Rendering Manager (XFree86 ... support) ---> [CONFIG_DRM]
+   <*> Nouveau (NVIDIA) cards                              [CONFIG_DRM_NOUVEAU]
+      [*]   Support for backlight control                     [CONFIG_DRM_NOUVEAU_BACKLIGHT]
+```
+
+normal xorg configure, build and install commands
+
+### `xf86-input-libinput-0.26.0`
+
+group: `driver`
+
+normal xorg configure, build and install commands
+
+
 ## packages for testing
 
 see external file: `xorg-test-setup.md`
