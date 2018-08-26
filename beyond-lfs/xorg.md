@@ -394,3 +394,28 @@ normal xorg configure, build and install commands
 ## packages for testing
 
 see external file: `xorg-test-setup.md`
+
+### setup
+
+needed to add user to the `video` group
+
+### test
+
+had to test on another user (since main user has `~/.xinitrc` file, which tries to load xfce)
+
+to stop, exit from the terminal in the upper left
+
+`startx`
+
+### check DRI
+
+`grep NOUVEAU $HOME/.local/share/xorg/Xorg.0.log | grep DRI`
+
+had output
+
+```
+NOUVEAU(0): Allowed maximum DRI level 2.
+NOUVEAU(0): [DRI2] Setup complete
+NOUVEAU(0): [DRI2]   DRI driver: nouveau
+NOUVEAU(0): [DRI2]   VDPAU driver: nouveau
+```
