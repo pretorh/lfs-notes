@@ -288,3 +288,32 @@ install -v -d -m755 $DESTDIR/usr/share/fonts/X11/{OTF,TTF}
 ln -svfn $DESTDIR/usr/share/fonts/X11/OTF $DESTDIR/usr/share/fonts/X11-OTF
 ln -svfn $DESTDIR/usr/share/fonts/X11/TTF $DESTDIR/usr/share/fonts/X11-TTF
 ```
+
+## XKeyboardConfig
+
+group: `data/xkeyboard-config`
+
+build: `xkeyboard-config-2.23.1` with additional config `--with-xkb-rules-symlink=xorg`
+
+## xorg server
+
+group: `xserver`
+
+dependencies: `pixman-1 >= 0.27.2`
+
+build `xorg-server-1.19.6` with additional configs:
+
+- `--enable-glamor`
+- `--enable-suid-wrapper`
+- `--with-xkb-output=/var/lib/xkb`
+
+### tests
+
+" To test the results, issue: make check. You will need to run ldconfig as the root user first or some tests may fail. "
+
+### install
+
+```
+make install DESTDIR=$DESTDIR
+mkdir -pv $DESTDIR/etc/X11/xorg.conf.d
+```
