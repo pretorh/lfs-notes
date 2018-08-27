@@ -273,13 +273,7 @@ names and build order:
 - `font-misc-ethiopic-1.0.3`
 - `font-xfree86-type1-1.0.4`
 
-recreate `fonts.scale` and `fonts.dir` files after unpacking:
-
-```
-mkfontscale /usr/share/fonts/X11/{misc,100dpi,75dpi,Type1,TTF,OTF}
-mkfontdir /usr/share/fonts/X11/{misc,100dpi,75dpi,Type1,TTF,OTF}
-fc-cache -s --verbose
-```
+recreate `fonts.scale` and `fonts.dir` files after unpacking: see `post-install-fonts.sh`
 
 setup symlinks to `X11-*`:
 
@@ -419,3 +413,17 @@ NOUVEAU(0): [DRI2] Setup complete
 NOUVEAU(0): [DRI2]   DRI driver: nouveau
 NOUVEAU(0): [DRI2]   VDPAU driver: nouveau
 ```
+
+## fonts
+
+noto: `https://www.google.com/get/noto/`
+    - sub names installed: `Sans`, `Mono`
+    - mask: `https://noto-website-2.storage.googleapis.com/pkgs/Noto<SUBNAME>-hinted.zip`
+    - NOTE: zip extracts into current directory (not in a sub dir)
+    - font file masks: `./*.ttf`
+dejavu: `https://sourceforge.net/projects/dejavu/files/dejavu/`
+    - verions: `2.37`
+    - mask: `https://sourceforge.net/projects/dejavu/files/dejavu/<VERSION>/dejavu-fonts-<VERSION>.tar.bz2`
+    - font file masks: `./ttf/*.ttf`
+
+move ttf files: see `install-fonts.sh`, pass font file mask as params
