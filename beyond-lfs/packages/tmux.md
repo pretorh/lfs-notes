@@ -31,4 +31,4 @@ no tests
 
 setup configs (`~/.tmux.conf`)
 
-my shared config failed, due to `set-option -g default-shell /bin/zsh` (zsh was not installed yet, so tmux launched and then exited)
+tmux failed to launch using my shared config, due to `set-option -g default-shell /bin/zsh` (zsh was not installed yet, so tmux launched and then exited)
