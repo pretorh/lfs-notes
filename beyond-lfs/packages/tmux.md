@@ -2,7 +2,7 @@
 
 Why: multiple terminals screens
 
-installed version: 2.1.8
+installed version: `2.1.8`
 
 links:
 
@@ -11,24 +11,15 @@ links:
 
 ### dependencies
 
-- libevent
+- `libevent`
 
 ### commands
 
-#### configure options
-
-`prefix`, `disable-static`
-
-#### tests
-
-no tests
-
-#### install
-
-`make install DESTDIR=$DESTDIR`
+configure options: `prefix`, `disable-static`
 
 #### post install
 
 setup configs (`~/.tmux.conf`)
 
-tmux failed to launch using my shared config, due to `set-option -g default-shell /bin/zsh` (zsh was not installed yet, so tmux launched and then exited)
+`tmux` failed to launch using my shared config, due to `set-option -g default-shell /bin/zsh` (`zsh` was not installed yet,
+so `tmux` launched and then exited)

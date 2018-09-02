@@ -1,6 +1,6 @@
 ## libxml2
 
-Why: dependency for wayland
+Why: dependency for `wayland`
 
 installed version: `2.9.8`
 
@@ -8,10 +8,6 @@ links:
 
 - [download page](https://github.com/GNOME/libxml2/releases)
 - download mask: `https://github.com/GNOME/libxml2/archive/v<VERSION>.tar.gz`
-
-### dependencies
-
-none
 
 ### commands
 

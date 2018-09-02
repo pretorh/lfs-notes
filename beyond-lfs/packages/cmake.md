@@ -1,6 +1,6 @@
 ## cmake
 
-Why: dependency of llvm
+Why: dependency of `llvm`
 
 installed version: `3.12.1`
 
@@ -51,14 +51,14 @@ time: 4x (20x)
 
 got a few segfaults during some of the tests
 
-after python2 installed, all tests passed
+after `python2` installed, all tests passed
 
-7 tests failed (before python2 installed):
+7 tests failed (before `python2` installed):
 
-- 60 - ExportImport (Failed)
-- 68 - StagingPrefix (Failed)
-- 119 - SimpleInstall (Failed)
-- 120 - SimpleInstall-Stage2 (Failed)
-- 181 - CTestTestUpload (Failed)
-- 261 - CMakeOnly.MajorVersionSelection-PythonInterp_2 (Failed)
-- 399 - RunCMake.install (Failed)
+- `60 - ExportImport`
+- `68 - StagingPrefix`
+- `119 - SimpleInstall`
+- `120 - SimpleInstall-Stage2`
+- `181 - CTestTestUpload`
+- `261 - CMakeOnly.MajorVersionSelection-PythonInterp_2`
+- `399 - RunCMake.install`

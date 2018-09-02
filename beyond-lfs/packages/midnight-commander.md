@@ -2,7 +2,7 @@
 
 Why: file management
 
-installed version: 4.8.21
+installed version: `4.8.21`
 
 links:
 
@@ -32,7 +32,7 @@ none (only core lfs libs)
 
 reason:
 - build without: internal editor, diff viewer, "Background code is known to be less stable ... may want to disable it"
-- use ncurses
+- use `ncurses`
 - do not install static libs, no gpm mouse support, less dependencies on x11 libraries,
 
 #### tests
@@ -52,6 +52,7 @@ rm -v $DESTDIR/usr/share/man/man1/mc{edit,view}.1
 ```
 
 still installed `mcview`, installed man pages for view and edit
+
 TODO: what is: also install "the console screen saver" (`usr/lib/mc/cons.saver`)
 
 quite a lot of skins were installed (`/usr/share/mc/skins`) might want do remove that, especially 256 and 16M files if the terminal will only support 16 colors

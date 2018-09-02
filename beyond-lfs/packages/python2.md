@@ -25,10 +25,6 @@ time make --jobs=8
 
 auto started some (399) tests
 
-reason:
-
-- ?
-
 time: 17x
 
 #### tests

@@ -2,13 +2,12 @@
 
 Why: Need to be able to download packages from inside LFS
 
-installed version: 7.61.0
+installed version: `7.61.0`
 
 links:
 
 - [download page](https://curl.haxx.se/download.html)
-- [how to](https://curl.haxx.se/docs/install.html)
-- and see the file `GIT-INFO` in the extracted files
+- [how to](https://curl.haxx.se/docs/install.html) and see the file `GIT-INFO` in the extracted files
 
 ### commands
 

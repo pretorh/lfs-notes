@@ -1,8 +1,8 @@
 ## libevent
 
-Why: dependency of tmux
+Why: dependency of `tmux`
 
-installed version: 2.1.8
+installed version: `2.1.8`
 
 links:
 

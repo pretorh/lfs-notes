@@ -2,7 +2,7 @@
 
 Why: build list of trusted certificates (for https to work)
 
-installed version: 0.7
+installed version: `0.7`
 
 links:
 
@@ -11,17 +11,7 @@ links:
 
 ### commands
 
-#### configure options
-
-no configure scripts
-
-#### tests
-
-none
-
-#### install
-
-`make install DESTDIR=$DESTDIR`
+no configure scripts, no tests, normal install commands
 
 #### post
 

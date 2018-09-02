@@ -2,7 +2,7 @@
 
 Why: better shell than bash
 
-installed version: 5.5.1
+installed version: `5.5.1`
 
 links:
 

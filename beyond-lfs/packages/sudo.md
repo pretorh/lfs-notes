@@ -2,7 +2,7 @@
 
 Why: to no longer have to logout/login as root just to install packages
 
-installed version: 1.8.23
+installed version: `1.8.23`
 
 links:
 
