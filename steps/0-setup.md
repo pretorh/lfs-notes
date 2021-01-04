@@ -26,6 +26,8 @@
 
 For installing on Arch, see `scripts/0/pacman.sh`
 
+See `scripts/0/symlink-check.sh`
+
 ## set the LFS variable
 `export LFS=/mnt/lfs`
 
