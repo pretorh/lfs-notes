@@ -18,6 +18,7 @@
 - make
 - patch
 - perl
+- python (3.4)
 - sed
 - tar
 - texinfo
