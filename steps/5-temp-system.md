@@ -50,6 +50,8 @@ Small times are not shown (should be ones smaller than 1 SMB)
     - build using `make headers`
     - intstall script: see `5/linux-headers/install.sh`
 - GLibc
+    - install symlinks (is this needed before, can it be run after install?): see `scripts/5/glibc/symlinks.sh`
+    - patch for FHS compliance (`patch -Np1 -i ../glibc-*-fhs-1.patch`)
     - time: 5x
 
 ## Sanity Check 1
