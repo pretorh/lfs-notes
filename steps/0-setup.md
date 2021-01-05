@@ -51,6 +51,8 @@ There were some files not in the wget-list, so will need to download them separa
 See `scripts/3/download-sources.sh`
 If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
 
+Consider downloading from a [mirror](http://www.linuxfromscratch.org/mirrors.html) with https
+
 ### versions/missing packages
 
 - file (older versions not kept)
