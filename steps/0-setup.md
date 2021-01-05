@@ -62,6 +62,15 @@ If running this script from within the new lfs system, change into the sources d
 
 # 4. Tools
 
+## directory structure
+
+assumes 64 bit. `-p` is used since that ignored already-existing directories
+
+```
+sudo --preserve-env=LFS mkdir -pv $LFS/{bin,etc,lib,lib64,sbin,usr,var}
+mkdir -pv $LFS/tools
+```
+
 ## Setup the tools directory
 See `scripts/4/setup-tools.sh`
 
