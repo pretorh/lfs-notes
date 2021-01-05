@@ -49,7 +49,13 @@ See `scripts/3/setup-sources.sh`
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 There were some files not in the wget-list, so will need to download them separately.  
 See `scripts/3/download-sources.sh`
-If running this script from within the new lfs system, change into the sources directory first (`cd $LFS/sources`)
+If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
+
+### versions/missing packages
+
+- file (older versions not kept)
+- linux: get the latest version from https://www.kernel.org/pub/linux/kernel/v5.x/
+- vim: get the latest version from https://github.com/vim/vim/releases
 
 # 4. Tools
 
