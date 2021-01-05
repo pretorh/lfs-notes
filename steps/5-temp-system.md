@@ -58,6 +58,8 @@ Small times are not shown (should be ones smaller than 1 SMB)
 
 see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-check.sh`
 
+Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders`
+
 ## Part 2
 
 - libstdc++
