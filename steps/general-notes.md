@@ -1,4 +1,8 @@
-# VM and SSH notes
+# General notes
+
+## sudo
+
+You can run sudo with `sudo --preserve-env=LFS ` in order to keep the LFS variable
 
 ## Qemu
 
