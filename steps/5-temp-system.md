@@ -45,12 +45,10 @@ Small times are not shown (should be ones smaller than 1 SMB)
         - `5/gcc/fix-limits_header.sh`
     - time: 9x to 10x
 - Linux API Headers
-    - non default steps:
-        - `make mrproper`
-        - `make INSTALL_HDR_PATH=dest headers_install`
-        - `cp -rv dest/include/* /tools/include`
-    - had some issues previously during automation, and had to remove this before removing the extracted files
-        - `rm -rf linux-4.4.2/arch/arm64/boot/dts/include`
+    - extract from the linux sources (use downloaded version)
+    - ensure clean working directory: `make mrproper`
+    - build using `make headers`
+    - intstall script: see `5/linux-headers/install.sh`
 - GLibc
     - time: 5x
 
