@@ -62,6 +62,15 @@ If running this script from within the new lfs system, change into the sources d
 
 # 4. Tools
 
+## create lfs user
+
+as root:
+
+```
+groupadd lfs
+useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+```
+
 ## directory structure
 
 assumes 64 bit. `-p` is used since that ignored already-existing directories

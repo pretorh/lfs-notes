@@ -1,5 +1,4 @@
-groupadd lfs
-useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+#!/usr/bin/env sh
 
 cat > /home/lfs/.bash_profile << "EOF"
 exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
