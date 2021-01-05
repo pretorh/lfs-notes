@@ -46,12 +46,13 @@ See general notes to copy sources over ssh.
 See `scripts/3/setup-sources.sh`
 
 ## Download the sources
+
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
-There were some files not in the wget-list, so will need to download them separately.  
-See `scripts/3/download-sources.sh`
-If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
 
 Consider downloading from a [mirror](http://www.linuxfromscratch.org/mirrors.html) with https
+
+See `scripts/3/download-sources.sh`
+If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
 
 ### versions/missing packages
 
