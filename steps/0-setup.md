@@ -69,25 +69,15 @@ as root:
 ```
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+passwd lfs
 ```
-
-initialize the user's bash profile, rc files: `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
 
 ## directory structure
 
-assumes 64 bit. `-p` is used since that ignored already-existing directories
+Create directory structure with `sudo --preserve-env=LFS sh ./scripts/4/create-dirs.sh`
 
-```
-sudo --preserve-env=LFS mkdir -pv $LFS/{bin,etc,lib,lib64,sbin,usr,var}
-mkdir -pv $LFS/tools
-```
+## initialize lfs user's environment and switch
 
-## Setup the tools directory
-See `scripts/4/setup-tools.sh`
+initialize the user's bash profile and rc files: `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
 
-## ssh as lfs or switch:
-
-```
-passwd lfs
-su - lfs
-```
+Switch to the lfs user using `su - lfs`
