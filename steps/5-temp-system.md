@@ -38,9 +38,11 @@ Small times are not shown (should be ones smaller than 1 SMB)
 - Bin Utils
     - remember to time
 - GCC
-    - scripts:
+    - patch scripts:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `5/gcc/toolchain.sh`
+        - `5/gcc/patch-lib64.sh`
+    - post install scritps:
+        - `5/gcc/fix-limits_header.sh`
     - time: 9x to 10x
 - Linux API Headers
     - non default steps:
