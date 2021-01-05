@@ -67,6 +67,14 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
+
+## cross compiling temporary tools
+
+- m4
+    - patch: `5/tools/m4-patch.sh`
+
+## Old part 2
+
 - Bin Utils (pass 2)
     - "re-adjusting"
 - GCC (pass 2)
@@ -91,7 +99,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 - expect
     - patch the config file
 - DejaGNU
-- m4
 - ncurses
     - patch the config file to find gawk
 - bash
