@@ -65,6 +65,8 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
 ## Part 2
 
 - libstdc++
+    - part of gcc sources
+    - run configure from `libstdc++-v3`
 - Bin Utils (pass 2)
     - "re-adjusting"
 - GCC (pass 2)
