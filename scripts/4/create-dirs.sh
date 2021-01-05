@@ -8,4 +8,4 @@ mkdir -pv "$LFS/"{bin,etc,lib,lib64,sbin,usr,var}
 mkdir -pv "$LFS/tools"
 
 # make lfs user the owner of these
-chown -v lfs "$LFS/"{usr,lib,var,etc,bin,sbin,tools}
+chown -v lfs "$LFS/"{bin,etc,lib,lib64,sbin,usr,var,tools}
