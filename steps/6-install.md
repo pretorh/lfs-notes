@@ -23,11 +23,15 @@ If you exit chroot, you will need to re-enter it before continuing
 - change to sources directory (`cd /sources`)
 - continue where you left
 
-## Packages
+## Build more temporary tools
 
 Build and install from the `sources` directory
 
-`cd /sources`
+- libstdc++ pass 2
+    - part of gcc sources
+    - patch by symlinking `gthr-posix.h`
+    - run configure from `libstdc++-v3`
+    - time: 0.7x (0.2x for parallel)
 
 ### Part 1
 
