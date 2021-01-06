@@ -72,6 +72,23 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
 
 - m4
     - patch: `5/tools/m4-patch.sh`
+- ncurses
+    - patch:
+        - config file to find gawk
+        - build tic first
+    - install and update libraries
+- bash
+    - post install: move into `bin`, create `sh` symlink
+- coreutils
+    - post install: move into `bin`, move man files
+- diffutils
+    - basic config (`prefix` and `host`) only
+- file
+    - basic config (`prefix` and `host`) only
+- findutils
+    - post install: move into `bin` and change `updatedb`
+- gawk
+    - patch: remove extras in makefile
 
 ## Old part 2
 
@@ -99,30 +116,11 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 - expect
     - patch the config file
 - DejaGNU
-- ncurses
-    - patch the config file to find gawk
-- bash
 - bison
 	- tests are mentioned, but they run a lot longer than the build
 	    - some also fail: 430, 431, 432
 - bzip2
     - no config needed
-- coreutils
-
-## The Easy Stuff
-
-All of these just need to have the `prefix` set in configuration:
-
-```
-./configure --prefix=/tools
-make --jobs
-make install
-```
-
-- diffutils
-- file
-- findutils
-- gawk
 
 ## Gettext
 
