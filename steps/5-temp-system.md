@@ -92,6 +92,13 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
 - grep
 - gzip
     - basic config (`prefix` and `host`) only
+- make
+- patch
+    - basic config (`prefix`, `host`, `build`) only
+- sed
+- tar
+- xz
+    - post install: move into `bin`, `lib`, update symlink
 
 ## Old part 2
 
@@ -133,10 +140,6 @@ see `scripts/5/gettext/configure-build-install.sh`
 
 ## More
 
-- make
-	- fix issue from `glibc-2.27`
-- patch
-    - easy
 - perl
     - custom configure
         - `sh Configure -des -Dprefix=/tools -Dlibs=-lm`
@@ -144,16 +147,10 @@ see `scripts/5/gettext/configure-build-install.sh`
         - `cp -v perl cpan/podlators/pod2man /tools/bin`
         - `mkdir -pv /tools/lib/perl5/5.22.1`
         - `cp -Rv lib/* /tools/lib/perl5/5.22.1`
-- sed
-    - easy
-- tar
-    - easy
 - texinfo
     - easy
     - there is an error in configure, but it can be ignored
 - util-linux
-- xz
-    - easy
 
 # Finalizing the temp system
 
