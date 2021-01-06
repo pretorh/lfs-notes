@@ -1,6 +1,6 @@
 # Installing the system
 
-Remember to have `LFS` set: `export LFS=/mnt/lfs`
+This should be run as the root user. Remember to have `LFS` set: `export LFS=/mnt/lfs`
 
 ## Chroot
 
@@ -8,8 +8,7 @@ See:
 
 - setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
 - enter chroot: `scripts/6/setup/enter-chroot.sh`
-- setup the filesystem: `scripts/6/setup/filesystem.sh`
-	- note that the leading `/` is not added to paths (to easier create a package), so need to run from `/`
+- change ownership and setup the filesystem: `scripts/6/setup/filesystem.sh`
 - setup the chroot environment: `scripts/6/setup/chroot-setup.sh`
 
 ### Re-entering chroot
