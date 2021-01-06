@@ -108,17 +108,18 @@ most of these have negligible build times
 - xz
     - post install: move into `bin`, `lib`, update symlink
 
-## Old part 2
+### bin utils and gcc - pass 2
 
 - Bin Utils (pass 2)
-    - "re-adjusting"
+    - time: 1.3x (0.4x for parallel)
 - GCC (pass 2)
-    - scripts:
-        - `5/gcc/patch-limits.sh`
-        - `5/gcc/toolchain.sh`
+    - patch:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
-    - `ln -sv gcc /tools/bin/cc`
-    - time: 12x
+        - `5/gcc/patch-lib64.sh`
+        - create symlink for libgcc posix thread support
+    - post install:
+        - `ln -sv gcc $LFS/usr/bin/cc`
+    - time: 12x to 14x (4.0x for parallel)
 
 ## Sanity Check 2
 
