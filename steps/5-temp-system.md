@@ -121,6 +121,8 @@ most of these have negligible build times
         - `ln -sv gcc $LFS/usr/bin/cc`
     - time: 12x to 14x (4.0x for parallel)
 
+# deprecated notes from pre-10.0 book
+
 ## Sanity Check 2
 
 see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
