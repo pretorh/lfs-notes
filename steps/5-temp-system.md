@@ -67,8 +67,13 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
+    - time: 0.4x (0.1x for parallel)
 
 ## cross compiling temporary tools
+
+### fast/simple
+
+most of these have negligible build times
 
 - m4
     - patch: `5/tools/m4-patch.sh`
@@ -77,10 +82,13 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
         - config file to find gawk
         - build tic first
     - install and update libraries
+    - time: 0.3x for `tic`, negligible for main
 - bash
     - post install: move into `bin`, create `sh` symlink
+    - time: 0.3x (negligible for parallel)
 - coreutils
     - post install: move into `bin`, move man files
+    - time: 0.4x (0.1x for parallel)
 - diffutils
     - basic config (`prefix` and `host`) only
 - file
