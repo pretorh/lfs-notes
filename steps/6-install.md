@@ -54,6 +54,14 @@ Build and install from the `sources` directory
     - recheck: had to recreate `libncursesw.so`, might have missed on it's post install? (or miscopied from pdf without .so extention?)
     - time: 0.7x (0.2x for parallel)
 
+## cleanup and backup
+
+Note that the cleanup commands have been merged to remove the required and optional files in a single script. Both are run from outside of the chroot environment
+
+First exit chroot (`exit`). Ensure LFS is still set and unmount devices. See `scripts/6/cleanup/umount-chroot.sh`
+
+## deprecated/old notes from pre 10.0 book
+
 ### Part 1
 
 - linux api headers
