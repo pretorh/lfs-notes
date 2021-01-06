@@ -143,12 +143,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 - bzip2
     - no config needed
 
-## Gettext
-
-Only need to install some files, so need to `make -C` into dirs and finally copy the files out.
-
-see `scripts/5/gettext/configure-build-install.sh`
-
 ## More
 
 - perl

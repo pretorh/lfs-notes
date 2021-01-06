@@ -32,6 +32,11 @@ Build and install from the `sources` directory
     - patch by symlinking `gthr-posix.h`
     - run configure from `libstdc++-v3`
     - time: 0.7x (0.2x for parallel)
+- gettext
+    - install: only need to install 3 programs:
+        - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
+    - to check: previously build these only, which may be a bit faster
+    - time: 1.4x (0.8x for parallel)
 
 ### Part 1
 
