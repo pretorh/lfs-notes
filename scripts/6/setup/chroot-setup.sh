@@ -1,35 +1,11 @@
-# (this should be run within chroot)
-
-# FILES AND SYMLINKS
-
-ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
-ln -sv /tools/bin/{env,install,perl} /usr/bin
-ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib
-
-for lib in blkid lzma mount uuid
-do
-	ln -sv /tools/lib/lib$lib.so* /usr/lib
-done
-
-ln -svf /tools/include/blkid 	/usr/include
-ln -svf /tools/include/libmount /usr/include
-ln -svf /tools/include/uuid		/usr/include
-
-install -vdm755 /usr/lib/pkgconfig
-
-for pc in blkid mount uuid
-do
-	echo "${pc}"
-    sed 's@tools@usr@g' /tools/lib/pkgconfig/${pc}.pc \
-        > /usr/lib/pkgconfig/${pc}.pc
-done
-
-ln -sv bash /bin/sh
+#!/usr/bin/env bash
 
 ln -sv /proc/self/mounts /etc/mtab
+# TODO: why not set the hostname here directly
+echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 
 # setup users and groups
+
 cat > /etc/passwd << "EOF"
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/bin/false
@@ -77,9 +53,17 @@ systemd-network:x:76:
 systemd-resolve:x:77:
 systemd-timesync:x:78:
 systemd-coredump:x:79:
+wheel:x:97:
 nogroup:x:99:
 users:x:999:
 EOF
+
+# tester user needed in chapter 8
+# TODO: do we need to remove it later? maybe give it a better name and keep it?
+# shellcheck disable=SC2012
+echo "tester:x:$(ls -n "$(tty)" | cut -d" " -f3):101::/home/tester:/bin/bash" >> /etc/passwd
+echo "tester:x:101:" >> /etc/group
+install -o tester -d /home/tester
 
 # create log files
 touch /var/log/{btmp,lastlog,faillog,wtmp}
@@ -87,5 +71,7 @@ chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
 
+# done
+
 echo "username and groupname resolution will now work"
-echo "exec /tools/bin/bash --login +h"
+echo "exec /bin/bash --login +h"
