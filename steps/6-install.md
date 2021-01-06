@@ -62,6 +62,8 @@ First exit chroot (`exit`). Ensure LFS is still set and unmount devices. See `sc
 
 Remove static libs, documentation and strip debug symbols. See `scripts/6/cleanup/remove-files-strip.sh`
 
+Backup the temp system, see `scripts/6/cleanup/backup.sh`. Note that this saves 2 archives (root and sources split) to `/tmp`
+
 ## deprecated/old notes from pre 10.0 book
 
 ### Part 1
