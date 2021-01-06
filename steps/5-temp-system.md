@@ -89,6 +89,9 @@ Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tool
     - post install: move into `bin` and change `updatedb`
 - gawk
     - patch: remove extras in makefile
+- grep
+- gzip
+    - basic config (`prefix` and `host`) only
 
 ## Old part 2
 
@@ -127,11 +130,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 Only need to install some files, so need to `make -C` into dirs and finally copy the files out.
 
 see `scripts/5/gettext/configure-build-install.sh`
-
-## The Easy Stuff - Part 2
-
-- grep
-- gzip
 
 ## More
 
