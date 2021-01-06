@@ -37,6 +37,22 @@ Build and install from the `sources` directory
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
     - to check: previously build these only, which may be a bit faster
     - time: 1.4x (0.8x for parallel)
+- bison
+    - time: negligible
+- perl
+    - custom configure commands
+    - time: 1.5x (0.4x for parallel)
+- python
+    - note the uppercase package name
+    - time: 1.2x (0.3x for parallel)
+- texinfo
+    - basic configure (`prefix`) only
+    - there is an error in configure (re `TestXS_la-TestXS.lo`), but it can be ignored
+        - though did not get this
+    - time: negligible
+- util-linux
+    - recheck: had to recreate `libncursesw.so`, might have missed on it's post install? (or miscopied from pdf without .so extention?)
+    - time: 0.7x (0.2x for parallel)
 
 ### Part 1
 

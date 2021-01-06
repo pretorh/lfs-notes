@@ -137,25 +137,8 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 - expect
     - patch the config file
 - DejaGNU
-- bison
-	- tests are mentioned, but they run a lot longer than the build
-	    - some also fail: 430, 431, 432
 - bzip2
     - no config needed
-
-## More
-
-- perl
-    - custom configure
-        - `sh Configure -des -Dprefix=/tools -Dlibs=-lm`
-    - only some files need to be installed
-        - `cp -v perl cpan/podlators/pod2man /tools/bin`
-        - `mkdir -pv /tools/lib/perl5/5.22.1`
-        - `cp -Rv lib/* /tools/lib/perl5/5.22.1`
-- texinfo
-    - easy
-    - there is an error in configure, but it can be ignored
-- util-linux
 
 # Finalizing the temp system
 
