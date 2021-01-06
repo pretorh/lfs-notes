@@ -60,6 +60,8 @@ Note that the cleanup commands have been merged to remove the required and optio
 
 First exit chroot (`exit`). Ensure LFS is still set and unmount devices. See `scripts/6/cleanup/umount-chroot.sh`
 
+Remove static libs, documentation and strip debug symbols. See `scripts/6/cleanup/remove-files-strip.sh`
+
 ## deprecated/old notes from pre 10.0 book
 
 ### Part 1
