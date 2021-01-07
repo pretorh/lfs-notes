@@ -108,3 +108,20 @@ Run `scripts/6/glibc/tz-set-localtime.sh` to set `/etc/localtime`
 #### Dynamic Loader
 
 See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
+
+### part 2
+
+- zlib
+    - basic config (`prefix`) and simple build/test/install
+    - time: negligible
+- bzip2
+    - patch: `scripts/6/3/bzip2-patch.sh`
+    - build the dynamic library first
+    - post-install: `scripts/6/3/bzip2-install.sh`
+    - time: negligible
+- xz
+    - tests: `All 9 tests passed`
+    - install with `make install` and then
+        - move files: `mv -v $DESTDIR/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $DESTDIR/bin`
+        - move and recreate shared object `scripts/6/mv-shared.sh /usr/lib/liblzma.so`
+    - time: negligible

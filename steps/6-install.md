@@ -78,7 +78,6 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
 ### Part 2
 
-- zlib
 - file
 - readline
 - m4
@@ -151,8 +150,6 @@ run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
 ### Part 3
 
-- bzip2
-    - see `scripts/6/3/bzip2-patch.sh` and `scripts/6/3/bzip2-install.sh`
 - pkg-config
     - all 30 tests passed
 - ncurses
@@ -286,12 +283,6 @@ Tests:
             - t/dejagnu4
             - t/dejagnu5
             - t/check12-w
-- xz
-    - all tests 9 passed
-    - install with `make install` and then
-        - move a file: `mv -v $DESTDIR/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $DESTDIR/bin`
-        - move and recreate shared object `scripts/6/mv-shared.sh /usr/lib/liblzma.so`
-    - this overwrites a symlink: `/usr/lib/liblzma.so`
 - kmod
     - no tests in `chroot`
     - see `scripts/6/6/kmod-post.sh`

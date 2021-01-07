@@ -127,11 +127,6 @@ most of these have negligible build times
 
 see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 
-## Part 3
-
-- bzip2
-    - no config needed
-
 # Finalizing the temp system
 
 run as root user (at least for the change command, but also for all following that)
