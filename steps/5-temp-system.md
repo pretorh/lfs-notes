@@ -129,11 +129,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 
 ## Part 3
 
-- tcl-core
-    - post install steps:
-        - `chmod -v u+w /tools/lib/libtcl8.6.so`
-        - `make install-private-headers`
-        - `ln -sv tclsh8.6 /tools/bin/tclsh`
 - expect
     - patch the config file
 - DejaGNU

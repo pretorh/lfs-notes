@@ -69,7 +69,6 @@ Backup the temp system, see `scripts/6/cleanup/backup.sh`. Note that this saves 
 ### Part 1
 
 - linux api headers
-- man-pages
 
 ### Glibc
 
