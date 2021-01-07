@@ -150,3 +150,14 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - post install: create `lex` symlink `ln -sv flex /usr/bin/lex`
     - tests: all 114 passed
     - time: negligible + 0.3x (0.1x in parallel) for tests
+
+### binutils
+
+First verify PTYs are working in chroot:
+`expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
+
+Patch: remove a test (`sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.in`)
+
+The tests are critical. docs mention to run with `-k`, but they pass without it
+
+time: 3x to 4.2x (1.3x for parallel) + 3.1x (1.3x for parallel) for tests

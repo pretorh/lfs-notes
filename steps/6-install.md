@@ -76,13 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 2
-
-- binutils
-    - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
-    - The tests are critical
-    - time: 3x build, 2x to 3x for tests (not as parallel)
-
 ### Part 2.1
 
 these final few have similar configure, build and install commands
