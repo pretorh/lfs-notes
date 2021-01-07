@@ -129,9 +129,6 @@ see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
 
 ## Part 3
 
-- expect
-    - patch the config file
-- DejaGNU
 - bzip2
     - no config needed
 

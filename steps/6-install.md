@@ -287,8 +287,6 @@ set the password for root: `passwd root`
 
 - psmisc
     - no tests
-- iana-etc
-    - no tests
 - bison
     - tests depend on flex, so cannot be run now
 - flex

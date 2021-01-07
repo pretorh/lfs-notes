@@ -27,3 +27,13 @@ See notes about package management
         - also had errors in `tdbcmysql.test`, `tdbcodbc.test`, `tdbcpostgres.test` (libraries not found)
         - todo: filter output log for lines like `all.tcl:        Total   24996   Passed  21651   Skipped 3345    Failed  0`
     - time: 0.8x (0.5x for parallel) + 1.4x for tests
+- expect
+    - post: symlink lib into `/usr/lib`
+    - time: negligible + 0.1x for tests
+- DejaGNU
+    - tests: ran before install (book has install then test?)
+    - skipped building/installing docs
+    - time: negligible
+- iana-etc
+    - only need to copy the 2 files out (`cp -v services protocols /etc`)
+    - time: negligible
