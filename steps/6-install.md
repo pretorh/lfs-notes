@@ -78,13 +78,6 @@ Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
 ### Part 2
 
-- file
-- readline
-- m4
-- bc
-    - patch, see: `scripts/6/2/bc-patch.sh`
-    - 10 tests fail due to round of errors
-        - with index of: `97`, `8651`, `.80`, `4.47`, `2.19`, `4.31`, `2.36`, `2.04`, `.65`, `1.07`
 - binutils
     - First verify PTYs are working in chroot: `expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS" || echo "FAILED"`
     - The tests are critical
@@ -198,9 +191,6 @@ set the password for root: `passwd root`
     - no tests
 - bison
     - tests depend on flex, so cannot be run now
-- flex
-    - fix issue introduces in glibc: `sed -i "/math.h/a #include <malloc.h>" src/flexdef.h`
-    - all 114 tests passed
 - grep
     - tests: 134 pass, 7 skipped (of 141 total)
 

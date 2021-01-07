@@ -125,3 +125,28 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
         - move files: `mv -v $DESTDIR/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $DESTDIR/bin`
         - move and recreate shared object `scripts/6/mv-shared.sh /usr/lib/liblzma.so`
     - time: negligible
+- zstd
+    - no tests
+    - post: remove a static lib `rm -v /usr/lib/libzstd.a`
+    - time: 0.2x (no speedup in parallel) - but install does more building?
+- file
+    - basic config (`prefix`) and simple build/test/install
+    - time: negligible
+- readline
+    - patch: see `scripts/6/2/readline-patch.sh`
+    - no tests
+    - time: negligible
+- m4
+    - patch: see `scripts/5/tools/m4-patch.sh` (same as temp tools)
+    - then basic config (`prefix`) and simple build/test/install
+    - tests: 170 total, 157 pass, 13 skipped
+    - time: negligible
+- bc
+    - custom configure script
+    - all tests (`bc` and `dc`) pass
+    - time: negligible
+- flex
+    - basic config (`prefix`, `docdir`) and simple build/test/install
+    - post install: create `lex` symlink `ln -sv flex /usr/bin/lex`
+    - tests: all 114 passed
+    - time: negligible + 0.3x (0.1x in parallel) for tests
