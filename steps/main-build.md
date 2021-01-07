@@ -12,6 +12,8 @@ See notes about package management
 
 ## packages
 
+### part 1
+
 - man-pages
     - no configure, build (just `make install`)
     - time: negligible
@@ -37,3 +39,72 @@ See notes about package management
 - iana-etc
     - only need to copy the 2 files out (`cp -v services protocols /etc`)
     - time: negligible
+
+### Glibc
+
+Patch for file system standards: `patch -Np1 -i ../glibc-2.*-fhs-1.patch`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+
+Time: 4.8x (1.3x for parallel) + 14.2x (6.2x for parallel) for tests
+
+#### tests
+
+Create symlink for tests to work (`ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib`)
+
+Tests are *critical*, but some will fail:
+
+"You may see some test failures.", the doc only lists some of the most common issues
+
+- known to fail:
+    - `io/tst-lchmod`
+	- `misc/tst-ttyname`
+- others mentioned, but passed:
+    - `nss/tst-nss-files-hosts-multi`
+    - `rt/tst-cputimer{1,2,3}`
+    - math tests on older CPUs
+
+summary:
+
+```
+Summary of test results:
+      2 FAIL
+   4228 PASS
+     34 UNSUPPORTED
+     17 XFAIL
+      2 XPASS
+```
+
+#### Install glibc
+
+Prevent warnings and sanity checks, install and install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
+
+Setup locales. See `scripts/6/glibc/locale.sh` to install those needed for future tests
+
+Use something like `grep en_ ../localedata/SUPPORTED` to find your locale
+
+#### Configure glibc
+
+##### nsswitch.conf
+
+    cat > /etc/nsswitch.conf << "EOF"
+    # Begin /etc/nsswitch.conf
+    passwd: files
+    group: files
+    shadow: files
+    hosts: files dns
+    networks: files
+    protocols: files
+    services: files
+    ethers: files
+    rpc: files
+    # End /etc/nsswitch.conf
+    EOF
+
+##### timezone
+
+Install timezone data (see `scripts/6/glibc/tz-install.sh` - note this should run in the `sources` dir) and configure it
+
+Run `scripts/6/glibc/tz-set-localtime.sh` to set `/etc/localtime`
+
+#### Dynamic Loader
+
+See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
