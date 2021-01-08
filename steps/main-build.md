@@ -164,8 +164,6 @@ time: 3x to 4.2x (1.3x for parallel) + 3.1x (1.3x for parallel) for tests
 
 ### gmp, mpfr, mpc
 
-these final few have similar configure, build and install commands
-
 - gmp
     - see the architecture after configure, and make sure that matches the CPU (see notes to change)
     - The tests are critical. All 197 must pass
@@ -179,3 +177,43 @@ these final few have similar configure, build and install commands
     - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
     - tests: all 67 passed
     - time: negligible + 0.2x (negligible for parallel) for tests
+
+### part 3
+
+- attr
+    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libattr.so`
+    - time: negligible
+- acl
+    - tests require coreutils, so cannot be run now
+    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libacl.so`
+    - time: negligible
+- libcap
+    - no configure
+    - patch to disable static lib install
+    - post install: move libs, create libcap in `/usr/lib`
+    - time: negligible
+
+### Shadow
+
+Patch to disable groups, man pages, use sha-256, fix first user id. See `scripts/6/3/shadow-patch.sh`
+
+`touch /usr/bin/passwd` must exist before configure in run
+
+There are no tests
+
+Time: negligible
+
+#### post install configuring
+
+Enable using:
+
+```
+pwconv
+grpconv
+```
+
+optionally start groups at 100: `sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/\1=100/'`
+
+optinally disable mail spool: `sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'`
+
+set the password for root: `passwd root`
