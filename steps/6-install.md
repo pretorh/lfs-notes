@@ -76,16 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 2.1
-
-these final few have similar configure, build and install commands
-
-- gmp
-    - The tests are critical. All 190 must pass
-- mpfr
-    - The tests are critical. All tests must pass
-- mpc
-
 ### GCC
 
 Takes *realy* long

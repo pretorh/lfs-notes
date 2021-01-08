@@ -161,3 +161,21 @@ Patch: remove a test (`sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.i
 The tests are critical. docs mention to run with `-k`, but they pass without it
 
 time: 3x to 4.2x (1.3x for parallel) + 3.1x (1.3x for parallel) for tests
+
+### gmp, mpfr, mpc
+
+these final few have similar configure, build and install commands
+
+- gmp
+    - see the architecture after configure, and make sure that matches the CPU (see notes to change)
+    - The tests are critical. All 197 must pass
+        - run `awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log` to get passed count
+    - time: 0.4x (0.1x for parallel) + 0.7x (0.2x for parallel) for tests
+- mpfr
+    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
+    - The tests are critical. All tests must pass (had 181 pass, 2 skipped)
+    - time: 0.3x (0.1x for parallel) + 0.6x (0.2x for parallel) for tests
+- mpc
+    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
+    - tests: all 67 passed
+    - time: negligible + 0.2x (negligible for parallel) for tests
