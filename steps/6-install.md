@@ -76,54 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### GCC
-
-Takes *realy* long
-
-on a single core qemu vm:
-
-- Build: about 3 times as long as `glibc`'s build time
-- Tests: about 6 times longer than the build
-
-Times: 10x build, 110x for tests
-
-#### Configure
-
-Fix for 64 bit lib: `sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64`
-
-remove previous symlink: `rm -fv /usr/lib/gcc`
-
-#### Tests
-The tests are critical.
-
-Increase stack size before running tests: `ulimit -s 32768`
-
-To run the tests and check the results:
-
-    make -k check --jobs 4
-    ../contrib/test_summary | grep -A7 Summ
-    ../contrib/test_summary | grep FAIL
-
-Some tests may fail. Compare the results with:
-
-- http://www.linuxfromscratch.org/lfs/build-logs/systemd/
-- http://gcc.gnu.org/ml/gcc-testresults
-- my list of failed tests: `steps/6-more.md`
-- also, "six tests in the libstdc++ test suite are known to fail" (only these failed in `7.3.0`)
-
-#### Install and sanity checks
-
-- install using the normal `make install`
-- see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
-- this overwrites symlinks originally created when entering chroot (`chroot-setup`):
-    - `/usr/lib/libstdc++.a`
-    - `/usr/lib/libstdc++.so`
-    - `/usr/lib/libstdc++.so.6`
-    - `/usr/lib/libgcc_s.so`
-    - `/usr/lib/libgcc_s.so.1`
-
-run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
-
 ### Part 3
 
 - pkg-config

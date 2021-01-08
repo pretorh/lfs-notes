@@ -217,3 +217,42 @@ optionally start groups at 100: `sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/
 optinally disable mail spool: `sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'`
 
 set the password for root: `passwd root`
+
+### GCC
+
+Takes *realy* long: 15.2x (4.5x for parallel) + 110.7x (29.3x for parallel) for the tests
+
+Patch to fix for 64 bit lib: `sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64`
+
+#### Tests
+
+The tests are critical.
+
+Increase stack size and run tests as the `tester` user:
+
+```
+ulimit -s 32768
+chown -Rv tester .
+time su tester -c "PATH=$PATH make --jobs 4 -k check"
+```
+
+to get a summary of the results: `../contrib/test_summary | grep -A7 Summ`
+
+Some tests are known to fail:
+
+- "Six tests related to get_time are known to fail."
+- `asan_test.C`, `co-ret-17-void-ret-coro.C`, `pr95519-05-gro.C`, `pr80166.c`
+
+Compare the results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults). See also my list of failed tests: `steps/6-more.md`
+
+See `scripts/6/gcc/compare-test-results.sh` to get list of unexpected failures
+
+Change the ownership back to root (remove the need to change post-install): `chown -Rv root .`
+
+#### Install and sanity checks
+
+Install using the normal `make install`
+
+Post install clean and symlinks: see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
+
+Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
