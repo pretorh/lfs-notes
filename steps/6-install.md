@@ -76,25 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 3
-
-- pkg-config
-    - all 30 tests passed
-- ncurses
-    - see `scripts/6/3/ncurses-post.sh`
-    - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
-- sed
-    - tests: 118 passed, 12 skipped (of 130)
-
-### Part 4
-
-- psmisc
-    - no tests
-- bison
-    - tests depend on flex, so cannot be run now
-- grep
-    - tests: 134 pass, 7 skipped (of 141 total)
-
 ### Bash
 
 Tests need to be run as user `nobody`, see `scripts/6/4/bash-test.sh`
@@ -177,9 +158,6 @@ Tests:
 - kmod
     - no tests in `chroot`
     - see `scripts/6/6/kmod-post.sh`
-- Gettext
-    - Configure: `sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in && sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in`
-    - tests: no issues (393 passed, 19 skipped)
 - libelf
     - in archive: `elfutils-0.170`
     - one test failed: `run-strip-nothing.sh`

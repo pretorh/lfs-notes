@@ -256,3 +256,40 @@ Install using the normal `make install`
 Post install clean and symlinks: see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
 
 Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
+
+### part 4
+
+- pkg-config
+    - all 30 tests passed
+    - time: negligible
+- ncurses
+    - tests can only be run after ncurses is installed
+    - confirm for 10.0:
+        - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
+    - post install:
+        - move shared lib
+        - symlinks for non-wide-character library `scripts/6/3/ncurses-post.sh`
+    - time: 0.3x (0.1x for parallel)
+- sed
+    - basic config (`prefix`, `bindir`) and simple build/install
+    - tests
+        - run with `tester` user (same as gcc)
+        - 157 passed, 21 skipped (of 178)
+    - time: negligible
+- psmisc
+    - basic config (`prefix`) and simple build/install
+    - no tests
+    - post install: move files for FHS: `mv -v $DESTDIR/usr/bin/{fuser,killall} $DESTDIR/bin`
+    - time: negligible
+- Gettext
+    - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
+    - tests: 727 total, 690 passed, 37 skipped
+    - time: (configure takes some time) 1.5x (0.8x for parallel) + 1.2x (0.3x for parallel) for tests
+- bison
+    - basic config (`prefix`, `docdir`) and simple build/test/install
+    - tests: "617 tests were successful. 43 tests were skipped."
+    - time: negligible + 6.7x (1.7x for parallel) for tests
+- grep
+    - basic config (`prefix`, `bindir`) and simple build/test/install
+    - tests: 298 total, 269 pass, 27 skipped, 2 xfail
+    - time: negligible + 0.4x (0.1x for parallel) for tests
