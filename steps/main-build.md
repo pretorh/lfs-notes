@@ -293,3 +293,23 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - basic config (`prefix`, `bindir`) and simple build/test/install
     - tests: 298 total, 269 pass, 27 skipped, 2 xfail
     - time: negligible + 0.4x (0.1x for parallel) for tests
+
+### Bash
+
+Tests need to be run as user `tester`:
+
+```
+chown -Rv tester .
+time su tester << EOF
+PATH=$PATH make tests < $(tty) | tee check-log
+EOF
+chown -R root .
+```
+
+Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary), but had a few errors/warnings output
+
+Post install: `mv -vf $DESTDIR/usr/bin/bash $DESTDIR/bin`
+
+After installing, start a new bash: `exec /bin/bash --login +h`
+
+Time: 0.3x (negligible for parallel) + 0.9x for tests

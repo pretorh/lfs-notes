@@ -76,16 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Bash
-
-Tests need to be run as user `nobody`, see `scripts/6/4/bash-test.sh`
-
-Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary), but had a few errors/warnings output
-
-Installing replaces the existing `/bin/bash` symlink
-
-After installing, start a new bash: `exec /bin/bash --login +h`
-
 ### Part 5
 
 - libtool
