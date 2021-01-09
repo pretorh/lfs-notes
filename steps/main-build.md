@@ -345,3 +345,11 @@ Time: 0.3x (negligible for parallel) + 0.9x for tests
         - `mv -v $DISTROOT/usr/bin/{hostname,ping,ping6,traceroute} $DISTROOT/bin`
         - `mv -v $DISTROOT/usr/bin/ifconfig $DISTROOT/sbin`
     - time: negligible + negligible for tests
+
+### Perl
+
+Configure: `scripts/6/5/perl-config.sh`
+
+Tests: "All tests successful."
+
+Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install

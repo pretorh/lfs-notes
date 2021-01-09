@@ -76,28 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Perl
-
-Time: 1x build, 15x test
-
-Setup hosts file: `echo "127.0.0.1 localhost $(hostname)" > /etc/hosts`
-
-see: `scripts/6/5/perl-config.sh` and `scripts/6/5/perl-post.sh`
-
-Tests:
-- Run tests with `make -k --jobs 4`
-- "some tests related to zlib will fail". had 9 failing tests:
-    - ../cpan/Compress-Raw-Zlib/t/01version.t
-    - ../cpan/Compress-Raw-Zlib/t/02zlib.t
-    - ../cpan/Compress-Raw-Zlib/t/18lvalue.t
-    - ../cpan/Compress-Raw-Zlib/t/19nonpv.t
-    - ../cpan/IO-Compress/t/cz-01version.t
-    - ../cpan/IO-Compress/t/cz-03zlib-v1.t
-    - ../cpan/IO-Compress/t/cz-06gzsetp.t
-    - ../cpan/IO-Compress/t/cz-08encoding.t
-    - ../cpan/IO-Compress/t/cz-14gzopen.t
-- this replaces `/usr/bin/perl` which was created as a symlink
-
 ### Part 6
 
 - XML-Parser
