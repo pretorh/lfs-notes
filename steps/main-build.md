@@ -313,3 +313,35 @@ Post install: `mv -vf $DESTDIR/usr/bin/bash $DESTDIR/bin`
 After installing, start a new bash: `exec /bin/bash --login +h`
 
 Time: 0.3x (negligible for parallel) + 0.9x for tests
+
+### Part 5
+
+- libtool
+    - basic config (`prefix`) and simple build/test/install
+    - tests: take some time, can be improved with `TESTSUITEFLAGS=-j4`
+    - Five tests are known to fail (64 failed, 59 expected). see `grep FAIL tests/testsuite.log`
+        - 123: compiling softlinked libltdl
+        - 124: compiling copied libltdl
+        - 125: installable libltdl
+        - 126: linking libltdl without autotools
+        - 130: linking libltdl without autotools
+    - time: negligible + 2.2x (1.0x for parallel) for tests (both with `TESTSUITEFLAGS=-j4`, sys+user vs real times)
+- gdbm
+    - patch with `sed` command
+    - tests: "All 30 tests were successful."
+    - time: negligible + negligible for tests
+- gperf
+    - basic config (`prefix` and `docdir`) and simple build/test/install
+    - tests are known to fail if running simultaneous (run with `-j1`)
+    - time: negligible + negligible for tests
+- expat
+    - basic config (`prefix`, `disable-static` and `docdir`) and simple build/test/install
+    - tests: all 2 passed
+    - time: negligible + negligible for tests
+- inetutils
+    - config: disable obsolete programs/programs provided by other packages
+    - tests: all 10 passed
+    - post install: move files into `bin`, `sbin`
+        - `mv -v $DISTROOT/usr/bin/{hostname,ping,ping6,traceroute} $DISTROOT/bin`
+        - `mv -v $DISTROOT/usr/bin/ifconfig $DISTROOT/sbin`
+    - time: negligible + negligible for tests

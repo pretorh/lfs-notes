@@ -76,27 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 5
-
-- libtool
-    - time: the build is fast, but the tests take some time (2x to 3x)
-        - Especially the `Libtool stress test` section
-    - Five tests are known to fail (64 failed, 59 expected)
-        - 123: compiling softlinked libltdl
-        - 124: compiling copied libltdl
-        - 125: installable libltdl
-        - 126: linking libltdl without autotools
-        - 130: linking libltdl without autotools
-- gdbm
-    - tests: "All 25 tests were successful."
-- gperf
-    - known to fail if running simultaneous(run with `-j1`)
-- expat
-    - fix tests before configuring: `sed -i 's|usr/bin/env |bin/|' run.sh.in`
-    - tests: all 2 passed
-- inetutils
-    - tests: `libls.sh` fails, the other 9 tests pass
-
 ### Perl
 
 Time: 1x build, 15x test
