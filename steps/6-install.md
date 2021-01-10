@@ -111,22 +111,6 @@ after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setu
         - remove previous symlinks: `rm -vf /usr/include/{blkid,libmount,uuid}`
     - the tests may be harmful when run as root user
     - some failed to install, due to existing files (more of blkid,libmount,uuid, but libs and pc)
-- man-db
-    - all tests pass
-    - no need to change man-db.conf anymore, file is already correct
-- tar
-    - tests: one test is known to fail, `92. link mismatch`
-- texinfo
-    - all tests passed
-    - time: 5x
-- vim
-    - archive file (vim-8.0...tar.bz2) and dir (`vim80`) mismatch
-        - same with vim 7.4 (`vim74`) version
-    - patch default vimrc, ignore failing tests, see: `scripts/6/9/vim-patch.sh`
-    - tests
-        - redirect test output to file, see `scripts/6/9/vim-test.sh`
-        - failed to load  libtcl (`ln -sv /tools/lib/libtcl8.6.so /usr/lib/libtcl8.6.so`)
-    - post install (pre pack): see `scripts/6/9/vim-test.sh`
 
 ## Cleanup
 

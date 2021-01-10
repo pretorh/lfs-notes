@@ -491,3 +491,21 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
 - patch
     - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
     - time: negligible
+- man-db
+    - patch: path to `find`
+    - all 50 tests passed
+    - time: negligible
+- tar
+    - tests
+        - one test is known to fail, `223: capabilities: binary store/restore`
+        - others passed (215 passed, 19 skipped, 1 failed)
+    - time: negligible + 1.3x for tests
+- texinfo
+    - basic config (`prefix`, `disable-static`) and simple build/test/install
+    - tests: 243 total, 228 passed, 15 skipped
+    - time: negligible + 0.5x (0.1x for parallel) for tests
+- vim
+    - patch default vimrc: `echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h`
+    - tests: run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
+    - post install and config: see `scripts/6/9/vim-post.sh`
+    - time: 1.0x (0.2x for parallel) + 1.5x for tests
