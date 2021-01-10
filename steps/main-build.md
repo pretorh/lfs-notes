@@ -12,7 +12,7 @@ See notes about package management
 
 ## packages
 
-### part 1
+### Part 1
 
 - man-pages
     - no configure, build (just `make install`)
@@ -109,7 +109,7 @@ Run `scripts/6/glibc/tz-set-localtime.sh` to set `/etc/localtime`
 
 See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 
-### part 2
+### Part 2
 
 - zlib
     - basic config (`prefix`) and simple build/test/install
@@ -178,7 +178,7 @@ time: 3x to 4.2x (1.3x for parallel) + 3.1x (1.3x for parallel) for tests
     - tests: all 67 passed
     - time: negligible + 0.2x (negligible for parallel) for tests
 
-### part 3
+### Part 3
 
 - attr
     - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libattr.so`
@@ -257,7 +257,7 @@ Post install clean and symlinks: see `scripts/6/gcc/install.sh` (moved the final
 
 Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
-### part 4
+### Part 4
 
 - pkg-config
     - all 30 tests passed
@@ -519,3 +519,30 @@ tests not mentioned in book (expect for disabling 1) and running `LANG=en_US.UTF
 post-install setup: `scripts/6/6/systemd-post.sh`
 
 time: 3.3x (0.4x for parallel)
+
+### Part 7
+
+- dbus
+    - no tests in lfs
+    - move a shared lib: `mv-shared.sh /usr/lib/libdbus-1.so`
+    - post install: see `scripts/6/9/dbus-post.sh`
+    - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
+    - time: negligible
+- procps-ng
+    - tests passed
+    - move shared lib: `mv-shared.sh /usr/lib/libprocps.so`
+    - time: negligible
+- util-linux
+    - setup: add to filesystem (move into filesystem.sh?): `mkdir -pv /var/lib/hwclock` - is this needed here, or at install time only?
+    - tests:
+        - may be harmful when run as root user, `chown -R tester .` and  `su tester -c "make -k check | tee check-log"`
+        - "All 207 tests PASSED"
+    - time: 0.8x (0.2x for parallel) + 0.5x for tests
+- e2fsprogs
+    - tests:
+        - previous docs: one of the tests require 256mb memory (enable swap if needed)
+        - "357 tests succeeded  0 tests failed"
+    - post-install:
+        - extract an info doc `gunzip -v "$DESTDIR/usr/share/info/libext2fs.info.gz"`
+        - update info dir
+    - time: 0.4x (0.1x for parallel) + 0.4x for tests

@@ -76,34 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 7
-
-- procps-ng
-    - see `scripts/6/7/procps-ng-test.sh`
-    - tests failed with `make check`, but passed with `make check -k`
-    - move shared lib: `mv-shared.sh /usr/lib/libprocps.so`
-- e2fsprogs
-    - see `scripts/6/7/e2fsprogs-test.sh`
-    - one of the tests require 256mb memory (enable swap if needed)
-    - see `scripts/6/7/e2fsprogs-post.sh`
-    - tests: "342 tests succeeded, 0 tests failed"
-    - build issue: this failed, because `/tools`'s gcc lib was 0 bytes. removed it for the main one to be used
-    - time: 8x for tests
-
-### part 9
-
-- dbus
-    - no tests in lfs
-    - move a shared lib: `mv-shared.sh /usr/lib/libdbus-1.so`
-    - post unpackage: see `scripts/6/9/dbus-post.sh`
-    - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
-- util-linux
-    - setup:
-        - add to filesystem (move into filesystem.sh?): `mkdir -pv /var/lib/hwclock`
-        - remove previous symlinks: `rm -vf /usr/include/{blkid,libmount,uuid}`
-    - the tests may be harmful when run as root user
-    - some failed to install, due to existing files (more of blkid,libmount,uuid, but libs and pc)
-
 ## Cleanup
 
 - Re-enter chroot
