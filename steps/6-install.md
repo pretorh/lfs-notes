@@ -76,58 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Part 6
-
-- XML-Parser
-    - tests: all 141 passed
-- intltool
-    - see `scripts/6/6intltool-patch.sh`
-    - 1 test that passes
-- autoconf
-    - the tests takes very long compared to the build
-        - about as long as `perl`s tests - though this was on single core
-        - time: 3x
-    - run tests with `make check TESTSUITEFLAGS=-j4`
-    - "two tests fail due to changes in libtool-2.4.3 and later" (6 failed, 4 exptected)
-        - `501: Libtool`
-        - `503: autoscan`
-- automake
-    - the tests takes very long compared to the build (21x times)
-    - run tests with -j4 option to speed it up (even on single core systems)
-    - see `scripts/6/6/automake-test.sh`
-    - 2 tests are known to fail in LFS: `check12.sh`, `check12-w.sh`
-        - had 5 failures:
-            - t/check12
-            - t/dejagnu3
-            - t/dejagnu4
-            - t/dejagnu5
-            - t/check12-w
-- kmod
-    - no tests in `chroot`
-    - see `scripts/6/6/kmod-post.sh`
-- libelf
-    - in archive: `elfutils-0.170`
-    - one test failed: `run-strip-nothing.sh`
-    - install only libelf:
-        - `make DESTDIR=$DESTDIR -C libelf install`
-        - `install -vm644 config/libelf.pc $DESTDIR/usr/lib/pkgconfig`
-- libffi
-    - fix makefiles for include file destinations
-    - some tests failed (pthread issue again?)
-- openssl
-    - configure script is named `config`
-    - tests: `40-test_rehash.t` failed (expected in chroot)
-- python
-    - archive name start with capital
-    - no tests here
-- ninja
-    - see note on optional patch (to decrease/set parallel process count)
-    - configured and build with python3 scripts
-    - tests passed (18/18 and 235/235)
-- meson
-    - configure and build with python3 scripts
-    - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
-
 ### Systemd
 
 patch: `scripts/6/6/systemd-patch.sh`

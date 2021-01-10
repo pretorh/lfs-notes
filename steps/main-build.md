@@ -353,3 +353,64 @@ Configure: `scripts/6/5/perl-config.sh`
 Tests: "All tests successful."
 
 Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
+
+### Part 6
+
+- XML-Parser
+    - prepare with `perl Makefile.PL`. then basic build/test/install
+    - tests: all 140 passed
+    - time: negligible
+- intltool
+    - patch: `scripts/6/6intltool-patch.sh`
+    - then basic config (`prefix`) and build/test/install
+    - 1 test that passes
+    - time: negligible
+- autoconf
+    - patch: `sed -i '361 s/{/\\{/' bin/autoscan.in`
+    - then basic config (`prefix`) and build/test/install
+    - tests are broken due to bash and libtool
+        - from previous book: "two tests fail due to changes in libtool-2.4.3 and later"
+        - had a lot of failures (138, 4 expected of 450)
+    - time: negligible + 4.0x for tests
+- automake
+    - patch: fix a test
+    - tests:
+        - run tests with `-j4` option to speed it up (even on single core systems)
+        - `t/subobj.sh` is known to fail in LFS (but it passed)
+        - results: 2915 total, 2719 pass (157 skip, 39 xfail)
+    - time: negligible + 17.7x (6.3x for parallel) for tests
+- kmod
+    - no tests in `chroot`
+    - post-install: `scripts/6/6/kmod-post.sh`
+    - time: negligible
+- libelf
+    - in archive: `elfutils-*`
+    - tests: 218 total, 213 pass, 5 skipped
+    - install only libelf, see `scripts/6/6/libelf-install.sh`
+    - time: 0.6x (0.2x for parallel) + 0.2x for tests
+- libffi
+    - tests: 2284 passed
+    - time: negligible + 1.8x for tests
+- openssl
+    - configure script is named `config`
+    - tests:
+        - `30-test_afalg.t` is known to sometime fail (but it passed)
+        - All tests successful. ("Files=155, Tests=1468")
+    - pre-install: skip static libs
+    - time: 1.1x (0.3x for parallel) + 0.7x for tests (install takes some time)
+- python
+    - archive name start with capital
+    - tests:
+        - `test_normalization` fails due to network config
+    - post: create `pip3` symlink: `/usr/bin/pip3' -> 'pip3.8`
+    - time: 1.3x (0.3x for parallel) + 6.9x (1.2x for parallel) for tests
+- ninja
+    - see note on optional patch (to decrease/set parallel process count)
+    - configured and build with python3 scripts
+    - tests passed (341/341)
+    - time: 0.4x (0.2x for parallel) + 0.3x (negligible for parallel) for tests (test building takes most of the time)
+- meson
+    - configure and build with python3 scripts
+    - no tests
+    - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
+    - time: negligible
