@@ -414,7 +414,6 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
     - no tests
     - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
     - time: negligible
-
 - coreutils
     - patch:
         - for character boundary
@@ -431,3 +430,64 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
             - 970 tests: 819 passed, 151 skipped
     - post install: move files, see `scripts/6/7/coreutils-post.sh`
     - time: (configure takes some time) + 0.4x (0.1x for parallel) + 1.4x (0.4 for parallel) for tests
+- check
+    - basic config (`prefix`, `disable-static`) and simple build/test/install
+    - tests:
+        - take relatively long
+        - seems to hang at `test_tap_output.sh`
+        - all 10 tests passed
+    - time: negligible + 0.9x for tests
+- diffutils
+    - basic config (`prefix`) and simple build/test/install
+    - tests: 195 total, 180 passed/14 skipped/1 xfail
+    - time: negligible
+- gawk
+    - patch: `sed -i 's/extras//' Makefile.in`
+    - basic config (`prefix`) and simple build/test/install
+    - all tests passed
+    - time: negligible
+- findutils
+    - tests:
+        - run as `tester`
+        - 250 total, 237 pass, 13 skipped
+    - post-install: see `scripts/6/7/findutils-post.sh`
+    - time: negligible + 1.4x for tests
+- groff
+    - must be built with `-j1`
+    - no tests
+    - time: 0.4x
+- grub
+    - no tests
+    - post-install
+        - `mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions`
+        - actual boot setup covered after packages installed
+    - time: 0.7x (0.2x for parallel)
+- less
+    - basic config (`prefix`, `sysconfdir`) and simple build/install
+    - no tests
+    - time: negligible
+- gzip
+    - basic config (`prefix`) and simple build/test/install
+    - all 22 tests passed
+    - post install: `mv -v $DESTDIR/usr/bin/gzip $DESTDIR/bin`
+    - time: negligible
+- iproute2
+    - see `scripts/6/8/iproute2-patch.sh`
+    - no configure, tests
+    - time: negligible
+- kbd
+    - patch, see `scripts/6/8/kbd-patch.sh`
+    - 40 tests, 36 passed, 4 skipped
+    - post install: remove internal `libtswrap`
+    - time: negligible
+- libpipeline
+    - basic config (`prefix`) and simple build/test/install
+    - tests: all 7 passed
+    - time: negligible
+- make
+    - basic config (`prefix`) and simple build/test/install
+    - all tests passed ("690 Tests in 125 Categories Complete ... No Failures :-)")
+    - time: negligible + 0.2x for tests
+- patch
+    - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
+    - time: negligible
