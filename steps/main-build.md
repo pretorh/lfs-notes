@@ -414,3 +414,20 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
     - no tests
     - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
     - time: negligible
+
+- coreutils
+    - patch:
+        - for character boundary
+        - suppress test in `gnulib-tests/gnulib.mk`
+    - configure
+        - `autoreconf -fiv`
+        - disable `kill`, `uptime`
+    - tests:
+        - see `scripts/6/7/coreutils-test.sh`
+        - check-root:
+            - 32 tests: 19 passed, 13 skipped
+        - check:
+            - `test-getlogin` is known to fail (but it passed)
+            - 970 tests: 819 passed, 151 skipped
+    - post install: move files, see `scripts/6/7/coreutils-post.sh`
+    - time: (configure takes some time) + 0.4x (0.1x for parallel) + 1.4x (0.4 for parallel) for tests
