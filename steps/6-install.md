@@ -76,14 +76,6 @@ Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
 
-### Systemd
-
-patch: `scripts/6/6/systemd-patch.sh`
-
-post setup: `scripts/6/6/systemd-post.sh`
-
-after installed, create machine id (`/etc/machine-id`): `systemd-machine-id-setup`
-
 ### Part 7
 
 - procps-ng

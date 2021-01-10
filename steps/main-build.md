@@ -509,3 +509,13 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
     - tests: run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
     - post install and config: see `scripts/6/9/vim-post.sh`
     - time: 1.0x (0.2x for parallel) + 1.5x for tests
+
+### Systemd
+
+patch and configure: `scripts/6/6/systemd-patch.sh`
+
+tests not mentioned in book (expect for disabling 1) and running `LANG=en_US.UTF-8 ninja test` has errors
+
+post-install setup: `scripts/6/6/systemd-post.sh`
+
+time: 3.3x (0.4x for parallel)

@@ -1,22 +1,25 @@
-SYSTEMD_VERSION=237
+#!/usr/bin/env sh
+
+SYSTEMD_VERSION=246
 
 # missing xsltproc, so add symlink
-ln -sfv /tools/bin/true /usr/bin/xsltproc
+ln -sf /bin/true /usr/bin/xsltproc
 
 # setup man pages
 tar -xf ../systemd-man-pages-$SYSTEMD_VERSION.tar.xz
 
 # remove tests that fail in chroot
-sed '178,222d' -i src/resolve/meson.build
+sed '177,$ d' \
+    -i src/resolve/meson.build
 
 # remove unneeded group
-sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
 
 # configure
 mkdir -p build
-cd build
+cd build || (echo "failed to cd" && exit 1)
 
-LANG=en_US.UTF-8
+LANG=en_US.UTF-8                    \
 meson --prefix=/usr                 \
       --sysconfdir=/etc             \
       --localstatedir=/var          \
@@ -25,7 +28,6 @@ meson --prefix=/usr                 \
       -Ddefault-dnssec=no           \
       -Dfirstboot=false             \
       -Dinstall-tests=false         \
-      -Dkill-path=/bin/kill         \
       -Dkmod-path=/bin/kmod         \
       -Dldconfig=false              \
       -Dmount-path=/bin/mount       \
@@ -35,6 +37,10 @@ meson --prefix=/usr                 \
       -Dsulogin-path=/sbin/sulogin  \
       -Dsysusers=false              \
       -Dumount-path=/bin/umount     \
-      -Db_lto=false
-
-unset SYSTEMD_VERSION
+      -Db_lto=false                 \
+      -Drpmmacrosdir=no             \
+      -Dhomed=false                 \
+      -Duserdb=false                \
+      -Dman=true                    \
+      -Ddocdir=/usr/share/doc/systemd-$SYSTEMD_VERSION \
+      ..
