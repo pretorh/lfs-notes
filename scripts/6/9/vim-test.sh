@@ -1,3 +1,8 @@
-# test outputs binary data, so redirect it. the doc also says -j1, so:
-make -j1 test > vim-tests.log
-grep "ALL DONE" vim-tests.log
+#!/usr/bin/env bash
+
+chown -R tester .
+echo "running tests (redirected output)"
+su tester -c "LANG=en_US.UTF-8 make -j1 test" &> vim-test.log
+grep "ALL DONE" vim-test.log || echo "ERROR: tests failed, check vim-test.log"
+
+chown -R root .
