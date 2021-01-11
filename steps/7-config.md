@@ -1,27 +1,21 @@
-# Setup
+# System config
 
-## if you need to re-enter choot (mount devices still as in 6)
+## Setup
+
+### if you need to re-enter choot (mount devices still as in 6)
 
 Use the same command as before. it differs with only the `+h` to bash
 see `scripts/6/setup/enter-chroot.sh`
 
-# Network
+## Network
 
-## DHCP
+DHCP: set `ETH_NAME` and run `scripts/7/dhcp.sh`
 
-set `ETH_NAME` and run `scripts/7/dhcp.sh`
+resolve.conf: for systemd-resolved: `ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf`
 
-## resolve.conf
+Hostname: `echo "lfs" > /etc/hostname`
 
-for systemd-resolved: `ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf`
-
-## Hostname
-
-`echo "lfs" > /etc/hostname`
-
-## Hosts
-
-(change `lfs.localdomain` as needed)
+Hosts: (change `lfs.localdomain` as needed)
 
 ```
 cat > /etc/hosts << "EOF"
@@ -31,21 +25,19 @@ cat > /etc/hosts << "EOF"
 EOF
 ```
 
-# Hardware clock
+## Hardware clock
 
 Check if hardware clock is set to localtime or utc: `hwclock  --localtime --show`
 
 If set to utc, remove the adjust file: `rm -fv /etc/adjtime`
 
-# LOCALE
+# Other
 
-see `scripts/7/locale.sh`
+Locale: see `scripts/7/select-locale.sh`
 
-# inputrc
+inputrc: see `scripts/7/configs/inputrc` (copy to `/etc/inputrc`)
 
-see `scripts/7/configs/inputrc` (copy to `/etc/inputrc`)
-
-# Shells
+Shells:
 
 ```
 cat > /etc/shells << "EOF"
