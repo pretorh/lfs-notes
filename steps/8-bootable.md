@@ -1,12 +1,10 @@
-# fstab
+# Making the system bootable
 
-## should try to use uuid's of devices
+## fstab
 
-get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep $LFS`
+see `scripts/8/genfstab.sh`, and redirect to `/etc/fstab`
 
-## create fstab:
-
-see `scripts/8/fstab.sh`, and redirect to `/etc/fstab`
+note: get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep $LFS` and use that instead of the partition number
 
 # Linux
 
