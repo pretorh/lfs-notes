@@ -75,12 +75,3 @@ Backup the temp system, see `scripts/6/cleanup/backup.sh`. Note that this saves 
 Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
 
 Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
-
-## Cleanup
-
-- Re-enter chroot
-    - `logout`
-    - re-enter (see `scripts/6/setup/enter-chroot.sh`)
-- Strip debug components. see `scripts/6/cleanup/strip.sh`
-- Remove temp files (`rm -rf /tmp/*`)
-- Remove static libs that were required in tests. see `scripts/6/cleanup/remove-static-libs.sh`

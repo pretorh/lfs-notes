@@ -546,3 +546,38 @@ time: 3.3x (0.4x for parallel)
         - extract an info doc `gunzip -v "$DESTDIR/usr/share/info/libext2fs.info.gz"`
         - update info dir
     - time: 0.4x (0.1x for parallel) + 0.4x for tests
+
+## Cleanup
+
+### Strip debug symbols
+
+First extract symbols for some libraries. See `./scripts/split-out-debug-symbols.sh`
+
+```
+sh ./scripts/split-out-debug-symbols.sh \
+    /lib/ld-2.32.so /lib/libc-2.32.so /lib/libpthread-2.32.so /lib/libthread_db-1.0.so \
+    /usr/lib/libquadmath.so.0.0.0 /usr/lib/libstdc++.so.6.0.28 /usr/lib/libitm.so.1.0.0 /usr/lib/libatomic.so.1.2.0
+```
+
+Then strip from binaries and libraries. See `bash ./scripts/strip-debug-symbols.sh`
+
+Saved about 2.1GB with this
+
+### cleanup
+
+`rm -rf /tmp/*`
+
+Remove static libs that were required in tests (binutils, bzip2, e2fsprogs, flex, libtool, and zlib). See `scripts/6/cleanup/remove-static-libs.sh`
+
+Remove libtool archives: `find /usr/lib /usr/libexec -name \*.la -delete`
+
+Remove previous partially installed compiler and the `/tools` dir
+
+```
+find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rvf
+rm -rf /tools
+```
+
+Saved about 1GB with this
+
+finally, `logout` (use new chroot enter command)
