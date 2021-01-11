@@ -2,7 +2,8 @@
 
 ## if you need to re-enter choot (mount devices still as in 6)
 
-see `scripts/7/enter-chroot.sh`
+Use the same command as before. it differs with only the `+h` to bash
+see `scripts/6/setup/enter-chroot.sh`
 
 # Network
 

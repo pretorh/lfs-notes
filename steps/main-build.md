@@ -580,4 +580,6 @@ rm -rf /tools
 
 Saved about 1GB with this
 
-finally, `logout` (use new chroot enter command)
+finally, `logout`
+
+To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/6/setup/enter-chroot.sh`
