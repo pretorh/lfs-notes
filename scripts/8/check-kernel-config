@@ -1,16 +1,36 @@
 # todo: try setting with:
 # sed -i 's|.*CONFIG_EFI_STUB.*|CONFIG_EFI_STUB=y|' .config
 # but need to make sure only the specific config is matched (not a substring)
+#
 
 # all these must be yes
-cat .config | grep -wE "CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS"
-cat .config | grep -wE "CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR"
+echo "general setup (yes)"
+cat .config | grep -wE "CONFIG_CGROUPS|CONFIG_EXPERT|CONFIG_FHANDLE"
+echo "general setup (no)"
+cat .config | grep -wE "CONFIG_SYSFS_DEPRECATED|CONFIG_AUDIT"
+echo ""
 
-# for uefi, this must be set
+echo "General architecture-dependent options (yes)"
+cat .config | grep -wE "CONFIG_SECCOMP"
+echo ""
+
+echo "Firmware Drivers (yes)"
+cat .config | grep -wE "CONFIG_DMIID"
+echo ""
+
+echo "Networking support (yes)"
+cat .config | grep -wE "CONFIG_IPV6"
+echo ""
+
+echo "Device Drivers (yes)"
+cat .config | grep -wE "CONFIG_DEVTMPFS"
+echo "Device Drivers (no)"
+cat .config | grep -wE "CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER"
+echo ""
+
+echo "File systems (yes)"
+cat .config | grep -wE "CONFIG_INOTIFY_USER|CONFIG_AUTOFS_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR"
+echo ""
+
+echo "Processor type and features (yes for UEFI boot)"
 cat .config | grep -wE "CONFIG_EFI_STUB"
-
-# frame pointer must be set, orc not set
-cat .config | grep -E "CONFIG_UNWINDER_"
-
-# these must be off
-cat .config | grep -wE "CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER_FALLBACK"
