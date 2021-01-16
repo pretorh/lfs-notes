@@ -6,11 +6,9 @@ see `scripts/8/genfstab.sh`, and redirect to `/etc/fstab`
 
 note: get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep $LFS` and use that instead of the partition number
 
-# Linux
+## Linux
 
-## setup
-
-make sure you are in the sources dir (`cd /sources`)
+### setup
 
 ```
 tar xf linux-*tar.*
@@ -19,7 +17,7 @@ cd linux-*/
 make mrproper
 ```
 
-## configure
+### configure
 
 Create a default config: `make defconfig`
 
@@ -29,24 +27,24 @@ see the note about required options!
 
 (partial check: `scripts/8/check-kernel-config`)
 
-## build
+### build
 
-Time: 10x
+Time: 10x to 13.8x (2.9x for parallel)
 
 ```
 time make -j5
 time make modules_install
 ```
 
-## install
+### install
 
 see `scripts/8/install-linux.sh`
 
-## No need to remove the sources
+todo: `modules_install` should probably move here
+
+### No need to remove the sources
 
 But need to chown: `chown -R 0:0 .`
-
-## module load order
 
 # GRUB
 
