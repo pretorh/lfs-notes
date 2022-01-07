@@ -50,7 +50,9 @@ Small times are not shown (should be ones smaller than 1 SMB)
     - time: negligible
 - GLibc
     - install symlinks (is this needed before, can it be run after install?): see `scripts/5/glibc/symlinks.sh`
-    - patch for FHS compliance (`patch -Np1 -i ../glibc-*-fhs-1.patch`)
+    - patch for FHS compliance: see `scripts/5/glibc/patch.sh`
+    - run pre configure script (after `cd`ing into build directory, but before `../configure ...`)
+    - post install patch: see `scripts/5/glibc/post-install.sh`
     - time: 5x (1.4x for parallel). installation (untimed) took non trivial time
 
 ## Sanity Check 1
