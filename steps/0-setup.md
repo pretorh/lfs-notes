@@ -6,15 +6,13 @@ For list of packages, and installing on Arch, see `scripts/0/pacman.sh`. Note Py
 
 See `scripts/0/symlink-check.sh`
 
-## set the LFS variable
+## Setup partition, set the LFS variable, and mount
+
+set `LFS` variable to a location where you can mount a new drive:
+
 `export LFS=/mnt/lfs`
 
-# 2. Partition and Mount
-
-see `scripts/2/mount.sh`
-Note: this script assumes 2 partitions are used: `sda1` for `/boot` and `sda2` for `/`
-
-May need to cleanup the root drive: see `scripts/2/cleanup.sh`
+Create partitions, add filesystems, and mount the partitions in $LFS
 
 # 3. Sources
 
