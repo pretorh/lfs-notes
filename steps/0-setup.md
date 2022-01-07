@@ -2,29 +2,7 @@
 
 ## install required packages on the host
 
-- bash
-- binutils
-- bison
-- bzip2
-- coreutils
-- diffutils
-- findutils
-- gawk
-- gcc
-- glibc
-- grep
-- gzip
-- m4
-- make
-- patch
-- perl
-- python (3.4)
-- sed
-- tar
-- texinfo
-- xz
-
-For installing on Arch, see `scripts/0/pacman.sh`
+For list of packages, and installing on Arch, see `scripts/0/pacman.sh`. Note Python 3 is required
 
 See `scripts/0/symlink-check.sh`
 
