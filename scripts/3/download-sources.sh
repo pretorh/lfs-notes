@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
@@ -23,11 +24,11 @@ grep md5sums -v \
 
 echo "file list changes:"
 echo "wget-list:"
-diff wget-list wget-list.cleaned
+diff wget-list wget-list.cleaned || true
 echo "md5sums:"
-diff md5sums md5sums.cleaned
+diff md5sums md5sums.cleaned || true
 echo -e "enter to continue"
 read -r
 
-wget --input-file=wget-list.cleaned --continue
+wget --input-file=wget-list.cleaned --continue || echo "wget failed" >&2
 md5sum -c md5sums
