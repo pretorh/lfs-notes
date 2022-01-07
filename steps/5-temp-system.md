@@ -75,7 +75,6 @@ Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 most of these have negligible build times
 
 - m4
-    - patch: `5/tools/m4-patch.sh`
 - ncurses
     - patch:
         - config file to find gawk
