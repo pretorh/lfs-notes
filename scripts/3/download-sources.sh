@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-ROOT_URL=https://lfs.nistix.com
-VERSION=${1:-lfs version not specified}
+ROOT_URL=https://www.linuxfromscratch.org
+VERSION=${1:?lfs version not specified}
 
 wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
 
