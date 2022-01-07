@@ -72,6 +72,8 @@ Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 
 ### fast/simple
 
+These mostly use `make DESTDIR=$LFS install` when installing
+
 most of these have negligible build times
 
 - m4
@@ -95,15 +97,17 @@ most of these have negligible build times
 - gawk
     - patch: remove extras in makefile
 - grep
+    - basic config (`prefix` and `host`) only
 - gzip
     - basic config (`prefix` and `host`) only
 - make
 - patch
     - basic config (`prefix`, `host`, `build`) only
 - sed
+    - basic config (`prefix`, `host`) only
 - tar
+    - basic config (`prefix`, `host`, `build`) only
 - xz
-    - post install: move into `bin`, `lib`, update symlink
 
 ### bin utils and gcc - pass 2
 
