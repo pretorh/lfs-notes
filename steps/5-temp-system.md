@@ -8,13 +8,7 @@ If you already built the toolchain and made a backup, you can restore it:
 
 ## General
 
-You should login as `lfs`
-
-if building on x64: (this was part of bin utils)
-```
-mkdir -pv /tools/lib
-ln -sv lib /tools/lib64
-```
+You should login as `lfs`: `su - lfs`
 
 ## Timings
 
