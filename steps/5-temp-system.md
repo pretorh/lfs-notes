@@ -76,10 +76,8 @@ most of these have negligible build times
 
 - m4
 - ncurses
-    - patch:
-        - config file to find gawk
-        - build tic first
-    - install and update libraries
+    - patch and build `tic`, see `scripts/5/ncurses/patch-build-tic.sh`
+    - install and update libraries, see `scripts/5/ncurses/install.sh`
     - time: 0.3x for `tic`, negligible for main
 - bash
     - post install: move into `bin`, create `sh` symlink
