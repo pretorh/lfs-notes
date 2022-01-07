@@ -19,22 +19,21 @@ Create partitions, add filesystems, and mount the partitions in $LFS
 See general notes to copy sources over ssh.
 
 ## Setup the sources directory
+
 See `scripts/3/setup-sources.sh`
 
 ## Download the sources
 
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 
-Consider downloading from a [mirror](http://www.linuxfromscratch.org/mirrors.html) with https
+Use `scripts/3/download-sources.sh` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
 
-See `scripts/3/download-sources.sh`
-If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
+Some packages change frequently and is ignored in this script, and should be manually downloaded:
 
-### versions/missing packages
+- [Linux kernel](https://www.kernel.org/)
+- [Vim](https://github.com/vim/vim/tags)
 
-- file (older versions not kept)
-- linux: get the latest version from https://www.kernel.org/pub/linux/kernel/v5.x/
-- vim: get the latest version from https://github.com/vim/vim/releases
+`file` previous had issues (older versions not kept)
 
 # 4. Tools
 
