@@ -1,5 +1,7 @@
-patch -Np1 -i ../kbd-2.0.4-backspace-1.patch
+#!/usr/bin/env sh
+
+patch -Np1 -i ../kbd-*-backspace-1.patch
 
 # remove redunant programs
-sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
+sed -i '/RESIZECONS_PROGS=/s/yes/no/' configure
 sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in

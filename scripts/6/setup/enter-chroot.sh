@@ -1,11 +1,13 @@
+#!/usr/bin/env sh
+
 echo "entering chroot"
 
-chroot "$LFS" /tools/bin/env -i \
+chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-    /tools/bin/bash --login +h
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin  \
+    /bin/bash --login +h
 
 echo "chroot done"
-echo "back on the hostsystem"
+echo "back on the host system"

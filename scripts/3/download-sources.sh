@@ -1,10 +1,21 @@
-cd $LFS/sources
-export VERSION=xxxxxx
+#!/usr/bin/env sh
 
-wget http://www.linuxfromscratch.org/lfs/downloads/$VERSION/wget-list
-wget --input-file=wget-list --continue
-wget --continue http://www.linuxfromscratch.org/patches/lfs/systemd/systemd-229-compat-1.patch
-wget --continue http://anduin.linuxfromscratch.org/sources/other/systemd/systemd-229.tar.xz
+ROOT_URL=https://lfs.nistix.com
+VERSION=${1:-lfs version not specified}
 
-wget http://www.linuxfromscratch.org/lfs/downloads/$VERSION/md5sums
+wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
+
+# remove sysvinit (on systemd versions), vim and kernel (manually download latest items)
+# replace root urls
+grep -v \
+    -e sysvinit \
+    -e 'kernel\/v5.x' \
+    -e vim wget-list | \
+    sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
+    > wget-list.cleaned
+diff wget-list wget-list.cleaned
+
+wget --input-file=wget-list.cleaned --continue
+
+wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
 md5sum -c md5sums

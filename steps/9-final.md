@@ -1,4 +1,6 @@
-# Release details
+# Finalize
+
+## Release details
 
 ```
 cat > /etc/os-release << "EOF"
@@ -22,7 +24,7 @@ DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
 ```
 
-# Optional Packages
+## Optional Packages
 
 - [dhcpcd] (http://www.linuxfromscratch.org/blfs/view/systemd/basicnet/dhcpcd.html)
 - [wget] (http://www.linuxfromscratch.org/blfs/view/systemd/basicnet/wget.html)
@@ -31,19 +33,10 @@ EOF
     - [openssl] (http://www.linuxfromscratch.org/blfs/view/systemd/postlfs/openssl.html)
     - [openssh](http://www.linuxfromscratch.org/blfs/view/systemd/postlfs/openssh.html)
 
-# Exit chroot and reboot
+## Exit chroot and reboot
 
-```
-logout
+`logout` and unmount virtual filesystem, see `scripts/6/cleanup/umount-chroot.sh`
 
-umount -v $LFS/dev/pts
-umount -v $LFS/dev
-umount -v $LFS/run
-umount -v $LFS/proc
-umount -v $LFS/sys
+unmount all nested partitions of LFS, then LFS itself
 
-umount -v $LFS/boot
-umount -v $LFS
-
-shutdown -r now
-```
+Reboot the host system

@@ -18,12 +18,15 @@
 - make
 - patch
 - perl
+- python (3.4)
 - sed
 - tar
 - texinfo
 - xz
 
 For installing on Arch, see `scripts/0/pacman.sh`
+
+See `scripts/0/symlink-check.sh`
 
 ## set the LFS variable
 `export LFS=/mnt/lfs`
@@ -43,22 +46,38 @@ See general notes to copy sources over ssh.
 See `scripts/3/setup-sources.sh`
 
 ## Download the sources
+
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
-There were some files not in the wget-list, so will need to download them separately.  
+
+Consider downloading from a [mirror](http://www.linuxfromscratch.org/mirrors.html) with https
+
 See `scripts/3/download-sources.sh`
-If running this script from within the new lfs system, change into the sources directory first (`cd $LFS/sources`)
+If running this script from within the new lfs system, change into the sources directory first (ex `cd $LFS/sources`)
+
+### versions/missing packages
+
+- file (older versions not kept)
+- linux: get the latest version from https://www.kernel.org/pub/linux/kernel/v5.x/
+- vim: get the latest version from https://github.com/vim/vim/releases
 
 # 4. Tools
 
-## Setup the tools directory
-See `scripts/4/setup-tools.sh`
+## create lfs user
 
-## Create the lfs user
-See `scripts/4/create-lfs-user.sh`
-
-## ssh as lfs or switch:
+as root:
 
 ```
+groupadd lfs
+useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
-su - lfs
 ```
+
+## directory structure
+
+Create directory structure with `sudo --preserve-env=LFS sh ./scripts/4/create-dirs.sh`
+
+## initialize lfs user's environment and switch
+
+initialize the user's bash profile and rc files: `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
+
+Switch to the lfs user using `su - lfs`
