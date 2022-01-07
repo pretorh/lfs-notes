@@ -31,4 +31,4 @@ echo -e "enter to continue"
 read -r
 
 wget --input-file=wget-list.cleaned --continue || echo "wget failed" >&2
-md5sum -c md5sums
+md5sum -c md5sums.cleaned
