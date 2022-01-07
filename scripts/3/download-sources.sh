@@ -7,10 +7,10 @@ wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
 
 # remove sysvinit (on systemd versions), vim and kernel (manually download latest items)
 # replace root urls
-grep -v \
+grep wget-list -v \
     -e sysvinit \
     -e 'kernel\/v5.x' \
-    -e vim wget-list | \
+    -e vim | \
     sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
     > wget-list.cleaned
 diff wget-list wget-list.cleaned
