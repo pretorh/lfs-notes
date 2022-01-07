@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
@@ -13,7 +13,11 @@ grep wget-list -v \
     -e vim | \
     sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
     > wget-list.cleaned
+
+echo "file list changes:"
 diff wget-list wget-list.cleaned
+echo -e "enter to continue"
+read -r
 
 wget --input-file=wget-list.cleaned --continue
 
