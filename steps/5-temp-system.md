@@ -88,7 +88,8 @@ most of these have negligible build times
 - diffutils
     - basic config (`prefix` and `host`) only
 - file
-    - basic config (`prefix` and `host`) only
+    - build file with `disable`s first, see `scripts/5/file/pre-config.sh`
+    - use the previously built file when running make: `make FILE_COMPILE=$(pwd)/build/src/file`
 - findutils
     - post install: move into `bin` and change `updatedb`
 - gawk
