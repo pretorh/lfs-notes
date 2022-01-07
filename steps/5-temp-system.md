@@ -80,10 +80,10 @@ most of these have negligible build times
     - install and update libraries, see `scripts/5/ncurses/install.sh`
     - time: 0.3x for `tic`, negligible for main
 - bash
-    - post install: move into `bin`, create `sh` symlink
+    - post install: create `sh` symlink
     - time: 0.3x (negligible for parallel)
 - coreutils
-    - post install: move into `bin`, move man files
+    - post install: see `scripts/5/coreutils/post.sh`
     - time: 0.4x (0.1x for parallel)
 - diffutils
     - basic config (`prefix` and `host`) only
