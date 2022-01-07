@@ -13,9 +13,12 @@ You should login as `lfs`: `su - lfs`
 ## Timings
 
 Remeber to time the first installed package, since all the others are relative to it.
-Check the `user`+`sys` output (as this would give an indication of how long serial-only builds could take)
+
+Add the `user` and `sys` output as this would give an indication of how long serial-only builds could take (some packages do not run much faster on parallel)
+
 Tracking the first GCC build (the 2nd package) is also useful, as it is about 10 times longer than the 1st (which makes
 it one of the longest building packages)
+
 The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
 
 Added my timings, when used with `time make --jobs 4` for build and `time make check --jobs 4` (or `test`) for
