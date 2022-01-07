@@ -39,6 +39,8 @@ Some packages change frequently and is ignored in this script, and should be man
 
 ## create lfs user
 
+Create the user (once) on the host system:
+
 as root:
 
 ```
@@ -47,12 +49,12 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
 
+Initialize the user's bash profile and rc files (this might change between LFS versions) using `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
+
 ## directory structure
 
 Create directory structure with `sudo --preserve-env=LFS sh ./scripts/4/create-dirs.sh`
 
-## initialize lfs user's environment and switch
-
-initialize the user's bash profile and rc files: `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
+## switch to lfs user
 
 Switch to the lfs user using `su - lfs`
