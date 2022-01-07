@@ -15,8 +15,8 @@ NOTE: To be used as a quick reference only, work though the book. Most of the no
 
 #### Updates
 
-- the [10.0 version](http://www.linuxfromscratch.org/lfs/downloads/10.0/LFS-BOOK-10.0.pdf) (2021-01-04)
-- the [8.2 version](http://www.linuxfromscratch.org/lfs/downloads/8.2/LFS-BOOK-8.2.pdf) (2018-08-05)
+- the [10.0 version](http://www.linuxfromscratch.org/lfs/downloads/10.0-systemd/LFS-BOOK-10.0-systemd.pdf) (2021-01-04)
+- the [8.2 version](http://www.linuxfromscratch.org/lfs/downloads/8.2-systemd/LFS-BOOK-8.2-systemd.pdf) (2018-08-05)
 
 Original notes come from the 20160102 systemd version, but they were rechecked/recreated while working through the [20160304 version](http://www.linuxfromscratch.org/lfs/downloads/7.9-systemd/LFS-BOOK-7.9-systemd.pdf). (last rechecked 2016-07-23)
 
