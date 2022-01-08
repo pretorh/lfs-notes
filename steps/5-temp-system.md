@@ -116,9 +116,10 @@ most of these have negligible build times
     - time: 1.3x (0.4x for parallel)
 - GCC (pass 2)
     - patch:
-        - `5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `5/gcc/patch-lib64.sh`
-        - create symlink for libgcc posix thread support
+        - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
+        - `scripts/5/gcc/patch-lib64.sh` (same as in pass 1)
+    - pre-configure:
+        - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
     - time: 12x to 14x (4.0x for parallel)
