@@ -112,6 +112,7 @@ most of these have negligible build times
 ### bin utils and gcc - pass 2
 
 - Bin Utils (pass 2)
+    - fix `libctf` post install, see `scripts/5/binutils-pass2/post-install.sh`
     - time: 1.3x (0.4x for parallel)
 - GCC (pass 2)
     - patch:
