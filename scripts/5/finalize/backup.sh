@@ -9,5 +9,3 @@ tar -cf "/tmp/lfs-temp-tools-$(date --iso-8601).tar.xz" \
     --preserve-permissions  \
     --exclude ./sources \
     .
-tar -cf "/tmp/lfs-sources-$(date --iso-8601).tar" \
-    ./sources

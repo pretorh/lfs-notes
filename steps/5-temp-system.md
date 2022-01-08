@@ -124,24 +124,10 @@ most of these have negligible build times
         - `ln -sv gcc $LFS/usr/bin/cc`
     - time: 12x to 14x (4.0x for parallel)
 
-# deprecated notes from pre-10.0 book
+## finalize temporary system
 
-## Sanity Check 2
+Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
 
-see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
+Fix the LFS root file ownership, see `scripts/5/finalize/fix-permissions.sh`
 
-# Finalizing the temp system
-
-run as root user (at least for the change command, but also for all following that)
-
-`export LFS=/mnt/lfs`
-
-## Cleanup the toolchain
-
-Strip debug symbols, remove documentation and chage ownership.
-
-see `scripts/5/finalize/cleanup.sh`
-
-## Backup the toolchain
-
-see `scripts/5/finalize/backup.sh`
+Optionally, backup the temp system, see `scripts/5/finalize/backup.sh`
