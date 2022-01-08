@@ -2,6 +2,8 @@
 
 This should be run as the root user. Remember to have `LFS` set: `export LFS=/mnt/lfs`
 
+Start bash with LFS set from the current environment: `sudo --preserve-env=LFS bash`
+
 ## Chroot
 
 See:
@@ -10,6 +12,8 @@ See:
 - enter chroot: `scripts/6/setup/enter-chroot.sh`
 - change ownership and setup the filesystem: `scripts/6/setup/filesystem.sh`
 - setup the chroot environment (essential files and symlinks): `scripts/6/setup/chroot-setup.sh`
+
+todo: had issue entering chroot (`/bin/bash` not found), which was fixed by removing the (empty) lib64 dir, and creating it as a symlink to `/usr/lib` (`ln -sv usr/lib "$LFS/lib64"`)
 
 ### Re-entering chroot
 

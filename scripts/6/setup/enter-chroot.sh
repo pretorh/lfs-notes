@@ -1,13 +1,15 @@
 #!/usr/bin/env sh
 
+[ -z "$LFS" ] && echo "LFS env var is not set!" && exit 1
+
 echo "entering chroot"
 
 chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin  \
+    PATH=/usr/bin:/usr/sbin     \
     /bin/bash --login +h
 
-echo "chroot done"
+echo "chroot done, exited with $?"
 echo "back on the host system"
