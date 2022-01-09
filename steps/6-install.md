@@ -47,12 +47,11 @@ Build and install from the `sources` directory
     - custom configure command, see `scripts/6/perl-configure.sh`
     - time: 1.5x (0.4x for parallel)
 - python
-    - note the uppercase package name
+    - note the uppercase archive name
     - time: 1.2x (0.3x for parallel)
 - texinfo
+    - fix building with glibc 2.34+, see `scripts/6/texinfo-patch.sh`
     - basic configure (`prefix`) only
-    - there is an error in configure (re `TestXS_la-TestXS.lo`), but it can be ignored
-        - though did not get this
     - time: negligible
 - util-linux
     - recheck: had to recreate `libncursesw.so`, might have missed on it's post install? (or miscopied from pdf without .so extention?)
