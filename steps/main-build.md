@@ -40,7 +40,10 @@ See notes about package management
 
 ### Glibc
 
-Patch for file system standards: `patch -Np1 -i ../glibc-2.*-fhs-1.patch`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+Patches:
+- file system standards: see, `scripts/5/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+- using sed command: see `scripts/6/glibc/patch.sh`
+- pre configure setup to install into `sbin`
 
 Time: 4.8x (1.3x for parallel) + 14.2x (6.2x for parallel) for tests
 
@@ -50,7 +53,7 @@ Create symlink for tests to work (`ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib`)
 
 Tests are *critical*, but some will fail:
 
-"You may see some test failures.", the doc only lists some of the most common issues
+"You may see some test failures." the doc only lists some of the most common issues
 
 - known to fail:
     - `io/tst-lchmod`
@@ -73,7 +76,7 @@ Summary of test results:
 
 #### Install glibc
 
-Prevent warnings and sanity checks, install and install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
+Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
 
 Setup locales. See `scripts/6/glibc/locale.sh` to install those needed for future tests
 
