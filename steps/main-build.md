@@ -18,6 +18,9 @@ See notes about package management
 - iana-etc
     - only need to copy the 2 files out (`cp -v services protocols /etc`)
     - time: negligible
+
+### old part 1 packages, moved well after Glibc
+
 - tcl
     - custom archive name, also extract the documentation archive
     - custom build commands (sed to replace build dir)
