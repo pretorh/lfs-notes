@@ -16,32 +16,28 @@ Remeber to time the first installed package, since all the others are relative t
 
 Add the `user` and `sys` output as this would give an indication of how long serial-only builds could take (some packages do not run much faster on parallel)
 
-Tracking the first GCC build (the 2nd package) is also useful, as it is about 10 times longer than the 1st (which makes
+Tracking the first GCC pass (the 2nd package) is also useful, as it is about 10 times longer than Binutils (making
 it one of the longest building packages)
 
 The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
 
-Added my timings, when used with `time make --jobs 4` for build and `time make check --jobs 4` (or `test`) for
-tests (should `TESTSUITEFLAGS` be used here?).
-Times are also relative to the initial bin utils build. Parallel timing is relative to bin utils
+Added my timings, around *all steps*: extracting, patch, configure, build and test (mostly with `--jobs 4`), install and post-install scripts
+All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel (`real`) time listed first
 
-The configure time is not tracked, but is usually quite small (though a few seem to take almost longer on configre than
-build)
-
-Small times are not shown (should be ones smaller than 1 SMB)
+Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## Part 1
 
 - Bin Utils (pass 1)
-    - remember to time this (defined as 1x)
-    - parallel: 0.3x
+    - remember to time this
+    - time: 0.3x real (user+sys is defined as 1x)
 - GCC (pass 1)
     - patch scripts:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
         - `5/gcc/patch-lib64.sh`
     - post install scritps:
         - `5/gcc/fix-limits_header.sh`
-    - time: 9x to 13x (3.9x for parallel)
+    - time: 3.8x real (user+sys: 13.0x)
 - Linux API Headers
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
@@ -53,7 +49,7 @@ Small times are not shown (should be ones smaller than 1 SMB)
     - patch for FHS compliance: see `scripts/5/glibc/patch.sh`
     - run pre configure script (after `cd`ing into build directory, but before `../configure ...`)
     - post install patch: see `scripts/5/glibc/post-install.sh`
-    - time: 5x (1.4x for parallel). installation (untimed) took non trivial time
+    - time: 1.6x real (user+sys: 4.7x)
 
 ## Sanity Check 1
 
@@ -66,7 +62,7 @@ Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
-    - time: 0.4x (0.1x for parallel)
+    - time: 0.3x real (user+sys: 0.6x)
 
 ## cross compiling temporary tools
 
@@ -80,13 +76,13 @@ most of these have negligible build times
 - ncurses
     - patch and build `tic`, see `scripts/5/ncurses/patch-build-tic.sh`
     - install and update libraries, see `scripts/5/ncurses/install.sh`
-    - time: 0.3x for `tic`, negligible for main
+    - time: 0.5x real (user+sys: 0.7x) (todo: recheck when building tic with `--jobs=4`)
 - bash
     - post install: create `sh` symlink
     - time: 0.3x (negligible for parallel)
 - coreutils
     - post install: see `scripts/5/coreutils/post.sh`
-    - time: 0.4x (0.1x for parallel)
+    - time: 0.3x real (user+sys: 0.6x)
 - diffutils
     - basic config (`prefix` and `host`) only
 - file
@@ -113,7 +109,7 @@ most of these have negligible build times
 
 - Bin Utils (pass 2)
     - fix `libctf` post install, see `scripts/5/binutils-pass2/post-install.sh`
-    - time: 1.3x (0.4x for parallel)
+    - time: 0.4x real (user+sys: 1.3x)
 - GCC (pass 2)
     - patch:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
@@ -122,7 +118,7 @@ most of these have negligible build times
         - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
-    - time: 12x to 14x (4.0x for parallel)
+    - time: 4.1x real (user+sys: 14.2x)
 
 ## finalize temporary system
 

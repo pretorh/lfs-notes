@@ -35,26 +35,26 @@ Build and install from the `sources` directory
     - part of gcc sources
     - patch by symlinking `gthr-posix.h`
     - run configure from `libstdc++-v3`
-    - time: 0.7x (0.2x for parallel)
+    - time: 0.4x real (user+sys: 0.6x)
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
     - to check: previously build these only, which may be a bit faster
-    - time: 1.4x (0.8x for parallel)
+    - time: 1.2x real (user+sys: 1.7x)
 - bison
     - time: negligible
 - perl
     - custom configure command, see `scripts/6/perl-configure.sh`
-    - time: 1.5x (0.4x for parallel)
+    - time: 0.7x real (user+sys: 1.7x)
 - python
     - note the uppercase archive name
-    - time: 1.2x (0.3x for parallel)
+    - time: 0.5x real (user+sys: 1.6x)
 - texinfo
     - fix building with glibc 2.34+, see `scripts/6/texinfo-patch.sh`
     - basic configure (`prefix`) only
     - time: negligible
 - util-linux
-    - time: 0.7x (0.2x for parallel)
+    - time: negligible
 
 ## cleanup and backup
 
