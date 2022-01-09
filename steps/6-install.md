@@ -10,7 +10,7 @@ See:
 
 - setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
 - enter chroot: `scripts/6/setup/enter-chroot.sh`
-- change ownership and setup the filesystem: `scripts/6/setup/filesystem.sh`
+- setup the filesystem: `scripts/6/setup/filesystem.sh`
 - setup the chroot environment (essential files and symlinks): `scripts/6/setup/chroot-setup.sh`
 
 todo: had issue entering chroot (`/bin/bash` not found), which was fixed by removing the (empty) lib64 dir, and creating it as a symlink to `/usr/lib` (`ln -sv usr/lib "$LFS/lib64"`)
