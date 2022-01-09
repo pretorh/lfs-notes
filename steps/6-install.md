@@ -54,7 +54,6 @@ Build and install from the `sources` directory
     - basic configure (`prefix`) only
     - time: negligible
 - util-linux
-    - recheck: had to recreate `libncursesw.so`, might have missed on it's post install? (or miscopied from pdf without .so extention?)
     - time: 0.7x (0.2x for parallel)
 
 ## cleanup and backup
