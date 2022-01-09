@@ -64,7 +64,7 @@ First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/clean
 
 Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh`
 
-Backup the temp system, see `scripts/6/cleanup/backup.sh`. Note that this saves 2 archives (root and sources split) to `/tmp`
+Optionally backup the temp system, see `scripts/5/finalize/backup.sh`
 
 ## deprecated/old notes from pre 10.0 book
 
