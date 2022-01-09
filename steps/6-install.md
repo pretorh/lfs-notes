@@ -44,7 +44,7 @@ Build and install from the `sources` directory
 - bison
     - time: negligible
 - perl
-    - custom configure commands
+    - custom configure command, see `scripts/6/perl-configure.sh`
     - time: 1.5x (0.4x for parallel)
 - python
     - note the uppercase package name
