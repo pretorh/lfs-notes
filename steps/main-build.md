@@ -13,7 +13,10 @@ See notes about package management
 ### Part 1
 
 - man-pages
-    - no configure, build (just `make install`)
+    - no configure or build (just `make install`)
+    - time: negligible
+- iana-etc
+    - only need to copy the 2 files out (`cp -v services protocols /etc`)
     - time: negligible
 - tcl
     - custom archive name, also extract the documentation archive
@@ -33,9 +36,6 @@ See notes about package management
 - DejaGNU
     - tests: ran before install (book has install then test?)
     - skipped building/installing docs
-    - time: negligible
-- iana-etc
-    - only need to copy the 2 files out (`cp -v services protocols /etc`)
     - time: negligible
 
 ### Glibc
