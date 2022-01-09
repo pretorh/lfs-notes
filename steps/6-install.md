@@ -58,11 +58,11 @@ Build and install from the `sources` directory
 
 ## cleanup and backup
 
-Note that the cleanup commands have been merged to remove the required and optional files in a single script. Both are run from outside of the chroot environment
+Note: the cleanup commands have been rearranged to run them from outside the chroot environment
 
-First exit chroot (`exit`). Ensure LFS is still set and unmount devices. See `scripts/6/cleanup/umount-chroot.sh`
+First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/cleanup/umount-chroot.sh`
 
-Remove static libs, documentation and strip debug symbols. See `scripts/6/cleanup/remove-files-strip.sh`
+Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh`
 
 Backup the temp system, see `scripts/6/cleanup/backup.sh`. Note that this saves 2 archives (root and sources split) to `/tmp`
 
