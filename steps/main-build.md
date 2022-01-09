@@ -45,7 +45,7 @@ Patches:
 - using sed command: see `scripts/6/glibc/patch.sh`
 - pre configure setup to install into `sbin`
 
-Time: 4.8x (1.3x for parallel) + 14.2x (6.2x for parallel) for tests
+Time (including tests): 7.6x real (user+sys: 18.9x)
 
 #### tests
 
@@ -57,14 +57,21 @@ Tests are *critical*, but some will fail:
 
 - known to fail:
     - `io/tst-lchmod`
-	- `misc/tst-ttyname`
-- others mentioned, but passed:
-    - `nss/tst-nss-files-hosts-multi`
-    - `rt/tst-cputimer{1,2,3}`
-    - math tests on older CPUs
+	  - `misc/tst-ttyname`
 
 summary:
 
+2.34:
+```
+Summary of test results:
+      2 FAIL
+   4399 PASS
+     69 UNSUPPORTED
+     16 XFAIL
+      2 XPASS
+```
+
+2.32:
 ```
 Summary of test results:
       2 FAIL
