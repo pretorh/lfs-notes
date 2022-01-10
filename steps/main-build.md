@@ -141,7 +141,7 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - basic config (`prefix`) and simple build/test/install
     - time: negligible
 - readline
-    - patch: see `scripts/6/2/readline-patch.sh`
+    - reinstalling can cause issues with old files (but not reinstalling here, and should use fakeroots eventually)
     - no tests
     - time: negligible
 - m4
