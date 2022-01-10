@@ -72,22 +72,6 @@ Use something like `grep en_ ../localedata/SUPPORTED` to find your locale
 
 #### Configure glibc
 
-##### nsswitch.conf
-
-    cat > /etc/nsswitch.conf << "EOF"
-    # Begin /etc/nsswitch.conf
-    passwd: files
-    group: files
-    shadow: files
-    hosts: files dns
-    networks: files
-    protocols: files
-    services: files
-    ethers: files
-    rpc: files
-    # End /etc/nsswitch.conf
-    EOF
-
 ##### timezone
 
 Install timezone data (see `scripts/6/glibc/tz-install.sh` - note this should run in the `sources` dir) and configure it
