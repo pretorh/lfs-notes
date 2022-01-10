@@ -2,19 +2,23 @@
 
 SRCDIR="$(realpath ..)"
 
+tdbc_version=1.1.2
+itcl_version=4.2.1
+
 echo "fixing references to $SRCDIR to root dirs"
+echo "  tdbc=$tdbc_version, itcl=$itcl_version"
 
 sed -e "s|$SRCDIR/unix|/usr/lib|"   \
     -e "s|$SRCDIR|/usr/include|"    \
     -i tclConfig.sh
 
-sed -e "s|$SRCDIR/unix/pkgs/tdbc1.1.1|/usr/lib/tdbc1.1.1|"  \
-    -e "s|$SRCDIR/pkgs/tdbc1.1.1/generic|/usr/include|"     \
-    -e "s|$SRCDIR/pkgs/tdbc1.1.1/library|/usr/lib/tcl8.6|"  \
-    -e "s|$SRCDIR/pkgs/tdbc1.1.1|/usr/include|"             \
-    -i pkgs/tdbc1.1.1/tdbcConfig.sh
+sed -e "s|$SRCDIR/unix/pkgs/tdbc$tdbc_version|/usr/lib/tdbc$tdbc_version|"  \
+    -e "s|$SRCDIR/pkgs/tdbc$tdbc_version/generic|/usr/include|"     \
+    -e "s|$SRCDIR/pkgs/tdbc$tdbc_version/library|/usr/lib/tcl8.6|"  \
+    -e "s|$SRCDIR/pkgs/tdbc$tdbc_version|/usr/include|"             \
+    -i pkgs/tdbc$tdbc_version/tdbcConfig.sh
 
-sed -e "s|$SRCDIR/unix/pkgs/itcl4.2.0|/usr/lib/itcl4.2.0|"  \
-    -e "s|$SRCDIR/pkgs/itcl4.2.0/generic|/usr/include|"     \
-    -e "s|$SRCDIR/pkgs/itcl4.2.0|/usr/include|"             \
-    -i pkgs/itcl4.2.0/itclConfig.sh
+sed -e "s|$SRCDIR/unix/pkgs/itcl$itcl_version|/usr/lib/itcl$itcl_version|"  \
+    -e "s|$SRCDIR/pkgs/itcl$itcl_version/generic|/usr/include|"     \
+    -e "s|$SRCDIR/pkgs/itcl$itcl_version|/usr/include|"             \
+    -i pkgs/itcl$itcl_version/itclConfig.sh

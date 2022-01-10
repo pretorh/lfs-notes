@@ -21,18 +21,6 @@ See notes about package management
 
 ### old part 1 packages, moved well after Glibc
 
-- tcl
-    - custom archive name, also extract the documentation archive
-    - custom build commands (sed to replace build dir)
-        - see `scripts/6/main/tcl-post-build.sh`
-    - post install steps for headers, symlink
-        - `make install-private-headers`
-        - `ln -sv tclsh8.6 /tools/bin/tclsh`
-    - tests
-        - some known errors in `clock.test`
-        - also had errors in `tdbcmysql.test`, `tdbcodbc.test`, `tdbcpostgres.test` (libraries not found)
-        - todo: filter output log for lines like `all.tcl:        Total   24996   Passed  21651   Skipped 3345    Failed  0`
-    - time: 0.8x (0.5x for parallel) + 1.4x for tests
 - expect
     - post: symlink lib into `/usr/lib`
     - time: negligible + 0.1x for tests
@@ -156,6 +144,14 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - post install: create `lex` symlink: `ln -sv flex /usr/bin/lex`
     - tests: all 114 passed
     - time: negligible
+- tcl
+    - custom archive name. also extract the documentation archive
+    - custom build commands, see `scripts/6/main/tcl-post-build.sh`
+    - install steps for headers, symlink (see `scripts/6/main/tcl-install.sh`, which also installs)
+    - tests
+        - `grep '^all.tcl:' out.log` to get summary
+        - no failures (but a lot of skipped)
+    - time: 1.7x real (user+sys: 1.1x)
 
 ### binutils
 
