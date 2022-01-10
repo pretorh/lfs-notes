@@ -19,16 +19,6 @@ See notes about package management
     - only need to copy the 2 files out (`cp -v services protocols /etc`)
     - time: negligible
 
-### old part 1 packages, moved well after Glibc
-
-- expect
-    - post: symlink lib into `/usr/lib`
-    - time: negligible + 0.1x for tests
-- DejaGNU
-    - tests: ran before install (book has install then test?)
-    - skipped building/installing docs
-    - time: negligible
-
 ### Glibc
 
 Patches:
@@ -152,6 +142,18 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
         - `grep '^all.tcl:' out.log` to get summary
         - no failures (but a lot of skipped)
     - time: 1.7x real (user+sys: 1.1x)
+- expect
+    - post: symlink lib into `/usr/lib`
+    - tests:
+        - `grep '^all.tcl:' out.log` to get summary
+        - all 29 passed
+    - time: negligible
+- DejaGNU
+    - skipped building/installing docs
+    - tests:
+      - ran before install (book has install then test?)
+      - `grep '^#' out.log` (but should get everything between "... Summary ===" and the next "===" line)
+    - time: negligible
 
 ### binutils
 
