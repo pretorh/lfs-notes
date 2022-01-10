@@ -169,18 +169,18 @@ time: 2.3x real (user+sys: 7.0x)
 ### gmp, mpfr, mpc
 
 - gmp
-    - see the architecture after configure, and make sure that matches the CPU (see notes to change)
+    - see notes on the architecture, and make sure that matches the CPU
     - The tests are critical. All 197 must pass
         - run `awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log` to get passed count
-    - time: 0.4x (0.1x for parallel) + 0.7x (0.2x for parallel) for tests
+    - time: 0.4x real (user+sys: 1.1x)
 - mpfr
-    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
+    - simple build/test/install (skipped docs)
     - The tests are critical. All tests must pass (had 181 pass, 2 skipped)
-    - time: 0.3x (0.1x for parallel) + 0.6x (0.2x for parallel) for tests
+    - time: 0.2x real (user+sys: 0.8x)
 - mpc
     - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
-    - tests: all 67 passed
-    - time: negligible + 0.2x (negligible for parallel) for tests
+    - tests: all 69 passed
+    - time: negligible
 
 ### Part 3
 
