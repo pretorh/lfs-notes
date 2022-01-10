@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-# SANITY CHECK 4 (very similar to 3, compile params are difference)
+set -e
 
 echo "check: compile"
 echo 'int main(){}' > dummy.c
@@ -10,6 +9,7 @@ if readelf -l a.out | grep 'Requesting program interpreter: /lib64/ld-linux-x86-
     echo "SUCCESS"
 else
     echo "ERROR!"
+    exit 1
 fi
 
 echo "check: header files"
@@ -47,4 +47,4 @@ echo "check: correct dynamic linker"
     || (echo "ERROR!" && false)
 
 echo "cleanup"
-rm -v dummy.c a.out dummy.log
+rm dummy.c a.out dummy.log
