@@ -194,7 +194,7 @@ See `scripts/6/3/shadow-post-install-config.sh`
 
 ### GCC
 
-Takes *realy* long: 15.2x (4.5x for parallel) + 110.7x (29.3x for parallel) for the tests
+Takes *realy* long: 51.4x real (user+sys: 196.0x) for building and tests (47.0x/181.5x for the `time ... make ... check` line)
 
 Patch, see `scripts/6/gcc/patch.sh`
 
