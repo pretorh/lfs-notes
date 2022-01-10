@@ -185,16 +185,13 @@ time: 2.3x real (user+sys: 7.0x)
 ### Part 3
 
 - attr
-    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libattr.so`
+    - tests: 2/2 passed
     - time: negligible
 - acl
     - tests require coreutils, so cannot be run now
-    - move a shared lib: `scripts/6/mv-shared.sh /usr/lib/libacl.so`
     - time: negligible
 - libcap
-    - no configure
-    - patch to disable static lib install
-    - post install: move libs, create libcap in `/usr/lib`
+    - no configure (but prefix= in make)
     - time: negligible
 
 ### Shadow
