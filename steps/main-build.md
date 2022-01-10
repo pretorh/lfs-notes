@@ -126,9 +126,9 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - basic config (`prefix`) and simple build/test/install
     - time: negligible
 - bzip2
-    - patch: `scripts/6/3/bzip2-patch.sh`
-    - build the dynamic library first
-    - post-install: `scripts/6/3/bzip2-install.sh`
+    - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/6/3/bzip2-patch.sh`
+    - no configure (but install with `PREFIX` - part of `bzip2-install.sh`)
+    - install: `scripts/6/3/bzip2-install.sh`
     - time: negligible
 - xz
     - tests: `All 9 tests passed`
