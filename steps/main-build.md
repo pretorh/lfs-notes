@@ -66,19 +66,17 @@ Summary of test results:
 
 Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
 
-Setup locales. See `scripts/6/glibc/locale.sh` to install those needed for future tests
+#### Install timezone data
 
-Use something like `grep en_ ../localedata/SUPPORTED` to find your locale
+see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) and configure it
 
 #### Configure glibc
 
-##### timezone
+Install locales needed for future tests, see `scripts/6/glibc/locale.sh`
 
-Install timezone data (see `scripts/6/glibc/tz-install.sh` - note this should run in the `sources` dir) and configure it
+Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED'`) and install it
 
 Run `scripts/6/glibc/tz-set-localtime.sh` to set `/etc/localtime`
-
-#### Dynamic Loader
 
 See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 
