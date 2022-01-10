@@ -132,14 +132,11 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - time: negligible
 - xz
     - tests: `All 9 tests passed`
-    - install with `make install` and then
-        - move files: `mv -v $DESTDIR/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} $DESTDIR/bin`
-        - move and recreate shared object `scripts/6/mv-shared.sh /usr/lib/liblzma.so`
     - time: negligible
 - zstd
-    - no tests
+    - no configure (but `prefix=/usr` in install)
     - post: remove a static lib `rm -v /usr/lib/libzstd.a`
-    - time: 0.2x (no speedup in parallel) - but install does more building?
+    - time: 0.4x real (user+sys: 1.3x)
 - file
     - basic config (`prefix`) and simple build/test/install
     - time: negligible
