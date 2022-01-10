@@ -204,12 +204,8 @@ The tests are critical.
 
 Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/6/gcc/test.sh`
 
-Some tests are known to fail:
-
-- "Six tests related to get_time are known to fail."
-- `asan_test.C`, `co-ret-17-void-ret-coro.C`, `pr95519-05-gro.C`, `pr80166.c`
-
-Compare the results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults). See also my list of failed tests: `steps/6-more.md`
+Some tests are known to fail. Compare with list in doc.
+Compare the overall results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults). See `steps/6-more.md` for my list of failed tests
 
 See `scripts/6/gcc/compare-test-results.sh` to get list of unexpected failures
 
