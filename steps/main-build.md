@@ -196,11 +196,13 @@ time: 2.3x real (user+sys: 7.0x)
 
 ### Shadow
 
-Patch to disable groups, man pages, use sha-256, fix first user id. See `scripts/6/3/shadow-patch.sh`
+`touch /usr/bin/passwd`: file must exist before configure is run
 
-`touch /usr/bin/passwd` must exist before configure in run
+Patch to disable groups, man pages, use sha-512, patch c file. See `scripts/6/3/shadow-patch.sh`
 
 There are no tests
+
+Install using `scripts/6/3/shadow-install.sh`
 
 Time: negligible
 
