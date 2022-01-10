@@ -145,19 +145,17 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - no tests
     - time: negligible
 - m4
-    - patch: see `scripts/5/tools/m4-patch.sh` (same as temp tools)
     - then basic config (`prefix`) and simple build/test/install
     - tests: 170 total, 157 pass, 13 skipped
-    - time: negligible
+    - time: 0.4x real (user+sys: 0.5x)
 - bc
-    - custom configure script
-    - all tests (`bc` and `dc`) pass
+    - all tests (`bc` and `dc`, `history`) pass
     - time: negligible
 - flex
-    - basic config (`prefix`, `docdir`) and simple build/test/install
-    - post install: create `lex` symlink `ln -sv flex /usr/bin/lex`
+    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install
+    - post install: create `lex` symlink: `ln -sv flex /usr/bin/lex`
     - tests: all 114 passed
-    - time: negligible + 0.3x (0.1x in parallel) for tests
+    - time: negligible
 
 ### binutils
 
