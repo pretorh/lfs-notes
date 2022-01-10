@@ -208,18 +208,7 @@ Time: negligible
 
 #### post install configuring
 
-Enable using:
-
-```
-pwconv
-grpconv
-```
-
-optionally start groups at 100: `sed -i /etc/default/useradd -e 's/\(GROUP\)=.*/\1=100/'`
-
-optinally disable mail spool: `sed -i /etc/default/useradd -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/'`
-
-set the password for root: `passwd root`
+See `scripts/6/3/shadow-post-install-config.sh`
 
 ### GCC
 
