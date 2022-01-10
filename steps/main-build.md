@@ -214,21 +214,13 @@ See `scripts/6/3/shadow-post-install-config.sh`
 
 Takes *realy* long: 15.2x (4.5x for parallel) + 110.7x (29.3x for parallel) for the tests
 
-Patch to fix for 64 bit lib: `sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64`
+Patch, see `scripts/6/gcc/patch.sh`
 
 #### Tests
 
 The tests are critical.
 
-Increase stack size and run tests as the `tester` user:
-
-```
-ulimit -s 32768
-chown -Rv tester .
-time su tester -c "PATH=$PATH make --jobs 4 -k check"
-```
-
-to get a summary of the results: `../contrib/test_summary | grep -A7 Summ`
+Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/6/gcc/test.sh`
 
 Some tests are known to fail:
 
@@ -239,13 +231,9 @@ Compare the results with the [build logs](http://www.linuxfromscratch.org/lfs/bu
 
 See `scripts/6/gcc/compare-test-results.sh` to get list of unexpected failures
 
-Change the ownership back to root (remove the need to change post-install): `chown -Rv root .`
-
 #### Install and sanity checks
 
-Install using the normal `make install`
-
-Post install clean and symlinks: see `scripts/6/gcc/install.sh` (moved the final `.py` file move to share into this script)
+Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
 Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
