@@ -239,11 +239,11 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 - Gettext
     - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
     - tests: 727 total, 690 passed, 37 skipped
-    - time: (configure takes some time) 1.5x (0.8x for parallel) + 1.2x (0.3x for parallel) for tests
+    - time: 1.6x real (user+sys: 2.9x)
 - bison
     - basic config (`prefix`, `docdir`) and simple build/test/install
-    - tests: "617 tests were successful. 43 tests were skipped."
-    - time: negligible + 6.7x (1.7x for parallel) for tests
+    - tests: 11/11 passed, and "620 tests were successful. 43 tests were skipped."
+    - time: 1.7x real (user+sys: 6.3x)
 - grep
     - basic config (`prefix`, `bindir`) and simple build/test/install
     - tests: 298 total, 269 pass, 27 skipped, 2 xfail
