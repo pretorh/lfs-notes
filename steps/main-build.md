@@ -251,23 +251,13 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 
 ### Bash
 
-Tests need to be run as user `tester`:
+Tests need to be run as user `tester`, using expect: see `scripts/6/main/bash-tests.sh`
 
-```
-chown -Rv tester .
-time su tester << EOF
-PATH=$PATH make tests < $(tty) | tee check-log
-EOF
-chown -R root .
-```
-
-Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary), but had a few errors/warnings output
-
-Post install: `mv -vf $DESTDIR/usr/bin/bash $DESTDIR/bin`
+Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary)
 
 After installing, start a new bash: `exec /bin/bash --login +h`
 
-Time: 0.3x (negligible for parallel) + 0.9x for tests
+Time: 0.7x real (user+sys: 0.5x - less than real)
 
 ### Part 5
 
