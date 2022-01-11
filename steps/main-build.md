@@ -224,12 +224,10 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - tests can only be run after ncurses is installed
     - confirm for 10.0:
         - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
-    - post install:
-        - move shared lib
-        - symlinks for non-wide-character library `scripts/6/3/ncurses-post.sh`
-    - time: 0.3x (0.1x for parallel)
+    - post install: see `scripts/6/3/ncurses-post.sh`
+    - time: negligible
 - sed
-    - basic config (`prefix`, `bindir`) and simple build/install
+    - basic config (`prefix`) and simple build/install
     - tests
         - run with `tester` user (same as gcc)
         - 157 passed, 21 skipped (of 178)
@@ -237,7 +235,6 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 - psmisc
     - basic config (`prefix`) and simple build/install
     - no tests
-    - post install: move files for FHS: `mv -v $DESTDIR/usr/bin/{fuser,killall} $DESTDIR/bin`
     - time: negligible
 - Gettext
     - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
