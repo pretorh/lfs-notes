@@ -263,33 +263,30 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
 
 - libtool
     - basic config (`prefix`) and simple build/test/install
-    - tests: take some time, can be improved with `TESTSUITEFLAGS=-j4`
     - Five tests are known to fail (64 failed, 59 expected). see `grep FAIL tests/testsuite.log`
         - 123: compiling softlinked libltdl
         - 124: compiling copied libltdl
         - 125: installable libltdl
         - 126: linking libltdl without autotools
         - 130: linking libltdl without autotools
-    - time: negligible + 2.2x (1.0x for parallel) for tests (both with `TESTSUITEFLAGS=-j4`, sys+user vs real times)
+    - time: 0.8x real (user+sys: 1.7x)
 - gdbm
-    - patch with `sed` command
-    - tests: "All 30 tests were successful."
-    - time: negligible + negligible for tests
+    - tests, one test fail with `ERROR`, and summary shows "All 30 tests were successful." (but exits with failure)
+    - time: negligible
 - gperf
-    - basic config (`prefix` and `docdir`) and simple build/test/install
-    - tests are known to fail if running simultaneous (run with `-j1`)
-    - time: negligible + negligible for tests
+    - basic config (`prefix` and `docdir`) and simple build/install
+    - tests:
+        - run with `-j1`
+    - time: negligible
 - expat
     - basic config (`prefix`, `disable-static` and `docdir`) and simple build/test/install
     - tests: all 2 passed
-    - time: negligible + negligible for tests
+    - time: negligible
 - inetutils
     - config: disable obsolete programs/programs provided by other packages
     - tests: all 10 passed
-    - post install: move files into `bin`, `sbin`
-        - `mv -v $DISTROOT/usr/bin/{hostname,ping,ping6,traceroute} $DISTROOT/bin`
-        - `mv -v $DISTROOT/usr/bin/ifconfig $DISTROOT/sbin`
-    - time: negligible + negligible for tests
+    - post install: move `ifconfig` into `/usr/sbin`
+    - time: 0.3x real (user+sys: 0.3x)
 
 ### Perl
 
