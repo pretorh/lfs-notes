@@ -287,6 +287,10 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
     - tests: all 10 passed
     - post install: move `ifconfig` into `/usr/sbin`
     - time: 0.3x real (user+sys: 0.3x)
+- less
+    - basic config (`prefix`, `sysconfdir`) and simple build/install
+    - no tests
+    - time: negligible
 
 ### Perl
 
@@ -404,10 +408,6 @@ Time: 1.7x (0.5x for parallel) + 6.2x (parallel) for tests + 0.2x for install
         - `mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions`
         - actual boot setup covered after packages installed
     - time: 0.7x (0.2x for parallel)
-- less
-    - basic config (`prefix`, `sysconfdir`) and simple build/install
-    - no tests
-    - time: negligible
 - gzip
     - basic config (`prefix`) and simple build/test/install
     - all 22 tests passed
