@@ -245,9 +245,9 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - tests: 11/11 passed, and "620 tests were successful. 43 tests were skipped."
     - time: 1.7x real (user+sys: 6.3x)
 - grep
-    - basic config (`prefix`, `bindir`) and simple build/test/install
-    - tests: 298 total, 269 pass, 27 skipped, 2 xfail
-    - time: negligible + 0.4x (0.1x for parallel) for tests
+    - basic config (`prefix`) and simple build/test/install
+    - tests: 318 total, 287 pass, 29 skipped, 2 xfail
+    - time: 0.3x real (user+sys: 0.7x)
 
 ### Bash
 
