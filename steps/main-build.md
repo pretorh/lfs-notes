@@ -348,29 +348,20 @@ Time: 6.1x real (user+sys: 6.1x)
 - ninja
     - see note on optional patch (to decrease/set parallel process count)
     - configured and build with python3 scripts
-    - tests passed (341/341)
-    - time: 0.4x (0.2x for parallel) + 0.3x (negligible for parallel) for tests (test building takes most of the time)
+    - tests passed (343/343)
+    - time: 0.2x real (user+sys: 0.7x)
 - meson
     - configure and build with python3 scripts
     - no tests
     - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
     - time: negligible
 - coreutils
-    - patch:
-        - for character boundary
-        - suppress test in `gnulib-tests/gnulib.mk`
-    - configure
-        - `autoreconf -fiv`
-        - disable `kill`, `uptime`
+    - patch: for character boundary, then `autoreconf -fiv`
     - tests:
         - see `scripts/6/7/coreutils-test.sh`
-        - check-root:
-            - 32 tests: 19 passed, 13 skipped
-        - check:
-            - `test-getlogin` is known to fail (but it passed)
-            - 970 tests: 819 passed, 151 skipped
+        - 1006 total, 844 pass, 162 skip
     - post install: move files, see `scripts/6/7/coreutils-post.sh`
-    - time: (configure takes some time) + 0.4x (0.1x for parallel) + 1.4x (0.4 for parallel) for tests
+    - time: 0.9x real (user+sys: 2.1x)
 - check
     - basic config (`prefix`, `disable-static`) and simple build/test/install
     - tests:
