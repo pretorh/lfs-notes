@@ -366,38 +366,34 @@ Time: 6.1x real (user+sys: 6.1x)
     - basic config (`prefix`, `disable-static`) and simple build/test/install
     - tests:
         - take relatively long
-        - seems to hang at `test_tap_output.sh`
+        - seems to hang after `test_tap_output.sh`
         - all 10 tests passed
     - time: negligible + 0.9x for tests
+    - time: 0.8x real (user+sys: 0.1x, less than real)
 - diffutils
     - basic config (`prefix`) and simple build/test/install
-    - tests: 195 total, 180 passed/14 skipped/1 xfail
+    - tests: 225 total, 207 passed/17 skipped/1 xfail
     - time: negligible
 - gawk
     - patch: `sed -i 's/extras//' Makefile.in`
     - basic config (`prefix`) and simple build/test/install
-    - all tests passed
+    - all tests passed (no summary)
     - time: negligible
 - findutils
     - tests:
         - run as `tester`
-        - 250 total, 237 pass, 13 skipped
-    - post-install: see `scripts/6/7/findutils-post.sh`
-    - time: negligible + 1.4x for tests
+        - 271 total, 254 pass, 17 skipped
+    - time: 0.5x real (user+sys: 0.8x)
 - groff
     - must be built with `-j1`
     - no tests
-    - time: 0.4x
+    - time: 0.5x real (user+sys: 0.5x)
 - grub
-    - no tests
-    - post-install
-        - `mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions`
-        - actual boot setup covered after packages installed
-    - time: 0.7x (0.2x for parallel)
+    - skip when using uefi (todo: install as part of blfs)
+    - actual boot setup covered after packages installed
 - gzip
     - basic config (`prefix`) and simple build/test/install
     - all 22 tests passed
-    - post install: `mv -v $DESTDIR/usr/bin/gzip $DESTDIR/bin`
     - time: negligible
 - iproute2
     - see `scripts/6/8/iproute2-patch.sh`
