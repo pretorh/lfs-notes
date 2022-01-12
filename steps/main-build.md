@@ -343,10 +343,8 @@ Time: 6.1x real (user+sys: 6.1x)
     - time: 1.5x real (user+sys: 2.4x)
 - python
     - archive name start with capital
-    - tests:
-        - `test_normalization` fails due to network config
-    - post: create `pip3` symlink: `/usr/bin/pip3' -> 'pip3.8`
-    - time: 1.3x (0.3x for parallel) + 6.9x (1.2x for parallel) for tests
+    - tests: skipped, "known to hang indefinitely" (needs networking)
+    - time: 2.0x real (user+sys: 4.6x)
 - ninja
     - see note on optional patch (to decrease/set parallel process count)
     - configured and build with python3 scripts
