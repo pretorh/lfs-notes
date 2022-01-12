@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
 # major.minor version only
-PERL_VERSION=5.32
+PERL_VERSION=5.34
+
+# use system libs
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
 
