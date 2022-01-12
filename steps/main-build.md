@@ -307,43 +307,40 @@ Time: 6.1x real (user+sys: 6.1x)
     - tests: all 140 passed
     - time: negligible
 - intltool
-    - patch: `scripts/6/6intltool-patch.sh`
+    - patch: `scripts/6/6/intltool-patch.sh`
     - then basic config (`prefix`) and build/test/install
     - 1 test that passes
     - time: negligible
 - autoconf
-    - patch: `sed -i '361 s/{/\\{/' bin/autoscan.in`
-    - then basic config (`prefix`) and build/test/install
-    - tests are broken due to bash and libtool
-        - from previous book: "two tests fail due to changes in libtool-2.4.3 and later"
-        - had a lot of failures (138, 4 expected of 450)
-    - time: negligible + 4.0x for tests
+    - basic config (`prefix`) and build/test/install
+    - tests: "543 tests behaved as expected, 56 tests were skipped"
+    - time: 1.9x real (user+sys: 7.6x)
 - automake
-    - patch: fix a test
     - tests:
         - run tests with `-j4` option to speed it up (even on single core systems)
-        - `t/subobj.sh` is known to fail in LFS (but it passed)
-        - results: 2915 total, 2719 pass (157 skip, 39 xfail)
+        - results: 2926 total, 2725 pass (163 skip, 38 xfail)
     - time: negligible + 17.7x (6.3x for parallel) for tests
+    - time: 5.5x real (user+sys: 15.7x)
 - kmod
     - no tests in `chroot`
     - post-install: `scripts/6/6/kmod-post.sh`
     - time: negligible
 - libelf
     - in archive: `elfutils-*`
-    - tests: 218 total, 213 pass, 5 skipped
+    - tests: 226 total, 220 pass, 5 skipped
+        - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/6/6/libelf-install.sh`
-    - time: 0.6x (0.2x for parallel) + 0.2x for tests
+    - time: 0.3x real (user+sys: 0.8x)
 - libffi
-    - tests: 2284 passed
-    - time: negligible + 1.8x for tests
+    - tests: 2304 passed
+    - time: 1.6x real (user+sys: 1.7x)
 - openssl
     - configure script is named `config`
     - tests:
         - `30-test_afalg.t` is known to sometime fail (but it passed)
-        - All tests successful. ("Files=155, Tests=1468")
+        - All tests successful. ("Files=158, Tests=2638")
     - pre-install: skip static libs
-    - time: 1.1x (0.3x for parallel) + 0.7x for tests (install takes some time)
+    - time: 1.5x real (user+sys: 2.4x)
 - python
     - archive name start with capital
     - tests:
