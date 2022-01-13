@@ -402,7 +402,6 @@ Time: 6.1x real (user+sys: 6.1x)
 - kbd
     - patch, see `scripts/6/8/kbd-patch.sh`
     - 40 tests, 36 passed, 4 skipped
-    - post install: remove internal `libtswrap`
     - time: negligible
 - libpipeline
     - basic config (`prefix`) and simple build/test/install
@@ -411,28 +410,25 @@ Time: 6.1x real (user+sys: 6.1x)
 - make
     - basic config (`prefix`) and simple build/test/install
     - all tests passed ("690 Tests in 125 Categories Complete ... No Failures :-)")
-    - time: negligible + 0.2x for tests
+    - time: negligible
 - patch
     - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
     - time: negligible
-- man-db
-    - patch: path to `find`
-    - all 50 tests passed
-    - time: negligible
 - tar
     - tests
-        - one test is known to fail, `223: capabilities: binary store/restore`
-        - others passed (215 passed, 19 skipped, 1 failed)
-    - time: negligible + 1.3x for tests
+        - one test is known to fail, `227: capabilities: binary store/restore`
+        - others passed (218 run, 20 skipped)
+    - time: 1.2x real (user+sys: 0.8x, less)
 - texinfo
+    - patch for glibc 2.43
     - basic config (`prefix`, `disable-static`) and simple build/test/install
-    - tests: 243 total, 228 passed, 15 skipped
-    - time: negligible + 0.5x (0.1x for parallel) for tests
+    - tests: 253 total, 234 passed, 19 skipped
+    - time: negligible
 - vim
-    - patch default vimrc: `echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h`
+    - patch default vimrc: see `scripts/6/9/vim-patch.sh`
     - tests: run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
     - post install and config: see `scripts/6/9/vim-post.sh`
-    - time: 1.0x (0.2x for parallel) + 1.5x for tests
+    - time: 1.3x real (user+sys: 1.2x, less)
 
 ### Systemd
 
