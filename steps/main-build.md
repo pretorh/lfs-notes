@@ -429,6 +429,14 @@ Time: 6.1x real (user+sys: 6.1x)
     - tests: run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
     - post install and config: see `scripts/6/9/vim-post.sh`
     - time: 1.3x real (user+sys: 1.2x, less)
+- MarkupSafe
+    - capital name in archive
+    - no config, compile and install with `setup.py`
+    - time: negligible
+- Jinja2
+    - capital name in archive
+    - no config, no build, install with `setup.py`
+    - time: negligible
 
 ### Systemd
 
