@@ -454,28 +454,27 @@ Time: 0.6x real (user+sys: 3.9x)
 
 - dbus
     - no tests in lfs
-    - move a shared lib: `mv-shared.sh /usr/lib/libdbus-1.so`
     - post install: see `scripts/6/9/dbus-post.sh`
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
     - time: negligible
+- man-db
+    - tests: 50/50 pass
+    - time: negligible
 - procps-ng
-    - tests passed
-    - move shared lib: `mv-shared.sh /usr/lib/libprocps.so`
+    - different extract dir (`procps-$version`)
+    - tests:
+        - 99 passed
+        - 5 `pkill` related tests failed
     - time: negligible
 - util-linux
-    - setup: add to filesystem (move into filesystem.sh?): `mkdir -pv /var/lib/hwclock` - is this needed here, or at install time only?
     - tests:
-        - may be harmful when run as root user, `chown -R tester .` and  `su tester -c "make -k check | tee check-log"`
-        - "All 207 tests PASSED"
-    - time: 0.8x (0.2x for parallel) + 0.5x for tests
+        - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
+        - "All 212 tests PASSED"
+    - time: 0.5x real (user+sys: 1.1x)
 - e2fsprogs
-    - tests:
-        - previous docs: one of the tests require 256mb memory (enable swap if needed)
-        - "357 tests succeeded  0 tests failed"
-    - post-install:
-        - extract an info doc `gunzip -v "$DESTDIR/usr/share/info/libext2fs.info.gz"`
-        - update info dir
-    - time: 0.4x (0.1x for parallel) + 0.4x for tests
+    - tests: "369 tests succeeded     1 tests failed" (`u_direct_io` is known to fail)
+    - post-install: see `scripts/6/main/e2fsprogs-post.sh`
+    - time: 0.4x real (user+sys: 0.6x)
 
 ## Cleanup
 
