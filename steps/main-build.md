@@ -440,13 +440,15 @@ Time: 6.1x real (user+sys: 6.1x)
 
 ### Systemd
 
-patch and configure: `scripts/6/6/systemd-patch.sh`
+Patch and configure: `scripts/6/6/systemd-patch.sh`
 
-tests not mentioned in book (expect for disabling 1) and running `LANG=en_US.UTF-8 ninja test` has errors
+Build and install with `ninja`
+
+tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
 
 post-install setup: `scripts/6/6/systemd-post.sh`
 
-time: 3.3x (0.4x for parallel)
+Time: 0.6x real (user+sys: 3.9x)
 
 ### Part 7
 
