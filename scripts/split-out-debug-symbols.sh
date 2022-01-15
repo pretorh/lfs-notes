@@ -6,6 +6,8 @@ cd /usr/lib
 for file in ld-linux* libc.so.* libthread_db.so.* libquadmath.so.* libstdc++.so.* libitm.so.* libatomic.so.* ; do
   if [ -f "$file.dbg" ] ; then
     echo "$file.dbg already exists"
+  elif [ "${file: -4}" == ".dbg" ] ; then
+    echo "skipping .dbg file $file"
   elif [ -L "$file" ] ; then
     echo "$file is a symlink"
   elif [ -f "$file" ] ; then
