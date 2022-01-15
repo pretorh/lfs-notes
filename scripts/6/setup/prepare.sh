@@ -17,4 +17,8 @@ if [ -h "$LFS"/dev/shm ]; then
   mkdir -pv "$LFS"/"$(readlink "$LFS"/dev/shm)"
 fi
 
+if mount | grep 'on /boot ' >/dev/null ; then
+  mount -v --bind /boot "$LFS/boot"
+fi
+
 findmnt | grep "$LFS"

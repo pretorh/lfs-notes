@@ -31,8 +31,6 @@ time make modules_install
 
 ### install
 
-If installing on the host's `/boot`, you first need to bind mount it: `mount --bind /boot $LFS/boot` (todo: move this into chroot's mounting)
-
 see `scripts/8/install-linux.sh`
 
 todo: `modules_install` should probably move here
