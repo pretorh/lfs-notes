@@ -10,16 +10,9 @@ note: this gets the uuid (but does not work in chroot) and uses that build the f
 
 ### setup
 
-```
-tar xf linux-*tar.*
-cd linux-*/
-
-make mrproper
-```
+see `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default config
 
 ### configure
-
-Create a default config: `make defconfig`
 
 Configure using the menu `make menuconfig`
 
