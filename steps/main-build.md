@@ -84,6 +84,7 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 
 - zlib
     - basic config (`prefix`) and simple build/test/install
+    - remove static libs: `rm -vf /usr/lib/libz.a`
     - time: negligible
 - bzip2
     - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/6/3/bzip2-patch.sh`
@@ -145,6 +146,8 @@ First verify PTYs are working in chroot:
 Patch: upstream fix (patch file) and fix man pages
 
 The tests are critical. 4 zlib tests failed (known to fail)
+
+Remove static libs: `rm -vf /usr/lib/lib{bfd,opcodes}.a /usr/lib/libctf{,-nobfd}.a`
 
 time: 2.3x real (user+sys: 7.0x)
 
@@ -269,6 +272,7 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
         - 125: installable libltdl
         - 126: linking libltdl without autotools
         - 130: linking libltdl without autotools
+    - remove static libs: `/usr/lib/libltdl.a`
     - time: 0.8x real (user+sys: 1.7x)
 - gdbm
     - tests, one test fail with `ERROR`, and summary shows "All 30 tests were successful." (but exits with failure)
@@ -489,8 +493,6 @@ Saved about 2.1GB with this (pre LFS11)
 ### cleanup
 
 `rm -rf /tmp/*`
-
-Remove static libs that were required in tests (binutils, bzip2, e2fsprogs, flex, libtool, and zlib). See `scripts/6/cleanup/remove-static-libs.sh`
 
 Remove libtool archives: `find /usr/lib /usr/libexec -name \*.la -delete`
 
