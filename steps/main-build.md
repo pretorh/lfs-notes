@@ -494,14 +494,13 @@ Remove static libs that were required in tests (binutils, bzip2, e2fsprogs, flex
 
 Remove libtool archives: `find /usr/lib /usr/libexec -name \*.la -delete`
 
-Remove previous partially installed compiler and the `/tools` dir
+Remove previous partially installed compiler:
 
 ```
 find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rvf
-rm -rf /tools
 ```
 
-Saved about 1GB with this
+Saved about 0.7GB with this
 
 finally, `logout`
 
