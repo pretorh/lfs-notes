@@ -11,8 +11,11 @@ for file in ld-linux* libc.so.* libthread_db.so.* libquadmath.so.* libstdc++.so.
   elif [ -f "$file" ] ; then
     pre_size="$(du -h "$file" | cut -f1)"
     objcopy --only-keep-debug "$file" "$file.dbg"
-    strip --strip-unneeded "$file"
-    objcopy --add-gnu-debuglink="$file.dbg" "$file"
+    cp "$file" "/tmp/$file.bak"
+    cp "$file" "/tmp/$file"
+    strip --strip-unneeded "/tmp/$file"
+    objcopy --add-gnu-debuglink="$file.dbg" "/tmp/$file"
+    install -vm755 "/tmp/$file" "$file"
     echo "split $file ($pre_size) into $file ($(du -h "$file" | cut -f1)) and $file.dbg ($(du -h "$file.dbg" | cut -f1))"
   fi
 done
