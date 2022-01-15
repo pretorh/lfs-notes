@@ -8,7 +8,9 @@ while IFS= read -r line; do
   # split into fields
   IFS=" " read -r -a fields <<< "$line"
 
-  printf '# %s\n' "${fields[3]}"
+  device="${fields[3]:0:3}"
+
+  printf '# %s\n' "$(lsblk -o KNAME,MODEL "/dev/$device" | grep "^$device ")"
   printf 'UUID=%s\t%s\t\t%s\t%s\t%s\t%s\n' "${fields[0]}" "${fields[1]}" "${fields[2]}" "defaults" "1" "1"
 done < <(lsblk -o UUID,MOUNTPOINT,FSTYPE,KNAME | grep "$LFS")
 
