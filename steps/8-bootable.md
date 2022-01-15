@@ -22,7 +22,7 @@ see the note about required options!
 
 ### build
 
-Time: 10x to 13.8x (2.9x for parallel)
+Time: 2.7x real (user+sys: 13.3x)
 
 ```
 time make -j5
