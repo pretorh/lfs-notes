@@ -482,15 +482,9 @@ Time: 0.6x real (user+sys: 3.9x)
 
 First extract symbols for some libraries. See `./scripts/split-out-debug-symbols.sh`
 
-```
-sh ./scripts/split-out-debug-symbols.sh \
-    /lib/ld-2.32.so /lib/libc-2.32.so /lib/libpthread-2.32.so /lib/libthread_db-1.0.so \
-    /usr/lib/libquadmath.so.0.0.0 /usr/lib/libstdc++.so.6.0.28 /usr/lib/libitm.so.1.0.0 /usr/lib/libatomic.so.1.2.0
-```
+Then strip from binaries and libraries. See `bash ./scripts/strip-debug-symbols.sh` (note: this ignores the running binaries)
 
-Then strip from binaries and libraries. See `bash ./scripts/strip-debug-symbols.sh`
-
-Saved about 2.1GB with this
+Saved about 2.1GB with this (pre LFS11)
 
 ### cleanup
 
