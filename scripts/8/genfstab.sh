@@ -1,5 +1,15 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-echo | awk '{ print "# file system" "\t" "mount" "\t" "type" "\t" "mount-options" "\t" "dump" "\t" "fsck-order" }'
-mount | grep "^/dev/" | awk '{ print $1 "\t" $3 "\t" $5 "\t" "defaults" "\t" "1" "\t" "1" }'
+printf '# %s\t\t\t\t%s\t%s\t%s\t%s\t%s\n' "file system uuid" "mount point" "type" "mount-options" "dump" "fsck-order"
+
+while IFS= read -r line; do
+  # change prefix to /
+  line=${line//$LFS/\/}
+  # split into fields
+  IFS=" " read -r -a fields <<< "$line"
+
+  printf '# %s\n' "${fields[3]}"
+  printf 'UUID=%s\t%s\t\t%s\t%s\t%s\t%s\n' "${fields[0]}" "${fields[1]}" "${fields[2]}" "defaults" "1" "1"
+done < <(lsblk -o UUID,MOUNTPOINT,FSTYPE,KNAME | grep "$LFS")
+
 echo "# end fstab"

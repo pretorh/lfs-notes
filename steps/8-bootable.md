@@ -2,9 +2,9 @@
 
 ## fstab
 
-see `scripts/8/genfstab.sh`, and redirect to `/etc/fstab`
+from outside chroot, run `scripts/8/genfstab.sh`, and redirect to `$LFS/etc/fstab`
 
-note: get the uuid of the mount point (on the host): `lsblk -o MOUNTPOINT,UUID | grep $LFS` and use that instead of the partition number
+note: this gets the uuid (but does not work in chroot) and uses that build the fstab entries
 
 ## Linux
 
