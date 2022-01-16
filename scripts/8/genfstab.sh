@@ -4,6 +4,7 @@ printf '# %s\t\t\t\t%s\t%s\t%s\t%s\t%s\n' "file system uuid" "mount point" "type
 
 while IFS= read -r line; do
   # change prefix to /
+  line=${line//$LFS\//\/}
   line=${line//$LFS/\/}
   # split into fields
   IFS=" " read -r -a fields <<< "$line"
