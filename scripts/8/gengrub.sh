@@ -9,11 +9,11 @@ echo "# begin of generated menuentries for lfs named kernels"
 
 while IFS= read -r -d '' file
 do
-    linux=${file//\/boot\/}
-    label="LFS: ${linux:8}"
+    base_name=${file//\/boot\/}
+    label="LFS: ${base_name:8}"
 
     echo "menuentry \"$label\" {"
-    echo "    linux $linux root=UUID=$ROOT ro"
+    echo "    linux /$base_name root=UUID=$ROOT ro"
     echo "}"
 done <   <(find /boot -type f -name 'vmlinuz*lfs*' -print0)
 
