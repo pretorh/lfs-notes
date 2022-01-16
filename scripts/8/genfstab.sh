@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-printf '# %s\t\t\t\t%s\t%s\t%s\t%s\t%s\n' "file system uuid" "mount point" "type" "mount-options" "dump" "fsck-order"
+printf '#    %-40s %-20s %-5s %-13s %-3s %-3s\n' \
+  "file system uuid" "mount point" "type" "mount-options" "dump" "fsck-order"
 
 while IFS= read -r line; do
   # change prefix to /
@@ -13,5 +14,5 @@ while IFS= read -r line; do
 
   echo ""
   printf '# %s\n' "$(lsblk -o KNAME,MODEL "/dev/$device" | grep "^$device ")"
-  printf 'UUID=%s\t%s\t\t%s\t%s\t%s\t%s\n' "${fields[0]}" "${fields[1]}" "${fields[2]}" "defaults" "1" "1"
+  printf 'UUID=%-40s %-20s %-5s %-13s %-3s %-3s\n' "${fields[0]}" "${fields[1]}" "${fields[2]}" "defaults" "1" "1"
 done < <(lsblk -o UUID,MOUNTPOINT,FSTYPE,KNAME | grep "$LFS")
