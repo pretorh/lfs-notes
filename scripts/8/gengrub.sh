@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ROOT="$(findmnt / -o UUID | tail -n1)"
+ROOT="$(findmnt / -o SOURCE,UUID | tail -n1)"
+IFS=" " read -r -a sources <<< "$ROOT"
 
 echo "#!/bin/sh"
 echo "exec tail -n +3 \$0"
@@ -13,7 +14,8 @@ do
     label="LFS: ${base_name:8}"
 
     echo "menuentry \"$label\" {"
-    echo "    linux /$base_name root=UUID=$ROOT ro"
+    echo "    # needs initramfs: linux /$base_name root=UUID=${sources[1]} ro"
+    echo "    linux /$base_name root=${sources[0]} ro"
     echo "}"
 done <   <(find /boot -type f -name 'vmlinuz*lfs*' -print0)
 
