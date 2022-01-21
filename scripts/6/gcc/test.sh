@@ -11,5 +11,8 @@ echo "failed tests:"
 ../contrib/test_summary | grep FAIL | sort
 echo "# end of FAILed test list"
 
+echo "forcing a break in test script"
+exit 1
+
 echo "cleanup permissions"
 chown -R root .
