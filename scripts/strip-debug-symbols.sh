@@ -10,20 +10,10 @@ ignore_warnings() {
         -
 }
 
-echo "debug in: usr/lib"
+# todo: this ignores runnings binaries/used libs
 while IFS= read -r -d '' file
 do
-    strip --strip-debug "$file" 2>&1 | ignore_warnings
-done <   <(find "$ROOT"/usr/lib -type f -name '*.a' -print0)
-
-echo "unneeded in: lib usr/lib"
-while IFS= read -r -d '' file
-do
-    strip --strip-unneeded "$file" 2>&1 | ignore_warnings
-done <   <(find "$ROOT"/lib "$ROOT"/usr/lib -type f -name '*.so*' ! -name '*dbg' -print0)
-
-echo "all in: bin, sbin, usr/bin, usr/sbin, usr/libexec"
-while IFS= read -r -d '' file
-do
-    strip --strip-all "$file" 2>&1 | ignore_warnings
-done <   <(find "$ROOT"/{bin,sbin} "$ROOT"/usr/{bin,sbin,libexec} -type f -print0)
+  strip --strip-unneeded "$file" 2>&1 | ignore_warnings
+done <   <(find "$ROOT"/usr/lib -type f -name '*.so*' ! -name '*dbg' -print0
+           find "$ROOT"/usr/lib -type f -name '*.a' -print0
+           find "$ROOT"/usr/{bin,sbin,libexec} -type f -print0)

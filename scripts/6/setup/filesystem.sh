@@ -21,7 +21,3 @@ ln -sfv /run/lock /var/lock
 # create root home dir, sticky temp dirs
 install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp
-
-# change ownership of previously-created dirs to root
-# reference /root, since /etc/passwd not yet populated
-chown -R --reference=/root /{bin,etc,lib,lib64,sbin,usr,var,tools}

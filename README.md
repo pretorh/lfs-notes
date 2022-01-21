@@ -1,11 +1,13 @@
 # Linux from Scratch Notes
+
 Notes taken while building Linux from scratch
 
-This project consists of notes taken and scripts created while working through the Linux from Scratch's document. [(stable version)](http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/).
+This project consists of notes taken and scripts created while working through the Linux from Scratch's document. [(stable, systemd version)](http://www.linuxfromscratch.org/lfs/downloads/stable-systemd/).
 
-NOTE: To be used as a quick reference only, work though the book. Most of the notes also assumes 64 bit
+NOTE: To be used as a quick reference only, you should still work through the book. Most of the notes assumes 64 bit.
 
 ### Layout
+
 - `steps/`
   - `0-setup.md`
     - General setup and requirements. Covers from the intro to chapter 4 in the lfs book
@@ -15,6 +17,7 @@ NOTE: To be used as a quick reference only, work though the book. Most of the no
 
 #### Updates
 
+- the [11.0 version](https://www.linuxfromscratch.org/lfs/downloads/11.0-systemd/LFS-BOOK-11.0-systemd.pdf) (first-pass 2022-01)
 - the [10.0 version](http://www.linuxfromscratch.org/lfs/downloads/10.0-systemd/LFS-BOOK-10.0-systemd.pdf) (2021-01-04)
 - the [8.2 version](http://www.linuxfromscratch.org/lfs/downloads/8.2-systemd/LFS-BOOK-8.2-systemd.pdf) (2018-08-05)
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ROOT="$(mount | grep 'on / ' | awk -F' ' '{print $1}')"
+ROOT="$(findmnt / -o SOURCE,UUID | tail -n1)"
+IFS=" " read -r -a sources <<< "$ROOT"
 
 echo "#!/bin/sh"
 echo "exec tail -n +3 \$0"
@@ -9,10 +10,12 @@ echo "# begin of generated menuentries for lfs named kernels"
 
 while IFS= read -r -d '' file
 do
-    linux=${file//\/boot\/}
-    echo "menuentry \"$linux\" {"
-    echo "    # replace $ROOT with UUID=..."
-    echo "    linux $linux root=$ROOT ro"
+    base_name=${file//\/boot\/}
+    label="LFS: ${base_name:8}"
+
+    echo "menuentry \"$label\" {"
+    echo "    # needs initramfs: linux /$base_name root=UUID=${sources[1]} ro"
+    echo "    linux /$base_name root=${sources[0]} ro"
     echo "}"
 done <   <(find /boot -type f -name 'vmlinuz*lfs*' -print0)
 

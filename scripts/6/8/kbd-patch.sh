@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# backspace/delete keymaps
 patch -Np1 -i ../kbd-*-backspace-1.patch
 
 # remove redunant programs

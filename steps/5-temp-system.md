@@ -8,43 +8,36 @@ If you already built the toolchain and made a backup, you can restore it:
 
 ## General
 
-You should login as `lfs`
-
-if building on x64: (this was part of bin utils)
-```
-mkdir -pv /tools/lib
-ln -sv lib /tools/lib64
-```
+You should login as `lfs`: `su - lfs`
 
 ## Timings
 
 Remeber to time the first installed package, since all the others are relative to it.
-Check the `user`+`sys` output (as this would give an indication of how long serial-only builds could take)
-Tracking the first GCC build (the 2nd package) is also useful, as it is about 10 times longer than the 1st (which makes
+
+Add the `user` and `sys` output as this would give an indication of how long serial-only builds could take (some packages do not run much faster on parallel)
+
+Tracking the first GCC pass (the 2nd package) is also useful, as it is about 10 times longer than Binutils (making
 it one of the longest building packages)
-The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
 
-Added my timings, when used with `time make --jobs 4` for build and `time make check --jobs 4` (or `test`) for
-tests (should `TESTSUITEFLAGS` be used here?).
-Times are also relative to the initial bin utils build. Parallel timing is relative to bin utils
+The longest build/testing packages are GCC (more than 100x)
 
-The configure time is not tracked, but is usually quite small (though a few seem to take almost longer on configre than
-build)
+Added my timings, around *all steps*: extracting, patch, configure, build and test (mostly with `--jobs 4`), install and post-install scripts
+All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel (`real`) time listed first
 
-Small times are not shown (should be ones smaller than 1 SMB)
+Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## Part 1
 
 - Bin Utils (pass 1)
-    - remember to time this (defined as 1x)
-    - parallel: 0.3x
+    - remember to time this
+    - time: 0.3x real (user+sys is defined as 1x)
 - GCC (pass 1)
     - patch scripts:
         - `5/gcc/patch-mpfr-mpc-gmp.sh`
         - `5/gcc/patch-lib64.sh`
     - post install scritps:
         - `5/gcc/fix-limits_header.sh`
-    - time: 9x to 13x (3.9x for parallel)
+    - time: 3.8x real (user+sys: 13.0x)
 - Linux API Headers
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
@@ -53,92 +46,84 @@ Small times are not shown (should be ones smaller than 1 SMB)
     - time: negligible
 - GLibc
     - install symlinks (is this needed before, can it be run after install?): see `scripts/5/glibc/symlinks.sh`
-    - patch for FHS compliance (`patch -Np1 -i ../glibc-*-fhs-1.patch`)
-    - time: 5x (1.4x for parallel). installation (untimed) took non trivial time
+    - patch for FHS compliance: see `scripts/5/glibc/patch.sh`
+    - run pre configure script (after `cd`ing into build directory, but before `../configure ...`)
+    - post install patch: see `scripts/5/glibc/post-install.sh`
+    - time: 1.6x real (user+sys: 4.7x)
 
 ## Sanity Check 1
 
 see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-check.sh`
 
-Finalize `limits.h` header: `$LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders`
+Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 
 ## Part 2
 
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
-    - time: 0.4x (0.1x for parallel)
+    - time: 0.3x real (user+sys: 0.6x)
 
 ## cross compiling temporary tools
 
 ### fast/simple
 
+These mostly use `make DESTDIR=$LFS install` when installing
+
 most of these have negligible build times
 
 - m4
-    - patch: `5/tools/m4-patch.sh`
 - ncurses
-    - patch:
-        - config file to find gawk
-        - build tic first
-    - install and update libraries
-    - time: 0.3x for `tic`, negligible for main
+    - patch and build `tic`, see `scripts/5/ncurses/patch-build-tic.sh`
+    - install and update libraries, see `scripts/5/ncurses/install.sh`
+    - time: 0.5x real (user+sys: 0.7x) (todo: recheck when building tic with `--jobs=4`)
 - bash
-    - post install: move into `bin`, create `sh` symlink
+    - post install: create `sh` symlink
     - time: 0.3x (negligible for parallel)
 - coreutils
-    - post install: move into `bin`, move man files
-    - time: 0.4x (0.1x for parallel)
+    - post install: see `scripts/5/coreutils/post.sh`
+    - time: 0.3x real (user+sys: 0.6x)
 - diffutils
     - basic config (`prefix` and `host`) only
 - file
-    - basic config (`prefix` and `host`) only
+    - build file with `disable`s first, see `scripts/5/file/pre-config.sh`
+    - use the previously built file when running make: `make FILE_COMPILE=$(pwd)/build/src/file`
 - findutils
     - post install: move into `bin` and change `updatedb`
 - gawk
     - patch: remove extras in makefile
 - grep
+    - basic config (`prefix` and `host`) only
 - gzip
     - basic config (`prefix` and `host`) only
 - make
 - patch
     - basic config (`prefix`, `host`, `build`) only
 - sed
+    - basic config (`prefix`, `host`) only
 - tar
+    - basic config (`prefix`, `host`, `build`) only
 - xz
-    - post install: move into `bin`, `lib`, update symlink
 
 ### bin utils and gcc - pass 2
 
 - Bin Utils (pass 2)
-    - time: 1.3x (0.4x for parallel)
+    - fix `libctf` post install, see `scripts/5/binutils-pass2/post-install.sh`
+    - time: 0.4x real (user+sys: 1.3x)
 - GCC (pass 2)
     - patch:
-        - `5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `5/gcc/patch-lib64.sh`
-        - create symlink for libgcc posix thread support
+        - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
+        - `scripts/5/gcc/patch-lib64.sh` (same as in pass 1)
+    - pre-configure:
+        - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
-    - time: 12x to 14x (4.0x for parallel)
+    - time: 4.1x real (user+sys: 14.2x)
 
-# deprecated notes from pre-10.0 book
+## finalize temporary system
 
-## Sanity Check 2
+Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
 
-see `scripts/sanity-check.sh` and run with `SANITY_CC=cc sh sanity-check.sh`
+Fix the LFS root file ownership, see `scripts/5/finalize/fix-permissions.sh`
 
-# Finalizing the temp system
-
-run as root user (at least for the change command, but also for all following that)
-
-`export LFS=/mnt/lfs`
-
-## Cleanup the toolchain
-
-Strip debug symbols, remove documentation and chage ownership.
-
-see `scripts/5/finalize/cleanup.sh`
-
-## Backup the toolchain
-
-see `scripts/5/finalize/backup.sh`
+Optionally, backup the temp system, see `scripts/5/finalize/backup.sh` (though this is done better after chroot setup)

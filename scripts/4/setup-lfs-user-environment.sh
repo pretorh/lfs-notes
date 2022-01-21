@@ -17,7 +17,8 @@ cat >> /home/lfs/.bashrc << "EOF"
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=$LFS/tools/bin:/bin:/usr/bin
-export LFS LC_ALL LFS_TGT PATH
+CONFIG_SITE=$LFS/usr/share/config.site
+export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 
 # added for debugging
 cd $LFS

@@ -2,6 +2,30 @@
 
 `../contrib/test_summary | grep FAIL | sort`
 
+## `11.2.0`
+
+(matches the list of known failures)
+
+```
+FAIL: 17_intro/headers/c++1998/49745.cc (test for excess errors)
+FAIL: 22_locale/numpunct/members/char/3.cc execution test
+FAIL: 22_locale/time_get/get_time/char/2.cc execution test
+FAIL: 22_locale/time_get/get_time/char/wrapped_env.cc execution test
+FAIL: 22_locale/time_get/get_time/char/wrapped_locale.cc execution test
+FAIL: 22_locale/time_get/get_time/wchar_t/2.cc execution test
+FAIL: 22_locale/time_get/get_time/wchar_t/wrapped_env.cc execution test
+FAIL: 22_locale/time_get/get_time/wchar_t/wrapped_locale.cc execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  (test for excess errors)
+FAIL: gcc.dg/analyzer/analyzer-verbosity-2a.c (test for excess errors)
+FAIL: gcc.dg/analyzer/analyzer-verbosity-3a.c (test for excess errors)
+FAIL: gcc.dg/analyzer/edges-1.c (test for excess errors)
+FAIL: gcc.dg/analyzer/file-1.c (test for excess errors)
+FAIL: gcc.dg/analyzer/file-2.c (test for excess errors)
+FAIL: gcc.dg/analyzer/file-paths-1.c (test for excess errors)
+FAIL: gcc.dg/analyzer/file-pr58237.c (test for excess errors)
+FAIL: gcc.dg/analyzer/pr99716-1.c (test for excess errors)
+```
+
 ## `10.2.0`
 
 ```
