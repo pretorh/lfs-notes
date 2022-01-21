@@ -33,6 +33,16 @@ Some packages change frequently and is ignored in this script, and should be man
 - [Linux kernel](https://www.kernel.org/)
 - [Vim](https://github.com/vim/vim/tags)
 
+Some packages were downloaded, but not installed:
+- eudev-3.2.10.tar.gz
+- grub-2.06.tar.xz (using host's grub)
+- lfs-bootscripts-20210608.tar.xz
+- python-3.9.6-docs-html.tar.bz2 (some doc installation skipped)
+- sysklogd-1.5.1.tar.gz
+- systemd-man-pages-249.tar.xz (some doc installation skipped)
+- udev-lfs-20171102.tar.xz
+- v8.2.4023.tar.gz
+
 `file` previous had issues (older versions not kept)
 
 # 4. Tools
