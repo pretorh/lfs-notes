@@ -19,7 +19,7 @@ Add the `user` and `sys` output as this would give an indication of how long ser
 Tracking the first GCC pass (the 2nd package) is also useful, as it is about 10 times longer than Binutils (making
 it one of the longest building packages)
 
-The longest build/testing packages are GCC (120x total) and GLibC (~80x total, mostly for the tests)
+The longest build/testing packages are GCC (more than 100x)
 
 Added my timings, around *all steps*: extracting, patch, configure, build and test (mostly with `--jobs 4`), install and post-install scripts
 All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel (`real`) time listed first
