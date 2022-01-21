@@ -65,6 +65,8 @@ Initialize the user's bash profile and rc files (this might change between LFS v
 
 Create directory structure with `sudo --preserve-env=LFS sh ./scripts/4/create-dirs.sh`
 
+TODO: recheck lib64 creation - should it be a symlink here (it was empty dir before `chroot`, and had to symlink to `usr/lib)
+
 ## switch to lfs user
 
 Switch to the lfs user using `su - lfs`
