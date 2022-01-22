@@ -1,8 +1,8 @@
 # 0. Intro
 
-## install required packages on the host
+## install/update required packages on the host
 
-For list of packages, and installing on Arch, see `scripts/0/pacman.sh`. Note Python 3 is required
+For list of packages, and installing on Arch, use `sudo ./scripts/0/pacman.sh`. Note Python 3 is required
 
 See `scripts/0/symlink-check.sh`
 
