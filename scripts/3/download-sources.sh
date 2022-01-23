@@ -11,6 +11,8 @@ VERSION=${1:?lfs version not specified}
 
 function cleanup_list() {
   # remove packages for systemd version
+  # docs
+  # grub (using the host's grub)
   # vim and kernel (manually download latest items)
   # replace root urls
 
@@ -23,6 +25,10 @@ function cleanup_list() {
       -e sysklogd \
       -e udev-lfs \
       \
+      -e 'python-.*-docs-html' \
+      -e systemd-man-pages \
+      \
+      -e grub \
       -e 'linux-5.' \
       -e vim | \
       \

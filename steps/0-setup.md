@@ -28,16 +28,13 @@ Get the wget-list from linuxfromscratch for the current version and download the
 
 Use `scripts/3/download-sources.sh` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
 
+This script skips packages not needed for systemd, and some packages that were previously downloaded but not installed.
+
 Some packages change frequently and is ignored in this script, and should be manually downloaded:
 
 - [Linux kernel](https://www.kernel.org/)
 - [Vim](https://github.com/vim/vim/tags)
 
-Some packages were downloaded, but not installed:
-- grub-2.06.tar.xz (using host's grub)
-- python-3.9.6-docs-html.tar.bz2 (some doc installation skipped)
-- systemd-man-pages-249.tar.xz (some doc installation skipped)
-- v8.2.4023.tar.gz
 
 `file` previous had issues (older versions not kept)
 
