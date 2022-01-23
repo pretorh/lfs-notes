@@ -14,6 +14,8 @@ set `LFS` variable to a location where you can mount a new drive:
 
 Create partitions, add filesystems, and mount the partitions in $LFS
 
+You can use `./scripts/sudo.sh <command>` to run commands as sudo, with the LFS environment variable set for root
+
 # 3. Sources
 
 See general notes to copy sources over ssh.
