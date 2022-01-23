@@ -56,7 +56,7 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
 
-Initialize the user's bash profile and rc files (this might change between LFS versions) using `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
+Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `./scripts/4/setup-lfs-user-environment.sh`
 
 ## directory structure
 
