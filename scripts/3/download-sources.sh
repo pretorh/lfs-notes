@@ -55,3 +55,11 @@ read -r
 
 wget --input-file=wget-list.cleaned --continue || echo "wget failed" >&2
 md5sum -c md5sums.cleaned
+
+echo "moving sources into $VERSION/"
+mkdir -pv "$VERSION"
+awk -F '  ' '{print $NF}' md5sums.cleaned | xargs -IFILE mv FILE "$VERSION/"
+mv md5sums.cleaned "$VERSION/md5sums"
+mv md5sums "$VERSION/md5sums.orig"
+mv wget-list.cleaned "$VERSION/wget-list"
+mv wget-list "$VERSION/wget-list.orig"
