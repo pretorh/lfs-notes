@@ -4,8 +4,10 @@ set -e
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
 
-wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
-wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
+(test -f wget-list && [ "$SKIP_REFRESH" = "1" ] && echo "wget-list already exists") || \
+  wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
+(test -f md5sums && [ "$SKIP_REFRESH" = "1" ] && echo "md5sums already exists") || \
+  wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
 
 function cleanup_list() {
   # remove sysvinit (on systemd versions)
