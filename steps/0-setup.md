@@ -26,15 +26,17 @@ See `scripts/3/setup-sources.sh`
 
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 
-Use `scripts/3/download-sources.sh` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
+Use `./scripts/3/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
 
-This script skips packages not needed for systemd, and some packages that were previously downloaded but not installed.
+This script skips packages not needed in systemd LFS, and some packages that were previously downloaded but not installed:
+
+- documentation-only packages
+- grub (using the host's grub)
 
 Some packages change frequently and is ignored in this script, and should be manually downloaded:
 
 - [Linux kernel](https://www.kernel.org/)
 - [Vim](https://github.com/vim/vim/tags)
-
 
 `file` previous had issues (older versions not kept)
 
