@@ -76,7 +76,7 @@ most of these have negligible build times
 - ncurses
     - patch and build `tic`, see `scripts/5/ncurses/patch-build-tic.sh`
     - install and update libraries, see `scripts/5/ncurses/install.sh`
-    - time: 0.5x real (user+sys: 0.7x) (todo: recheck when building tic with `--jobs=4`)
+    - time: 0.3x real (user+sys: 0.7x)
 - bash
     - post install: create `sh` symlink
     - time: 0.3x (negligible for parallel)
