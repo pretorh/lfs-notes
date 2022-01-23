@@ -53,7 +53,7 @@ Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## Sanity Check 1
 
-see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc sh sanity-check.sh`
+see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
 Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 
