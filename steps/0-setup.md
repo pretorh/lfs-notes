@@ -20,7 +20,7 @@ See general notes to copy sources over ssh.
 
 ## Setup the sources directory
 
-See `scripts/3/setup-sources.sh`
+Use `scripts/3/setup-sources.sh` as root
 
 ## Download the sources
 
