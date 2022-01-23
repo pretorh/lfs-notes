@@ -37,8 +37,18 @@ function cleanup_list() {
   diff --color "$file" "$file.cleaned" || true
 }
 
+function compare_download_and_checklist() {
+  awk -F '/' '{print $NF}' wget-list.cleaned | while IFS= read -r file
+  do
+    if ! grep "$file" md5sums.cleaned >/dev/null ; then
+      echo "WARNING: $file is in wget-list, but not in md5sums!" 1>&2
+    fi
+  done
+}
+
 cleanup_list wget-list
 cleanup_list md5sums
+compare_download_and_checklist
 
 echo -e "enter to continue"
 read -r
