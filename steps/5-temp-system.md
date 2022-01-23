@@ -115,7 +115,7 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
         - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
-    - time: 4.1x real (user+sys: 14.2x)
+    - time: 3.9x to 4.1x real (user+sys: 13.5x to 14.2x)
 
 ## finalize temporary system
 
