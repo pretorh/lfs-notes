@@ -7,20 +7,21 @@ VERSION=${1:?lfs version not specified}
 wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
 wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
 
-# remove sysvinit (on systemd versions), vim and kernel (manually download latest items)
-# replace root urls
-grep wget-list -v \
-    -e sysvinit \
-    -e 'kernel\/v5.x' \
-    -e vim | \
-    sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
-    > wget-list.cleaned
+function cleanup_list() {
+  # remove sysvinit (on systemd versions)
+  # vim and kernel (manually download latest items)
+  # replace root urls
+  file=$1
+  grep "$file" -v \
+      -e sysvinit \
+      -e 'linux-5.' \
+      -e vim | \
+      sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
+      > "$file.cleaned"
+}
 
-grep md5sums -v \
-    -e sysvinit \
-    -e ' linux-5.' \
-    -e vim- \
-    > md5sums.cleaned
+cleanup_list wget-list
+cleanup_list md5sums
 
 echo "file list changes:"
 echo "wget-list:"
