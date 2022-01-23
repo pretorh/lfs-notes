@@ -18,6 +18,7 @@ if [ -h "$LFS"/dev/shm ]; then
 fi
 
 if findmnt /boot >/dev/null ; then
+  mkdir -pv "$LFS/boot"
   mount -v --bind /boot "$LFS/boot"
 fi
 
