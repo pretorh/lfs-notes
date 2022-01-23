@@ -10,15 +10,22 @@ VERSION=${1:?lfs version not specified}
   wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
 
 function cleanup_list() {
-  # remove sysvinit (on systemd versions)
+  # remove packages for systemd version
   # vim and kernel (manually download latest items)
   # replace root urls
+
   file=$1
   echo "$file:"
   grep "$file" -v \
       -e sysvinit \
+      -e eudev \
+      -e lfs-bootscripts \
+      -e sysklogd \
+      -e udev-lfs \
+      \
       -e 'linux-5.' \
       -e vim | \
+      \
       sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
       > "$file.cleaned"
   diff --color "$file" "$file.cleaned" || true
