@@ -12,22 +12,19 @@ function cleanup_list() {
   # vim and kernel (manually download latest items)
   # replace root urls
   file=$1
+  echo "$file:"
   grep "$file" -v \
       -e sysvinit \
       -e 'linux-5.' \
       -e vim | \
       sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
       > "$file.cleaned"
+  diff --color "$file" "$file.cleaned" || true
 }
 
 cleanup_list wget-list
 cleanup_list md5sums
 
-echo "file list changes:"
-echo "wget-list:"
-diff wget-list wget-list.cleaned || true
-echo "md5sums:"
-diff md5sums md5sums.cleaned || true
 echo -e "enter to continue"
 read -r
 
