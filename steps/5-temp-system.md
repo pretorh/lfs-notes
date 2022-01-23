@@ -37,7 +37,7 @@ Small times are not shown (should be less than Binutils pass 1 in `real` time)
         - `5/gcc/patch-lib64.sh`
     - post install scritps:
         - `5/gcc/fix-limits_header.sh`
-    - time: 3.8x real (user+sys: 13.0x)
+    - time: 3.5x to 3.8x real (user+sys: 13.0x)
 - Linux API Headers
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
@@ -47,7 +47,7 @@ Small times are not shown (should be less than Binutils pass 1 in `real` time)
 - GLibc
     - install symlinks (is this needed before, can it be run after install?): see `scripts/5/glibc/symlinks.sh`
     - patch for FHS compliance: see `scripts/5/glibc/patch.sh`
-    - run pre configure script (after `cd`ing into build directory, but before `../configure ...`)
+    - run pre configure script (after `cd`ing into build directory, but before `../configure ...`), see `scripts/5/glibc/pre-configure.sh`
     - post install patch: see `scripts/5/glibc/post-install.sh`
     - time: 1.6x real (user+sys: 4.7x)
 
@@ -70,19 +70,16 @@ Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 
 These mostly use `make DESTDIR=$LFS install` when installing
 
-most of these have negligible build times
+These all have negligible build times: less than 0.3x real, less than 1x usr+sys (usually 0.7x)
 
 - m4
 - ncurses
     - patch and build `tic`, see `scripts/5/ncurses/patch-build-tic.sh`
     - install and update libraries, see `scripts/5/ncurses/install.sh`
-    - time: 0.3x real (user+sys: 0.7x)
 - bash
     - post install: create `sh` symlink
-    - time: 0.3x (negligible for parallel)
 - coreutils
     - post install: see `scripts/5/coreutils/post.sh`
-    - time: 0.3x real (user+sys: 0.6x)
 - diffutils
     - basic config (`prefix` and `host`) only
 - file
