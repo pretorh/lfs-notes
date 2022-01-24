@@ -60,7 +60,7 @@ Note: the cleanup commands have been rearranged to run them from outside the chr
 
 First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/cleanup/umount-chroot.sh`
 
-Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh`
+Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh` (saved 1015M)
 
 Optionally backup the temp system, see `scripts/5/finalize/backup.sh`
 
