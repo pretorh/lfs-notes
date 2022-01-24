@@ -22,4 +22,4 @@ if findmnt /boot >/dev/null ; then
   mount -v --bind /boot "$LFS/boot"
 fi
 
-findmnt | grep "$LFS"
+findmnt --submounts "$LFS"
