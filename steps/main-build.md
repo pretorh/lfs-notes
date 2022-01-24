@@ -26,7 +26,9 @@ Patches:
 - using sed command: see `scripts/6/glibc/patch.sh`
 - pre configure setup to install into `sbin`
 
-Time (including tests): 7.6x real (user+sys: 18.9x)
+Note: the configuring and installing is split up differently here than in the book
+
+Time (including tests and install): 7.3x to 7.6x real (user+sys: 18.5x to 18.9x)
 
 #### tests
 
@@ -39,6 +41,8 @@ Tests are *critical*, but some will fail:
 - known to fail:
     - `io/tst-lchmod`
 	  - `misc/tst-ttyname`
+
+`grep '^FAIL' tests.sum` to get a list of failed (these two failed on 2.34)
 
 summary:
 
@@ -72,7 +76,7 @@ see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) 
 
 #### Configure glibc
 
-Install locales needed for future tests, see `scripts/6/glibc/locale.sh`
+Install locales needed for future tests, see `scripts/6/glibc/locale.sh` (about 0.2x real/usr+sys)
 
 Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED'`) and install it
 
