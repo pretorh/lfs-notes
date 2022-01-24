@@ -13,7 +13,7 @@ See notes about package management
 ### Part 1
 
 - man-pages
-    - no configure or build (just `make install`)
+    - no configure or build (just `make prefix=/usr install`)
     - time: negligible
 - iana-etc
     - only need to copy the 2 files out (`cp -v services protocols /etc`)
