@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ln -sv /proc/self/mounts /etc/mtab
+ln -sfv /proc/self/mounts /etc/mtab
 # TODO: why not set the hostname here directly
 cat > /etc/hosts << EOF
 127.0.0.1 localhost $(hostname)
