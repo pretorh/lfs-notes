@@ -122,5 +122,3 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
 
 Fix the LFS root file ownership, use `./scripts/5/finalize/fix-permissions.sh`
-
-Optionally, backup the temp system, see `scripts/5/finalize/backup.sh` (though this is done better after chroot setup)

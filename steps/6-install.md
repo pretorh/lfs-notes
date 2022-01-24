@@ -62,16 +62,8 @@ First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/clean
 
 Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh` (saved 1015M)
 
+### backup
+
 Optionally backup the temp system, see `scripts/5/finalize/backup.sh`
 
-## deprecated/old notes from pre 10.0 book
-
-### Part 1
-
-- linux api headers
-
-### Adjusting the Toolchain
-
-Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
-
-Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
+Time: 2.6x real and user+sys
