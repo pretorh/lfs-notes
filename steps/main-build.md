@@ -101,7 +101,7 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 - zstd
     - no configure (but `prefix=/usr` in install)
     - post: remove a static lib `rm -v /usr/lib/libzstd.a`
-    - time: 0.4x real (user+sys: 1.3x)
+    - time: 0.4x real (user+sys: 1.4x)
 - file
     - basic config (`prefix`) and simple build/test/install
     - time: negligible
@@ -111,8 +111,8 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - time: negligible
 - m4
     - then basic config (`prefix`) and simple build/test/install
-    - tests: 170 total, 157 pass, 13 skipped
-    - time: 0.4x real (user+sys: 0.5x)
+    - tests: 267 total, 245 pass, 22 skipped
+    - time: 0.4x real (user+sys: 0.6x)
 - bc
     - all tests (`bc` and `dc`, `history`) pass
     - time: negligible
@@ -126,7 +126,7 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - custom build commands, see `scripts/6/main/tcl-post-build.sh`
     - install steps for headers, symlink (see `scripts/6/main/tcl-install.sh`, which also installs)
     - tests
-        - `grep '^all.tcl:' out.log` to get summary
+        - `grep '^all.tcl:' out.log` to get summary. shows 11 rows
         - no failures (but a lot of skipped)
     - time: 1.7x real (user+sys: 1.1x)
 - expect
@@ -139,7 +139,8 @@ See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - skipped building/installing docs
     - tests:
       - ran before install (book has install then test?)
-      - `grep '^#' out.log` (but should get everything between "... Summary ===" and the next "===" line)
+      - `grep '^#' out.log`
+      - 54, 5, 245, 300 tests passed
     - time: negligible
 
 ### binutils
