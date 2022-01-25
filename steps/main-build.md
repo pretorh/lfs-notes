@@ -154,21 +154,24 @@ The tests are critical. 4 zlib tests failed (known to fail)
 
 Remove static libs: `rm -vf /usr/lib/lib{bfd,opcodes}.a /usr/lib/libctf{,-nobfd}.a`
 
-time: 2.3x real (user+sys: 7.0x)
+time: 2.4x real (user+sys: 7.2x)
 
 ### gmp, mpfr, mpc
 
 - gmp
     - see notes on the architecture, and make sure that matches the CPU
+    - skipped building/installing html docs
     - The tests are critical. All 197 must pass
         - run `awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log` to get passed count
     - time: 0.4x real (user+sys: 1.1x)
 - mpfr
-    - simple build/test/install (skipped docs)
+    - simple build/test/install
+    - skipped building/installing html docs
     - The tests are critical. All tests must pass (had 181 pass, 2 skipped)
     - time: 0.2x real (user+sys: 0.8x)
 - mpc
-    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install (skipped docs)
+    - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install
+    - skipped building/installing html docs
     - tests: all 69 passed
     - time: negligible
 
