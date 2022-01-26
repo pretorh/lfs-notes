@@ -222,11 +222,15 @@ Compare the overall results with the [build logs](http://www.linuxfromscratch.or
 
 See `scripts/6/gcc/compare-test-results.sh` to get list of unexpected failures
 
-#### Install and sanity checks
+#### Install
 
 Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
+
+### Sanity check
+
 Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
+
 
 ### Part 4
 
