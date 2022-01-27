@@ -319,11 +319,12 @@ Patch using `.patch` file. Configure: `scripts/6/5/perl-config.sh`
 
 Tests: "All tests successful."
 
-Time: 6.1x real (user+sys: 6.1x)
+Time: 6.2x real (user+sys: 6.2x)
 
 ### Part 6
 
 - XML-Parser
+    - in archive: `XML-P*`
     - prepare with `perl Makefile.PL`. then basic build/test/install
     - tests: all 140 passed
     - time: negligible
@@ -339,9 +340,8 @@ Time: 6.1x real (user+sys: 6.1x)
 - automake
     - tests:
         - run tests with `-j4` option to speed it up (even on single core systems)
-        - results: 2926 total, 2725 pass (163 skip, 38 xfail)
-    - time: negligible + 17.7x (6.3x for parallel) for tests
-    - time: 5.5x real (user+sys: 15.7x)
+        - results: 2926 total, 2726 pass (162 skip, 38 xfail - did get 1 more skip in a previous pass)
+    - time: 5.5x real (user+sys: 15.9x)
 - kmod
     - no tests in `chroot`
     - post-install: `scripts/6/6/kmod-post.sh`
@@ -351,17 +351,17 @@ Time: 6.1x real (user+sys: 6.1x)
     - tests: 226 total, 220 pass, 5 skipped
         - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/6/6/libelf-install.sh`
-    - time: 0.3x real (user+sys: 0.8x)
+    - time: 0.3x real (user+sys: 0.9x)
 - libffi
     - tests: 2304 passed
-    - time: 1.6x real (user+sys: 1.7x)
+    - time: 1.7x real (user+sys: 1.7x)
 - openssl
     - configure script is named `config`
     - tests:
         - `30-test_afalg.t` is known to sometime fail (but it passed)
         - All tests successful. ("Files=158, Tests=2638")
     - pre-install: skip static libs
-    - time: 1.5x real (user+sys: 2.4x)
+    - time: 1.5x real (user+sys: 2.3x)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
@@ -389,8 +389,7 @@ Time: 6.1x real (user+sys: 6.1x)
         - take relatively long
         - seems to hang after `test_tap_output.sh`
         - all 10 tests passed
-    - time: negligible + 0.9x for tests
-    - time: 0.8x real (user+sys: 0.1x, less than real)
+    - time: 0.9x real (user+sys: 0.1x, less than real)
 - diffutils
     - basic config (`prefix`) and simple build/test/install
     - tests: 225 total, 207 passed/17 skipped/1 xfail
@@ -398,12 +397,13 @@ Time: 6.1x real (user+sys: 6.1x)
 - gawk
     - patch: `sed -i 's/extras//' Makefile.in`
     - basic config (`prefix`) and simple build/test/install
-    - all tests passed (no summary)
+    - "ALL TESTS PASSED" (no summary)
     - time: negligible
 - findutils
     - tests:
         - run as `tester`
         - 271 total, 254 pass, 17 skipped
+        - expected passes: 957, 96, 32
     - time: 0.5x real (user+sys: 0.8x)
 - groff
     - must be built with `-j1`
