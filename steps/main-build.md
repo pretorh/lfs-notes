@@ -239,15 +239,15 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
     - time: negligible
 - ncurses
     - tests can only be run after ncurses is installed
-    - confirm for 10.0:
+    - confirm for 10.0 (does still exist before ncurses installed in LFS 11.0):
         - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
     - post install: see `scripts/6/3/ncurses-post.sh`
     - time: negligible
 - sed
-    - basic config (`prefix`) and simple build/install
+    - basic config (`prefix`) and simple build/install (not building docs)
     - tests
         - run with `tester` user (same as gcc)
-        - 157 passed, 21 skipped (of 178)
+        - 216 passed, 29 skipped (of 245)
     - time: negligible
 - psmisc
     - basic config (`prefix`) and simple build/install
@@ -256,15 +256,15 @@ Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
 - Gettext
     - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
     - tests: 727 total, 690 passed, 37 skipped
-    - time: 1.6x real (user+sys: 2.9x)
+    - time: 1.6x real (user+sys: 3.0x)
 - bison
     - basic config (`prefix`, `docdir`) and simple build/test/install
     - tests: 11/11 passed, and "620 tests were successful. 43 tests were skipped."
-    - time: 1.7x real (user+sys: 6.3x)
+    - time: 1.8x real (user+sys: 6.4x)
 - grep
     - basic config (`prefix`) and simple build/test/install
     - tests: 318 total, 287 pass, 29 skipped, 2 xfail
-    - time: 0.3x real (user+sys: 0.7x)
+    - time: 0.4x real (user+sys: 0.7x)
 
 ### Bash
 
