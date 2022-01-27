@@ -289,12 +289,15 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
     - remove static libs: `/usr/lib/libltdl.a`
     - time: 0.8x real (user+sys: 1.7x)
 - gdbm
-    - tests, one test fail with `ERROR`, and summary shows "All 30 tests were successful." (but exits with failure)
+    - tests:
+        - one test fail with `ERROR`, and summary shows "All 30 tests were successful." (but exits with failure)
+        - passes when first removing the test: `rm ./tests/gdbmtool/base.exp`
     - time: negligible
 - gperf
     - basic config (`prefix` and `docdir`) and simple build/install
     - tests:
         - run with `-j1`
+        - no summary
     - time: negligible
 - expat
     - basic config (`prefix`, `disable-static` and `docdir`) and simple build/test/install
@@ -302,7 +305,7 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
     - time: negligible
 - inetutils
     - config: disable obsolete programs/programs provided by other packages
-    - tests: all 10 passed
+    - tests: 10 of 11 passed (1 skipped)
     - post install: move `ifconfig` into `/usr/sbin`
     - time: 0.3x real (user+sys: 0.3x)
 - less
