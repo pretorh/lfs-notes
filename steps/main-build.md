@@ -405,12 +405,16 @@ Time: 6.2x real (user+sys: 6.2x)
         - 271 total, 254 pass, 17 skipped
         - expected passes: 957, 96, 32
     - time: 0.5x real (user+sys: 0.8x)
+
+
+### Part 7
+
 - groff
     - must be built with `-j1`
     - no tests
     - time: 0.5x real (user+sys: 0.5x)
 - grub
-    - skip when using uefi (todo: install as part of blfs)
+    - skip when using uefi: using host's grub to generate config. can install as part of blfs
     - actual boot setup covered after packages installed
 - gzip
     - basic config (`prefix`) and simple build/test/install
@@ -437,17 +441,19 @@ Time: 6.2x real (user+sys: 6.2x)
     - time: negligible
 - tar
     - tests
-        - one test is known to fail, `227: capabilities: binary store/restore`
+        - one test is known to fail, `227: capabilities: binary store/restore` (`capabs_raw01.at`)
         - others passed (218 run, 20 skipped)
     - time: 1.2x real (user+sys: 0.8x, less)
 - texinfo
     - patch for glibc 2.43
     - basic config (`prefix`, `disable-static`) and simple build/test/install
     - tests: 253 total, 234 passed, 19 skipped
-    - time: negligible
+    - time: 0.3x real (user+sys: 0.6x)
 - vim
     - patch default vimrc: see `scripts/6/9/vim-patch.sh`
-    - tests: run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
+    - tests
+        - run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
+        - ends with "ALL DONE"
     - post install and config: see `scripts/6/9/vim-post.sh`
     - time: 1.3x real (user+sys: 1.2x, less)
 - MarkupSafe
@@ -471,7 +477,7 @@ post-install setup: `scripts/6/6/systemd-post.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
 
-### Part 7
+### Part 8
 
 - dbus
     - no tests in lfs
