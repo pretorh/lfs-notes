@@ -485,16 +485,16 @@ Time: 0.6x real (user+sys: 3.9x)
     - no tests in lfs
     - post install: see `scripts/6/9/dbus-post.sh`
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
-    - time: negligible
+    - time: 0.1x real (user+sys: 0.2x)
 - man-db
     - tests: 50/50 pass
-    - time: negligible
+    - time: 0.3x real (user+sys: 0.4x)
 - procps-ng
     - different extract dir (`procps-$version`)
     - tests:
         - 99 passed
-        - 5 `pkill` related tests failed
-    - time: negligible
+        - 5 `pkill` related tests failed (known to fail)
+    - time: 0.2x real (user+sys: 0.1x, less)
 - util-linux
     - tests:
         - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
