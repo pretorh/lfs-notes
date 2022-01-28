@@ -473,7 +473,9 @@ Build and install with `ninja`
 
 tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
 
-post-install setup: `scripts/6/6/systemd-post.sh`
+remove dir: `rm -rf /usr/lib/pam.d`
+
+post-install/extract setup: `scripts/6/6/systemd-post.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
 
