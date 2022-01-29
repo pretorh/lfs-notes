@@ -9,9 +9,8 @@ see `scripts/6/setup/enter-chroot.sh`
 
 ## Network
 
-DHCP: set `ETH_NAME` and run `scripts/7/dhcp.sh`
-
-resolve.conf: for systemd-resolved: `ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf`
+Get the mac address for your eth device (`ifconfig`).
+Run `scripts/7/dhcp.sh <mac-address>` to create a rule for the mac address (named `eth0` by default) and setup DHCP for it
 
 Hostname: `echo "lfs" > /etc/hostname`
 
