@@ -3,6 +3,9 @@ set -e
 
 linux_name=${1?need the name for this kernal as first parameter}
 
+echo "installing modules"
+make DESTDIR="$DESTDIR" modules_install
+
 echo "installing '$linux_name' kernel"
 mkdir -pv "$DESTDIR"/{boot,etc}
 cp -v arch/x86_64/boot/bzImage "$DESTDIR/boot/vmlinuz-$linux_name"

@@ -10,7 +10,7 @@ Note: this gets the uuid (but that does not work from inside chroot) and use tha
 
 ### setup
 
-see `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default config
+Use `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
 
 ### configure
 
@@ -22,22 +22,18 @@ see the note about required options!
 
 ### build
 
-Time: 2.7x real (user+sys: 13.3x)
+`time make --jobs 8`
 
-```
-time make -j5
-time make modules_install
-```
+Time: 2.5x to 2.7x real (user+sys: 13.3x to 18.3x)
 
 ### install
 
-see `scripts/8/install-linux.sh`
-
-todo: `modules_install` should probably move here
+Use `scripts/8/install-linux.sh <kernal name, preferably something with lfs>`
 
 ### No need to remove the sources
 
 But need to chown: `chown -R 0:0 .`
+
 
 ## GRUB
 
