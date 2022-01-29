@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-cd /usr/lib
+ROOT=${1?pass relative root path as the first argument}
+echo "spliting relative to $ROOT"
+cd "$ROOT/usr/lib"
 
 for file in ld-linux* libc.so.* libthread_db.so.* libquadmath.so.* libstdc++.so.* libitm.so.* libatomic.so.* ; do
   if [ -f "$file.dbg" ] ; then
