@@ -509,11 +509,11 @@ Time: 0.6x real (user+sys: 3.9x)
 
 ### Strip debug symbols
 
-First extract symbols for some libraries. See `./scripts/split-out-debug-symbols.sh`
+First extract symbols for some libraries. From inside chroot, run: `./scripts/split-out-debug-symbols.sh`
 
-Then strip from binaries and libraries. See `bash ./scripts/strip-debug-symbols.sh` (note: this ignores the running binaries)
+Then strip from binaries and libraries. From outside chroot, run: `./scripts/strip-debug-symbols.sh` (this ignores the running binaries)
 
-Saved about 2.1GB with this (pre LFS11)
+Pre LFS11: Saved about 2.1GB with this (less on 11, but more than 1GB)
 
 ### cleanup
 

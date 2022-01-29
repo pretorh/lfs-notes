@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-ROOT=${1-.}
+ROOT=${1?pass relative root path as the first argument}
 echo "stipping relative to $ROOT"
 
 ignore_warnings() {
 	grep -iv \
         -e "file format not recognized" \
         -e "is not an ordinary file" \
-        -
+        - || true
 }
 
-# todo: this ignores runnings binaries/used libs
 while IFS= read -r -d '' file
 do
   strip --strip-unneeded "$file" 2>&1 | ignore_warnings
