@@ -1,8 +1,8 @@
 # 0. Intro
 
-## install required packages on the host
+## install/update required packages on the host
 
-For list of packages, and installing on Arch, see `scripts/0/pacman.sh`. Note Python 3 is required
+For list of packages, and installing on Arch, use `sudo ./scripts/0/pacman.sh`. Note Python 3 is required
 
 See `scripts/0/symlink-check.sh`
 
@@ -14,34 +14,31 @@ set `LFS` variable to a location where you can mount a new drive:
 
 Create partitions, add filesystems, and mount the partitions in $LFS
 
+You can use `./scripts/sudo.sh <command>` to run commands as sudo, with the LFS environment variable set for root
+
 # 3. Sources
 
 See general notes to copy sources over ssh.
 
 ## Setup the sources directory
 
-See `scripts/3/setup-sources.sh`
+Use `scripts/3/setup-sources.sh` as root
 
 ## Download the sources
 
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 
-Use `scripts/3/download-sources.sh` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
+Use `./scripts/3/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
+
+This script skips packages not needed in systemd LFS, and some packages that were previously downloaded but not installed:
+
+- documentation-only packages
+- grub (using the host's grub)
 
 Some packages change frequently and is ignored in this script, and should be manually downloaded:
 
 - [Linux kernel](https://www.kernel.org/)
 - [Vim](https://github.com/vim/vim/tags)
-
-Some packages were downloaded, but not installed:
-- eudev-3.2.10.tar.gz
-- grub-2.06.tar.xz (using host's grub)
-- lfs-bootscripts-20210608.tar.xz
-- python-3.9.6-docs-html.tar.bz2 (some doc installation skipped)
-- sysklogd-1.5.1.tar.gz
-- systemd-man-pages-249.tar.xz (some doc installation skipped)
-- udev-lfs-20171102.tar.xz
-- v8.2.4023.tar.gz
 
 `file` previous had issues (older versions not kept)
 
@@ -59,13 +56,11 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
 
-Initialize the user's bash profile and rc files (this might change between LFS versions) using `sudo --preserve-env=LFS,HOME sh ./scripts/4/setup-lfs-user-environment.sh`
+Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `./scripts/4/setup-lfs-user-environment.sh`
 
 ## directory structure
 
-Create directory structure with `sudo --preserve-env=LFS sh ./scripts/4/create-dirs.sh`
-
-TODO: recheck lib64 creation - should it be a symlink here (it was empty dir before `chroot`, and had to symlink to `usr/lib)
+Create directory structure as root using `./scripts/4/create-dirs.sh`
 
 ## switch to lfs user
 

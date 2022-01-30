@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir tz && cd tz
+tz_data=$(mktemp -d ./tzdata-XXXXX)
+cd "$tz_data"
+
 tar -xf ../tzdata*.tar.gz
 
 ZONEINFO=$DESTDIR/usr/share/zoneinfo
@@ -19,4 +21,4 @@ cp -v zone.tab zone1970.tab iso3166.tab "$ZONEINFO"
 zic -d "$ZONEINFO" -p America/New_York
 
 cd ..
-rm -rf tz
+rm -rf "$tz_data"

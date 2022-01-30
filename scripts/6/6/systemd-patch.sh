@@ -7,7 +7,7 @@ echo "patch: apply from patch file"
 patch -Np1 -i ../systemd-$SYSTEMD_VERSION-upstream_fixes-1.patch
 
 echo "patch: https://github.com/systemd/systemd/pull/20695"
-patch src/basic/linux/if_arp.h < ../systemd-249-mctp.patch
+echo "#define ARPHRD_MCTP  290" >> src/basic/linux/if_arp.h
 
 echo "patch: remove groups"
 sed -e 's/GROUP="render"/GROUP="video"/' \

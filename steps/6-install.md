@@ -13,8 +13,6 @@ See:
 - setup the filesystem: `scripts/6/setup/filesystem.sh`
 - setup the chroot environment (essential files and symlinks): `scripts/6/setup/chroot-setup.sh`
 
-todo: had issue entering chroot (`/bin/bash` not found), which was fixed by removing the (empty) lib64 dir, and creating it as a symlink to `/usr/lib` (`ln -sv usr/lib "$LFS/lib64"`)
-
 ### Re-entering chroot
 
 If you exit chroot, you will need to re-enter it before continuing
@@ -35,7 +33,7 @@ Build and install from the `sources` directory
     - part of gcc sources
     - patch by symlinking `gthr-posix.h`
     - run configure from `libstdc++-v3`
-    - time: 0.4x real (user+sys: 0.6x)
+    - time: 0.4x real (user+sys: 0.9x)
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
@@ -45,10 +43,10 @@ Build and install from the `sources` directory
     - time: negligible
 - perl
     - custom configure command, see `scripts/6/perl-configure.sh`
-    - time: 0.7x real (user+sys: 1.7x)
+    - time: 0.7x real (user+sys: 1.8x)
 - python
     - note the uppercase archive name
-    - time: 0.5x real (user+sys: 1.6x)
+    - time: 0.5x real (user+sys: 1.7x)
 - texinfo
     - fix building with glibc 2.34+, see `scripts/6/texinfo-patch.sh`
     - basic configure (`prefix`) only
@@ -62,18 +60,10 @@ Note: the cleanup commands have been rearranged to run them from outside the chr
 
 First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/cleanup/umount-chroot.sh`
 
-Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh`
+Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh` (saved 1015M)
+
+### backup
 
 Optionally backup the temp system, see `scripts/5/finalize/backup.sh`
 
-## deprecated/old notes from pre 10.0 book
-
-### Part 1
-
-- linux api headers
-
-### Adjusting the Toolchain
-
-Adjust the toolchain: see `scripts/6/toolchain/adjust.sh`
-
-Run sanity check: see `scripts/6/toolchain/sanity-check.sh`
+Time: 2.6x real and user+sys

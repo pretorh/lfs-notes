@@ -29,9 +29,10 @@ EOF
 
 # allow ssh from same users as current user
 mkdir -vp /home/lfs/.ssh
-cp -v ~/.ssh/authorized_keys /home/lfs/.ssh/
+chmod -v 0700 /home/lfs/.ssh
+cp -v /home/"$(logname)"/.ssh/authorized_keys /home/lfs/.ssh/
 
-chown -v lfs:lfs /home/lfs/.bash_profile /home/lfs/.bashrc
+chown -Rv lfs:lfs /home/lfs/.bash_profile /home/lfs/.bashrc /home/lfs/.ssh
 echo ""
 cat /home/lfs/.bash_profile
 echo

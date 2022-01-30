@@ -2,11 +2,12 @@
 set -e
 
 echo "using $SANITY_CC"
-echo "$SANITY_CC = $(which "$SANITY_CC")"
-if [ -L "$(which "$SANITY_CC")" ] ; then
-  echo "  which is a symlink to $(readlink "$(which "$SANITY_CC")")"
-else
-  echo "  which is not a symlink"
+full="$(which "$SANITY_CC")"
+echo "$SANITY_CC = $full"
+if [ -L "$full" ] ; then
+  echo "  which is a symlink to $(readlink "$full")"
+elif [ -x "$full" ] ; then
+  echo "  which is an executable"
 fi
 echo ""
 
