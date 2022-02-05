@@ -471,11 +471,11 @@ Patch and configure: `scripts/6/6/systemd-patch.sh`
 
 Build and install with `ninja`
 
-tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
+Tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
 
-remove dir: `rm -rf /usr/lib/pam.d`
+Remove dir: `rm -rf /usr/lib/pam.d`
 
-post-install/extract setup: `scripts/6/6/systemd-post.sh`
+Post-install/extract setup: `scripts/6/6/systemd-post.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
 
@@ -509,9 +509,9 @@ Time: 0.6x real (user+sys: 3.9x)
 
 Run these scripts from outside chroot: `logout` to exit. probably need to umount devices to get better disk usage stats
 
-First extract symbols for some libraries. run: `./scripts/split-out-debug-symbols.sh`
+First extract symbols for some libraries. run: `scripts/split-out-debug-symbols.sh`
 
-Then strip from binaries and libraries. run: `./scripts/strip-debug-symbols-and-cleanup.sh` (this ignores the running binaries)
+Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cleanup.sh` (this ignores the running binaries)
 
 Pre LFS11: Saved about 2.8GB with this (less on 11, but more than 2GB)
 
