@@ -16,9 +16,7 @@ Use `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default
 
 Configure using the menu `make menuconfig`
 
-see the note about required options!
-
-(partial check: `scripts/8/check-kernel-config`)
+See the note about required options (partial check: `scripts/8/check-kernel-config`)
 
 ### build
 
