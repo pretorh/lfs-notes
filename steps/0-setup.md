@@ -1,4 +1,4 @@
-# 0. Intro
+# Host system setup
 
 ## install/update required packages on the host
 
@@ -15,10 +15,6 @@ Set `LFS` variable to a location where you can mount a new drive:
 Create partitions, add filesystems, and mount the partitions in `$LFS`
 
 You can use `scripts/sudo.sh <command>` to run commands as `sudo`, with the `LFS` environment variable set for root
-
-# 3. Sources
-
-See general notes to copy sources over ssh.
 
 ## Setup the sources directory
 
@@ -42,8 +38,6 @@ Some packages change frequently and is ignored in this script, and should be man
 
 `file` previously had issues (older versions not kept)
 
-# 4. Tools
-
 ## create lfs user
 
 Create the user (once) on the host system:
@@ -55,6 +49,8 @@ groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
+
+## setup lfs user environment
 
 Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/4/setup-lfs-user-environment.sh`
 
