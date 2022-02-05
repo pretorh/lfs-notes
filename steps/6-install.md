@@ -17,9 +17,9 @@ See:
 
 If you exit chroot, you will need to re-enter it before continuing
 
-- mount the drive (`scripts/2/mount.sh`)
+- mount the drive
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
-- run as root (`sudo --preserve-env=LFS bash`)
+- run as root (`scripts/sudo.sh`)
 - setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh` and `scripts/6/setup/enter-chroot.sh`)
 - run bash after it is installed (`exec /bin/bash --login +h`)
 - change to sources directory (`cd /sources`)
