@@ -2,7 +2,7 @@
 
 ## Release details
 
-see `scripts/8/os-details.sh`
+see `scripts/config/os-details.sh`
 
 ## Optional Packages
 
