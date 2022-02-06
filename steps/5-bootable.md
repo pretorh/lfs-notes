@@ -10,13 +10,13 @@ Note: this gets the uuid (but that does not work from inside chroot) and use tha
 
 ### setup
 
-Use `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
+Use `scripts/kernel/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
 
 ### configure
 
 Configure using the menu `make menuconfig`
 
-See the note about required options (partial check: `scripts/8/check-kernel-config`)
+See the note about required options (partial check: `scripts/kernel/check-kernel-config`)
 
 ### build
 
@@ -26,7 +26,7 @@ Time: 2.5x to 2.7x real (user+sys: 13.3x to 18.3x)
 
 ### install
 
-Use `scripts/8/install-linux.sh <kernal name, preferably something with lfs>`
+Use `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
 
 ### No need to remove the sources
 
