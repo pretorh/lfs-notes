@@ -229,7 +229,8 @@ Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the 
 
 ### Sanity check
 
-Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
+Run another sanity check: see `scripts/sanity-check-2.sh`
+(todo: try and merge with first sanity check script)
 
 
 ### Part 4
