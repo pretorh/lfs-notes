@@ -10,6 +10,7 @@ see `scripts/6/setup/enter-chroot.sh`
 ## Network
 
 Get the mac address for your eth device (`ifconfig`).
+
 Run `scripts/7/dhcp.sh <mac-address>` to create a rule for the mac address (named `eth0` by default) and setup DHCP for it
 
 Run `scripts/7/host.sh <hostname>` to set hostname and create hosts file
@@ -24,7 +25,7 @@ If set to utc, remove the adjust file: `rm -fv /etc/adjtime`
 
 Locale: see `scripts/7/select-locale.sh`
 
-inputrc: see `scripts/7/configs/inputrc` (copy to `/etc/inputrc`)
+`inputrc`: copy `scripts/7/configs/inputrc` to `/etc/inputrc`
 
 Shells:
 

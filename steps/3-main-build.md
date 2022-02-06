@@ -4,7 +4,7 @@ These notes are from Chapter 8 of the 10.0 version
 
 ## setup
 
-These steps need to be done in chroot - reenter after cleanup/backup or a restore from a backup. See notes in chroot setup (`steps/6-install.md`)
+These steps need to be done in chroot - reenter after cleanup/backup or a restore from a backup. See notes in chroot setup (`steps/2-chroot-temp-system2.md`)
 
 See notes about package management
 
@@ -218,7 +218,7 @@ The tests are critical.
 Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/6/gcc/test.sh`
 
 Some tests are known to fail. Compare with list in doc.
-Compare the overall results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults). See `steps/6-more.md` for my list of failed tests
+Compare the overall results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults). See `steps/test-results.md` for my list of failed tests
 
 See `scripts/6/gcc/compare-test-results.sh` to get list of unexpected failures
 
@@ -471,11 +471,11 @@ Patch and configure: `scripts/6/6/systemd-patch.sh`
 
 Build and install with `ninja`
 
-tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
+Tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
 
-remove dir: `rm -rf /usr/lib/pam.d`
+Remove dir: `rm -rf /usr/lib/pam.d`
 
-post-install/extract setup: `scripts/6/6/systemd-post.sh`
+Post-install/extract setup: `scripts/6/6/systemd-post.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
 
@@ -509,9 +509,9 @@ Time: 0.6x real (user+sys: 3.9x)
 
 Run these scripts from outside chroot: `logout` to exit. probably need to umount devices to get better disk usage stats
 
-First extract symbols for some libraries. run: `./scripts/split-out-debug-symbols.sh`
+First extract symbols for some libraries. run: `scripts/split-out-debug-symbols.sh`
 
-Then strip from binaries and libraries. run: `./scripts/strip-debug-symbols-and-cleanup.sh` (this ignores the running binaries)
+Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cleanup.sh` (this ignores the running binaries)
 
 Pre LFS11: Saved about 2.8GB with this (less on 11, but more than 2GB)
 

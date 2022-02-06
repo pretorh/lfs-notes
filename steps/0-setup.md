@@ -1,24 +1,20 @@
-# 0. Intro
+# Host system setup
 
 ## install/update required packages on the host
 
-For list of packages, and installing on Arch, use `sudo ./scripts/0/pacman.sh`. Note Python 3 is required
+For list of packages, and installing on Arch, use `sudo scripts/0/pacman.sh`. Note Python 3 is required
 
 See `scripts/0/symlink-check.sh`
 
 ## Setup partition, set the LFS variable, and mount
 
-set `LFS` variable to a location where you can mount a new drive:
+Set `LFS` variable to a location where you can mount a new drive:
 
 `export LFS=/mnt/lfs`
 
-Create partitions, add filesystems, and mount the partitions in $LFS
+Create partitions, add filesystems, and mount the partitions in `$LFS`
 
-You can use `./scripts/sudo.sh <command>` to run commands as sudo, with the LFS environment variable set for root
-
-# 3. Sources
-
-See general notes to copy sources over ssh.
+You can use `scripts/sudo.sh <command>` to run commands as `sudo`, with the `LFS` environment variable set for root
 
 ## Setup the sources directory
 
@@ -28,7 +24,7 @@ Use `scripts/3/setup-sources.sh` as root
 
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 
-Use `./scripts/3/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
+Use `scripts/3/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
 
 This script skips packages not needed in systemd LFS, and some packages that were previously downloaded but not installed:
 
@@ -40,9 +36,7 @@ Some packages change frequently and is ignored in this script, and should be man
 - [Linux kernel](https://www.kernel.org/)
 - [Vim](https://github.com/vim/vim/tags)
 
-`file` previous had issues (older versions not kept)
-
-# 4. Tools
+`file` previously had issues (older versions not kept)
 
 ## create lfs user
 
@@ -56,11 +50,13 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
 
-Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `./scripts/4/setup-lfs-user-environment.sh`
+## setup lfs user environment
+
+Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/4/setup-lfs-user-environment.sh`
 
 ## directory structure
 
-Create directory structure as root using `./scripts/4/create-dirs.sh`
+Create directory structure as root using `scripts/4/create-dirs.sh`
 
 ## switch to lfs user
 

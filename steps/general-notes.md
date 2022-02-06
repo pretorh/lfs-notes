@@ -1,5 +1,20 @@
 # General notes
 
+## Timings
+
+Add the `user` and `sys` output as this would give an indication of how long serial-only builds could take (some packages do not run much faster on parallel)
+
+Tracking the first GCC pass (the 2nd package) is also useful, as it is about 10 times longer than Binutils (making
+it one of the longest building packages)
+
+The longest build/testing packages are GCC (more than 100x)
+
+Added my timings, around *all steps*: extracting, patch, configure, build and test (mostly with `--jobs 4`), install and post-install scripts
+All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel (`real`) time listed first
+
+Small times are not shown (should be less than Binutils pass 1 in `real` time)
+
+
 ## sudo
 
 You can run sudo with `sudo --preserve-env=LFS ` in order to keep the LFS variable

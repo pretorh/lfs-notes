@@ -10,39 +10,24 @@ If you already built the toolchain and made a backup, you can restore it:
 
 You should login as `lfs`: `su - lfs`
 
-## Timings
-
 Remeber to time the first installed package, since all the others are relative to it.
-
-Add the `user` and `sys` output as this would give an indication of how long serial-only builds could take (some packages do not run much faster on parallel)
-
-Tracking the first GCC pass (the 2nd package) is also useful, as it is about 10 times longer than Binutils (making
-it one of the longest building packages)
-
-The longest build/testing packages are GCC (more than 100x)
-
-Added my timings, around *all steps*: extracting, patch, configure, build and test (mostly with `--jobs 4`), install and post-install scripts
-All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel (`real`) time listed first
-
-Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## Part 1
 
 - Bin Utils (pass 1)
-    - remember to time this
     - time: 0.3x real (user+sys is defined as 1x)
 - GCC (pass 1)
     - patch scripts:
-        - `5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `5/gcc/patch-lib64.sh`
+        - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh`
+        - `scripts/5/gcc/patch-lib64.sh`
     - post install scritps:
-        - `5/gcc/fix-limits_header.sh`
+        - `scripts/5/gcc/fix-limits_header.sh`
     - time: 3.5x to 3.8x real (user+sys: 13.0x)
 - Linux API Headers
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
     - build using `make headers`
-    - intstall script: see `5/linux-headers/install.sh`
+    - intstall script: see `scripts/5/linux-headers/install.sh`
     - time: negligible
 - GLibc
     - install symlinks (is this needed before, can it be run after install?): see `scripts/5/glibc/symlinks.sh`
@@ -53,7 +38,7 @@ Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## Sanity Check 1
 
-see `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
+See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
 Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
 
@@ -121,4 +106,4 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 
 Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
 
-Fix the LFS root file ownership, use `./scripts/5/finalize/fix-permissions.sh`
+Fix the LFS root file ownership, use `scripts/5/finalize/fix-permissions.sh`
