@@ -2,9 +2,9 @@
 
 ## install/update required packages on the host
 
-For list of packages, and installing on Arch, use `sudo scripts/0/pacman.sh`. Note Python 3 is required
+For list of packages, and installing on Arch, use `sudo scripts/setup/pacman.sh`. Note Python 3 is required
 
-See `scripts/0/symlink-check.sh`
+See `scripts/setup/symlink-check.sh`
 
 ## Setup partition, set the LFS variable, and mount
 
@@ -18,13 +18,13 @@ You can use `scripts/sudo.sh <command>` to run commands as `sudo`, with the `LFS
 
 ## Setup the sources directory
 
-Use `scripts/3/setup-sources.sh` as root
+Use `scripts/setup/sources.sh` as root
 
 ## Download the sources
 
 Get the wget-list from linuxfromscratch for the current version and download the sources.  
 
-Use `scripts/3/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
+Use `scripts/setup/download-sources.sh <lfs-version-with-systemd-suffix>` to download the packages to the current directory (might want to change into the sources directory first ex `cd $LFS/sources`)
 
 This script skips packages not needed in systemd LFS, and some packages that were previously downloaded but not installed:
 
@@ -52,11 +52,11 @@ passwd lfs
 
 ## setup lfs user environment
 
-Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/4/setup-lfs-user-environment.sh`
+Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/setup/create-lfs-user-environment.sh`
 
 ## directory structure
 
-Create directory structure as root using `scripts/4/create-dirs.sh`
+Create directory structure as root using `scripts/setup/create-dirs.sh`
 
 ## switch to lfs user
 

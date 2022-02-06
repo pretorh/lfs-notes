@@ -2,7 +2,7 @@
 
 ## fstab
 
-From outside chroot, run `scripts/8/genfstab.sh`, and redirect to `$LFS/etc/fstab`
+From outside chroot, run `scripts/config/genfstab.sh`, and redirect to `$LFS/etc/fstab`
 
 Note: this gets the uuid (but that does not work from inside chroot) and use that to build the fstab entries
 
@@ -10,13 +10,13 @@ Note: this gets the uuid (but that does not work from inside chroot) and use tha
 
 ### setup
 
-Use `scripts/8/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
+Use `scripts/kernel/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
 
 ### configure
 
 Configure using the menu `make menuconfig`
 
-See the note about required options (partial check: `scripts/8/check-kernel-config`)
+See the note about required options (partial check: `scripts/kernel/check-kernel-config`)
 
 ### build
 
@@ -26,7 +26,7 @@ Time: 2.5x to 2.7x real (user+sys: 13.3x to 18.3x)
 
 ### install
 
-Use `scripts/8/install-linux.sh <kernal name, preferably something with lfs>`
+Use `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
 
 ### No need to remove the sources
 
@@ -41,7 +41,7 @@ But need to chown: `chown -R 0:0 .`
 
 Do this even when using the host's boot partition
 
-Output `scripts/8/gengrub.sh` to `/etc/grub.d/11_lfs` and make it executable:
+Output `scripts/config/gengrub.sh` to `/etc/grub.d/11_lfs` and make it executable:
 
 ```
 mkdir -pv /etc/grub.d/

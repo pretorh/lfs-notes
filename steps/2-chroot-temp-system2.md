@@ -8,10 +8,10 @@ Start bash with LFS set from the current environment: `sudo --preserve-env=LFS b
 
 See:
 
-- setup virtual kernel file systems: `scripts/6/setup/prepare.sh`
-- enter chroot: `scripts/6/setup/enter-chroot.sh`
-- setup the filesystem: `scripts/6/setup/filesystem.sh`
-- setup the chroot environment (essential files and symlinks): `scripts/6/setup/chroot-setup.sh`
+- setup virtual kernel file systems: `scripts/chroot/prepare.sh`
+- enter chroot: `scripts/chroot/enter-chroot.sh`
+- setup the filesystem: `scripts/chroot/filesystem.sh`
+- setup the chroot environment (essential files and symlinks): `scripts/chroot/essential-files-setup.sh`
 
 ### Re-entering chroot
 
@@ -20,7 +20,7 @@ If you exit chroot, you will need to re-enter it before continuing
 - mount the drive
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - run as root (`scripts/sudo.sh`)
-- setup virtual file systems and enter chroot (`scripts/6/setup/prepare.sh` and `scripts/6/setup/enter-chroot.sh`)
+- setup virtual file systems and enter chroot (`scripts/chroot/prepare.sh` and `scripts/chroot/enter-chroot.sh`)
 - run bash after it is installed (`exec /bin/bash --login +h`)
 - change to sources directory (`cd /sources`)
 - continue where you left
@@ -58,12 +58,12 @@ Build and install from the `sources` directory
 
 Note: the cleanup commands have been rearranged to run them from outside the chroot environment
 
-First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/6/cleanup/umount-chroot.sh`
+First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/chroot/umount-chroot.sh`
 
-Remove static libs, documentation and the `/tools` directory. See `scripts/6/cleanup/remove-files.sh` (saved 1015M)
+Remove static libs, documentation and the `/tools` directory. See `scripts/chroot/remove-files.sh` (saved 1015M)
 
 ### backup
 
-Optionally backup the temp system, see `scripts/5/finalize/backup.sh`
+Optionally backup the temp system, see `scripts/backup.sh`
 
 Time: 2.6x real and user+sys

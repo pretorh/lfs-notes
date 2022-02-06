@@ -76,13 +76,13 @@ see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) 
 
 #### Configure glibc
 
-Install locales needed for future tests, see `scripts/6/glibc/locale.sh` (about 0.2x real/usr+sys)
+Install locales needed for future tests, see `scripts/config/install-locales.sh` (about 0.2x real/usr+sys)
 
 Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED'`) and install it
 
-Run `scripts/6/glibc/tz-set-localtime.sh` to set `/etc/localtime`
+Run `scripts/config/tz-set-localtime.sh` to set `/etc/localtime`
 
-See `scripts/6/glibc/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
+See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 
 ### Part 2
 
@@ -201,7 +201,7 @@ Time: negligible
 
 #### post install configuring
 
-See `scripts/6/3/shadow-post-install-config.sh`
+See `scripts/config/shadow.sh`
 
 ### GCC
 
@@ -229,7 +229,8 @@ Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the 
 
 ### Sanity check
 
-Run another sanity check: see `scripts/6/gcc/sanity-check-4.sh`
+Run another sanity check: see `scripts/sanity-check-2.sh`
+(todo: try and merge with first sanity check script)
 
 
 ### Part 4
@@ -475,7 +476,7 @@ Tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninj
 
 Remove dir: `rm -rf /usr/lib/pam.d`
 
-Post-install/extract setup: `scripts/6/6/systemd-post.sh`
+Post-install/extract setup: `scripts/config/systemd.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
 
@@ -515,4 +516,4 @@ Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cl
 
 Pre LFS11: Saved about 2.8GB with this (less on 11, but more than 2GB)
 
-To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/6/setup/enter-chroot.sh`
+To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/chroot/enter-chroot.sh`

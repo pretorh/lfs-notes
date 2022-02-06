@@ -40,7 +40,7 @@ Remeber to time the first installed package, since all the others are relative t
 
 See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
-Finalize `limits.h` header, see `scripts/5/finalize-limitsh.sh`
+Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
 
 ## Part 2
 
@@ -106,4 +106,4 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 
 Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
 
-Fix the LFS root file ownership, use `scripts/5/finalize/fix-permissions.sh`
+Fix the LFS root file ownership, use `scripts/fix-permissions.sh`

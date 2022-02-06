@@ -2,7 +2,7 @@
 
 ## Release details
 
-see `scripts/8/os-details.sh`
+see `scripts/config/os-details.sh`
 
 ## Optional Packages
 
@@ -12,7 +12,7 @@ see `scripts/8/os-details.sh`
 
 ## Exit chroot and reboot
 
-`logout` and unmount virtual filesystem, see `scripts/6/cleanup/umount-chroot.sh`
+`logout` and unmount virtual filesystem, see `scripts/chroot/umount-chroot.sh`
 
 unmount all nested partitions of LFS, then LFS itself
 
