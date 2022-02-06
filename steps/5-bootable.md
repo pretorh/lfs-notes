@@ -2,7 +2,7 @@
 
 ## fstab
 
-From outside chroot, run `scripts/8/genfstab.sh`, and redirect to `$LFS/etc/fstab`
+From outside chroot, run `scripts/config/genfstab.sh`, and redirect to `$LFS/etc/fstab`
 
 Note: this gets the uuid (but that does not work from inside chroot) and use that to build the fstab entries
 
@@ -41,7 +41,7 @@ But need to chown: `chown -R 0:0 .`
 
 Do this even when using the host's boot partition
 
-Output `scripts/8/gengrub.sh` to `/etc/grub.d/11_lfs` and make it executable:
+Output `scripts/config/gengrub.sh` to `/etc/grub.d/11_lfs` and make it executable:
 
 ```
 mkdir -pv /etc/grub.d/
