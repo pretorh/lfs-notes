@@ -515,4 +515,4 @@ Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cl
 
 Pre LFS11: Saved about 2.8GB with this (less on 11, but more than 2GB)
 
-To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/6/setup/enter-chroot.sh`
+To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/chroot/enter-chroot.sh`
