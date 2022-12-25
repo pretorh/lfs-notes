@@ -49,7 +49,7 @@ Some packages change frequently and is ignored in this script, and should be man
 
 `file` previously had issues (older releases not available)
 
-## create lfs user
+## create and setup `lfs` user
 
 Create the user (once) on the host system:
 
@@ -61,14 +61,10 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 passwd lfs
 ```
 
-## setup lfs user environment
+### setup lfs user environment
 
 Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/setup/create-lfs-user-environment.sh`
 
 ## directory structure
 
 Create directory structure as root using `scripts/setup/create-dirs.sh`
-
-## switch to lfs user
-
-Switch to the lfs user using `su - lfs`
