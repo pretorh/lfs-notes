@@ -103,9 +103,8 @@ check no libtool archive files were installed: `find $LFS -name '*.la'` (some in
 - GCC (pass 2)
     - patch:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
-        - `scripts/5/gcc/patch-lib64.sh` (same as in pass 1)
-    - pre-configure:
-        - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
+        - `scripts/5/gcc/patch-lib64.sh`: not patching any more, `lib64` and `lib` are symlinks
+        - `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
     - time: 3.9x to 4.1x real (user+sys: 13.5x to 14.2x)
