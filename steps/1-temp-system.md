@@ -19,7 +19,7 @@ Remeber to time the first installed package, since all the others are relative t
 - GCC (pass 1)
     - patch scripts:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `scripts/5/gcc/patch-lib64.sh`
+        - `scripts/5/gcc/patch-lib64.sh`: not patching any more, `lib64` and `lib` are symlinks
     - post install scritps:
         - `scripts/5/gcc/fix-limits_header.sh`
     - time: 3.5x to 3.8x real (user+sys: 13.0x)
@@ -49,6 +49,7 @@ Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
+    - post: remove libtool archive files (though they existed in `lib64`)
     - time: 0.3x real (user+sys: 0.6x)
 
 ## cross compiling temporary tools
@@ -75,7 +76,7 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - findutils
     - post install: move into `bin` and change `updatedb`
 - gawk
-    - patch: remove extras in makefile
+    - patch: remove "extras" in makefile
 - grep
     - basic config (`prefix` and `host`) only
 - gzip
@@ -88,6 +89,10 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - tar
     - basic config (`prefix`, `host`, `build`) only
 - xz
+
+### cleanup
+
+check no libtool archive files were installed: `find $LFS -name '*.la'` (some in `gcc` dirs)
 
 ### bin utils and gcc - pass 2
 
