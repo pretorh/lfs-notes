@@ -13,7 +13,7 @@ echo ""
 
 echo "testing:"
 echo 'int main(){}' > dummy.c
-$SANITY_CC dummy.c
+$SANITY_CC -xc dummy.c
 if readelf -l a.out | grep 'Requesting program interpreter: /lib64/ld-linux-x86-64.so.2' ; then
     echo "SUCCESS"
 else

@@ -40,6 +40,8 @@ Remeber to time the first installed package, since all the others are relative t
 
 See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
+To check: why did this change to just `gcc` (which resolves to the host's `/bin/gcc`)
+
 Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
 
 ## Part 2
