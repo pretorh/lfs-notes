@@ -97,7 +97,8 @@ check no libtool archive files were installed: `find $LFS -name '*.la'` (some in
 ### bin utils and gcc - pass 2
 
 - Bin Utils (pass 2)
-    - fix `libctf` post install, see `scripts/5/binutils-pass2/post-install.sh`
+    - patch: outdated libtool
+    - post install: remove libtool archive files
     - time: 0.4x real (user+sys: 1.3x)
 - GCC (pass 2)
     - patch:
