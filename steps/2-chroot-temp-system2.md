@@ -2,7 +2,7 @@
 
 This should be run as the root user. Remember to have `LFS` set: `export LFS=/mnt/lfs`
 
-Start bash with LFS set from the current environment: `sudo --preserve-env=LFS bash`
+Start bash with LFS set from the current environment: `./scripts/sudo.sh`
 
 ## Chroot
 

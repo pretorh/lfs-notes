@@ -111,6 +111,6 @@ check no libtool archive files were installed: `find $LFS -name '*.la'` (some in
 
 ## finalize temporary system
 
-Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
+Logout `lfs` user, most of the remaining commands should be run as `root` (or `sudo`)
 
 Fix the LFS root file ownership, use `scripts/fix-permissions.sh`
