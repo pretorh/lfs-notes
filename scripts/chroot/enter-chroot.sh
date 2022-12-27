@@ -9,7 +9,7 @@ chroot "$LFS" /usr/bin/env -i   \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
     PATH=/usr/bin:/usr/sbin     \
-    /bin/bash --login +h
+    /bin/bash --login
 
 echo "chroot done, exited with $?"
 echo "back on the host system"
