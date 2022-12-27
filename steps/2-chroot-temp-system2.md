@@ -29,11 +29,6 @@ If you exit chroot, you will need to re-enter it before continuing
 
 Build and install from the `sources` directory
 
-- libstdc++ pass 2
-    - part of gcc sources
-    - patch by symlinking `gthr-posix.h`
-    - run configure from `libstdc++-v3`
-    - time: 0.4x real (user+sys: 0.9x)
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
@@ -48,7 +43,6 @@ Build and install from the `sources` directory
     - note the uppercase archive name
     - time: 0.5x real (user+sys: 1.7x)
 - texinfo
-    - fix building with glibc 2.34+, see `scripts/6/texinfo-patch.sh`
     - basic configure (`prefix`) only
     - time: negligible
 - util-linux
