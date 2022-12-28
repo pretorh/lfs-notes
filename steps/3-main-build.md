@@ -23,7 +23,6 @@ See notes about package management
 
 Patches:
 - file system standards: see, `scripts/5/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
-- using sed command: see `scripts/6/glibc/patch.sh`
 - pre configure setup to install into `sbin`
 
 Note: the configuring and installing is split up differently here than in the book
@@ -32,19 +31,32 @@ Time (including tests and install): 7.3x to 7.6x real (user+sys: 18.5x to 18.9x)
 
 #### tests
 
-Create symlink for tests to work (`ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib`)
-
 Tests are *critical*, but some will fail:
 
 "You may see some test failures." the doc only lists some of the most common issues
 
-- known to fail:
+- known to fail: (and failed on `2.36` and `2.34`)
     - `io/tst-lchmod`
-	  - `misc/tst-ttyname`
+    - `misc/tst-ttyname`
+- other test failures (on `2.36`)
+    - `nptl/tst-cancel24`
+    - `nptl/tst-minstack-throw`
+    - `nptl/tst-once5`
+    - `nptl/tst-thread-exit-clobber`
 
-`grep '^FAIL' tests.sum` to get a list of failed (these two failed on 2.34)
+`grep '^FAIL' tests.sum` to get a list of failed
 
-summary:
+##### summary:
+
+2.36:
+```
+Summary of test results:
+      6 FAIL
+   4921 PASS
+    234 UNSUPPORTED
+     16 XFAIL
+      4 XPASS
+```
 
 2.34:
 ```

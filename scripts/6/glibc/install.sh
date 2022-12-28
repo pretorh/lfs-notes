@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# ignore expression expanding issue in sed command
 # shellcheck disable=SC2016
 
 touch /etc/ld.so.conf
