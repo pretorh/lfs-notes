@@ -19,7 +19,7 @@ Remeber to time the first installed package, since all the others are relative t
 - GCC (pass 1)
     - patch scripts:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `scripts/5/gcc/patch-lib64.sh`: not patching any more, `lib64` and `lib` are symlinks
+        - `scripts/5/gcc/patch-lib64.sh` (TODO: try without patching since `lib64` and `lib` are symlinks)
     - post install scritps:
         - `scripts/5/gcc/fix-limits_header.sh`
     - time: 3.5x to 3.8x real (user+sys: 13.0x)
@@ -71,6 +71,7 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - file
     - build file with `disable`s first, see `scripts/5/file/pre-config.sh`
     - use the previously built file when running make: `make FILE_COMPILE=$(pwd)/build/src/file`
+    - post install: remove libtool archive files
 - findutils
     - post install: move into `bin` and change `updatedb`
 - gawk
@@ -87,6 +88,7 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - tar
     - basic config (`prefix`, `host`, `build`) only
 - xz
+    - post install: remove libtool archive files
 
 ### cleanup
 
@@ -101,7 +103,7 @@ check no libtool archive files were installed: `find $LFS -name '*.la'` (some in
 - GCC (pass 2)
     - patch:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
-        - `scripts/5/gcc/patch-lib64.sh`: not patching any more, `lib64` and `lib` are symlinks
+        - `scripts/5/gcc/patch-lib64.sh` (TODO: try without patching since `lib64` and `lib` are symlinks)
         - `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
