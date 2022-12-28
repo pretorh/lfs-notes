@@ -22,6 +22,8 @@ Use `scripts/setup/sources.sh` as root
 
 ## Download the sources
 
+Remember to read the [errata](https://www.linuxfromscratch.org/lfs/errata/stable/) as well
+
 ### tarbal
 
 download from one of the [mirrors](https://www.linuxfromscratch.org/mirrors.html#files) and extract. may need to `--strip-components=1` to skip the root version name:
