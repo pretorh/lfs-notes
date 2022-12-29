@@ -222,7 +222,7 @@ time: 2.4x real (user+sys: 7.2x)
 
 `touch /usr/bin/passwd`: file must exist before configure is run
 
-Patch to disable groups, man pages, use sha-512, patch c file. See `scripts/6/3/shadow-patch.sh`
+Patch to disable groups, man pages, use sha-512. See `scripts/6/3/shadow-patch.sh`
 
 There are no tests
 

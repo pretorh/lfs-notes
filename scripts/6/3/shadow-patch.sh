@@ -12,6 +12,3 @@ sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD SHA512:' \
     -e 's:/var/spool/mail:/var/mail:'                 \
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
     -i etc/login.defs
-
-# patch file
-sed -e "224s/rounds/min_rounds/" -i libmisc/salt.c
