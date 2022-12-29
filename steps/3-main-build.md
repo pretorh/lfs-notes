@@ -1,6 +1,6 @@
 # Building the LFS system
 
-These notes are from Chapter 8 of the 10.0 version
+These notes are from Chapter 8 of the 10.0 to 11.2 version
 
 ## setup
 
@@ -146,13 +146,14 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - tests:
         - `grep '^all.tcl:' out.log` to get summary
         - all 29 passed
+    - outputs "via send_tty" even when redirecting `stdout` and `stderr`
     - time: negligible
 - DejaGNU
     - skipped building/installing docs
     - tests:
       - ran before install (book has install then test?)
       - `grep '^#' out.log`
-      - 54, 5, 245, 300 tests passed
+      - "# of expected passes": 54, 5, 245, 300
     - time: negligible
 
 ### binutils
