@@ -161,11 +161,29 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 First verify PTYs are working in chroot:
 `(expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS") || echo "FAILED"`
 
-Patch: upstream fix (patch file) and fix man pages
+The tests are critical.
 
-The tests are critical. 4 zlib tests failed (known to fail)
+Failed on `2.39`:
 
-Remove static libs: `rm -vf /usr/lib/lib{bfd,opcodes}.a /usr/lib/libctf{,-nobfd}.a`
+- `.sleb128 tests (2)`
+- `.sleb128 tests (3)`
+- `.sleb128 tests (4)`
+- `.sleb128 tests (5)`
+- `Run with libdl3a.so`
+- `Run with libdl3c.so`
+- `eh_test`
+- `exception_test`
+- `exception_shared_1_test`
+- `exception_shared_2_test`
+- `exception_same_shared_test`
+- `exception_separate_shared_21_test`
+- `exception_separate_shared_12_test`
+- `relro_test`
+- `relro_now_test`
+- `relro_strip_test`
+- `exception_x86_64_bnd_test`
+
+Remove static libs after installing
 
 time: 2.4x real (user+sys: 7.2x)
 
