@@ -276,7 +276,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
     - basic config (`prefix`) and simple build/install (not building docs)
     - tests
         - run with `tester` user (same as gcc)
-        - 216 passed, 29 skipped (of 245)
+        - 217 passed, 28 skipped (of 245)
     - time: negligible
 - psmisc
     - basic config (`prefix`) and simple build/install
@@ -288,11 +288,11 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
     - time: 1.6x real (user+sys: 3.0x)
 - bison
     - basic config (`prefix`, `docdir`) and simple build/test/install
-    - tests: 11/11 passed, and "620 tests were successful. 43 tests were skipped."
+    - tests: "712 tests were successful. 64 tests were skipped."
     - time: 1.8x real (user+sys: 6.4x)
 - grep
     - basic config (`prefix`) and simple build/test/install
-    - tests: 318 total, 287 pass, 29 skipped, 2 xfail
+    - tests: 318 total, 289 pass, 21 skipped, 1 xfail
     - time: 0.4x real (user+sys: 0.7x)
 
 ### Bash
@@ -301,7 +301,7 @@ Tests need to be run as user `tester`, using expect: see `scripts/6/main/bash-te
 
 Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary)
 
-After installing, start a new bash: `exec /bin/bash --login +h`
+After installing, start a new bash: `exec /bin/bash --login`
 
 Time: 0.7x real (user+sys: 0.5x - less than real)
 
@@ -309,18 +309,16 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
 
 - libtool
     - basic config (`prefix`) and simple build/test/install
-    - Five tests are known to fail (64 failed, 59 expected). see `grep FAIL tests/testsuite.log`
-        - 123: compiling softlinked libltdl
-        - 124: compiling copied libltdl
-        - 125: installable libltdl
-        - 126: linking libltdl without autotools
-        - 130: linking libltdl without autotools
+    - Five tests are known to fail (63 failed, 58 expected). see `grep FAIL tests/testsuite.log`
+        - 122. compiling softlinked libltdl
+        - 123. compiling copied libltdl
+        - 124. installable libltdl
+        - 125. linking libltdl without autotools
+        - 129. linking libltdl without autotools
     - remove static libs: `/usr/lib/libltdl.a`
     - time: 0.8x real (user+sys: 1.7x)
 - gdbm
-    - tests:
-        - one test fail with `ERROR`, and summary shows "All 30 tests were successful." (but exits with failure)
-        - passes when first removing the test: `rm ./tests/gdbmtool/base.exp`
+    - tests: "All 33 tests were successful."
     - time: negligible
 - gperf
     - basic config (`prefix` and `docdir`) and simple build/install
