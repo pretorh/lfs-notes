@@ -384,7 +384,7 @@ Time: 6.2x real (user+sys: 6.2x)
     - time: negligible
 - libelf
     - in archive: `elfutils-*`
-    - tests: 226 total, 220 pass, 5 skipped
+    - tests: 232 total, 227 pass, 5 skipped
         - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/6/6/libelf-install.sh`
     - time: 0.3x real (user+sys: 0.9x)
@@ -394,22 +394,27 @@ Time: 6.2x real (user+sys: 6.2x)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
+    - see note on pip usage as root, update checks
     - time: 2.0x real (user+sys: 4.6x)
+- wheel
+    - install using `pip3`, but installed directly from package: `pip3 install --no-index $PWD wheel-0.37.1.tar.gz`
+    - time: negligible
 - ninja
     - see note on optional patch (to decrease/set parallel process count)
     - configured and build with python3 scripts
-    - tests passed (343/343)
+    - tests passed (384/384)
     - time: 0.2x real (user+sys: 0.7x)
 - meson
-    - configure and build with python3 scripts
+    - build with `pip3 wheel ...`
     - no tests
-    - install with a setup.py, use `python3 setup.py install --root $DESTDIR/` to set DESTDIR
+    - install with `pip3`
     - time: negligible
 - coreutils
     - patch: for character boundary, then `autoreconf -fiv`
     - tests:
         - see `scripts/6/7/coreutils-test.sh`
-        - 1006 total, 844 pass, 162 skip
+        - `sort-NaN-infloop` is known to fail with gcc 12 (but it passed)
+        - 1041 total, 896 pass, 145 skip
     - post install: move files, see `scripts/6/7/coreutils-post.sh`
     - time: 0.9x real (user+sys: 2.1x)
 - check
@@ -431,8 +436,8 @@ Time: 6.2x real (user+sys: 6.2x)
 - findutils
     - tests:
         - run as `tester`
-        - 271 total, 254 pass, 17 skipped
-        - expected passes: 957, 96, 32
+        - 281 total, 263 pass, 18 skipped
+        - expected passes: 487, 96, 32
     - time: 0.5x real (user+sys: 0.8x)
 
 
