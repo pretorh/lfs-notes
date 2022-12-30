@@ -270,9 +270,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
     - time: negligible
 - ncurses
     - tests can only be run after ncurses is installed
-    - confirm for 10.0 (does still exist before ncurses installed in LFS 11.0):
-        - `bc` previously created `/usr/lib/libncurses.so`, which is overwritten here
-    - post install: see `scripts/6/3/ncurses-post.sh`
+    - install and post install using `scripts/6/3/ncurses-install.sh`
     - time: negligible
 - sed
     - basic config (`prefix`) and simple build/install (not building docs)
