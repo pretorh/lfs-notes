@@ -1,6 +1,30 @@
 # GCC test failures:
 
-`../contrib/test_summary | grep FAIL | sort`
+`../contrib/test_summary | grep -E '(XPASS|FAIL)' | sort`  
+some older test results are only with `FAIL`
+
+## `12.2.0`
+
+> PR100400 are known to be reported as both XPASS and FAIL
+
+```
+FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++14 (test for excess errors)
+FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++17 (test for excess errors)
+FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++20 (test for excess errors)
+FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++98 (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O0 -g3 "-DGEN_ARGS=-p0\\ --omit-rbp-clobbers" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p0" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p1" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p5" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O0 -g3 "-DGEN_ARGS=-p0\\ --omit-rbp-clobbers" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p0" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p1" (test for excess errors)
+FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p5" (test for excess errors)
+XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++14 (internal compiler error)
+XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++17 (internal compiler error)
+XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++20 (internal compiler error)
+XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++98 (internal compiler error)
+```
 
 ## `11.2.0`
 
