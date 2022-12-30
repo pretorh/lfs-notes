@@ -367,10 +367,19 @@ Time: 6.2x real (user+sys: 6.2x)
 - automake
     - tests:
         - run tests with `-j4` option to speed it up (even on single core systems)
-        - results: 2926 total, 2726 pass (162 skip, 38 xfail - did get 1 more skip in a previous pass)
+        - results: 2926 total, 2726 pass (162 skip, 38 xfail)
+        - `t/subobj.sh` is known to fail
     - time: 5.5x real (user+sys: 15.9x)
+- openssl
+    - configure script is named `config`
+    - tests:
+        - `30-test_afalg.t` is known to sometime fail (but it passed)
+        - All tests successful. ("Files=243, Tests=3299")
+    - pre-install: skip static libs
+    - to check: a lot of `/usr/bin/perl ./util/mkpod2html.pl` commands during install
+    - time: 1.5x real (user+sys: 2.3x)
 - kmod
-    - no tests in `chroot`
+    - no tests available in LFS
     - post-install: `scripts/6/6/kmod-post.sh`
     - time: negligible
 - libelf
@@ -382,13 +391,6 @@ Time: 6.2x real (user+sys: 6.2x)
 - libffi
     - tests: 2304 passed
     - time: 1.7x real (user+sys: 1.7x)
-- openssl
-    - configure script is named `config`
-    - tests:
-        - `30-test_afalg.t` is known to sometime fail (but it passed)
-        - All tests successful. ("Files=158, Tests=2638")
-    - pre-install: skip static libs
-    - time: 1.5x real (user+sys: 2.3x)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
