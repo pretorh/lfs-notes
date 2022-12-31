@@ -538,12 +538,10 @@ Time: 0.6x real (user+sys: 3.9x)
 
 ## Cleanup
 
-Run these scripts from outside chroot: `logout` to exit. probably need to umount devices to get better disk usage stats
+Run these scripts from outside chroot: `logout` to exit. Probably need to umount devices to get better disk usage stats
 
-First extract symbols for some libraries. run: `scripts/split-out-debug-symbols.sh`
+First extract symbols for some libraries. run: `scripts/split-out-debug-symbols.sh "$LFS"`
 
-Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cleanup.sh` (this ignores the running binaries)
-
-Pre LFS11: Saved about 2.8GB with this (less on 11, but more than 2GB)
-
-To re-enter you need a new command - but it differs in only a now extra `+h` param to bash - so can still use `scripts/chroot/enter-chroot.sh`
+Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cleanup.sh "$LFS"`.  
+This script does not skip the running binaries check as the book does, because it is meant to be run outside chroot (so none of the binaries will be running)  
+Saved 2118MB with this
