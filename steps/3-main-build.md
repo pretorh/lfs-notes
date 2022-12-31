@@ -508,8 +508,6 @@ Build and install with `ninja`
 
 Tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninja test` had errors
 
-Remove dir: `rm -rf /usr/lib/pam.d`
-
 Post-install/extract setup: `scripts/config/systemd.sh`
 
 Time: 0.6x real (user+sys: 3.9x)
