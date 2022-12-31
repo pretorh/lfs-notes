@@ -452,10 +452,10 @@ Time: 6.2x real (user+sys: 6.2x)
     - actual boot setup covered after packages installed
 - gzip
     - basic config (`prefix`) and simple build/test/install
-    - all 22 tests passed
+    - all 26 tests passed
     - time: negligible
 - iproute2
-    - see `scripts/6/8/iproute2-patch.sh`
+    - skip `arpd`: `scripts/6/8/iproute2-patch.sh`
     - no configure, tests
     - time: negligible
 - kbd
@@ -476,11 +476,10 @@ Time: 6.2x real (user+sys: 6.2x)
 - tar
     - tests
         - one test is known to fail, `227: capabilities: binary store/restore` (`capabs_raw01.at`)
-        - others passed (218 run, 20 skipped)
+        - others passed (218 run, 1 failed unexpectedly, 20 skipped)
     - time: 1.2x real (user+sys: 0.8x, less)
 - texinfo
-    - patch for glibc 2.43
-    - basic config (`prefix`, `disable-static`) and simple build/test/install
+    - basic config (`prefix`) and simple build/test/install
     - tests: 253 total, 234 passed, 19 skipped
     - time: 0.3x real (user+sys: 0.6x)
 - vim
@@ -492,11 +491,13 @@ Time: 6.2x real (user+sys: 6.2x)
     - time: 1.3x real (user+sys: 1.2x, less)
 - MarkupSafe
     - capital name in archive
-    - no config, compile and install with `setup.py`
+    - compile and install with `pip3`
+    - no tests
     - time: negligible
 - Jinja2
     - capital name in archive
-    - no config, no build, install with `setup.py`
+    - compile and install with `pip3`
+    - no tests
     - time: negligible
 
 ### Systemd
