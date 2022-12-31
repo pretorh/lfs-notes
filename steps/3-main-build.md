@@ -520,21 +520,19 @@ Time: 0.6x real (user+sys: 3.9x)
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
     - time: 0.1x real (user+sys: 0.2x)
 - man-db
-    - tests: 50/50 pass
+    - tests: 52/52 pass
     - time: 0.3x real (user+sys: 0.4x)
 - procps-ng
-    - different extract dir (`procps-$version`)
-    - tests:
-        - 99 passed
-        - 5 `pkill` related tests failed (known to fail)
+    - tests. all passed. "free with commit may fail"
     - time: 0.2x real (user+sys: 0.1x, less)
 - util-linux
     - tests:
         - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
-        - "All 212 tests PASSED"
+        - "1 tests of 225 FAILED"
+            - `hardlink/options` ("The hardlink tests will fail if...")
     - time: 0.5x real (user+sys: 1.1x)
 - e2fsprogs
-    - tests: "369 tests succeeded     1 tests failed" (`u_direct_io` is known to fail)
+    - tests: "371 tests succeeded     0 tests failed"
     - post-install: see `scripts/6/main/e2fsprogs-post.sh`
     - time: 0.4x real (user+sys: 0.6x)
 
