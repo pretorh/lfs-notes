@@ -17,7 +17,8 @@ Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
 ## sudo
 
-You can run sudo with `sudo --preserve-env=LFS ` in order to keep the LFS variable
+You can run sudo with `sudo --preserve-env=LFS ` in order to keep the LFS variable  
+`scripts/sudo.sh <command>` does this, calling `<command>`
 
 ## Qemu
 
