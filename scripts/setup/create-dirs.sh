@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+# TODO: this should change to create in an archive only, and not set owner to lfs
+
 [ -z "$LFS" ] && echo "LFS env var is not set!" && exit 1
 
 # create limited directory layout
@@ -23,4 +25,4 @@ mkdir -pv "$LFS/tools"
 # make lfs user the owner of these
 chown -v lfs "$LFS"/{etc,lib64,var}
 chown -v lfs "$LFS"/usr{,/*}
-chown -v lfs "$LFS"/{tools,sources}
+chown -v lfs "$LFS"/tools
