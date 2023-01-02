@@ -168,15 +168,15 @@ The tests are critical.
 
 Failed on `2.39`:
 
+- `assignment tests`
+- `.sleb128 tests`
 - `.sleb128 tests (2)`
 - `.sleb128 tests (3)`
-- `.sleb128 tests (4)`
-- `.sleb128 tests (5)`
 - `Run with libdl3a.so`
 - `Run with libdl3c.so`
 - `eh_test`
-- `exception_test`
 - `exception_shared_1_test`
+- `exception_test`
 - `exception_shared_2_test`
 - `exception_same_shared_test`
 - `exception_separate_shared_21_test`
