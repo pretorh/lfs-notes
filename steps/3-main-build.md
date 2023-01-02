@@ -86,11 +86,14 @@ Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd c
 
 see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) and configure it
 
+time: negligible
+
 #### Configure glibc
 
 Install locales needed for future tests, see `scripts/config/install-locales.sh` (about 0.2x real/usr+sys)
 
-Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED'`) and install it
+Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED' | grep en_GB`)
+and install it, ex `localedef -i en_GB -f UTF-8 en_GB.UTF-8`
 
 Run `scripts/config/tz-set-localtime.sh` to set `/etc/localtime`
 
