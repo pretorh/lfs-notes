@@ -397,7 +397,7 @@ Time: 6.2x real (user+sys: 6.2x)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
-    - see note on pip usage as root, update checks
+    - see note on pip usage as root, update checks. see `scripts/6/6/python-post.sh` to create a default `pip.conf`
     - time: 2.0x real (user+sys: 4.6x)
 - wheel
     - install using `pip3`, but installed directly from package: `pip3 install --no-index $PWD wheel-0.37.1.tar.gz`
