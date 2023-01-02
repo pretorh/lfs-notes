@@ -20,7 +20,7 @@ Remeber to time the first installed package, since all the others are relative t
     - patch scripts:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh`
         - `scripts/5/gcc/patch-lib64.sh` (TODO: try without patching since `lib64` and `lib` are symlinks)
-    - post install scritps:
+    - post install scripts:
         - `scripts/5/gcc/fix-limits_header.sh`
     - time: 3.5x to 3.8x real (user+sys: 13.0x)
 - Linux API Headers
@@ -92,7 +92,7 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 
 ### cleanup
 
-check no libtool archive files were installed: `find $LFS -name '*.la'` (some in `gcc` dirs)
+check no libtool archive files were installed: `find $LFS -name '*.la'` (3 in `gcc` dirs, `libcc1`)
 
 ### bin utils and gcc - pass 2
 
