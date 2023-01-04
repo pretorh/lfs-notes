@@ -544,6 +544,8 @@ Time: 0.6x real (user+sys: 3.9x)
 
 Run these scripts from outside chroot: `logout` to exit. Probably need to umount devices to get better disk usage stats
 
+To calculate usage saved, run `du -hms "$LFS"` before and after
+
 First extract symbols for some libraries. run: `scripts/split-out-debug-symbols.sh "$LFS"`
 
 Then strip from binaries and libraries. run: `scripts/strip-debug-symbols-and-cleanup.sh "$LFS"`.  
