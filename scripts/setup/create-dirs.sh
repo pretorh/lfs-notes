@@ -15,14 +15,13 @@ for i in bin lib sbin; do
   ln -sv usr/$i "$LFS/$i"
 done
 
-# lib64 as symlink into lib
-rm -vf "$LFS/lib64"
-ln -sv usr/lib "$LFS/lib64"
+# lib64 as dir
+mkdir -pv "$LFS/lib64"
 
 # create tool chain directory
 mkdir -pv "$LFS/tools"
 
 # make lfs user the owner of these
-chown -v lfs "$LFS"/{etc,lib64,var}
+chown -v lfs "$LFS"/{etc,var,bin,sbin,lib,lib64}
 chown -v lfs "$LFS"/usr{,/*}
 chown -v lfs "$LFS"/tools
