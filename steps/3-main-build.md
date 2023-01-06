@@ -27,7 +27,7 @@ Patches:
 
 Note: the configuring and installing is split up differently here than in the book
 
-Time (including tests and install): 7.3x to 7.6x real (user+sys: 18.5x to 18.9x)
+Time (including tests and install): 7.6x real (user+sys: 21.4x)
 
 #### tests
 
@@ -116,7 +116,7 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 - zstd
     - no configure (but `prefix=/usr` in install)
     - post: remove a static lib `rm -v /usr/lib/libzstd.a`
-    - time: 0.4x real (user+sys: 1.4x)
+    - time: 0.35x real (user+sys: 1.0x)
 - file
     - basic config (`prefix`) and simple build/test/install
     - time: negligible
@@ -127,7 +127,7 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 - m4
     - then basic config (`prefix`) and simple build/test/install
     - tests: 267 total, 245 pass, 22 skipped
-    - time: 0.4x real (user+sys: 0.6x)
+    - time: 0.3x real (user+sys: 0.5x)
 - bc
     - all tests (`bc` and `dc`, `history`) pass
     - time: negligible
@@ -143,7 +143,7 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - tests
         - `grep '^all.tcl:' out.log` to get summary. shows 11 rows
         - no failures (but a lot of skipped)
-    - time: 1.7x real (user+sys: 1.1x)
+    - time: 1.4x real (user+sys: 1.0x)
 - expect
     - post: symlink lib into `/usr/lib`
     - tests:
@@ -188,7 +188,7 @@ Failed on `2.39`:
 
 Remove static libs after installing
 
-time: 2.4x real (user+sys: 7.2x)
+time: 2.3x real (user+sys: 8.5x)
 
 ### gmp, mpfr, mpc
 
@@ -197,12 +197,12 @@ time: 2.4x real (user+sys: 7.2x)
     - skipped building/installing html docs
     - The tests are critical. All 197 must pass
         - run `awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log` to get passed count
-    - time: 0.4x real (user+sys: 1.1x)
+    - time: 0.33x real (user+sys: 0.95x)
 - mpfr
     - simple build/test/install
     - skipped building/installing html docs
     - The tests are critical. All tests must pass (had 181 pass, 2 skipped)
-    - time: 0.2x real (user+sys: 0.8x)
+    - time: 0.23x real (user+sys: 0.75x)
 - mpc
     - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install
     - skipped building/installing html docs
@@ -239,7 +239,7 @@ See `scripts/config/shadow.sh`
 
 ### GCC
 
-Takes *realy* long: 51.0x to 51.4x real (user+sys: 194.6x to 196.0x) total
+Takes *realy* long: 41.0x real (user+sys: 287.2x to 294.2x) total
 
 Patch, see `scripts/6/gcc/patch.sh`
 
@@ -288,15 +288,15 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
 - Gettext
     - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
     - tests: 727 total, 690 passed, 37 skipped
-    - time: 1.6x real (user+sys: 3.0x)
+    - time: 1.3x real (user+sys: 2.6x)
 - bison
     - basic config (`prefix`, `docdir`) and simple build/test/install
     - tests: "712 tests were successful. 64 tests were skipped."
-    - time: 1.8x real (user+sys: 6.4x)
+    - time: 2.4x real (user+sys: 8.9x)
 - grep
     - basic config (`prefix`) and simple build/test/install
     - tests: 318 total, 289 pass, 21 skipped, 1 xfail
-    - time: 0.4x real (user+sys: 0.7x)
+    - time: 0.28x real (user+sys: 0.58x)
 
 ### Bash
 
@@ -306,7 +306,7 @@ Some tests seem to hang for a few seconds. Running the tests passed (exit code 0
 
 After installing, start a new bash: `exec /bin/bash --login`
 
-Time: 0.7x real (user+sys: 0.5x - less than real)
+Time: 0.6x real (user+sys: 0.4x - less than real)
 
 ### Part 5
 
@@ -319,7 +319,7 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
         - 125. linking libltdl without autotools
         - 129. linking libltdl without autotools
     - remove static libs: `/usr/lib/libltdl.a`
-    - time: 0.8x real (user+sys: 1.7x)
+    - time: 0.7x real (user+sys: 1.5x)
 - gdbm
     - tests: "All 33 tests were successful."
     - time: negligible
@@ -337,7 +337,7 @@ Time: 0.7x real (user+sys: 0.5x - less than real)
     - config: disable obsolete programs/programs provided by other packages
     - tests: 10 of 11 passed (1 skipped)
     - post install: move `ifconfig` into `/usr/sbin`
-    - time: 0.3x real (user+sys: 0.3x)
+    - time: negligible
 - less
     - basic config (`prefix`, `sysconfdir`) and simple build/install
     - no tests
@@ -349,7 +349,7 @@ Patch using `.patch` file. Configure: `scripts/6/5/perl-config.sh`
 
 Tests: "All tests successful."
 
-Time: 6.2x real (user+sys: 6.2x)
+Time: 5.6x to 5.8x real (user+sys: same)
 
 ### Part 6
 
@@ -366,13 +366,13 @@ Time: 6.2x real (user+sys: 6.2x)
 - autoconf
     - basic config (`prefix`) and build/test/install
     - tests: "543 tests behaved as expected, 56 tests were skipped"
-    - time: 1.9x real (user+sys: 7.6x)
+    - time: 1.8x real (user+sys: 6.9x)
 - automake
     - tests:
         - run tests with `-j4` option to speed it up (even on single core systems)
         - results: 2926 total, 2726 pass (162 skip, 38 xfail)
         - `t/subobj.sh` is known to fail
-    - time: 5.5x real (user+sys: 15.9x)
+    - time: 4.6x real (user+sys: 12.9x)
 - openssl
     - configure script is named `config`
     - tests:
@@ -380,7 +380,7 @@ Time: 6.2x real (user+sys: 6.2x)
         - All tests successful. ("Files=243, Tests=3299")
     - pre-install: skip static libs
     - to check: a lot of `/usr/bin/perl ./util/mkpod2html.pl` commands during install
-    - time: 1.5x real (user+sys: 2.3x)
+    - time: 3.4x real (user+sys: 5.2x)
 - kmod
     - no tests available in LFS
     - post-install: `scripts/6/6/kmod-post.sh`
@@ -390,15 +390,15 @@ Time: 6.2x real (user+sys: 6.2x)
     - tests: 232 total, 227 pass, 5 skipped
         - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/6/6/libelf-install.sh`
-    - time: 0.3x real (user+sys: 0.9x)
+    - time: 0.28x real (user+sys: 0.9x)
 - libffi
     - tests: 2304 passed
-    - time: 1.7x real (user+sys: 1.7x)
+    - time: 1.5x real (user+sys: same)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
     - see note on pip usage as root, update checks. see `scripts/6/6/python-post.sh` to create a default `pip.conf`
-    - time: 2.0x real (user+sys: 4.6x)
+    - time: 1.9x real (user+sys: 4.4x)
 - wheel
     - install using `pip3`
       - but had issue with command in book, installed directly from package: `pip3 install --no-index wheel-*.tar.gz`
@@ -407,7 +407,7 @@ Time: 6.2x real (user+sys: 6.2x)
     - see note on optional patch (to decrease/set parallel process count)
     - configured and build with python3 scripts
     - tests passed (384/384)
-    - time: 0.2x real (user+sys: 0.7x)
+    - time: 0.26x real (user+sys: 0.74x)
 - meson
     - build with `pip3 wheel ...`
     - no tests
@@ -420,14 +420,14 @@ Time: 6.2x real (user+sys: 6.2x)
         - `sort-NaN-infloop` is known to fail with gcc 12 (but it passed)
         - 1041 total, 896 pass, 145 skip
     - post install: move files, see `scripts/6/7/coreutils-post.sh`
-    - time: 0.9x real (user+sys: 2.1x)
+    - time: 0.87x real (user+sys: 2.1x)
 - check
     - basic config (`prefix`, `disable-static`) and simple build/test/install
     - tests:
         - take relatively long
         - seems to hang after `test_tap_output.sh`
         - all 10 tests passed
-    - time: 0.9x real (user+sys: 0.1x, less than real)
+    - time: 0.7x real (user+sys: 0.11x, less than real)
 - diffutils
     - basic config (`prefix`) and simple build/test/install
     - tests: 225 total, 207 passed/17 skipped/1 xfail
@@ -442,7 +442,7 @@ Time: 6.2x real (user+sys: 6.2x)
         - run as `tester`
         - 281 total, 263 pass, 18 skipped
         - expected passes: 487, 96, 32
-    - time: 0.5x real (user+sys: 0.8x)
+    - time: 0.38x real (user+sys: 0.66x)
 
 
 ### Part 7
@@ -450,7 +450,7 @@ Time: 6.2x real (user+sys: 6.2x)
 - groff
     - must be built with `-j1`
     - no tests
-    - time: 0.5x real (user+sys: 0.5x)
+    - time: 0.4x real (user+sys: same)
 - grub
     - skip when using uefi: using host's grub to generate config. can install as part of blfs
     - actual boot setup covered after packages installed
@@ -481,11 +481,11 @@ Time: 6.2x real (user+sys: 6.2x)
     - tests
         - one test is known to fail, `227: capabilities: binary store/restore` (`capabs_raw01.at`)
         - others passed (218 run, 1 failed unexpectedly, 20 skipped)
-    - time: 1.2x real (user+sys: 0.8x, less)
+    - time: 1.0x real (user+sys: 0.63x, less)
 - texinfo
     - basic config (`prefix`) and simple build/test/install
     - tests: 253 total, 234 passed, 19 skipped
-    - time: 0.3x real (user+sys: 0.6x)
+    - time: 0.25x real (user+sys: 0.55x)
 - vim
     - patch default vimrc: see `scripts/6/9/vim-patch.sh`
     - tests
@@ -514,7 +514,7 @@ Tests not mentioned in book. previous (pre LFS11) running `LANG=en_US.UTF-8 ninj
 
 Post-install/extract setup: `scripts/config/systemd.sh`
 
-Time: 0.6x real (user+sys: 3.9x)
+Time: 0.6x real (user+sys: 4.0x)
 
 ### Part 8
 
@@ -522,23 +522,23 @@ Time: 0.6x real (user+sys: 3.9x)
     - no tests in lfs
     - post install: see `scripts/6/9/dbus-post.sh`
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
-    - time: 0.1x real (user+sys: 0.2x)
+    - time: negligible
 - man-db
     - tests: 52/52 pass
-    - time: 0.3x real (user+sys: 0.4x)
+    - time: negligible
 - procps-ng
     - tests. all passed. "free with commit may fail"
-    - time: 0.2x real (user+sys: 0.1x, less)
+    - time: negligible
 - util-linux
     - tests:
         - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
         - "1 tests of 225 FAILED"
             - `hardlink/options` ("The hardlink tests will fail if...")
-    - time: 0.5x real (user+sys: 1.1x)
+    - time: 0.37x real (user+sys: 1.0x)
 - e2fsprogs
     - tests: "371 tests succeeded     0 tests failed"
     - post-install: see `scripts/6/main/e2fsprogs-post.sh`
-    - time: 0.4x real (user+sys: 0.6x)
+    - time: 0.35x real (user+sys: 0.6x)
 
 ## Cleanup
 

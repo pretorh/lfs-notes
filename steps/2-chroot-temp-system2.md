@@ -33,15 +33,15 @@ Build and install from the `sources` directory
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
     - to check: previously build these only, which may be a bit faster
-    - time: 1.2x real (user+sys: 1.7x)
+    - time: 1.0x real (user+sys: 1.4x)
 - bison
     - time: negligible
 - perl
     - custom configure command, see `scripts/6/perl-configure.sh`
-    - time: 0.7x real (user+sys: 1.8x)
+    - time: 0.65x real (user+sys: 1.6x)
 - python
     - note the uppercase archive name
-    - time: 0.5x real (user+sys: 1.7x)
+    - time: 0.45x real (user+sys: 1.6x)
 - texinfo
     - basic configure (`prefix`) only
     - time: negligible
@@ -60,4 +60,4 @@ Remove static libs, documentation and the `/tools` directory. See `scripts/chroo
 
 Optionally backup the temp system, see `scripts/backup.sh`
 
-Time: 2.6x real and user+sys
+Time: 2.38x real and user+sys
