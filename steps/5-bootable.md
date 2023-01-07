@@ -23,7 +23,7 @@ partial check: `scripts/kernel/check-kernel-config`
 
 `time make --jobs 8`
 
-Time: 2.5x real (user+sys: 17.84x)
+Time: 2.5x real (user+sys: 17.8x)
 
 ### install
 

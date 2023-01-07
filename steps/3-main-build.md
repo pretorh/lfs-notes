@@ -197,7 +197,7 @@ time: 2.3x real (user+sys: 8.5x)
     - skipped building/installing html docs
     - The tests are critical. All 197 must pass
         - run `awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log` to get passed count
-    - time: 0.33x real (user+sys: 0.95x)
+    - time: 0.33x real (user+sys: 1.0x)
 - mpfr
     - simple build/test/install
     - skipped building/installing html docs
@@ -420,7 +420,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
         - `sort-NaN-infloop` is known to fail with gcc 12 (but it passed)
         - 1041 total, 896 pass, 145 skip
     - post install: move files, see `scripts/6/7/coreutils-post.sh`
-    - time: 0.87x real (user+sys: 2.1x)
+    - time: 0.9x real (user+sys: 2.1x)
 - check
     - basic config (`prefix`, `disable-static`) and simple build/test/install
     - tests:
