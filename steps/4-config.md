@@ -10,7 +10,7 @@ see `scripts/chroot/enter-chroot.sh`
 
 Get the mac address for your eth device (`ifconfig` or `ip addr show | grep -B1 'link/ether'`).
 
-Run `scripts/config/dhcp.sh <mac-address>` to create a rule for the ethernet (named `eth0` by default) from it's mac address and t osetup DHCP on it
+Run `scripts/config/dhcp.sh <mac-address>` to create a rule for the ethernet (named `eth0` by default) from it's mac address and to setup DHCP on it
 
 Run `scripts/config/host.sh <hostname>` to set hostname and create hosts file
 
