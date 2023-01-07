@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-GCC_VERSION=11.2.0
+GCC_VERSION=12.2.0
 
 make DESTDIR="$DESTDIR" install
-rm -rfv "$DESTDIR"/usr/lib/gcc/"$(gcc -dumpmachine)"/$GCC_VERSION/include-fixed/bits/
 
 # symlink required by FHS
 ln -srv /usr/bin/cpp "$DESTDIR/usr/lib"

@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
+set -e
+# todo: try to reuse previous script
 
 # major.minor version only
-PERL_VERSION=5.34
+PERL_VERSION=5.36
 
 # use system libs
 export BUILD_ZLIB=False

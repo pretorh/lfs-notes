@@ -2,7 +2,7 @@
 
 This should be run as the root user. Remember to have `LFS` set: `export LFS=/mnt/lfs`
 
-Start bash with LFS set from the current environment: `sudo --preserve-env=LFS bash`
+Start bash with LFS set from the current environment: `./scripts/sudo.sh`
 
 ## Chroot
 
@@ -17,11 +17,11 @@ See:
 
 If you exit chroot, you will need to re-enter it before continuing
 
-- mount the drive
+- mount the drives
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - run as root (`scripts/sudo.sh`)
 - setup virtual file systems and enter chroot (`scripts/chroot/prepare.sh` and `scripts/chroot/enter-chroot.sh`)
-- run bash after it is installed (`exec /bin/bash --login +h`)
+- run bash after it is installed (`exec /bin/bash --login`)
 - change to sources directory (`cd /sources`)
 - continue where you left
 
@@ -29,26 +29,20 @@ If you exit chroot, you will need to re-enter it before continuing
 
 Build and install from the `sources` directory
 
-- libstdc++ pass 2
-    - part of gcc sources
-    - patch by symlinking `gthr-posix.h`
-    - run configure from `libstdc++-v3`
-    - time: 0.4x real (user+sys: 0.9x)
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
     - to check: previously build these only, which may be a bit faster
-    - time: 1.2x real (user+sys: 1.7x)
+    - time: 1.0x real (user+sys: 1.4x)
 - bison
     - time: negligible
 - perl
     - custom configure command, see `scripts/6/perl-configure.sh`
-    - time: 0.7x real (user+sys: 1.8x)
+    - time: 0.65x real (user+sys: 1.6x)
 - python
     - note the uppercase archive name
-    - time: 0.5x real (user+sys: 1.7x)
+    - time: 0.45x real (user+sys: 1.6x)
 - texinfo
-    - fix building with glibc 2.34+, see `scripts/6/texinfo-patch.sh`
     - basic configure (`prefix`) only
     - time: negligible
 - util-linux
@@ -56,14 +50,14 @@ Build and install from the `sources` directory
 
 ## cleanup and backup
 
-Note: the cleanup commands have been rearranged to run them from outside the chroot environment
+Note: the cleanup and backup commands are rearranged here to run them from outside the chroot environment (different from book)
 
 First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/chroot/umount-chroot.sh`
 
-Remove static libs, documentation and the `/tools` directory. See `scripts/chroot/remove-files.sh` (saved 1015M)
+Remove static libs, documentation and the `/tools` directory. See `scripts/chroot/remove-files.sh` (saved 1183M)
 
 ### backup
 
 Optionally backup the temp system, see `scripts/backup.sh`
 
-Time: 2.6x real and user+sys
+Time: 2.38x real and user+sys

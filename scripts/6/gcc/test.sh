@@ -5,10 +5,10 @@ ulimit -s 32768
 chown -R tester .
 
 echo "starting tests"
-time su tester -c "PATH=$PATH make --jobs 4 -k check || echo 'make check failed'"
+time su tester -c "PATH=$PATH make --jobs 8 -k check || echo 'make check failed'"
 
 echo "failed tests:"
-../contrib/test_summary | grep FAIL | sort
+../contrib/test_summary | grep -E '(XPASS|FAIL)' | sort
 echo "# end of FAILed test list"
 
 echo "forcing a break in test script"

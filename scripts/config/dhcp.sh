@@ -25,5 +25,3 @@ DHCP=ipv4
 [DHCP]
 UseDomains=true
 EOF
-
-ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf

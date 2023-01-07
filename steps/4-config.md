@@ -2,16 +2,15 @@
 
 ## Setup
 
-### if you need to re-enter choot (mount devices still as in 6)
+### if you need to re-enter choot
 
-Use the same command as before. it differs with only the `+h` to bash
 see `scripts/chroot/enter-chroot.sh`
 
 ## Network
 
-Get the mac address for your eth device (`ifconfig`).
+Get the mac address for your eth device (`ifconfig` or `ip addr show | grep -B1 'link/ether'`).
 
-Run `scripts/config/dhcp.sh <mac-address>` to create a rule for the mac address (named `eth0` by default) and setup DHCP for it
+Run `scripts/config/dhcp.sh <mac-address>` to create a rule for the ethernet (named `eth0` by default) from it's mac address and to setup DHCP on it
 
 Run `scripts/config/host.sh <hostname>` to set hostname and create hosts file
 

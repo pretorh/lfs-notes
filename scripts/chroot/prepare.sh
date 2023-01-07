@@ -4,8 +4,6 @@ set -e
 [ -z "$LFS" ] && echo "LFS env var is not set!" && exit 1
 
 mkdir -pv "$LFS"/{dev,proc,sys,run}
-test -c "$LFS"/dev/console || mknod -m 600 "$LFS"/dev/console c 5 1
-test -c "$LFS"/dev/null || mknod -m 666 "$LFS"/dev/null c 1 3
 mount -v --bind /dev "$LFS"/dev
 
 mount -v --bind /dev/pts "$LFS"/dev/pts

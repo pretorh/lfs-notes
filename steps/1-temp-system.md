@@ -15,14 +15,14 @@ Remeber to time the first installed package, since all the others are relative t
 ## Part 1
 
 - Bin Utils (pass 1)
-    - time: 0.3x real (user+sys is defined as 1x)
+    - time: 0.38x real (user+sys is defined as 1x)
 - GCC (pass 1)
     - patch scripts:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh`
-        - `scripts/5/gcc/patch-lib64.sh`
-    - post install scritps:
+        - `scripts/5/gcc/patch-lib64.sh` (TODO: try without patching since `lib64` and `lib` are symlinks)
+    - post install scripts:
         - `scripts/5/gcc/fix-limits_header.sh`
-    - time: 3.5x to 3.8x real (user+sys: 13.0x)
+    - time: 3.9x real (user+sys: 13.7x to 13.9x)
 - Linux API Headers
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
@@ -34,7 +34,7 @@ Remeber to time the first installed package, since all the others are relative t
     - patch for FHS compliance: see `scripts/5/glibc/patch.sh`
     - run pre configure script (after `cd`ing into build directory, but before `../configure ...`), see `scripts/5/glibc/pre-configure.sh`
     - post install patch: see `scripts/5/glibc/post-install.sh`
-    - time: 1.6x real (user+sys: 4.7x)
+    - time: 1.7x real (user+sys: 4.9x)
 
 ## Sanity Check 1
 
@@ -47,7 +47,8 @@ Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
 - libstdc++
     - part of gcc sources
     - run configure from `libstdc++-v3`
-    - time: 0.3x real (user+sys: 0.6x)
+    - post: remove libtool archive files (though they existed in `lib64`)
+    - time: 0.25x real (user+sys: 0.5x)
 
 ## cross compiling temporary tools
 
@@ -70,10 +71,11 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - file
     - build file with `disable`s first, see `scripts/5/file/pre-config.sh`
     - use the previously built file when running make: `make FILE_COMPILE=$(pwd)/build/src/file`
+    - post install: remove libtool archive files
 - findutils
     - post install: move into `bin` and change `updatedb`
 - gawk
-    - patch: remove extras in makefile
+    - patch: remove "extras" in makefile
 - grep
     - basic config (`prefix` and `host`) only
 - gzip
@@ -86,24 +88,29 @@ These all have negligible build times: less than 0.3x real, less than 1x usr+sys
 - tar
     - basic config (`prefix`, `host`, `build`) only
 - xz
+    - post install: remove libtool archive files
+
+### cleanup
+
+check no libtool archive files were installed: `find $LFS -name '*.la'` (3 in `gcc` dirs, `libcc1`)
 
 ### bin utils and gcc - pass 2
 
 - Bin Utils (pass 2)
-    - fix `libctf` post install, see `scripts/5/binutils-pass2/post-install.sh`
+    - patch: outdated libtool
+    - post install: remove libtool archive files
     - time: 0.4x real (user+sys: 1.3x)
 - GCC (pass 2)
     - patch:
         - `scripts/5/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
-        - `scripts/5/gcc/patch-lib64.sh` (same as in pass 1)
-    - pre-configure:
-        - from inside the "build" directory: `scripts/5/gcc/patch-libgcc-posix-support.sh`
+        - `scripts/5/gcc/patch-lib64.sh` (TODO: try without patching since `lib64` and `lib` are symlinks)
+        - `scripts/5/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
-    - time: 3.9x to 4.1x real (user+sys: 13.5x to 14.2x)
+    - time: 4.9x to 5.3x real (user+sys: 16.3x to 17.7x)
 
 ## finalize temporary system
 
-Logout `lfs` user, and run the rest of the commands as `root` (or `sudo`)
+Logout `lfs` user, most of the remaining commands should be run as `root` (or `sudo`)
 
 Fix the LFS root file ownership, use `scripts/fix-permissions.sh`

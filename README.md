@@ -17,6 +17,7 @@ NOTE: To be used as a quick reference only, you should still work through the bo
 
 #### Updates
 
+- the [11.2 version](https://www.linuxfromscratch.org/lfs/downloads/11.2-systemd/LFS-11.2-SYSTEMD-BOOK.pdf) (2023-01-07)
 - the [11.0 version](https://www.linuxfromscratch.org/lfs/downloads/11.0-systemd/LFS-BOOK-11.0-systemd.pdf) (2022-01-29)
 - the [10.0 version](http://www.linuxfromscratch.org/lfs/downloads/10.0-systemd/LFS-BOOK-10.0-systemd.pdf) (2021-01-04)
 - the [8.2 version](http://www.linuxfromscratch.org/lfs/downloads/8.2-systemd/LFS-BOOK-8.2-systemd.pdf) (2018-08-05)

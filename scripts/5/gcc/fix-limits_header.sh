@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2046,SC2006,SC2086
+libgcc_file=$("$LFS_TGT-gcc" -print-libgcc-file-name)
+output=$(dirname "$libgcc_file")/install-tools/include/limits.h
 
-cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+sources="../gcc"
+echo "creating limits.h ($output)"
+cat $sources/limitx.h $sources/glimits.h $sources/limity.h > "$output"

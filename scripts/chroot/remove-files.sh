@@ -5,7 +5,7 @@
 echo "initial disk usage: $(du -sbBM "$LFS")"
 
 echo "removing static libs, documentation"
-find "$LFS"/usr/{lib,libexec} -name \*.la -delete
+find "$LFS"/usr/{lib,libexec} -name '*.la' -delete
 rm -rf "$LFS"/usr/share/{info,man,doc}/*
 
 echo "remove tools dir"
