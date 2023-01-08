@@ -9,7 +9,7 @@ times are still relative to the `Bin Utils` from lfs chapter 5 (though some cont
 
 ## Wishlist
 
-This is a wishlist of packages/high level thigngs that should (still) be added.
+This is a wishlist of packages/high level things that should (still) be added.
 
 The goal will be to make this LFS build stable/feature complete enough to be used as an everyday distro
 
@@ -60,10 +60,6 @@ and the user: `useradd --uid 1000 --gid 1000 --no-create-home username`
 
 (replacing `username`, and both `1000` values as needed)
 
-## todo
-
-`libexec`: why is it there, what should be in there (notes on some packages explicitly remove it, others mention the dirs are created)
-
 ### build and packaging
 
 todo: publish a few helpers that:
@@ -72,5 +68,3 @@ todo: publish a few helpers that:
 - add file system dirs
 - package files installed with `DESTDIR`
 - apply a package, checking that files dont already exist
-
-
