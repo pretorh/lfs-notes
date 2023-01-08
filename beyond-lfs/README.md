@@ -72,3 +72,11 @@ todo: publish a few helpers that:
 - add file system dirs
 - package files installed with `DESTDIR`
 - apply a package, checking that files dont already exist
+
+## packages
+
+### general
+
+a list of packages that is useful to install first (makes it easier to install other packages)
+
+- [sudo](./packages/sudo.md)
