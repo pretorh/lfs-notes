@@ -1,6 +1,6 @@
 # Notes for Beyond LFS
 
-This is for notes taken while going through the [blfs book/docs](http://www.linuxfromscratch.org/blfs/downloads/stable-systemd)
+This is for notes taken while going through the [blfs book/docs](http://www.linuxfromscratch.org/blfs/downloads/stable-systemd), [online](https://www.linuxfromscratch.org/blfs/view/stable-systemd/)
 
 Started with the [8.2 systemd version](http://www.linuxfromscratch.org/blfs/downloads/stable-systemd/BLFS-BOOK-8.2-systemd-nochunks.html)
 though certain packages might update more frequently than others
@@ -80,3 +80,4 @@ todo: publish a few helpers that:
 a list of packages that is useful to install first (makes it easier to install other packages)
 
 - [sudo](./packages/sudo.md)
+- [zsh](./packages/zsh.md)
