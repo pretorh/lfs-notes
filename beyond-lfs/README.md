@@ -48,11 +48,15 @@ So the wishlist packages (not really in a specific order):
 
 mount another system's `/home` partition
 
+on the host/"other" system, use `findmnt` to get the uuid of the filesystem and generate an entry for `/etc/fstab`:
+
+see `scripts/blfs/shared-home-drive.sh`
+
 ### users
 
-create a new user, making sure the user's uid and gid are the same as current home partition:
+create a new user, making sure the user's `uid` and `gid` are the same as current home partition:
 
-get the user id and group id from `stat /home/username`
+get the user id and group id from `stat /home/$LOGNAME`
 
 then create the group: `groupadd --gid 1000 username`
 
