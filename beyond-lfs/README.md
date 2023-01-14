@@ -81,3 +81,5 @@ a list of packages that is useful to install first (makes it easier to install o
 
 - [sudo](./packages/sudo.md)
 - [zsh](./packages/zsh.md)
+- [libevent](./packages/libevent.md)
+- [tmux](./packages/tmux.md)
