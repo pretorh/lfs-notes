@@ -1,57 +1,41 @@
 ## zsh
 
-Why: better shell than bash
+Why: preferred shell
 
-installed version: `5.5.1`
+installed version: `5.9`
+
+time: 0.7x real (0.47x user+sys)
 
 links:
 
 - [download page](http://zsh.sourceforge.net/Arc/source.html)
 - [how to](https://sourceforge.net/p/zsh/code/ci/master/tree/INSTALL)
 
-### commands
+### build
 
 #### configure options
 
-```
-./configure --prefix=/usr         \
-            --bindir=/bin         \
-            --sysconfdir=/etc/zsh \
-            --enable-etcdir=/etc/zsh
-```
-
-reason: place `zsh` in `/bin` (not `/usr/bin`), place configs in `/etc/zsh` (not in `/usr/etc`?)
-
-#### build
-
-```
-time make --jobs 4
-```
-
-note: not building the text and html docs
-
-time: 1x
+- create a parent directory for `etc` files: `sysconfdir=/etc/zsh` and `enable-etcdir=/etc/zsh`
+- enable: `cap`, `gdbm`
+- common: `prefix`
 
 #### tests
 
-`time make check --jobs 4`
+a lot of the tests take a few seconds. outputs a few lines to screen ("print", "echo") even though redirecting `stdout` and `stderr`
 
-a lot of the tests take a few seconds.
+`62 successful test scripts, 0 failures, 2 skipped`
 
-50 successful, 0 failures, 1 skipped
+#### build
 
-time: 1x
+also: `makeinfo  Doc/zsh.texi --plaintext -o Doc/zsh.txt` (and others) for infodir
 
 #### install
 
-```
-make install DESTDIR=$DESTDIR
-make infodir=/usr/share/info install.info DESTDIR=$DESTDIR
-```
+also:
+- `infodir=/usr/share/info install.info`
+- copying `/usr/share/doc/zsh-....` files
 
-(skipping the `/usr/share/doc/zsh-....` files)
-
-#### post
+### configuration
 
 allow `zsh` to be selected as a shell:
 

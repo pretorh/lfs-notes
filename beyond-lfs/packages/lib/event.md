@@ -2,27 +2,25 @@
 
 Why: dependency of `tmux`
 
-installed version: `2.1.8`
+installed version: `2.1.12`
+
+time: >1.0x (need to rechec with tests)
 
 links:
 
 - [how to](https://github.com/libevent/libevent)
 - [downloads](https://github.com/libevent/libevent/releases)
 
-### commands
+### build
 
 #### configure options
 
-`prefix`, `disable-static`
+- common: `prefix` and `disable-static`
 
 #### tests
 
-`time make verify --jobs 4`
+different name: `verify`
 
 got a lot of errors related to "nameserver" and "lock function", but in the end all 10 tests passed
 
-time: 5x
-
-#### install
-
-`make install`
+on `2.1.12` there were test failures, need to recheck

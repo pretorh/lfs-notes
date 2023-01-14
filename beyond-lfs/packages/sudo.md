@@ -2,34 +2,28 @@
 
 Why: to no longer have to logout/login as root just to install packages
 
-installed version: `1.8.23`
+installed version: `1.9.12p1`
+
+time: 0.22x real (0.5x user+sys)
 
 links:
 
 - [download page](https://www.sudo.ws/download.html#source)
 - [how to](https://www.sudo.ws/install.html)
 
-### commands
+### build
 
 #### configure options
 
-```
-configure --prefix=/usr                                         \
-          --libexecdir=/usr/lib                                 \
-          --with-secure-path="/bin:/usr/bin:/usr/sbin:/sbin"    \
-          --with-all-insults                                    \
-          --with-passprompt="[sudo] password for %p: "
-```
-
-reason: set sane install paths, use specific `PATH` envvar when execuring in `sudo`,
-add insult messages on incorrect passwords, use a more specific pasword prompt (not just "Password:")
+- force the `PATH` variable: `with-secure-path="/bin:/usr/bin:/usr/sbin:/sbin"`
+- add insult messages on incorrect passwords (`with-all-insults`)
+- use a more specific pasword prompt (not just "Password:", `with-passprompt="[sudo] password for %p: "`)
+- allow `EDITOR` env: `with-env-editor`
+- common: `prefix`, `docdir`
 
 #### tests
 
-```
-env LC_ALL=C make check 2>&1 | tee ../make-check.log
-grep failed ../make-check.log
-```
+see `beyond-lfs/packages/scripts/sudo-tests.sh`. all tests passed
 
 #### install
 
@@ -40,7 +34,7 @@ use your own userid/groupid for the install, and let the unpackaging install it 
 
 (change a symlink if installing directly to `/` to avoid linking to previous versions)
 
-#### post
+### configuration
 
 `visudo` to setup sudoers
 

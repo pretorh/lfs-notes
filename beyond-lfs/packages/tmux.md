@@ -2,7 +2,9 @@
 
 Why: multiple terminals screens
 
-installed version: `2.1.8`
+installed version: `3.3a`
+
+time: 0.0x real (0.0x user+sys)
 
 links:
 
@@ -13,9 +15,11 @@ links:
 
 - `libevent`
 
-### commands
+### build
 
-configure options: `prefix`, `disable-static`
+#### configure options
+
+- common: `prefix` and `disable-static`
 
 #### post install
 
