@@ -23,4 +23,4 @@ different name: `verify`
 
 got a lot of errors related to "nameserver" and "lock function", but in the end all 10 tests passed
 
-one `2.1.12` there were test failures, need to recheck
+on `2.1.12` there were test failures, need to recheck
