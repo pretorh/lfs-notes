@@ -8,10 +8,9 @@ NOTE: To be used as a quick reference only, you should still work through the bo
 
 ## Layout
 
-- [steps/](steps/)
-  - notes on each chapter from the lfs pdf document.
-- `scripts/`
-  - code taken from the the document and (sometimes) edited/combined
+- [steps/](steps/): notes taken while building LFS, re-arranges/re-grouped from the LFS book
+- `scripts/`: code from the LFS book and edited/combined
+- [beyond-lfs/](beyond-lfs/): notes for BLFS
 
 ## Updates
 
