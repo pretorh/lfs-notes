@@ -233,9 +233,7 @@ Install using `scripts/6/3/shadow-install.sh`
 
 Time: negligible
 
-#### post install configuring
-
-See `scripts/config/shadow.sh`
+See `scripts/config/shadow.sh` for post install configuration
 
 ### GCC
 
@@ -259,12 +257,10 @@ See `steps/test-results.md` for my list of failed tests
 
 Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
-
 ### Sanity check
 
 Run another sanity check: see `scripts/sanity-check-2.sh`
 (todo: try and merge with first sanity check script)
-
 
 ### Part 4
 
@@ -443,7 +439,6 @@ Time: 5.6x to 5.8x real (user+sys: same)
         - 281 total, 263 pass, 18 skipped
         - expected passes: 487, 96, 32
     - time: 0.38x real (user+sys: 0.66x)
-
 
 ### Part 7
 

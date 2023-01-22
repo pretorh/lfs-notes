@@ -14,10 +14,9 @@ All times are relative to Binutils pass 1's `user`+`sys` time, with the parallel
 
 Small times are not shown (should be less than Binutils pass 1 in `real` time)
 
-
 ## sudo
 
-You can run sudo with `sudo --preserve-env=LFS ` in order to keep the LFS variable  
+You can run sudo with `sudo --preserve-env=LFS` in order to keep the LFS variable  
 `scripts/sudo.sh <command>` does this, calling `<command>`
 
 ## Qemu
@@ -40,23 +39,25 @@ qemu-system-x86_64 \
     -cdrom $LIVE_ISO \
     -drive file=$DRIVE1,format=raw \
     -drive file=$DRIVE2,format=raw
-
 ```
 
 ## SSH
 
 ### Start ssh on the vm
+
 ex on Arch / systemd systems:
 ```
 systemctl start sshd
 ```
 
 ### Since the host's port 2222 is mapped to vms 22 (ssh) we can ssh to localhost on port 2222:
+
 ```
 ssh root@localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 ```
 
 ### Can also login as lfs user:
+
 ```
 ssh lfs@localhost -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 ```
