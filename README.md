@@ -8,9 +8,7 @@ NOTE: To be used as a quick reference only, you should still work through the bo
 
 ## Layout
 
-- `steps/`
-  - `0-setup.md`
-    - General setup and requirements. Covers from the intro to chapter 4 in the lfs book
+- [steps/](steps/)
   - notes on each chapter from the lfs pdf document.
 - `scripts/`
   - code taken from the the document and (sometimes) edited/combined
