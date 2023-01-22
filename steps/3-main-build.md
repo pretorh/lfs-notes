@@ -46,37 +46,7 @@ Tests are *critical*, but some will fail:
 
 `grep '^FAIL' tests.sum` to get a list of failed
 
-##### summary:
-
-2.36:
-```
-Summary of test results:
-      6 FAIL
-   4921 PASS
-    234 UNSUPPORTED
-     16 XFAIL
-      4 XPASS
-```
-
-2.34:
-```
-Summary of test results:
-      2 FAIL
-   4399 PASS
-     69 UNSUPPORTED
-     16 XFAIL
-      2 XPASS
-```
-
-2.32:
-```
-Summary of test results:
-      2 FAIL
-   4228 PASS
-     34 UNSUPPORTED
-     17 XFAIL
-      2 XPASS
-```
+See `steps/test-results.md` for my list of failed tests
 
 #### Install glibc
 
@@ -164,27 +134,8 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 First verify PTYs are working in chroot:
 `(expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS") || echo "FAILED"`
 
-The tests are critical.
-
-Failed on `2.39`:
-
-- `assignment tests`
-- `.sleb128 tests`
-- `.sleb128 tests (2)`
-- `.sleb128 tests (3)`
-- `Run with libdl3a.so`
-- `Run with libdl3c.so`
-- `eh_test`
-- `exception_shared_1_test`
-- `exception_test`
-- `exception_shared_2_test`
-- `exception_same_shared_test`
-- `exception_separate_shared_21_test`
-- `exception_separate_shared_12_test`
-- `relro_test`
-- `relro_now_test`
-- `relro_strip_test`
-- `exception_x86_64_bnd_test`
+The tests are critical.  
+See `steps/test-results.md` for my list of failed tests
 
 Remove static libs after installing
 
@@ -233,9 +184,7 @@ Install using `scripts/6/3/shadow-install.sh`
 
 Time: negligible
 
-#### post install configuring
-
-See `scripts/config/shadow.sh`
+See `scripts/config/shadow.sh` for post install configuration
 
 ### GCC
 
@@ -259,12 +208,10 @@ See `steps/test-results.md` for my list of failed tests
 
 Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
-
 ### Sanity check
 
 Run another sanity check: see `scripts/sanity-check-2.sh`
 (todo: try and merge with first sanity check script)
-
 
 ### Part 4
 
@@ -443,7 +390,6 @@ Time: 5.6x to 5.8x real (user+sys: same)
         - 281 total, 263 pass, 18 skipped
         - expected passes: 487, 96, 32
     - time: 0.38x real (user+sys: 0.66x)
-
 
 ### Part 7
 

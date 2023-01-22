@@ -1,9 +1,68 @@
-# GCC test failures:
+# test summaries and failures:
+
+## GLibc
+
+### `2.36`
+
+```
+Summary of test results:
+      6 FAIL
+   4921 PASS
+    234 UNSUPPORTED
+     16 XFAIL
+      4 XPASS
+```
+
+### `2.34`
+
+```
+Summary of test results:
+      2 FAIL
+   4399 PASS
+     69 UNSUPPORTED
+     16 XFAIL
+      2 XPASS
+```
+
+### `2.32`
+
+```
+Summary of test results:
+      2 FAIL
+   4228 PASS
+     34 UNSUPPORTED
+     17 XFAIL
+      2 XPASS
+```
+
+## binutils
+
+### Failed on `2.39`
+
+- `assignment tests`
+- `.sleb128 tests`
+- `.sleb128 tests (2)`
+- `.sleb128 tests (3)`
+- `Run with libdl3a.so`
+- `Run with libdl3c.so`
+- `eh_test`
+- `exception_shared_1_test`
+- `exception_test`
+- `exception_shared_2_test`
+- `exception_same_shared_test`
+- `exception_separate_shared_21_test`
+- `exception_separate_shared_12_test`
+- `relro_test`
+- `relro_now_test`
+- `relro_strip_test`
+- `exception_x86_64_bnd_test`
+
+## GCC test failures:
 
 `../contrib/test_summary | grep -E '(XPASS|FAIL)' | sort`  
 some older test results are only with `FAIL`
 
-## `12.2.0`
+### `12.2.0`
 
 > PR100400 are known to be reported as both XPASS and FAIL
 
@@ -26,7 +85,7 @@ XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++20 (internal
 XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++98 (internal compiler error)
 ```
 
-## `11.2.0`
+### `11.2.0`
 
 (matches the list of known failures)
 
@@ -50,7 +109,7 @@ FAIL: gcc.dg/analyzer/file-pr58237.c (test for excess errors)
 FAIL: gcc.dg/analyzer/pr99716-1.c (test for excess errors)
 ```
 
-## `10.2.0`
+### `10.2.0`
 
 ```
 FAIL: 22_locale/time_get/get_time/char/2.cc execution test
@@ -85,7 +144,7 @@ FAIL: gcc.dg/asan/pr80166.c   -O3 -g  (test for excess errors)
 FAIL: gcc.dg/asan/pr80166.c   -Os  (test for excess errors)
 ```
 
-## `7.3.0`
+### `7.3.0`
 
 ```
 FAIL: experimental/filesystem/iterators/directory_iterator.cc execution test
@@ -96,7 +155,7 @@ FAIL: experimental/filesystem/operations/remove.cc execution test
 FAIL: experimental/filesystem/operations/temp_directory_path.cc execution test
 ```
 
-## `5.3.0`
+### `5.3.0`
 
 ```
 FAIL: c-c++-common/cilk-plus/CK/spawning_arg.c  -O1  execution test

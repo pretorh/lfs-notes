@@ -2,9 +2,7 @@
 
 ## Setup
 
-### if you need to re-enter choot
-
-see `scripts/chroot/enter-chroot.sh`
+see `scripts/chroot/enter-chroot.sh` if you need to re-enter chroot
 
 ## Network
 
@@ -20,7 +18,7 @@ Check if hardware clock is set to localtime or utc: `hwclock  --localtime --show
 
 If set to utc, remove the adjust file: `rm -fv /etc/adjtime`
 
-# Other
+## Other
 
 Locale: see `scripts/config/select-locale.sh`
 

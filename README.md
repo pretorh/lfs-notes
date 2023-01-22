@@ -6,16 +6,13 @@ This project consists of notes taken and scripts created while working through t
 
 NOTE: To be used as a quick reference only, you should still work through the book. Most of the notes assumes 64 bit.
 
-### Layout
+## Layout
 
-- `steps/`
-  - `0-setup.md`
-    - General setup and requirements. Covers from the intro to chapter 4 in the lfs book
-  - notes on each chapter from the lfs pdf document.
-- `scripts/`
-  - code taken from the the document and (sometimes) edited/combined
+- [steps/](steps/): notes taken while building LFS, re-arranges/re-grouped from the LFS book
+- `scripts/`: code from the LFS book and edited/combined
+- [beyond-lfs/](beyond-lfs/): notes for BLFS
 
-#### Updates
+## Updates
 
 - the [11.2 version](https://www.linuxfromscratch.org/lfs/downloads/11.2-systemd/LFS-11.2-SYSTEMD-BOOK.pdf) (2023-01-07)
 - the [11.0 version](https://www.linuxfromscratch.org/lfs/downloads/11.0-systemd/LFS-BOOK-11.0-systemd.pdf) (2022-01-29)
@@ -24,5 +21,6 @@ NOTE: To be used as a quick reference only, you should still work through the bo
 
 Original notes come from the 20160102 systemd version, but they were rechecked/recreated while working through the [20160304 version](http://www.linuxfromscratch.org/lfs/downloads/7.9-systemd/LFS-BOOK-7.9-systemd.pdf). (last rechecked 2016-07-23)
 
-### References
+## References
+
 - http://www.linuxfromscratch.org/
