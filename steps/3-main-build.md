@@ -50,11 +50,11 @@ See `steps/test-results.md` for my list of failed tests
 
 #### Install glibc
 
-Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
+Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/packages/glibc/install.sh`
 
 #### Install timezone data
 
-see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) and configure it
+see `scripts/packages/tzdata-install.sh` (note this should run in the `sources` dir) and configure it
 
 time: negligible
 
