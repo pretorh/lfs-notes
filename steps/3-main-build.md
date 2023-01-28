@@ -22,7 +22,7 @@ See notes about package management
 ### Glibc
 
 Patches:
-- file system standards: see, `scripts/5/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+- file system standards: see, `scripts/packages/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
 - pre configure setup to install into `sbin`
 
 Note: the configuring and installing is split up differently here than in the book
