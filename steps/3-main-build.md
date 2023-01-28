@@ -452,7 +452,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
 
 ### Systemd
 
-Patch and configure: `scripts/6/6/systemd-patch.sh`
+Patch and configure: `scripts/packages/systemd-patch.sh`
 
 Build and install with `ninja`
 
@@ -466,7 +466,7 @@ Time: 0.6x real (user+sys: 4.0x)
 
 - dbus
     - no tests in lfs
-    - post install: see `scripts/6/9/dbus-post.sh`
+    - post install: see `scripts/packages/dbus-post.sh`
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
     - time: negligible
 - man-db
@@ -477,13 +477,13 @@ Time: 0.6x real (user+sys: 4.0x)
     - time: negligible
 - util-linux
     - tests:
-        - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
+        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh`
         - "1 tests of 225 FAILED"
             - `hardlink/options` ("The hardlink tests will fail if...")
     - time: 0.37x real (user+sys: 1.0x)
 - e2fsprogs
     - tests: "371 tests succeeded     0 tests failed"
-    - post-install: see `scripts/6/main/e2fsprogs-post.sh`
+    - post-install: see `scripts/packages/e2fsprogs-post.sh`
     - time: 0.35x real (user+sys: 0.6x)
 
 ## Cleanup
