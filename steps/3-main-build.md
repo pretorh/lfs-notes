@@ -206,7 +206,7 @@ See `steps/test-results.md` for my list of failed tests
 
 #### Install
 
-Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
+Install, cleanup and create symlinks: see `scripts/packages/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
 ### Sanity check
 
