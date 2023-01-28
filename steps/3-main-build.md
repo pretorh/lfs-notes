@@ -292,7 +292,7 @@ Time: 0.6x real (user+sys: 0.4x - less than real)
 
 ### Perl
 
-Patch using `.patch` file. Configure: `scripts/6/5/perl-config.sh`
+Patch using `.patch` file. Configure: `scripts/packages/perl-configure-main.sh`
 
 Tests: "All tests successful."
 
@@ -306,7 +306,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - tests: all 140 passed
     - time: negligible
 - intltool
-    - patch: `scripts/6/6/intltool-patch.sh`
+    - patch: `scripts/packages/intltool-patch.sh`
     - then basic config (`prefix`) and build/test/install
     - 1 test that passes
     - time: negligible
@@ -330,13 +330,13 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - time: 3.4x real (user+sys: 5.2x)
 - kmod
     - no tests available in LFS
-    - post-install: `scripts/6/6/kmod-post.sh`
+    - post-install: `scripts/packages/kmod-post.sh`
     - time: negligible
 - libelf
     - in archive: `elfutils-*`
     - tests: 232 total, 227 pass, 5 skipped
         - `run-backtrace-native.sh` failed
-    - install only libelf, see `scripts/6/6/libelf-install.sh`
+    - install only libelf, see `scripts/packages/libelf-install.sh`
     - time: 0.28x real (user+sys: 0.9x)
 - libffi
     - tests: 2304 passed
@@ -344,7 +344,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
-    - see note on pip usage as root, update checks. see `scripts/6/6/python-post.sh` to create a default `pip.conf`
+    - see note on pip usage as root, update checks. see `scripts/packages/python-post.sh` to create a default `pip.conf`
     - time: 1.9x real (user+sys: 4.4x)
 - wheel
     - install using `pip3`
@@ -363,10 +363,10 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - coreutils
     - patch: for character boundary, then `autoreconf -fiv`
     - tests:
-        - see `scripts/6/7/coreutils-test.sh`
+        - see `scripts/packages/coreutils-test.sh`
         - `sort-NaN-infloop` is known to fail with gcc 12 (but it passed)
         - 1041 total, 896 pass, 145 skip
-    - post install: move files, see `scripts/6/7/coreutils-post.sh`
+    - post install: move files, see `scripts/packages/coreutils-post-main.sh` (similar to 1st)
     - time: 0.9x real (user+sys: 2.1x)
 - check
     - basic config (`prefix`, `disable-static`) and simple build/test/install
