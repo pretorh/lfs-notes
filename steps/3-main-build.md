@@ -405,11 +405,11 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - all 26 tests passed
     - time: negligible
 - iproute2
-    - skip `arpd`: `scripts/6/8/iproute2-patch.sh`
+    - skip `arpd`: `scripts/packages/iproute2-patch.sh`
     - no configure, tests
     - time: negligible
 - kbd
-    - patch, see `scripts/6/8/kbd-patch.sh`
+    - patch, see `scripts/packages/kbd-patch.sh`
     - 40 tests, 36 passed, 4 skipped
     - time: negligible
 - libpipeline
@@ -433,11 +433,11 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - tests: 253 total, 234 passed, 19 skipped
     - time: 0.25x real (user+sys: 0.55x)
 - vim
-    - patch default vimrc: see `scripts/6/9/vim-patch.sh`
+    - patch default vimrc: see `scripts/packages/vim/patch.sh`
     - tests
-        - run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
+        - run as `tester`, redirect test output to file, see `scripts/packages/vim/tests.sh`
         - ends with "ALL DONE"
-    - post install and config: see `scripts/6/9/vim-post.sh`
+    - post install and config: see `scripts/packages/vim/post.sh`
     - time: 1.3x real (user+sys: 1.2x, less)
 - MarkupSafe
     - capital name in archive
