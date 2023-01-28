@@ -76,9 +76,9 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - remove static libs: `rm -vf /usr/lib/libz.a`
     - time: negligible
 - bzip2
-    - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/6/3/bzip2-patch.sh`
+    - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/packages/bzip2-patch.sh`
     - no configure (but install with `PREFIX` - part of `bzip2-install.sh`)
-    - install: `scripts/6/3/bzip2-install.sh`
+    - install: `scripts/packages/bzip2-install.sh`
     - time: negligible
 - xz
     - tests: `All 9 tests passed`
@@ -108,8 +108,8 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - time: negligible
 - tcl
     - custom archive name. also extract the documentation archive
-    - custom build commands, see `scripts/6/main/tcl-post-build.sh`
-    - install steps for headers, symlink (see `scripts/6/main/tcl-install.sh`, which also installs)
+    - custom build commands, see `scripts/packages/tcl-post-build.sh`
+    - install steps for headers, symlink (see `scripts/packages/tcl-install.sh`, which also installs)
     - tests
         - `grep '^all.tcl:' out.log` to get summary. shows 11 rows
         - no failures (but a lot of skipped)
@@ -176,11 +176,11 @@ time: 2.3x real (user+sys: 8.5x)
 
 `touch /usr/bin/passwd`: file must exist before configure is run
 
-Patch to disable groups, man pages, use sha-512. See `scripts/6/3/shadow-patch.sh`
+Patch to disable groups, man pages, use sha-512. See `scripts/packages/shadow-patch.sh`
 
 There are no tests
 
-Install using `scripts/6/3/shadow-install.sh`
+Install using `scripts/packages/shadow-install.sh`
 
 Time: negligible
 
@@ -190,7 +190,7 @@ See `scripts/config/shadow.sh` for post install configuration
 
 Takes *realy* long: 41.0x real (user+sys: 287.2x to 294.2x) total
 
-Patch, see `scripts/6/gcc/patch.sh`
+Patch, see `scripts/packages/gcc/patch-lib64.sh` (same as before)
 
 #### Tests
 
@@ -198,7 +198,7 @@ Takes most of the time: 46.5x to 47.0x real (179.7x to 181.5x user+sys) for the 
 
 The tests are critical.
 
-Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/6/gcc/test.sh`
+Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/packages/gcc/tests.sh`
 
 Some tests are known to fail. Compare with list in doc.
 Compare the overall results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults).  
@@ -220,7 +220,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
     - time: negligible
 - ncurses
     - tests can only be run after ncurses is installed
-    - install and post install using `scripts/6/3/ncurses-install.sh`
+    - install and post install using `scripts/packages/ncurses/install-main.sh`
     - time: negligible
 - sed
     - basic config (`prefix`) and simple build/install (not building docs)
@@ -247,7 +247,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
 
 ### Bash
 
-Tests need to be run as user `tester`, using expect: see `scripts/6/main/bash-tests.sh`
+Tests need to be run as user `tester`, using expect: see `scripts/packages/bash-tests.sh`
 
 Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary)
 
