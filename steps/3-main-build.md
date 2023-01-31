@@ -22,7 +22,7 @@ See notes about package management
 ### Glibc
 
 Patches:
-- file system standards: see, `scripts/5/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+- file system standards: see, `scripts/packages/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
 - pre configure setup to install into `sbin`
 
 Note: the configuring and installing is split up differently here than in the book
@@ -50,11 +50,11 @@ See `steps/test-results.md` for my list of failed tests
 
 #### Install glibc
 
-Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/6/glibc/install.sh`
+Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/packages/glibc/install.sh`
 
 #### Install timezone data
 
-see `scripts/6/glibc/tz-install.sh` (note this should run in the `sources` dir) and configure it
+see `scripts/packages/tzdata-install.sh` (note this should run in the `sources` dir) and configure it
 
 time: negligible
 
@@ -76,9 +76,9 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - remove static libs: `rm -vf /usr/lib/libz.a`
     - time: negligible
 - bzip2
-    - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/6/3/bzip2-patch.sh`
+    - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/packages/bzip2-patch.sh`
     - no configure (but install with `PREFIX` - part of `bzip2-install.sh`)
-    - install: `scripts/6/3/bzip2-install.sh`
+    - install: `scripts/packages/bzip2-install.sh`
     - time: negligible
 - xz
     - tests: `All 9 tests passed`
@@ -108,8 +108,8 @@ See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
     - time: negligible
 - tcl
     - custom archive name. also extract the documentation archive
-    - custom build commands, see `scripts/6/main/tcl-post-build.sh`
-    - install steps for headers, symlink (see `scripts/6/main/tcl-install.sh`, which also installs)
+    - custom build commands, see `scripts/packages/tcl-post-build.sh`
+    - install steps for headers, symlink (see `scripts/packages/tcl-install.sh`, which also installs)
     - tests
         - `grep '^all.tcl:' out.log` to get summary. shows 11 rows
         - no failures (but a lot of skipped)
@@ -176,11 +176,11 @@ time: 2.3x real (user+sys: 8.5x)
 
 `touch /usr/bin/passwd`: file must exist before configure is run
 
-Patch to disable groups, man pages, use sha-512. See `scripts/6/3/shadow-patch.sh`
+Patch to disable groups, man pages, use sha-512. See `scripts/packages/shadow-patch.sh`
 
 There are no tests
 
-Install using `scripts/6/3/shadow-install.sh`
+Install using `scripts/packages/shadow-install.sh`
 
 Time: negligible
 
@@ -190,7 +190,7 @@ See `scripts/config/shadow.sh` for post install configuration
 
 Takes *realy* long: 41.0x real (user+sys: 287.2x to 294.2x) total
 
-Patch, see `scripts/6/gcc/patch.sh`
+Patch, see `scripts/packages/gcc/patch-lib64.sh` (same as before)
 
 #### Tests
 
@@ -198,7 +198,7 @@ Takes most of the time: 46.5x to 47.0x real (179.7x to 181.5x user+sys) for the 
 
 The tests are critical.
 
-Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/6/gcc/test.sh`
+Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/packages/gcc/tests.sh`
 
 Some tests are known to fail. Compare with list in doc.
 Compare the overall results with the [build logs](http://www.linuxfromscratch.org/lfs/build-logs/) and [gcc test results](https://gcc.gnu.org/ml/gcc-testresults).  
@@ -206,7 +206,7 @@ See `steps/test-results.md` for my list of failed tests
 
 #### Install
 
-Install, cleanup and create symlinks: see `scripts/6/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
+Install, cleanup and create symlinks: see `scripts/packages/gcc/install.sh` (moved the final `*gdb.py` file move into this script)
 
 ### Sanity check
 
@@ -220,7 +220,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
     - time: negligible
 - ncurses
     - tests can only be run after ncurses is installed
-    - install and post install using `scripts/6/3/ncurses-install.sh`
+    - install and post install using `scripts/packages/ncurses/install-main.sh`
     - time: negligible
 - sed
     - basic config (`prefix`) and simple build/install (not building docs)
@@ -247,7 +247,7 @@ Run another sanity check: see `scripts/sanity-check-2.sh`
 
 ### Bash
 
-Tests need to be run as user `tester`, using expect: see `scripts/6/main/bash-tests.sh`
+Tests need to be run as user `tester`, using expect: see `scripts/packages/bash-tests.sh`
 
 Some tests seem to hang for a few seconds. Running the tests passed (exit code 0, but no summary)
 
@@ -292,7 +292,7 @@ Time: 0.6x real (user+sys: 0.4x - less than real)
 
 ### Perl
 
-Patch using `.patch` file. Configure: `scripts/6/5/perl-config.sh`
+Patch using `.patch` file. Configure: `scripts/packages/perl-configure-main.sh`
 
 Tests: "All tests successful."
 
@@ -306,7 +306,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - tests: all 140 passed
     - time: negligible
 - intltool
-    - patch: `scripts/6/6/intltool-patch.sh`
+    - patch: `scripts/packages/intltool-patch.sh`
     - then basic config (`prefix`) and build/test/install
     - 1 test that passes
     - time: negligible
@@ -330,13 +330,13 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - time: 3.4x real (user+sys: 5.2x)
 - kmod
     - no tests available in LFS
-    - post-install: `scripts/6/6/kmod-post.sh`
+    - post-install: `scripts/packages/kmod-post.sh`
     - time: negligible
 - libelf
     - in archive: `elfutils-*`
     - tests: 232 total, 227 pass, 5 skipped
         - `run-backtrace-native.sh` failed
-    - install only libelf, see `scripts/6/6/libelf-install.sh`
+    - install only libelf, see `scripts/packages/libelf-install.sh`
     - time: 0.28x real (user+sys: 0.9x)
 - libffi
     - tests: 2304 passed
@@ -344,7 +344,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - python
     - archive name start with capital
     - tests: skipped, "known to hang indefinitely" (needs networking)
-    - see note on pip usage as root, update checks. see `scripts/6/6/python-post.sh` to create a default `pip.conf`
+    - see note on pip usage as root, update checks. see `scripts/packages/python-post.sh` to create a default `pip.conf`
     - time: 1.9x real (user+sys: 4.4x)
 - wheel
     - install using `pip3`
@@ -363,10 +363,10 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - coreutils
     - patch: for character boundary, then `autoreconf -fiv`
     - tests:
-        - see `scripts/6/7/coreutils-test.sh`
+        - see `scripts/packages/coreutils-test.sh`
         - `sort-NaN-infloop` is known to fail with gcc 12 (but it passed)
         - 1041 total, 896 pass, 145 skip
-    - post install: move files, see `scripts/6/7/coreutils-post.sh`
+    - post install: move files, see `scripts/packages/coreutils-post-main.sh` (similar to 1st)
     - time: 0.9x real (user+sys: 2.1x)
 - check
     - basic config (`prefix`, `disable-static`) and simple build/test/install
@@ -405,11 +405,11 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - all 26 tests passed
     - time: negligible
 - iproute2
-    - skip `arpd`: `scripts/6/8/iproute2-patch.sh`
+    - skip `arpd`: `scripts/packages/iproute2-patch.sh`
     - no configure, tests
     - time: negligible
 - kbd
-    - patch, see `scripts/6/8/kbd-patch.sh`
+    - patch, see `scripts/packages/kbd-patch.sh`
     - 40 tests, 36 passed, 4 skipped
     - time: negligible
 - libpipeline
@@ -433,11 +433,11 @@ Time: 5.6x to 5.8x real (user+sys: same)
     - tests: 253 total, 234 passed, 19 skipped
     - time: 0.25x real (user+sys: 0.55x)
 - vim
-    - patch default vimrc: see `scripts/6/9/vim-patch.sh`
+    - patch default vimrc: see `scripts/packages/vim/patch.sh`
     - tests
-        - run as `tester`, redirect test output to file, see `scripts/6/9/vim-test.sh`
+        - run as `tester`, redirect test output to file, see `scripts/packages/vim/tests.sh`
         - ends with "ALL DONE"
-    - post install and config: see `scripts/6/9/vim-post.sh`
+    - post install and config: see `scripts/packages/vim/post.sh`
     - time: 1.3x real (user+sys: 1.2x, less)
 - MarkupSafe
     - capital name in archive
@@ -452,7 +452,7 @@ Time: 5.6x to 5.8x real (user+sys: same)
 
 ### Systemd
 
-Patch and configure: `scripts/6/6/systemd-patch.sh`
+Patch and configure: `scripts/packages/systemd-patch.sh`
 
 Build and install with `ninja`
 
@@ -466,7 +466,7 @@ Time: 0.6x real (user+sys: 4.0x)
 
 - dbus
     - no tests in lfs
-    - post install: see `scripts/6/9/dbus-post.sh`
+    - post install: see `scripts/packages/dbus-post.sh`
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
     - time: negligible
 - man-db
@@ -477,13 +477,13 @@ Time: 0.6x real (user+sys: 4.0x)
     - time: negligible
 - util-linux
     - tests:
-        - may be harmful when run as root user, see `scripts/6/main/util-linux-tests.sh`
+        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh`
         - "1 tests of 225 FAILED"
             - `hardlink/options` ("The hardlink tests will fail if...")
     - time: 0.37x real (user+sys: 1.0x)
 - e2fsprogs
     - tests: "371 tests succeeded     0 tests failed"
-    - post-install: see `scripts/6/main/e2fsprogs-post.sh`
+    - post-install: see `scripts/packages/e2fsprogs-post.sh`
     - time: 0.35x real (user+sys: 0.6x)
 
 ## Cleanup
