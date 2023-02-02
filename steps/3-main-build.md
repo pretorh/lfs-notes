@@ -38,11 +38,6 @@ Tests are *critical*, but some will fail:
 - known to fail: (and failed on `2.36` and `2.34`)
     - `io/tst-lchmod`
     - `misc/tst-ttyname`
-- other test failures (on `2.36`)
-    - `nptl/tst-cancel24`
-    - `nptl/tst-minstack-throw`
-    - `nptl/tst-once5`
-    - `nptl/tst-thread-exit-clobber`
 
 `grep '^FAIL' tests.sum` to get a list of failed
 
@@ -135,7 +130,9 @@ First verify PTYs are working in chroot:
 `(expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS") || echo "FAILED"`
 
 The tests are critical.  
-See `steps/test-results.md` for my list of failed tests
+Had issues on `2.39` when running in parallel, with the failing tests changing
+on reruns (see `steps/test-results.md`)  
+Passes when using `--jobs 1`, though there were build errors in `make check` which caused the step to fail.  
 
 Remove static libs after installing
 

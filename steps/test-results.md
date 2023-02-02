@@ -39,23 +39,11 @@ Summary of test results:
 
 ### Failed on `2.39`
 
+Failed on parallel builds, with the list of failing tests changing on reruns. Some of the common ones:
+
 - `assignment tests`
 - `.sleb128 tests`
 - `.sleb128 tests (2)`
-- `.sleb128 tests (3)`
-- `Run with libdl3a.so`
-- `Run with libdl3c.so`
-- `eh_test`
-- `exception_shared_1_test`
-- `exception_test`
-- `exception_shared_2_test`
-- `exception_same_shared_test`
-- `exception_separate_shared_21_test`
-- `exception_separate_shared_12_test`
-- `relro_test`
-- `relro_now_test`
-- `relro_strip_test`
-- `exception_x86_64_bnd_test`
 
 ## GCC test failures:
 
@@ -71,14 +59,6 @@ FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++14 (test for 
 FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++17 (test for excess errors)
 FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++20 (test for excess errors)
 FAIL: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++98 (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O0 -g3 "-DGEN_ARGS=-p0\\ --omit-rbp-clobbers" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p0" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p1" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c  -O2 "-DGEN_ARGS=-p5" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O0 -g3 "-DGEN_ARGS=-p0\\ --omit-rbp-clobbers" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p0" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p1" (test for excess errors)
-FAIL: gcc.target/x86_64/abi/ms-sysv/ms-sysv.c -mcall-ms2sysv-xlogues -O2 "-DGEN_ARGS=-p5" (test for excess errors)
 XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++14 (internal compiler error)
 XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++17 (internal compiler error)
 XPASS: c-c++-common/goacc/kernels-decompose-pr100400-1-2.c  -std=c++20 (internal compiler error)
