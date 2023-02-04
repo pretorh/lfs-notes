@@ -24,6 +24,7 @@ Remeber to time the first installed package, since all the others are relative t
         - `scripts/packages/gcc/fix-limits_header.sh`
     - time: 3.9x real (user+sys: 13.7x to 13.9x)
 - Linux API Headers
+    - remove previous extracted linux dir if re-running with same linux version
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
     - build using `make headers`

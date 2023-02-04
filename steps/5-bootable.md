@@ -59,6 +59,7 @@ on the *host* system:
 ln -svf "$LFS/etc/grub.d/11_lfs" /etc/grub.d
 cp -v /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 grub-mkconfig > /boot/grub/grub.cfg
+diff /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 ```
 
 ### previous notes

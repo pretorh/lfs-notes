@@ -474,7 +474,7 @@ Time: 0.6x real (user+sys: 4.0x)
     - time: negligible
 - util-linux
     - tests:
-        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh`
+        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh` (to run as `tester`)
         - "1 tests of 225 FAILED"
             - `hardlink/options` ("The hardlink tests will fail if...")
     - time: 0.37x real (user+sys: 1.0x)
