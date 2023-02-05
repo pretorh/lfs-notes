@@ -6,8 +6,8 @@
 
 ```
 Summary of test results:
-      6 FAIL
-   4921 PASS
+      2 FAIL
+   4925 PASS
     234 UNSUPPORTED
      16 XFAIL
       4 XPASS

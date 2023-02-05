@@ -41,7 +41,7 @@ Tests are *critical*, but some will fail:
 
 `grep '^FAIL' tests.sum` to get a list of failed
 
-See `steps/test-results.md` for my list of failed tests
+See `steps/test-results.md` for summary.
 
 #### Install glibc
 
