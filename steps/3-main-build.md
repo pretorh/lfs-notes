@@ -130,13 +130,13 @@ First verify PTYs are working in chroot:
 `(expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS") || echo "FAILED"`
 
 The tests are critical.  
-Had issues on `2.39` when running in parallel, with the failing tests changing
-on reruns (see `steps/test-results.md`)  
+Had issues on `2.39` when running in parallel, with the failing tests changing on reruns.  
 Passes when using `--jobs 1`, though there were build errors in `make check` which caused the step to fail.  
+See `./scripts/packages/binutils/tests.sh`
 
 Remove static libs after installing
 
-time: 2.3x real (user+sys: 8.5x)
+time: 3.6x real (user+sys 7.4x) (was 2.3x/8.5x with parallel tests)
 
 ### gmp, mpfr, mpc
 
