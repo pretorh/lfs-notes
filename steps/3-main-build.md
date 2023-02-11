@@ -332,7 +332,6 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - libelf
     - in archive: `elfutils-*`
     - tests: 232 total, 227 pass, 5 skipped
-        - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/packages/libelf-install.sh`
     - time: 0.28x real (user+sys: 0.9x)
 - libffi

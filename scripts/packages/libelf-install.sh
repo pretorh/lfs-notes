@@ -2,4 +2,4 @@
 
 make DESTDIR="$DESTDIR" -C libelf install
 install -vm644 config/libelf.pc "$DESTDIR"/usr/lib/pkgconfig
-rm -v "$DESTDIR"/lib/libelf.a
+rm -v "$DESTDIR"/usr/lib/libelf.a
