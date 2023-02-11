@@ -4,7 +4,7 @@ Why: dependency of `tmux`
 
 installed version: `2.1.12`
 
-time: >1.0x (need to rechec with tests)
+time: 0.74x real (0.28x user+sys)
 
 links:
 
@@ -21,6 +21,4 @@ links:
 
 different name: `verify`
 
-got a lot of errors related to "nameserver" and "lock function", but in the end all 10 tests passed
-
-on `2.1.12` there were test failures, need to recheck
+"6/353 TESTS FAILED"
