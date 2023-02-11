@@ -474,8 +474,8 @@ Time: 0.6x real (user+sys: 4.0x)
 - util-linux
     - tests:
         - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh` (to run as `tester`)
-        - "1 tests of 225 FAILED"
-            - `hardlink/options` ("The hardlink tests will fail if...")
+        - "All 225 tests PASSED"
+        - `hardlink/options` ("The hardlink tests will fail if..."), failed initially but passed on re-run
     - time: 0.37x real (user+sys: 1.0x)
 - e2fsprogs
     - tests: "371 tests succeeded     0 tests failed"
