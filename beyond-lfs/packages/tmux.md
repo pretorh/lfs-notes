@@ -4,7 +4,7 @@ Why: multiple terminals screens
 
 installed version: `3.3a`
 
-time: 0.0x real (0.0x user+sys)
+time: negligible
 
 links:
 

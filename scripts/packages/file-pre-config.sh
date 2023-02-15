@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-build_dir=build
-
-mkdir $build_dir
-pushd $build_dir
+mkdir build
+pushd build
 ../configure \
   --disable-bzlib \
   --disable-libseccomp \

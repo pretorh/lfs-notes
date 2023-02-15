@@ -38,15 +38,10 @@ Tests are *critical*, but some will fail:
 - known to fail: (and failed on `2.36` and `2.34`)
     - `io/tst-lchmod`
     - `misc/tst-ttyname`
-- other test failures (on `2.36`)
-    - `nptl/tst-cancel24`
-    - `nptl/tst-minstack-throw`
-    - `nptl/tst-once5`
-    - `nptl/tst-thread-exit-clobber`
 
 `grep '^FAIL' tests.sum` to get a list of failed
 
-See `steps/test-results.md` for my list of failed tests
+See `steps/test-results.md` for summary.
 
 #### Install glibc
 
@@ -135,11 +130,13 @@ First verify PTYs are working in chroot:
 `(expect -c "spawn ls" | grep "spawn ls" && echo "SUCCESS") || echo "FAILED"`
 
 The tests are critical.  
-See `steps/test-results.md` for my list of failed tests
+Had issues on `2.39` when running in parallel, with the failing tests changing on reruns.  
+Passes when using `--jobs 1`, though there were build errors in `make check` which caused the step to fail.  
+See `./scripts/packages/binutils/tests.sh`
 
 Remove static libs after installing
 
-time: 2.3x real (user+sys: 8.5x)
+time: 3.6x real (user+sys 7.4x) (was 2.3x/8.5x with parallel tests)
 
 ### gmp, mpfr, mpc
 
@@ -335,7 +332,6 @@ Time: 5.6x to 5.8x real (user+sys: same)
 - libelf
     - in archive: `elfutils-*`
     - tests: 232 total, 227 pass, 5 skipped
-        - `run-backtrace-native.sh` failed
     - install only libelf, see `scripts/packages/libelf-install.sh`
     - time: 0.28x real (user+sys: 0.9x)
 - libffi
@@ -477,9 +473,9 @@ Time: 0.6x real (user+sys: 4.0x)
     - time: negligible
 - util-linux
     - tests:
-        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh`
-        - "1 tests of 225 FAILED"
-            - `hardlink/options` ("The hardlink tests will fail if...")
+        - may be harmful when run as root user, see `scripts/packages/util-linux-tests.sh` (to run as `tester`)
+        - "All 225 tests PASSED"
+        - `hardlink/options` ("The hardlink tests will fail if..."), failed initially but passed on re-run
     - time: 0.37x real (user+sys: 1.0x)
 - e2fsprogs
     - tests: "371 tests succeeded     0 tests failed"

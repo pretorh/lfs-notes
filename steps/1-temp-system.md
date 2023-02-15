@@ -24,6 +24,7 @@ Remeber to time the first installed package, since all the others are relative t
         - `scripts/packages/gcc/fix-limits_header.sh`
     - time: 3.9x real (user+sys: 13.7x to 13.9x)
 - Linux API Headers
+    - remove previous extracted linux dir if re-running with same linux version
     - extract from the linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
     - build using `make headers`
@@ -38,7 +39,7 @@ Remeber to time the first installed package, since all the others are relative t
 
 ## Sanity Check 1
 
-See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
+See `scripts/sanity-check.sh` and run with `SANITY_CC=gcc ./scripts/sanity-check.sh`
 
 Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
 
