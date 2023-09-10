@@ -75,11 +75,31 @@ todo: publish a few helpers that:
 
 ## packages
 
+This is only showing a quick overview of the packages. See
+[BLFS main page](https://www.linuxfromscratch.org/blfs/view/stable-systemd/) for details of packages.
+
+Keys:
+- Build-config: non-trivial configuration needed to setup sources
+- Install: Special installation steps required
+- Test: non-trivial test setup; information about tests
+- Post-config: post install configuration needed
+
 ### general
 
 a list of packages that is useful to install first (makes it easier to install other packages)
 
-- [sudo](./packages/sudo.md)
-- [zsh](./packages/zsh.md)
-- [libevent](./packages/libevent.md)
-- [tmux](./packages/tmux.md)
+- sudo: Build-config
+  - Install: `make install install_uid=1000 install_gid=1000 DESTDIR=$DESTDIR` when using fake roots
+  - Test: `beyond-lfs/packages/scripts/sudo-tests.sh`
+  - Post-config: add group
+- zsh:
+  - Test: a lot of the tests take a few seconds. outputs a few lines to screen ("print", "echo") even though redirecting `stdout` and `stderr`
+  - Post-config: allow shell `echo "/bin/zsh" >> /etc/shells`, change your shell: `chsh -s /bin/zsh $(whoami)`
+- tmux
+
+### dependencies
+
+a list of packages to install for dependencies which require non-trivial/non-standard steps
+
+- libevent:
+  - Test: `make verify`. "6/353 TESTS FAILED"
