@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
+echo "sh should be Bash"
 echo "/bin/sh -> $(readlink -f /bin/sh)"
 
+echo "yacc should be Bison"
 if [ -h /usr/bin/yacc ] ; then
     echo "/usr/bin/yacc -> $(readlink -f /usr/bin/yacc)";
     echo "  which is $(/usr/bin/yacc --version | head -n1)"
@@ -11,6 +13,7 @@ else
     echo "yacc not found"
 fi
 
+echo "awk should be GNU Awk"
 if [ -h /usr/bin/awk ]; then
     echo "/usr/bin/awk -> $(readlink -f /usr/bin/awk)";
     echo "  which is $(/usr/bin/awk --version | head -n1)"
