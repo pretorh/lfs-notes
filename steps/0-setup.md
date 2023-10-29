@@ -15,7 +15,10 @@ Set `LFS` variable to a location where you can mount a new drive:
 
 Create partitions, add filesystems, and mount the partitions in `$LFS`
 
-You can use `scripts/sudo.sh <command>` to run commands as `sudo`, with the `LFS` environment variable set for root
+Use `lsblk -oKNAME,UUID,LABEL,PARTLABEL` to find the uuid of the partition to add it to `/etc/fstab`.
+
+You can use `scripts/sudo.sh <command>` to run commands as `sudo`, with the `LFS` environment variable still
+set for root
 
 ## Setup the sources directory
 
