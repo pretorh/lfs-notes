@@ -2,7 +2,7 @@
 
 This should be run as the root user. Remember to have `LFS` set: `export LFS=/mnt/lfs`
 
-Start bash with LFS set from the current environment: `./scripts/sudo.sh`
+Start bash as root with `LFS` set from the current environment variable: `./scripts/sudo.sh`
 
 ## Chroot
 
@@ -21,7 +21,6 @@ If you exit chroot, you will need to re-enter it before continuing
 - export the `LFS` env var (`export LFS=/mnt/lfs`)
 - run as root (`scripts/sudo.sh`)
 - setup virtual file systems and enter chroot (`scripts/chroot/prepare.sh` and `scripts/chroot/enter-chroot.sh`)
-- run bash after it is installed (`exec /bin/bash --login`)
 - change to sources directory (`cd /sources`)
 - continue where you left
 

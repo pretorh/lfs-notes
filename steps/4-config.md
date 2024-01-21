@@ -2,7 +2,7 @@
 
 ## Setup
 
-see `scripts/chroot/enter-chroot.sh` if you need to re-enter chroot
+Use `scripts/chroot/enter-chroot.sh` if you need to re-enter chroot
 
 ## Network
 

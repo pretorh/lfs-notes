@@ -21,5 +21,7 @@ for file in ld-linux* libc.so.* libthread_db.so.* libquadmath.so.* libstdc++.so.
     objcopy --add-gnu-debuglink="$file.dbg" "/tmp/$file"
     install -vm755 "/tmp/$file" "$file"
     echo "split $file ($pre_size) into $file ($(du -h "$file" | cut -f1)) and $file.dbg ($(du -h "$file.dbg" | cut -f1))"
+    echo ""
+    rm "/tmp/$file"
   fi
 done
