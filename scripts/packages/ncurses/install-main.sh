@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 set -e
 
+version=6.4
+
 echo "install"
 # todo: use DESTDIR for this
 make DESTDIR="$PWD/dest" install
-install -vm755 dest/usr/lib/libncursesw.so.6.3 /usr/lib
-rm -v dest/usr/lib/libncursesw.so.6.3
+install -vm755 dest/usr/lib/libncursesw.so.$version /usr/lib
+rm -v dest/usr/lib/libncursesw.so.$version
 cp -av dest/* /
 
 echo "symlink wide to non-wide libs"

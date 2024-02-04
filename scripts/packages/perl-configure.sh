@@ -10,6 +10,7 @@ echo "configuring perl $version_major_minor (in $dirname)"
 sh Configure -des \
   -Dprefix=/usr \
   -Dvendorprefix=/usr \
+  -Duseshrplib                                              \
   -Dprivlib="/usr/lib/perl5/$version_major_minor/core_perl" \
   -Darchlib="/usr/lib/perl5/$version_major_minor/core_perl" \
   -Dsitelib="/usr/lib/perl5/$version_major_minor/site_perl" \

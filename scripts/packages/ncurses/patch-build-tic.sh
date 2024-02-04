@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+echo "patch to find gawk"
 sed -i s/mawk// configure
 
 echo "build 'tic'..."

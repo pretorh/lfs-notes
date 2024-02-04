@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ln -sfv /proc/self/mounts /etc/mtab
+
 # TODO: why not set the hostname here directly
 cat > /etc/hosts << EOF
 127.0.0.1 localhost $(hostname)
@@ -76,4 +77,4 @@ chmod -v 600  /var/log/btmp
 
 # done
 echo "username and groupname resolution will now work"
-echo "exec /bin/bash --login"
+echo "exec /usr/bin/bash --login"

@@ -23,7 +23,7 @@ partial check: `scripts/kernel/check-kernel-config`
 
 `time make --jobs 8`
 
-Time: 2.5x real (user+sys: 17.8x)
+Time: 8.1x real
 
 ### install
 
@@ -49,7 +49,7 @@ bash gengrub.sh | tee /etc/grub.d/11_lfs
 chmod -v a+x /etc/grub.d/11_lfs
 ```
 
-`11_lfs` is used here is to sort this file after the default `10_linux` file. This file includes all kernels with "lfs" in their name
+`11_lfs` is used here to sort this file after the default `10_linux` file. This file includes all kernels with "lfs" in their name
 
 ### using the host's boot partition
 

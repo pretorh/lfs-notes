@@ -1,10 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-SYSTEMD_VERSION=251
-
-echo "patch: apply from patch file"
-patch -Np1 -i ../systemd-*.patch
+SYSTEMD_VERSION=254
 
 echo "patch: remove groups"
 sed -e 's/GROUP="render"/GROUP="video"/' \
@@ -15,7 +12,8 @@ echo "configure: meson in 'build' dir"
 mkdir -p build
 cd build
 
-meson --prefix=/usr                 \
+meson setup \
+      --prefix=/usr                 \
       --buildtype=release           \
       -Ddefault-dnssec=no           \
       -Dfirstboot=false             \
@@ -28,5 +26,6 @@ meson --prefix=/usr                 \
       -Dman=false                   \
       -Dmode=release                \
       -Dpamconfdir=no               \
+      -Ddev-kvm-mode=0660           \
       -Ddocdir=/usr/share/doc/systemd-$SYSTEMD_VERSION \
       ..

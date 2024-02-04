@@ -23,7 +23,7 @@ grep -B4 '^ /usr/include' dummy.log
 echo "(manually compare the expected 4 lines)"
 
 echo "check: correct start files: should have 3 lines"
-grep --only-matching '/usr/lib.*/crt[1in].*succeeded' dummy.log
+grep --only-matching '/usr/lib.*/S*crt[1in].*succeeded' dummy.log
 
 echo "check: correct search paths for linker"
 # should be
@@ -39,13 +39,11 @@ grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
 echo "(manually compare the expected 8 lines)"
 
 echo "check: correct libc"
-# doc updated to have /usr/lib/... results, but still getting in /lib/...
-(grep "/lib.*/libc.so.6 " dummy.log | grep "attempt to open .*/lib/libc.so.6 succeeded" && echo "SUCCESS") \
+(grep "/lib.*/libc.so.6 " dummy.log | grep "attempt to open /usr/lib/libc.so.6 succeeded" && echo "SUCCESS") \
     || (echo "ERROR!" && false)
 
 echo "check: correct dynamic linker"
-# doc updated to have /usr/lib/... results, but still getting in /lib/...
-(grep found dummy.log | grep "found ld-linux-x86-64.so.2 at .*/lib/ld-linux-x86-64.so.2" && echo "SUCCESS") \
+(grep found dummy.log | grep "found ld-linux-x86-64.so.2 at /usr/lib/ld-linux-x86-64.so.2" && echo "SUCCESS") \
     || (echo "ERROR!" && false)
 
 echo "cleanup"

@@ -10,7 +10,7 @@ ignore_warnings() {
         - || true
 }
 
-echo "stipping debug symbols"
+echo "stripping debug symbols"
 while IFS= read -r -d '' file
 do
   strip --strip-unneeded "$file" 2>&1 | ignore_warnings
@@ -22,7 +22,7 @@ echo "cleanup: /tmp"
 rm -rf "$ROOT"/tmp/*
 
 echo "Remove libtool archives"
-find "$ROOT"/usr/lib "$ROOT"/usr/libexec -name \*.la -delete
+find "$ROOT"/usr/lib "$ROOT"/usr/libexec -name '*.la' -print0 | xargs -0 rm -rvf
 
 echo "Remove previous partially installed compiler"
 find "$ROOT"/usr -depth -name "$(uname -m)"-lfs-linux-gnu\* -print0 | xargs -0 rm -rvf

@@ -4,7 +4,7 @@ echo "install: make ... install"
 make PREFIX=/usr DESTDIR="$DESTDIR" install
 
 echo "install: shared lib"
-cp -av libbz2.so* "$DESTDIR"/usr/lib
+cp -av libbz2.so.* "$DESTDIR"/usr/lib
 ln -sv libbz2.so.1.0.8 "$DESTDIR"/usr/lib/libbz2.so
 
 echo "install: binary, with symlinks to it"
