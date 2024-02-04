@@ -2,7 +2,7 @@
 
 ## Release details
 
-see `scripts/config/os-details.sh`
+Run `scripts/config/os-details.sh` to generate system details `etc` files
 
 ## Optional Packages
 
