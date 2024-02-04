@@ -45,7 +45,7 @@ From inside chroot, output `scripts/config/gengrub.sh` to `/etc/grub.d/11_lfs` a
 
 ```
 mkdir -pv /etc/grub.d/
-bash gengrub.sh | tee /etc/grub.d/11_lfs
+./scripts/gengrub.sh | tee /etc/grub.d/11_lfs
 chmod -v a+x /etc/grub.d/11_lfs
 ```
 
