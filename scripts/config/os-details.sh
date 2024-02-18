@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[ -z "$LFS" ] && echo "LFS env var is not set!" && exit 1
+
 version=$(date --iso-8601=minutes)
 
 cat > "$LFS"/etc/os-release << EOF

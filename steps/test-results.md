@@ -2,6 +2,17 @@
 
 ## GLibc
 
+### `2.38`
+
+```
+Summary of test results:
+      1 FAIL
+   4985 PASS
+    238 UNSUPPORTED
+     16 XFAIL
+      4 XPASS
+```
+
 ### `2.36`
 
 ```
@@ -49,6 +60,46 @@ Failed on parallel builds, with the list of failing tests changing on reruns. So
 
 `../contrib/test_summary | grep -E '(XPASS|FAIL)' | sort`  
 some older test results are only with `FAIL`
+
+### `13.2.0`
+
+```
+FAIL: 23_containers/vector/bool/allocator/copy.cc (test for excess errors)
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array + 3, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array - 1, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtolOOBTest Strtol(array, NULL, 36) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array + 3, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array - 1, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array, NULL, 0) execution test
+FAIL: g++.dg/asan/asan_test.C   -O2  AddressSanitizer_StrtollOOBTest Strtol(array, NULL, 36) execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O0  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O1  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O2  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O2 -flto -fno-use-linker-plugin -flto-partition=none  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O2 -flto -fuse-linker-plugin -fno-fat-lto-objects  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -O3 -g  execution test
+FAIL: g++.dg/asan/interception-malloc-test-1.C   -Os  execution test
+FAIL: gcc.dg/analyzer/data-model-4.c (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -O0  (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -O1  (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -O2  (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -O2 -flto -fno-use-linker-plugin -flto-partition=none  (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -O3 -g  (test for excess errors)
+FAIL: gcc.dg/analyzer/torture/conftest-1.c   -Os  (test for excess errors)
+FAIL: gcc.dg/pr56837.c scan-tree-dump-times optimized "memset ..c, 68, 16384.;" 1
+FAIL: gcc.dg/vect/vect-ifcvt-18.c -flto -ffat-lto-objects  scan-tree-dump vect "vectorized 3 loops"
+FAIL: gcc.dg/vect/vect-ifcvt-18.c scan-tree-dump vect "vectorized 3 loops"
+FAIL: gcc.dg/vect/vect-simd-clone-16f.c scan-tree-dump-times vect "[\\\\n\\\\r] [^\\\\n]* = foo\\\\.simdclone" 2
+FAIL: gcc.dg/vect/vect-simd-clone-17f.c scan-tree-dump-times vect "[\\\\n\\\\r] [^\\\\n]* = foo\\\\.simdclone" 2
+FAIL: gcc.dg/vect/vect-simd-clone-18f.c scan-tree-dump-times vect "[\\\\n\\\\r] [^\\\\n]* = foo\\\\.simdclone" 2
+```
 
 ### `12.2.0`
 

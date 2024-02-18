@@ -3,6 +3,10 @@ set -e
 
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
+FINAL_DIR="$LFS/sources/new"
+
+mkdir -pv "$FINAL_DIR/download"
+cd "$FINAL_DIR/download"
 
 (test -f wget-list && [ "$SKIP_REFRESH" = "1" ] && echo "wget-list already exists") || \
   wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
@@ -10,7 +14,7 @@ VERSION=${1:?lfs version not specified}
   wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
 
 function cleanup_list() {
-  # remove packages for systemd version
+  # remove packages not for systemd version
   # docs
   # grub (using the host's grub)
   # vim and kernel (manually download latest items)
@@ -29,7 +33,7 @@ function cleanup_list() {
       -e systemd-man-pages \
       \
       -e grub \
-      -e 'linux-5.' \
+      -e 'linux-6.' \
       -e vim | \
       \
       sed -s "s|http://www.linuxfromscratch.org|$ROOT_URL|" \
@@ -56,10 +60,10 @@ read -r
 wget --input-file=wget-list.cleaned --continue || echo "wget failed" >&2
 md5sum -c md5sums.cleaned
 
-echo "moving sources into $VERSION/"
-mkdir -pv "$VERSION"
-awk -F '  ' '{print $NF}' md5sums.cleaned | xargs -IFILE mv FILE "$VERSION/"
-mv md5sums.cleaned "$VERSION/md5sums"
-mv md5sums "$VERSION/md5sums.orig"
-mv wget-list.cleaned "$VERSION/wget-list"
-mv wget-list "$VERSION/wget-list.orig"
+echo "moving sources into $FINAL_DIR/"
+awk -F '  ' '{print $NF}' md5sums.cleaned | xargs -IFILE mv FILE "$FINAL_DIR/"
+mv md5sums.cleaned "$FINAL_DIR/md5sums"
+mv md5sums "$FINAL_DIR/md5sums.orig"
+mv wget-list.cleaned "$FINAL_DIR/wget-list"
+mv wget-list "$FINAL_DIR/wget-list.orig"
+rmdir "$FINAL_DIR/download"

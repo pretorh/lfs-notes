@@ -13,8 +13,7 @@ cp -v System.map "$DESTDIR/boot/System.map-$linux_name"
 cp -v .config "$DESTDIR/boot/config-$linux_name"
 
 echo "installing docs"
-install -d "$DESTDIR/usr/share/doc/linux-$linux_name"
-cp -r Documentation/* "$DESTDIR/usr/share/doc/linux-$linux_name"
+cp -r Documentation -T "$DESTDIR/usr/share/doc/linux-$linux_name"
 
 echo "configure module load order"
 install -v -m755 -d "$DESTDIR/etc/modprobe.d"

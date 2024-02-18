@@ -13,9 +13,12 @@ mount -vt tmpfs tmpfs "$LFS"/run
 
 if [ -h "$LFS"/dev/shm ]; then
   mkdir -pv "$LFS"/"$(readlink "$LFS"/dev/shm)"
+else
+  mount -v -t tmpfs -o nosuid,nodev tmpfs "$LFS"/dev/shm
 fi
 
 if findmnt /boot >/dev/null ; then
+  echo "bind mounting the host's /boot"
   mkdir -pv "$LFS/boot"
   mount -v --bind /boot "$LFS/boot"
 fi
