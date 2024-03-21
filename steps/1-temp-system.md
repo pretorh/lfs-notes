@@ -91,6 +91,8 @@ check no libtool archive files were installed: `find $LFS -name '*.la'` (3 in `g
 
 ### bin utils and gcc - pass 2
 
+These should also be installed using `DESTDIR=$LFS` when running as lfs user
+
 - Bin Utils (pass 2)
     - patch: outdated libtool
     - post install: remove libtool archive files
