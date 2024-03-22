@@ -22,8 +22,8 @@ Time: 0.2x real for both
 
 ### Glibc
 
-Patches:
-- file system standards: see, `scripts/packages/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+Patches: see, `scripts/packages/glibc/pass2-patch.sh`
+- file system standards: this patch is applied on all glib versions - consider ignoring this and using the non-compliant path
 - mem align patch
 - pre configure setup to install into `sbin`, see `scripts/packages/glibc/pre-configure.sh`
 
