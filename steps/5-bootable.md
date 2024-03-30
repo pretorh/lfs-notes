@@ -6,6 +6,8 @@ From outside chroot, run `scripts/config/genfstab.sh`, and redirect to `$LFS/etc
 
 Note: this gets the uuid (but that does not work from inside chroot) and use that to build the fstab entries
 
+Re-enter chroot
+
 ## Linux
 
 ### setup
