@@ -4,11 +4,10 @@ set -e
 version=6.4
 
 echo "install"
-# todo: use DESTDIR for this
 make DESTDIR="$PWD/dest" install
 install -vm755 dest/usr/lib/libncursesw.so.$version /usr/lib
 rm -v dest/usr/lib/libncursesw.so.$version
-cp -av dest/* /
+cp -av dest/* "$DESTDIR"/
 
 echo "symlink wide to non-wide libs"
 for lib in ncurses form panel menu ; do

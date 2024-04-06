@@ -69,4 +69,4 @@ Initialize the user's bash profile and rc files (this might change between LFS v
 
 ## directory structure
 
-Create directory structure as root using `scripts/setup/create-dirs.sh`
+Create directory structure as `root` using `scripts/setup/create-dirs.sh`

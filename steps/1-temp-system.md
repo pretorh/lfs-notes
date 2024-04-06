@@ -31,7 +31,7 @@ Remeber to time the first installed package, since all the others are relative t
     - install script: see `scripts/packages/linux-headers-install.sh`
 - GLibc
     - install symlinks (is this needed before, can it be run after install?): see `scripts/packages/glibc/symlinks.sh`
-    - patch for FHS compliance: see `scripts/packages/glibc/patch.sh`
+    - patch for FHS compliance: see `scripts/packages/glibc/pass1-patch.sh`
     - run pre configure script (after `cd`ing into build directory, but before `../configure ...`), see `scripts/packages/glibc/pre-configure.sh`
     - post install patch: see `scripts/packages/glibc/post-install.sh`
     - time: 5.0x real
@@ -90,6 +90,8 @@ Most of these configure with `prefix`, `host` and `build=$(build-aux/config.gues
 check no libtool archive files were installed: `find $LFS -name '*.la'` (3 in `gcc` dirs, `libcc1`, `libstdc++exp`)
 
 ### bin utils and gcc - pass 2
+
+These should also be installed using `DESTDIR=$LFS` when running as lfs user
 
 - Bin Utils (pass 2)
     - patch: outdated libtool

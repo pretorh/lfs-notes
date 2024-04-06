@@ -2,7 +2,7 @@
 
 ## Setup
 
-Use `scripts/chroot/enter-chroot.sh` if you need to re-enter chroot
+Use `scripts/chroot/enter-chroot.sh` if you need to re-enter chroot. See `2-chroot-temp-system2.md`.
 
 ## Network
 

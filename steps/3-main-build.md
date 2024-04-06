@@ -22,8 +22,8 @@ Time: 0.2x real for both
 
 ### Glibc
 
-Patches:
-- file system standards: see, `scripts/packages/glibc/patch.sh`. This patch is applied on all glib versions - consider ignoring this and using the non-compliant path
+Patches: see, `scripts/packages/glibc/pass2-patch.sh`
+- file system standards: this patch is applied on all glib versions - consider ignoring this and using the non-compliant path
 - mem align patch
 - pre configure setup to install into `sbin`, see `scripts/packages/glibc/pre-configure.sh`
 
@@ -72,7 +72,7 @@ Time: 7.5x real for all 12
     - remove static libs: `rm -vf /usr/lib/libz.a`
 - bzip2
     - patch for docs, relative symlinks and man pages. build the dynamic library first: `scripts/packages/bzip2-patch.sh`
-    - no configure (but install with `PREFIX` - part of `bzip2-install.sh`)
+    - no configure (but install with `PREFIX` - part of `scripts/packages/bzip2-install.sh`)
     - install: `scripts/packages/bzip2-install.sh`
 - xz
 - zstd
@@ -141,7 +141,7 @@ Time: 0.4x real for all 4
     - tests require coreutils, so cannot be run now
 - libcap
     - patch: prevent installing static libraries
-    - no configure (but prefix= in make)
+    - no configure (but `make prefix=`)
 - libxcrypt
 
 ### Shadow

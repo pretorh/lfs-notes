@@ -6,6 +6,8 @@ From outside chroot, run `scripts/config/genfstab.sh`, and redirect to `$LFS/etc
 
 Note: this gets the uuid (but that does not work from inside chroot) and use that to build the fstab entries
 
+Re-enter chroot
+
 ## Linux
 
 ### setup
@@ -59,7 +61,7 @@ on the *host* system:
 ln -svf "$LFS/etc/grub.d/11_lfs" /etc/grub.d
 cp -v /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 grub-mkconfig > /boot/grub/grub.cfg
-diff /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
+diff --unified --color /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 ```
 
 ### previous notes
