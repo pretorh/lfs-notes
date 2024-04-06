@@ -13,17 +13,11 @@ echo "# end of XPASSed and FAILed test list"
 
 unexpected_test_failures() {
   grep -v \
-    -e copy.cc \
-    -e pr56837.c \
-    -e data-model-4.c \
-    -e conftest-1.c \
-    -e asan_test.C \
-    -e interception-malloc-test-1.C \
-    -e '/vect/vect-' \
+    -e "c-c++-common/goacc/kernels-decompose-pr100400-1-2.c" \
     failed-test-summary.log >/dev/null
 }
 
-if grep -v "c-c++-common/goacc/kernels-decompose-pr100400-1-2.c" failed-test-summary.log >/dev/null ; then
+if unexpected_test_failures ; then
   echo "FAIL: there are unexpected failing tests" >&2
   exit 1
 else
