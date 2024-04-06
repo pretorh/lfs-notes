@@ -15,6 +15,7 @@ do
     label=${label//lfs-/LFS: }
 
     echo "menuentry \"$label\" {"
+    echo "    load_video"
     echo "    # needs initramfs: linux /$base_name root=UUID=${sources[1]} ro"
     echo "    linux /$base_name root=${sources[0]} ro"
     echo "}"
