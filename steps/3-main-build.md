@@ -44,6 +44,8 @@ Tests are *critical*, but some will fail:
 
 See `steps/test-results.md` for summary.
 
+See `scripts/packages/glibc/tests.sh`
+
 #### Install glibc
 
 Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/packages/glibc/install.sh`
