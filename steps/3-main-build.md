@@ -240,6 +240,7 @@ Time: 3.0x real for all 6
         - 129. linking libltdl without autotools
         - 66. Link order test
         - 169. Run tests with low max cmd len
+    - See `scripts/packages/libtool-tests.sh`
     - remove static libs: `/usr/lib/libltdl.a`
     - time: 1.9x real
 - gdbm
