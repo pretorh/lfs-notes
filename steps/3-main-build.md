@@ -446,6 +446,7 @@ Time: 3.1x for all 5
     - time: 1.1x real
 - e2fsprogs
     - tests: `m_assume_storage_prezeroed` is known to fail
+    - see `scripts/packages/e2fsprogs-tests.sh`
     - post-install: see `scripts/packages/e2fsprogs-post.sh`
 
 ## Cleanup
