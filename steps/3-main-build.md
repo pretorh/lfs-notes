@@ -390,7 +390,7 @@ Time: 10.7x for all 13 (`grub` skipped)
 - patch
     - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
 - tar
-    - tests
+    - tests: see `scripts/packages/tar-tests.sh`
         - one test is known to fail, `233: capabilities: binary store/restore` (`capabs_raw01.at`)
         - others passed (218 run, 1 failed unexpectedly, 20 skipped)
     - time: 3.3x real
