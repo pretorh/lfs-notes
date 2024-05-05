@@ -436,6 +436,7 @@ Time: 3.1x for all 5
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
 - man-db
     - tests: `man1/lexgrog.1` is known to fail
+    - see `scripts/packages/man-db-tests.sh`
 - procps-ng
 - util-linux
     - patch to skip test
