@@ -87,7 +87,7 @@ Most of these configure with `prefix`, `host` and `build=$(build-aux/config.gues
 
 ### cleanup
 
-check no libtool archive files were installed: `find $LFS -name '*.la'` (3 in `gcc` dirs, `libcc1`, `libstdc++exp`)
+check no libtool archive files were installed: `find $LFS -name '*.la' 2>/dev/null` (3 in `gcc` dirs, `libcc1`, `libstdc++exp`)
 
 ### bin utils and gcc - pass 2
 
