@@ -14,6 +14,6 @@ Run `scripts/config/os-details.sh` to generate system details `etc` files
 
 `logout` and unmount virtual filesystem, see `scripts/chroot/umount-chroot.sh`
 
-unmount all nested partitions of LFS, then LFS itself
+unmount all nested partitions of LFS, then LFS itself: `umount -v /mnt/lfs{/sources,}`
 
 Reboot the host system

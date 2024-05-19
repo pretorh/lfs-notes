@@ -44,6 +44,8 @@ Tests are *critical*, but some will fail:
 
 See `steps/test-results.md` for summary.
 
+See `scripts/packages/glibc/tests.sh`
+
 #### Install glibc
 
 Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd configs and systemd files. See `scripts/packages/glibc/install.sh`
@@ -238,6 +240,7 @@ Time: 3.0x real for all 6
         - 129. linking libltdl without autotools
         - 66. Link order test
         - 169. Run tests with low max cmd len
+    - See `scripts/packages/libtool-tests.sh`
     - remove static libs: `/usr/lib/libltdl.a`
     - time: 1.9x real
 - gdbm
@@ -387,7 +390,7 @@ Time: 10.7x for all 13 (`grub` skipped)
 - patch
     - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
 - tar
-    - tests
+    - tests: see `scripts/packages/tar-tests.sh`
         - one test is known to fail, `233: capabilities: binary store/restore` (`capabs_raw01.at`)
         - others passed (218 run, 1 failed unexpectedly, 20 skipped)
     - time: 3.3x real
@@ -433,6 +436,7 @@ Time: 3.1x for all 5
     - potential extract issue with `/var/run/dbus: Cannot mkdir: Too many levels of symbolic links`
 - man-db
     - tests: `man1/lexgrog.1` is known to fail
+    - see `scripts/packages/man-db-tests.sh`
 - procps-ng
 - util-linux
     - patch to skip test
@@ -442,6 +446,7 @@ Time: 3.1x for all 5
     - time: 1.1x real
 - e2fsprogs
     - tests: `m_assume_storage_prezeroed` is known to fail
+    - see `scripts/packages/e2fsprogs-tests.sh`
     - post-install: see `scripts/packages/e2fsprogs-post.sh`
 
 ## Cleanup
