@@ -40,8 +40,6 @@ Remeber to time the first installed package, since all the others are relative t
 
 See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
-Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
-
 ## Part 2
 
 - libstdc++
