@@ -63,7 +63,7 @@ on the *host* system:
 ln -svf "$LFS/etc/grub.d/11_lfs" /etc/grub.d
 cp -v /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 grub-mkconfig > /boot/grub/grub.cfg
-diff --unified --color /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
+diff --unified --color /boot/grub/grub.cfg.bak /boot/grub/grub.cfg
 ```
 
 ### previous notes
