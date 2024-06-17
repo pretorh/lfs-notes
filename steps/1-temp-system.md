@@ -106,6 +106,6 @@ These should also be installed using `DESTDIR=$LFS` when running as lfs user
 
 ## finalize temporary system
 
-Logout `lfs` user, most of the remaining commands should be run as `root` (use `./scripts/sudo.sh`)
+Logout (`exit`) `lfs` user, most of the remaining commands should be run as `root` (use `./scripts/sudo.sh`)
 
 Fix the LFS root file ownership, use `scripts/fix-permissions.sh`

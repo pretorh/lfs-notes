@@ -1,6 +1,6 @@
 # Building the LFS system
 
-These notes are from Chapter 8 of the 10.0 to 11.2 version
+These notes are from Chapter 8 of the 10.0 to 12.0 version
 
 ## setup
 

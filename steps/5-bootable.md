@@ -31,9 +31,11 @@ Time: 8.1x real
 
 Use `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
 
-### No need to remove the sources
+### finalize
 
-But need to chown: `chown -R 0:0 .`
+No need to remove the sources, but need to chown: `chown -R 0:0 .`
+
+`exit` from the `linux-setup.sh` script
 
 ## GRUB
 

@@ -26,7 +26,7 @@ If you exit chroot, you will need to re-enter it before continuing
 
 ## Build more temporary tools
 
-Build and install from the `sources` directory
+Build and install from the `/sources` directory
 
 Time: 7.6x real for all 6
 
@@ -61,6 +61,6 @@ Saved 1287M in seconds.
 
 Optionally backup the temp system, see `scripts/backup.sh`
 
-Note: unlike the book, this does _not_ include the source packge files.
+Note: unlike the book, this does _not_ include the source package files.
 
 Time: about 11minutes for 406M
