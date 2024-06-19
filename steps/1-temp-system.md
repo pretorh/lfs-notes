@@ -40,8 +40,6 @@ Remeber to time the first installed package, since all the others are relative t
 
 See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/sanity-check.sh`
 
-Finalize `limits.h` header, see `scripts/finalize-limitsh.sh`
-
 ## Part 2
 
 - libstdc++
@@ -108,6 +106,6 @@ These should also be installed using `DESTDIR=$LFS` when running as lfs user
 
 ## finalize temporary system
 
-Logout `lfs` user, most of the remaining commands should be run as `root` (use `./scripts/sudo.sh`)
+Logout (`exit`) `lfs` user, most of the remaining commands should be run as `root` (use `./scripts/sudo.sh`)
 
 Fix the LFS root file ownership, use `scripts/fix-permissions.sh`

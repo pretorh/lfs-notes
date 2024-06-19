@@ -31,9 +31,11 @@ Time: 8.1x real
 
 Use `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
 
-### No need to remove the sources
+### finalize
 
-But need to chown: `chown -R 0:0 .`
+No need to remove the sources, but need to chown: `chown -R 0:0 .`
+
+`exit` from the `linux-setup.sh` script
 
 ## GRUB
 
@@ -61,7 +63,7 @@ on the *host* system:
 ln -svf "$LFS/etc/grub.d/11_lfs" /etc/grub.d
 cp -v /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 grub-mkconfig > /boot/grub/grub.cfg
-diff --unified --color /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
+diff --unified --color /boot/grub/grub.cfg.bak /boot/grub/grub.cfg
 ```
 
 ### previous notes
