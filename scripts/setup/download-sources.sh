@@ -3,15 +3,11 @@ set -e
 
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
-FINAL_DIR="$LFS/sources/new"
 
-mkdir -pv "$FINAL_DIR/download"
-cd "$FINAL_DIR/download"
+cd "$LFS/sources"
 
-(test -f wget-list && [ "$SKIP_REFRESH" = "1" ] && echo "wget-list already exists") || \
-  wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list" -O wget-list
-(test -f md5sums && [ "$SKIP_REFRESH" = "1" ] && echo "md5sums already exists") || \
-  wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums" -O md5sums
+wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list"
+wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums"
 
 function cleanup_list() {
   # remove packages not for systemd version
@@ -60,10 +56,4 @@ read -r
 wget --input-file=wget-list.cleaned --continue || echo "wget failed" >&2
 md5sum -c md5sums.cleaned
 
-echo "moving sources into $FINAL_DIR/"
-awk -F '  ' '{print $NF}' md5sums.cleaned | xargs -IFILE mv FILE "$FINAL_DIR/"
-mv md5sums.cleaned "$FINAL_DIR/md5sums"
-mv md5sums "$FINAL_DIR/md5sums.orig"
-mv wget-list.cleaned "$FINAL_DIR/wget-list"
-mv wget-list "$FINAL_DIR/wget-list.orig"
-rmdir "$FINAL_DIR/download"
+rm -v md5sums.cleaned wget-list.cleaned wget-list md5sums
