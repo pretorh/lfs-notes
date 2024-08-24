@@ -9,5 +9,5 @@ else
 fi
 
 passed=$(awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log)
-echo "$passed"
+echo "Total passing tests: $passed"
 test "$passed" -ge 199

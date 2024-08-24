@@ -10,5 +10,6 @@ else
     echo "There are unexpected test failures" >&2
     exit 1
   fi
-  echo "but only expected errors"
+  echo "But only expected failures:"
+  grep -E "^FAIL" check.log
 fi

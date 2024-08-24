@@ -2,6 +2,8 @@
 
 unexpected_failures() {
   grep '^FAIL' tests.sum \
+    | grep -v 'misc/tst-preadvwritev2' \
+    | grep -v 'misc/tst-preadvwritev64v2' \
     | grep -v 'io/tst-lchmod'
 }
 

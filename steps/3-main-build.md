@@ -198,23 +198,22 @@ Time: 12.7x real for all 7
     - install and post install using `scripts/packages/ncurses/install-main.sh`
 - sed
     - basic config (`prefix`) and simple build/install (not building docs)
-    - tests
-        - run with `tester` user (same as gcc)
-        - 217 passed, 28 skipped (of 245)
+    - tests: run with `tester` user (same as gcc). Uses "Testsuite summary" output
 - psmisc
     - basic config (`prefix`) and simple build/install
+    - tests: uses separate tests for executables, find "... Summary"
 - Gettext
     - basic config (`prefix`, `disable-static`, `docdir`) and simple build/test/install
-    - tests: 727 total, 690 passed, 37 skipped
+    - tests: uses "Testsuite summary" output
     - time: 3.8x real
 - bison
     - basic config (`prefix`, `docdir`) and simple build/test/install
-    - tests: "712 tests were successful. 64 tests were skipped."
+    - tests: uses "Testsuite summary" output
     - time: 6.9x real
 - grep
     - patch to setup tests: `scripts/packages/grep-patch.sh`
     - basic config (`prefix`) and simple build/test/install
-    - tests: 318 total, 289 pass, 21 skipped, 1 xfail
+    - tests: uses "Testsuite summary" output
 
 ### Bash
 
@@ -244,18 +243,16 @@ Time: 3.0x real for all 6
     - remove static libs: `/usr/lib/libltdl.a`
     - time: 1.9x real
 - gdbm
-    - tests: "All 33 tests were successful."
+    - tests: shows after "Test results."
 - gperf
     - basic config (`prefix` and `docdir`) and simple build/install
-    - tests:
-        - run with `-j1`
-        - no summary
+    - tests: run with `-j1`. No summary
 - expat
     - basic config (`prefix`, `disable-static` and `docdir`) and simple build/test/install
-    - tests: all 2 passed
+    - tests: uses "Testsuite summary" output
 - inetutils
     - config: disable obsolete programs/programs provided by other packages
-    - tests: 10 of 11 passed (1 skipped)
+    - tests: uses "Testsuite summary" output
     - post install: move `ifconfig` into `/usr/sbin`
 - less
     - basic config (`prefix`, `sysconfdir`) and simple build/install
@@ -276,27 +273,27 @@ Time: 44.1x for all 18
 - XML-Parser
     - in archive: `XML-P*`
     - prepare with `perl Makefile.PL`. then basic build/test/install
-    - tests: all 140 passed
+    - tests: "All tests successful."
 - intltool
     - patch: `scripts/packages/intltool-patch.sh`
     - then basic config (`prefix`) and build/test/install
-    - 1 test that passes
+    - tests: uses "Testsuite summary" output
 - autoconf
     - patch: `scripts/packages/autoconf-patch.sh`
     - basic config (`prefix`) and build/test/install
-    - tests: "543 tests behaved as expected, 56 tests were skipped"
+    - tests: shows after "Test results."
     - time: 5.0x real
 - automake
     - tests:
         - run tests with `-j4` option to speed it up (even on single core systems)
-        - results: 2926 total, 2726 pass (162 skip, 38 xfail)
+        - uses "Testsuite summary" output
         - `t/subobj.sh` is known to fail
     - time: 12.7x real
 - openssl
     - configure script is named `config`
     - tests:
         - `30-test_afalg.t` is known to sometime fail (but it passed)
-        - All tests successful. ("Files=243, Tests=3299")
+        - "All tests successful."
     - pre-install: skip static libs
     - to check: a lot of `/usr/bin/perl ./util/mkpod2html.pl` commands during install
     - see note on updating openssl and openssh together
@@ -306,15 +303,17 @@ Time: 44.1x for all 18
     - post-install: `scripts/packages/kmod-post.sh`
 - libelf
     - in archive: `elfutils-*`
-    - tests: 232 total, 227 pass, 5 skipped
+    - tests: uses "Testsuite summary" output
     - install only libelf, see `scripts/packages/libelf-install.sh`
 - libffi
     - see note on processor architecture
-    - tests: 2304 passed
+    - tests: find "libffi Summary"
     - time: 4.3x real
 - python
     - archive name start with capital
-    - tests: skipped, "known to hang indefinitely" (needs networking)
+    - tests
+      - skipped, "known to hang indefinitely" (needs networking)
+      - some still ran, "Tests result: SUCCESS"
     - see note on pip usage as root, update checks. see `scripts/packages/python-post.sh` to create a default `pip.conf`
     - time: 5.0x real
 - Flit-Core
@@ -322,11 +321,12 @@ Time: 44.1x for all 18
     - no tests
     - install with `pip3`
 - wheel
+    - no tests
     - install using `pip3`
 - ninja
     - see note on optional patch (to decrease/set parallel process count)
     - configured and build with python3 scripts
-    - tests passed (384/384)
+    - tests: "passed"
 - meson
     - build with `pip3 wheel ...`
     - no tests
@@ -336,7 +336,7 @@ Time: 44.1x for all 18
     - tests:
         - see `scripts/packages/coreutils-test.sh`
         - `test-getlogin` may fail
-        - 1041 total, 896 pass, 145 skip
+        - Uses "Testsuite summary" output
     - post install: move files, see `scripts/packages/coreutils-post-main.sh` (similar to 1st)
     - time: 2.4x real
 - check
@@ -344,21 +344,21 @@ Time: 44.1x for all 18
     - tests:
         - take relatively long
         - seems to hang after `test_tap_output.sh`
-        - all 10 tests passed
+        - Uses "Testsuite summary" output
     - time: 1.9x real
 - diffutils
     - basic config (`prefix`) and simple build/test/install
-    - tests: 225 total, 207 passed/17 skipped/1 xfail
+    - tests: uses "Testsuite summary" output
 - gawk
     - patch: `sed -i 's/extras//' Makefile.in`
     - basic config (`prefix`) and simple build
-    - test needs to change to `tester`, and install needs to set `LN` variable
-    - "ALL TESTS PASSED" (no summary)
+    - tests:
+        - needs to change to `tester`, and install needs to set `LN` variable
+        - "ALL TESTS PASSED" (no summary)
 - findutils
     - tests:
         - run as `tester`
-        - 281 total, 263 pass, 18 skipped
-        - expected passes: 487, 96, 32
+        - uses "Testsuite summary" *and* "<executable> Summary" outputs
     - time: 1.0x real
 
 ### Part 7
@@ -372,23 +372,23 @@ Time: 10.7x for all 13 (`grub` skipped)
     - actual boot setup covered after packages installed
 - gzip
     - basic config (`prefix`) and simple build/test/install
-    - all 26 tests passed
+    - tests: uses "Testsuite summary"
 - iproute2
     - skip `arpd`: `scripts/packages/iproute2-patch.sh`
     - no configure, tests
     - build and install with specific `make` variables
 - kbd
     - patch, see `scripts/packages/kbd-patch.sh`
-    - 40 tests, 36 passed, 4 skipped
+    - tests: shows after "Test results."
 - libpipeline
     - basic config (`prefix`) and simple build/test/install
-    - tests: all 7 passed
+    - tests: uses "Testsuite summary"
 - make
     - basic config (`prefix`) and simple build/test/install
     - tests run as `tester`, see `scripts/packages/make-tests.sh`
     - all tests passed ("690 Tests in 125 Categories Complete ... No Failures :-)")
 - patch
-    - tests passed (44 total, 41 pass, 1 skip, 2 xfail)
+    - tests: uses "Testsuite summary"
 - tar
     - tests: see `scripts/packages/tar-tests.sh`
         - one test is known to fail, `233: capabilities: binary store/restore` (`capabs_raw01.at`)
@@ -396,12 +396,12 @@ Time: 10.7x for all 13 (`grub` skipped)
     - time: 3.3x real
 - texinfo
     - basic config (`prefix`) and simple build/test/install
-    - tests: 253 total, 234 passed, 19 skipped
+    - tests: uses "Testsuite summary" (multiple)
 - vim
     - patch default vimrc: see `scripts/packages/vim/patch.sh`
     - tests
         - run as `tester`, redirect test output to file, see `scripts/packages/vim/tests.sh`
-        - note: tests require 24 lines (increase `tmux` pane)
+        - tests: *note* require 24 lines (increase `tmux` pane)
         - ends with "ALL DONE"
     - post install and config: see `scripts/packages/vim/post.sh`
     - time: 3.9x real
@@ -438,6 +438,7 @@ Time: 3.1x for all 5
     - tests: `man1/lexgrog.1` is known to fail
     - see `scripts/packages/man-db-tests.sh`
 - procps-ng
+    - tests: uses "Testsuite summary"
 - util-linux
     - patch to skip test
     - tests:

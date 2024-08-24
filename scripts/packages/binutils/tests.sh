@@ -9,5 +9,6 @@ else
   if grep -E "^FAIL" check.log | grep -vE "^FAIL: ($expected_failulres)$" ; then
     exit 1
   fi
-  echo "but only expected errors"
+  echo "But only expected failures:"
+  grep -E "^FAIL" check.log
 fi
