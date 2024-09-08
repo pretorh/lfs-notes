@@ -6,10 +6,10 @@ if make check TESTSUITEFLAGS=-j4 &>check.log ; then
   echo "check passed!"
 else
   echo "check failed"
-  if grep -E "^FAIL" tests/testsuite.log | grep -vE "^FAIL: ($expected_failulres)$" ; then
+  if grep -E "^[0-9]+.*FAILED" tests/testsuite.log | grep -vE "[0-9]+\. ($expected_failulres)" ; then
     echo "There are unexpected test failures" >&2
     exit 1
   fi
   echo "But only expected failures:"
-  grep -E "^FAIL" tests/testsuite.log
+  grep -E "^[0-9]+.*FAILED" tests/testsuite.log
 fi
