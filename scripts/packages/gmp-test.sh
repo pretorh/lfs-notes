@@ -11,3 +11,4 @@ fi
 passed=$(awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log)
 echo "Total passing tests: $passed"
 test "$passed" -ge 199
+grep -E '^(# |)FAIL:' gmp-check-log

@@ -5,6 +5,11 @@ chown -R tester .
 
 echo "tests: starting..."
 su tester -c "make --jobs 4 -k check | tee check-log"
-echo "tests: passed" # todo: need to fail this if there are failing tests
+if grep -E 'All [0-9]+ tests PASSED' check-log ; then
+  echo "tests: passed"
+else
+  echo "tests: failures!" >&2
+  exit 1
+fi
 
 chown -R root .
