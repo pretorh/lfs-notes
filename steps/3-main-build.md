@@ -99,7 +99,7 @@ Time: 7.5x real for all 12
     - time: 4.1x real
 - expect
     - post: symlink lib into `/usr/lib`
-    - tests are *critical*
+    - tests are *critical*. uses `all.tcl:  Total ...  Passed  ...` format
 - DejaGNU
     - skipped building/installing docs
     - tests: ran before install (book has install then test?)
@@ -122,16 +122,17 @@ Time: 3.0x real for all 3
 - gmp
     - see notes on the architecture, and make sure that matches the CPU
     - skipped building/installing html docs
-    - The tests are critical.
+    - The tests are *critical*.
         - Check that "at least 199 tests"
         - See `scripts/packages/gmp-test.sh`
 - mpfr
     - patch tests, see `scripts/packages/mpfr-patch.sh`
     - simple build/test/install
     - skipped building/installing html docs
-    - The tests are critical. All tests must pass
+    - The tests are *critical*. All tests must pass. Uses "Testsuite summary" output
 - mpc
     - basic config (`prefix`, `docdir`, `disable-static`) and simple build/test/install
+    - The tests uses "Testsuite summary" output
     - skipped building/installing html docs
 
 ### Part 3
@@ -170,7 +171,7 @@ Patch, see `scripts/packages/gcc/patch-lib64.sh` (same as before)
 
 Takes most of the time: 110.0x real for the `time ... make ... check` line
 
-The tests are critical.
+The tests are *critical*.
 
 Increase stack size, run tests as the `tester` user and print a summary of the test results, see `scripts/packages/gcc/tests.sh`
 
@@ -193,6 +194,7 @@ Time: 12.7x real for all 7
 
 - pkgconf
     - post install symlink for compatability with `pkg-config`, see `scripts/packages/pkgconf-post.sh`
+    - no tests
 - ncurses
     - tests can only be run after ncurses is installed
     - install and post install using `scripts/packages/ncurses/install-main.sh`
@@ -386,7 +388,7 @@ Time: 10.7x for all 13 (`grub` skipped)
 - make
     - basic config (`prefix`) and simple build/test/install
     - tests run as `tester`, see `scripts/packages/make-tests.sh`
-    - all tests passed ("690 Tests in 125 Categories Complete ... No Failures :-)")
+    - all tests passed ("... Tests in ... Categories Complete ... No Failures :-)")
 - patch
     - tests: uses "Testsuite summary"
 - tar
