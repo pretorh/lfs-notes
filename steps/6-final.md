@@ -2,7 +2,7 @@
 
 ## Release details
 
-Run `scripts/config/os-details.sh` to generate system details `etc` files
+Re-enter chroot and run `/sources/scripts/os-details.sh` to generate system details `etc` files
 
 ## Optional Packages
 

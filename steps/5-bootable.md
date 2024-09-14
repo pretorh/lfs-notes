@@ -2,7 +2,9 @@
 
 ## fstab
 
-From outside chroot, run `scripts/config/genfstab.sh`, and redirect to `$LFS/etc/fstab`
+From outside chroot, run `scripts/config/genfstab.sh`, and redirect it:
+
+`scripts/config/genfstab.sh | tee $LFS/etc/fstab`
 
 Note: this gets the uuid (but that does not work from inside chroot) and use that to build the fstab entries
 
