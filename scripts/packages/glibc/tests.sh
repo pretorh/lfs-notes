@@ -13,6 +13,7 @@ elif unexpected_failures ; then
   echo "Unknown failures!" 2>&1
   exit 1
 else
+  echo "check failed"
+  echo "But only expected failures:"
   grep '^FAIL' tests.sum
-  echo "Known failures only"
 fi
