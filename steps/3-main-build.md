@@ -52,18 +52,18 @@ Prevent warnings and sanity checks, install glibc, fix ldd paths, install nscd c
 
 #### Install timezone data
 
-see `scripts/packages/tzdata-install.sh` (note this should run in the `sources` dir) and configure it
+Run `scripts/packages/tzdata-install.sh` (note this should run in the `sources` dir) and configure it
 
 #### Configure glibc
 
-Install locales needed for future tests, see `scripts/config/install-locales.sh`
+Install locales needed for future tests, run `scripts/config/install-locales.sh`
 
-Find your locale in list of supported (`tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED' | grep en_GB`)
+Find your locale in list of supported (ex `tar -xOf ./glibc-*.tar.xz --wildcards -- 'glibc-*/localedata/SUPPORTED' | grep en_GB`)
 and install it, ex `localedef -i en_GB -f UTF-8 en_GB.UTF-8`
 
 Run `scripts/config/tz-set-localtime.sh` to set `/etc/localtime`
 
-See `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
+Run `scripts/config/dynamic-loader-setup.sh` to setup `/etc/ld.so.conf`
 
 ### Part 2
 
@@ -157,7 +157,7 @@ There are no tests
 
 Install using `scripts/packages/shadow-install.sh`
 
-See `scripts/config/shadow.sh` for post install configuration
+Run `scripts/config/shadow.sh` for post install configuration
 
 Time: 0.2x real
 

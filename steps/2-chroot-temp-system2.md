@@ -33,7 +33,6 @@ Time: 7.6x real for all 6
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
-    - to check: previously build these only, which may be a bit faster
     - time: 2.7x real
 - bison
 - perl

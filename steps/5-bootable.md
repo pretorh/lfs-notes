@@ -14,7 +14,7 @@ Re-enter chroot
 
 ### setup
 
-Use `scripts/kernel/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
+Run `scripts/kernel/linux-setup.sh` to extract sources and clean, and setup a default config. Note this starts bash in the extracted directory
 
 ### configure
 
@@ -31,7 +31,7 @@ Time: 8.1x real
 
 ### install
 
-Use `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
+Run `scripts/kernel/install-linux.sh <kernal name, preferably something with lfs>`
 
 ### finalize
 
