@@ -2,12 +2,14 @@
 
 ## install/update required packages on the host
 
-For list of packages, and installing on Arch, use `sudo scripts/setup/pacman.sh`. Note Python 3 is required.
-(Linux kernel not mentioned in script)
+For list of packages, and installing on Arch, use `sudo scripts/setup/pacman.sh`.
 
-`wget` is used to download sources.
+Notes:
+- Python 3 is required (in `python` package).
+- Linux kernel not mentioned in script
+- `wget` is used to download sources.
 
-Use `scripts/setup/symlink-check.sh` to check that symlinks point to correct versions.
+Use `scripts/setup/check.sh` to check that symlinks point to correct versions.
 
 ## Setup partition, set the LFS variable, and mount
 
