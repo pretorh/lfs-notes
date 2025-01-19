@@ -3,18 +3,21 @@ set -e
 
 ROOT_URL=https://www.linuxfromscratch.org
 VERSION=${1:?lfs version not specified}
+suffix=-systemd
 
 cd "$LFS/sources"
 
-wget "$ROOT_URL/lfs/downloads/$VERSION/wget-list"
-wget "$ROOT_URL/lfs/downloads/$VERSION/md5sums"
+echo "Download $VERSION$suffix"
+wget "$ROOT_URL/lfs/downloads/$VERSION$suffix/wget-list"
+wget "$ROOT_URL/lfs/downloads/$VERSION$suffix/md5sums"
 
 function cleanup_list() {
-  # remove packages not for systemd version
+  # remove packages:
+  # not for systemd version
   # docs
   # grub (using the host's grub)
   # vim and kernel (manually download latest items)
-  # replace root urls
+  # replace root URLs
 
   file=$1
   echo "$file:"

@@ -26,7 +26,8 @@ set for root
 
 ## Setup the sources directory
 
-Use `scripts/setup/sources.sh` as root to setup directory structure.
+Use `scripts/setup/sources.sh` as root to setup directory structure. This script _does not_ make the `sources`
+directory sticky as in the book, allowing the host user to delete files if needed.
 
 ## Download the sources
 
@@ -34,7 +35,7 @@ Remember to read the [errata](https://www.linuxfromscratch.org/lfs/errata/stable
 
 ### wget-list
 
-Use `scripts/setup/download-sources.sh <lfs-version-with-systemd-suffix>` to get the wget-list from
+Use `scripts/setup/download-sources.sh <lfs-version>` to get the wget-list from
 linuxfromscratch.org and download the packages.
 
 This script skips packages not needed in `systemd` LFS, and some packages that were previously downloaded but not installed:
