@@ -19,6 +19,8 @@ LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=$LFS/tools/bin:/bin:/usr/bin
 CONFIG_SITE=$LFS/usr/share/config.site
 export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
+# use all but 1 processor
+export MAKEFLAGS=-j$(nproc --all --ignore=9)
 # added for debugging
 cd $LFS
 echo "lfs is set to $LFS"
