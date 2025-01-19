@@ -17,7 +17,7 @@ Set `LFS` variable to a location where you can mount a new drive:
 
 `export LFS=/mnt/lfs`
 
-Create partitions, add filesystems, and mount the partitions in `$LFS`
+Create partitions, add file systems, and mount the partitions in `$LFS`
 
 Use `lsblk -oKNAME,UUID,LABEL,PARTLABEL` to find the uuid of the partition to add it to `/etc/fstab`.
 
@@ -52,13 +52,13 @@ Some packages change frequently and the latest versions should be manually downl
 
 ### other options
 
-Can also get a tarball with all packages for a version (systemd and init).
+Can also get a tarball with all packages for a version.
 
 ## create and setup `lfs` user
 
 Create the user (once) on the host system:
 
-as root:
+As root:
 
 ```
 groupadd lfs
@@ -68,7 +68,7 @@ passwd lfs
 
 ### setup lfs user environment
 
-Initialize the user's bash profile and rc files (this might change between LFS versions) as root using `scripts/setup/create-lfs-user-environment.sh`
+Initialize the user's bash profile and `rc` files (this might change between LFS versions) as root using `scripts/setup/create-lfs-user-environment.sh`
 
 ## directory structure
 
