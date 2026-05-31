@@ -21,9 +21,9 @@ CONFIG_SITE=$LFS/usr/share/config.site
 export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 # added for debugging
 cd $LFS
-echo "lfs is set to $LFS"
-echo "path contains $PATH"
-echo "starting in lfs specific directory (`pwd`)"
+echo "LFS is set to $LFS"
+echo "PATH contains $PATH"
+echo "Starting in lfs specific directory ($(pwd))"
 EOF
 
 # allow ssh from same users as currently logged in user

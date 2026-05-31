@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+echo "Remove known failures"
+sed -e '/cpython/d' -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp
 echo "setup testing"
-ulimit -s 32768
+ulimit -s -H unlimited
 chown -R tester .
 
 echo "starting tests"
-time su tester -c "PATH=$PATH make --jobs 8 -k check || echo 'make check failed'"
+time su tester -c "PATH=$PATH make --jobs $(nproc) -k check || echo 'make check failed'"
+echo ""
 
 echo "failed tests:"
 ../contrib/test_summary | grep -E '(XPASS|FAIL)' | sort | tee failed-test-summary.log

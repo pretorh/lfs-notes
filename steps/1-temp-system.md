@@ -10,7 +10,7 @@ If you already built the toolchain and made a backup, you can restore it:
 
 You should login as `lfs`: `su - lfs`
 
-Remeber to time the first installed package, since all the others are relative to it.
+Remember to time the first installed package, since all the others are relative to it.
 
 ## Part 1
 
@@ -22,10 +22,9 @@ Remeber to time the first installed package, since all the others are relative t
         - `scripts/packages/gcc/patch-lib64.sh`
     - post install scripts:
         - `scripts/packages/gcc/fix-limits_header.sh`
-    - time: 12.3x real
 - Linux API Headers
-    - remove previous extracted linux dir if re-running with same linux version
-    - extract from the linux sources (use downloaded version)
+    - remove previous extracted Linux directory if re-running with same Linux version
+    - extract from the Linux sources (use downloaded version)
     - ensure clean working directory: `make mrproper`
     - build using `make headers`
     - install script: see `scripts/packages/linux-headers-install.sh`
@@ -34,7 +33,6 @@ Remeber to time the first installed package, since all the others are relative t
     - patch for FHS compliance: see `scripts/packages/glibc/pass1-patch.sh`
     - run pre configure script (after `cd`ing into build directory, but before `../configure ...`), see `scripts/packages/glibc/pre-configure.sh`
     - post install patch: see `scripts/packages/glibc/post-install.sh`
-    - time: 5.0x real
 
 ## Sanity Check 1
 
@@ -53,7 +51,7 @@ See `scripts/sanity-check.sh` and run with `SANITY_CC=$LFS_TGT-gcc ./scripts/san
 
 These mostly use `make DESTDIR=$LFS install` when installing
 
-These all have negligible build times. Overall: 5.7x real
+These all have negligible build times
 
 Most of these configure with `prefix`, `host` and `build=$(build-aux/config.guess)`
 
@@ -83,18 +81,13 @@ Most of these configure with `prefix`, `host` and `build=$(build-aux/config.gues
 - xz
     - post install: remove libtool archive files
 
-### cleanup
-
-check no libtool archive files were installed: `find $LFS -name '*.la' 2>/dev/null` (3 in `gcc` dirs, `libcc1`, `libstdc++exp`)
-
 ### bin utils and gcc - pass 2
 
-These should also be installed using `DESTDIR=$LFS` when running as lfs user
+These should also be installed using `DESTDIR=$LFS` when running as `lfs` user
 
 - Bin Utils (pass 2)
     - patch: outdated libtool
     - post install: remove libtool archive files
-    - time: 1.2x real
 - GCC (pass 2)
     - patch:
         - `scripts/packages/gcc/patch-mpfr-mpc-gmp.sh` (same as in pass 1)
@@ -102,7 +95,6 @@ These should also be installed using `DESTDIR=$LFS` when running as lfs user
         - `scripts/packages/gcc/patch-libgcc-posix-support.sh`
     - post install:
         - `ln -sv gcc $LFS/usr/bin/cc`
-    - time: 14.4x real
 
 ## finalize temporary system
 

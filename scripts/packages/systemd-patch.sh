@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-SYSTEMD_VERSION=254
+SYSTEMD_VERSION=257.8
 
 echo "patch: remove groups"
 sed -e 's/GROUP="render"/GROUP="video"/' \
@@ -12,20 +12,22 @@ echo "configure: meson in 'build' dir"
 mkdir -p build
 cd build
 
-meson setup \
+meson setup ..                   \
       --prefix=/usr                 \
       --buildtype=release           \
-      -Ddefault-dnssec=no           \
-      -Dfirstboot=false             \
-      -Dinstall-tests=false         \
-      -Dldconfig=false              \
-      -Dsysusers=false              \
-      -Drpmmacrosdir=no             \
-      -Dhomed=false                 \
-      -Duserdb=false                \
-      -Dman=false                   \
-      -Dmode=release                \
-      -Dpamconfdir=no               \
-      -Ddev-kvm-mode=0660           \
-      -Ddocdir=/usr/share/doc/systemd-$SYSTEMD_VERSION \
-      ..
+      -D default-dnssec=no          \
+      -D firstboot=false            \
+      -D install-tests=false        \
+      -D ldconfig=false             \
+      -D sysusers=false             \
+      -D rpmmacrosdir=no            \
+      -D homed=disabled             \
+      -D userdb=false               \
+      -D man=disabled               \
+      -D mode=release               \
+      -D pamconfdir=no              \
+      -D dev-kvm-mode=0660          \
+      -D nobody-group=nogroup       \
+      -D sysupdate=disabled         \
+      -D ukify=disabled             \
+      -D docdir=/usr/share/doc/systemd-$SYSTEMD_VERSION

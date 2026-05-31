@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "check: compile"
-echo 'int main(){}' > dummy.c
-cc dummy.c -v -Wl,--verbose &> dummy.log
-test -f a.out || (echo "ERROR! cc did not generate a.out" && false)
-if readelf -l a.out | grep 'Requesting program interpreter: /lib64/ld-linux-x86-64.so.2' ; then
-    echo "SUCCESS"
-else
-    echo "ERROR!"
-    exit 1
-fi
+# TODO: update this script, which is now even more similar to the main script
 
 echo "check: header files"
 # should be
@@ -21,9 +12,6 @@ echo "check: header files"
 #       /usr/include
 grep -B4 '^ /usr/include' dummy.log
 echo "(manually compare the expected 4 lines)"
-
-echo "check: correct start files: should have 3 lines"
-grep --only-matching '/usr/lib.*/S*crt[1in].*succeeded' dummy.log
 
 echo "check: correct search paths for linker"
 # should be

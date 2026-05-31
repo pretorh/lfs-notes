@@ -2,8 +2,8 @@
 
 SRCDIR="$(realpath ..)"
 
-tdbc_version=1.1.5
-itcl_version=4.2.3
+tdbc_version=1.1.10
+itcl_version=4.3.2
 
 echo "fixing references to $SRCDIR to root dirs"
 echo "  tdbc=$tdbc_version, itcl=$itcl_version"

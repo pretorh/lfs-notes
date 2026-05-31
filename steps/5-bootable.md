@@ -25,9 +25,7 @@ partial check: `scripts/kernel/check-kernel-config`
 
 ### build
 
-`time make --jobs 8`
-
-Time: 8.1x real
+`time make --jobs $(nproc)`
 
 ### install
 

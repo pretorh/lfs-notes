@@ -2,7 +2,7 @@
 set -e
 
 echo "extracting"
-tar xf linux-*tar.*
+tar xf linux-*tar.xz
 cd linux-*/
 
 echo "mrproper and defconfig"

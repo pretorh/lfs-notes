@@ -6,20 +6,20 @@ set -e
 mkdir -pv "$LFS"/{dev,proc,sys,run}
 mount -v --bind /dev "$LFS"/dev
 
-mount -v --bind /dev/pts "$LFS"/dev/pts
+mount -vt devpts devpts -o gid=5,mode=0620 "$LFS"/dev/pts
 mount -vt proc proc "$LFS"/proc
 mount -vt sysfs sysfs "$LFS"/sys
 mount -vt tmpfs tmpfs "$LFS"/run
 
 if [ -h "$LFS"/dev/shm ]; then
-  mkdir -pv "$LFS"/"$(readlink "$LFS"/dev/shm)"
+  install -v -d -m 1777 "$LFS""$(realpath /dev/shm)"
 else
   mount -v -t tmpfs -o nosuid,nodev tmpfs "$LFS"/dev/shm
 fi
 
-if findmnt /boot >/dev/null ; then
+mkdir -pv "$LFS/boot"
+if findmnt /boot >/dev/null && ! findmnt "$LFS/boot" >/dev/null ; then
   echo "bind mounting the host's /boot"
-  mkdir -pv "$LFS/boot"
   mount -v --bind /boot "$LFS/boot"
 fi
 

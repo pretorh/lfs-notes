@@ -7,13 +7,13 @@ unexpected_failures() {
     | grep -v 'io/tst-lchmod'
 }
 
-if make check --jobs 4 ; then
+if make check --jobs "$(nproc)" ; then
   echo "Tests passed"
 elif unexpected_failures ; then
   echo "Unknown failures!" 2>&1
   exit 1
 else
-  echo "check failed"
+  echo "Tests failed"
   echo "But only expected failures:"
   grep '^FAIL' tests.sum
 fi

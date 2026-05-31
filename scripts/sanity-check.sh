@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
-set -e
+#!/usr/bin/env bash
+set -eo pipefail
 
 echo "using $SANITY_CC"
 full="$(which "$SANITY_CC")"
@@ -11,13 +11,30 @@ elif [ -x "$full" ] ; then
 fi
 echo ""
 
-echo "testing:"
+echo "check: compiling"
 echo 'int main(){}' > dummy.c
-$SANITY_CC -xc dummy.c
-if readelf -l a.out | grep 'Requesting program interpreter: /lib64/ld-linux-x86-64.so.2' ; then
-    echo "SUCCESS"
-else
-    echo "ERROR!"
-    exit 1
-fi
-rm dummy.c a.out
+$SANITY_CC dummy.c -v -Wl,--verbose &> dummy.log
+
+echo "check: interpreter"
+readelf -l a.out | grep 'Requesting program interpreter: /lib64/ld-linux-x86-64.so.2' \
+  || (echo "Failed" && exit 1)
+
+echo "check: start files"
+grep --only-matching '/.*/lib.*/S*crt[1in].*succeeded' dummy.log | \
+  grep -E "$LFS/lib/../lib/(Scrt1.o|crti.o|crtn.o) succeeded" \
+  || (echo "Failed" && exit 1)
+
+echo "check: header files"
+grep -B3 "^ $LFS/usr/include" dummy.log
+
+echo "check: search paths"
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
+
+echo "check: libc"
+grep "/lib.*/libc.so.6 " dummy.log
+
+echo "check: dynamic linker"
+grep found dummy.log
+
+echo "check: all passed"
+rm dummy.c a.out dummy.log

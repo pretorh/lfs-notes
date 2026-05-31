@@ -3,9 +3,9 @@
 
 chown -R tester .
 
-time su -s /usr/bin/expect tester << EOF
+time LC_ALL=C.UTF-8 su -s /usr/bin/expect tester << EOF
 set timeout -1
-spawn make tests --jobs 4
+spawn make tests --jobs $(nproc)
 expect eof
 lassign [wait] _ _ _ value
 exit $value

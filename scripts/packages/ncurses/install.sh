@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 
-make DESTDIR="$LFS" TIC_PATH="$(pwd)"/build/progs/tic install
-echo "INPUT(-lncursesw)" > "$LFS"/usr/lib/libncurses.so
+make DESTDIR="$LFS" install
+ln -sv libncursesw.so "$LFS/usr/lib/libncurses.so"
+sed -e 's/^#if.*XOPEN.*$/#if 1/' \
+  -i "$LFS/usr/include/curses.h"

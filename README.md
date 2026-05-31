@@ -14,6 +14,7 @@ NOTE: To be used as a quick reference only, you should still work through the bo
 
 ## Updates
 
+- the [12.4 version](https://www.linuxfromscratch.org/lfs/downloads/stable-systemd/LFS-BOOK-SYSD-12.4.pdf) (2026-05-31)
 - the [12.0 version](https://www.linuxfromscratch.org/lfs/downloads/12.0-systemd/LFS-12.0-SYSTEMD-BOOK.pdf) (2024-02-04)
 - the [11.2 version](https://www.linuxfromscratch.org/lfs/downloads/11.2-systemd/LFS-11.2-SYSTEMD-BOOK.pdf) (2023-01-07)
 - the [11.0 version](https://www.linuxfromscratch.org/lfs/downloads/11.0-systemd/LFS-BOOK-11.0-systemd.pdf) (2022-01-29)
@@ -24,4 +25,4 @@ Original notes come from the 20160102 systemd version, but they were rechecked/r
 
 ## References
 
-- http://www.linuxfromscratch.org/
+- https://www.linuxfromscratch.org/

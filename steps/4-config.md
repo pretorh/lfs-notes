@@ -20,7 +20,7 @@ If set to utc, remove the adjust file: `rm -fv /etc/adjtime`
 
 ## Other
 
-Locale: run `scripts/config/select-locale.sh`
+Locale: run `scripts/config/select-locale.sh`, and run the given command.
 
 `inputrc`: copy `scripts/config/inputrc` to `/etc/inputrc`
 

@@ -22,6 +22,6 @@ mkdir -pv "$LFS/lib64"
 mkdir -pv "$LFS/tools"
 
 # make lfs user the owner of these
-chown -v lfs "$LFS"/{etc,var,bin,sbin,lib,lib64}
+chown -v lfs "$LFS"/{etc,var,lib64}
 chown -v lfs "$LFS"/usr{,/*}
 chown -v lfs "$LFS"/tools

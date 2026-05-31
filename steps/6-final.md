@@ -2,7 +2,7 @@
 
 ## Release details
 
-Re-enter chroot and run `/sources/scripts/os-details.sh` to generate system details `etc` files
+Re-enter chroot and run `/sources/scripts/config/os-details.sh` to generate system details `etc` files
 
 ## Optional Packages
 
@@ -12,7 +12,7 @@ Re-enter chroot and run `/sources/scripts/os-details.sh` to generate system deta
 
 ## Exit chroot and reboot
 
-`logout` and unmount virtual filesystem, see `scripts/chroot/umount-chroot.sh`
+`logout` and unmount virtual file system, see `scripts/chroot/umount-chroot.sh`
 
 unmount all nested partitions of LFS, then LFS itself: `umount -v /mnt/lfs{/sources,}`
 

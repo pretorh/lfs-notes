@@ -2,7 +2,7 @@
 set -e
 set -o pipefail
 
-if make --jobs 4 check &> gmp-check-log ; then
+if make --jobs "$(nproc)" check &> gmp-check-log ; then
   echo "make check passed"
 else
   echo "tests failed!" >&2

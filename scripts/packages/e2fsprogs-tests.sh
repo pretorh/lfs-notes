@@ -2,7 +2,7 @@
 
 expected_failulres="m_assume_storage_prezeroed"
 
-if make check -k --jobs=4 &>check.log ; then
+if make check -k --jobs"=$(nproc)" &>check.log ; then
   echo "check passed!"
 else
   echo "check failed"

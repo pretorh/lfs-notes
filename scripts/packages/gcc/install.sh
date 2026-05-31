@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-GCC_VERSION=13.2.0
+GCC_VERSION=15.2.0
 
 make DESTDIR="$DESTDIR" install
 

@@ -9,18 +9,20 @@ Start bash as root with `LFS` set from the current environment variable: `./scri
 See:
 
 - setup virtual kernel file systems: `scripts/chroot/prepare.sh`
-- enter chroot: `scripts/chroot/enter-chroot.sh`
-- setup the filesystem: `scripts/chroot/filesystem.sh`
-- setup the chroot environment (essential files and symlinks): `scripts/chroot/essential-files-setup.sh`
+- enter `chroot`: `scripts/chroot/enter-chroot.sh`
+- setup the file system: `scripts/chroot/filesystem.sh`
+- setup the `chroot` environment (essential files and symlinks): `scripts/chroot/essential-files-setup.sh`
 
-### Re-entering chroot
+Test that PTYs work (needed for `expect`):  `python3 -c 'from pty import spawn; spawn(["echo", "ok"])'` should print 'ok'
 
-If you exit chroot, you will need to re-enter it before continuing
+### Re-entering `chroot`
+
+If you exit `chroot`, you will need to re-enter it before continuing
 
 - mount the drives
-- export the `LFS` env var (`export LFS=/mnt/lfs`)
+- export the `LFS` environment variable (`export LFS=/mnt/lfs`)
 - run as root (`scripts/sudo.sh`)
-- setup virtual file systems and enter chroot (`scripts/chroot/prepare.sh` and `scripts/chroot/enter-chroot.sh`)
+- setup virtual file systems and enter `chroot` (`scripts/chroot/prepare.sh` and `scripts/chroot/enter-chroot.sh`)
 - change to sources directory (`cd /sources`)
 - continue where you left
 
@@ -28,33 +30,28 @@ If you exit chroot, you will need to re-enter it before continuing
 
 Build and install from the `/sources` directory
 
-Time: 7.6x real for all 6
-
 - gettext
     - install: only need to install 3 programs:
         - `cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin`
-    - time: 2.7x real
 - bison
 - perl
     - custom configure command, see `scripts/packages/perl-configure.sh`
-    - time: 2.0x real
 - python
     - note the uppercase archive name
     - some packages may "fail" now, which is expected, but the top level build should not fail
-    - time: 1.4x real
 - texinfo
     - basic configure (`prefix`) only
 - util-linux
 
 ## cleanup and backup
 
-Note: the cleanup and backup commands are rearranged here to run them from outside the chroot environment (different from book)
+Note: the cleanup and backup commands are rearranged here to run them from outside the `chroot` environment (different from book)
 
-First exit chroot (`exit`). Unmount the virtual filesystem. See `scripts/chroot/umount-chroot.sh`
+First exit `chroot` (`exit`). Unmount the virtual file system. See `scripts/chroot/umount-chroot.sh`
 
 Remove static libs, documentation and the `/tools` directory. See `scripts/chroot/remove-files.sh`
 
-Saved 1287M in seconds.
+Saved 1681M in seconds.
 
 ### backup
 
@@ -62,4 +59,4 @@ Optionally backup the temp system, see `scripts/backup.sh`
 
 Note: unlike the book, this does _not_ include the source package files.
 
-Time: about 11minutes for 406M
+Time: a few minutes for ~500M

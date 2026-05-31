@@ -4,7 +4,7 @@ set -e
 chown -R tester .
 
 echo "tests: starting..."
-su tester -c "make --jobs 4 -k check | tee check-log"
+su tester -c "make --jobs $(nproc) -k check | tee check-log"
 if grep -E 'All [0-9]+ tests PASSED' check-log ; then
   echo "tests: passed"
 else
