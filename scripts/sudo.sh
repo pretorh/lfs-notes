@@ -7,7 +7,7 @@ if [ -z "$LFS" ] ; then
 fi
 
 if [ -z "$1" ] ; then
-  sh "$0" bash
+  sh "$0" PS1='(lfs host \u:\w\$)' bash
   exit 0
 fi
 
